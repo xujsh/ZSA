@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>课程评论  后台管理</title>
+<link rel="stylesheet" href="/static/css/bootstrap.min.css">
+<link rel="stylesheet" href="/static/css/bootstrap-responsive.min.css">
+<!--[if lt IE 7]><link rel="stylesheet" href="http://blueimp.github.com/cdn/css/bootstrap-ie6.min.css"><![endif]-->
+<!--[if lt IE 9]><script src="/static/js/html5.js"></script><![endif]-->
+<style type="text/css">
+		.mynav{ font-size:16px; margin:10px 0px;}
+		.pagination ul > li > a.cur{
+		 background-color:#428BCA;color:#fff;text-decoration:none;
+		}
+      .table th,.table td{ text-align:center;vertical-align:middle;word-break:break-all}
+</style>
+</head>
+<body>
+<include file="./Tpl/Common/admin_head.html" />
+<div class="container-fluid">
+	  <div class="row-fluid">
+		<include file="./Tpl/Common/admin_leftmenu.html" highlight="304" />
+		<div class="span10">
+			<h3>敏感词管理</h3>
+			 <span class="mynav"> 当前位置：<a href="{$appbasepath}Comment/commentList/" >课程评论管理 ></a> 敏感词管理</span>
+			 <a href="{$appbasepath}Comment/additivewrod/" style="font-size:18px;font-family:'微软雅黑';float:right; margin-right:20px;">添加</a>
+			 <a href="{$appbasepath}Comment/updataWordsarr/" style="font-size:18px;font-family:'微软雅黑';float:right; margin-right:10px;">更新缓存</a>	
+		  <table class="table">
+			<thead>
+			<tr>
+				<th>ID</th>
+				<th>敏感词</th>
+				<!--<th>课程</th>-->
+				<th>操作</th>
+			</tr>
+			</thead>
+			<tbody>
+				<volist  name="list" id="vo">
+					<tr>
+						<td>{$vo.wordsid}</td>
+						<td>{$vo.wordsname}</td>
+						<!--<td>{$vo.came}</td>-->
+					<td>
+						<a href="{$appbasepath}Comment/edititivewrod/wordsid/{$vo.wordsid}" class="btn small-btn" id="addbutton{$vo.commentid}">修改</a>	
+						<if condition="$readonly eq 0">
+						<a href="{$appbasepath}Comment/delitivewrod/wordsid/{$vo.wordsid}/" class="btn small-btn" id="deletebutton{$vo.commentid}">删除</a>	
+						</if>				
+					</td>
+					</tr>
+				   </volist>
+			</tbody>
+		  </table>
+	         <div class="pagination pagination-centered">
+			  <ul>
+			  	{$show}
+			  </ul>
+		   </div>
+		</div>
+	  </div>
+	</div>
+<script src="/static/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">	
+$(document).ready(function(){ 
+		$("a[id^='deletebutton']").click(function(){
+
+			if (confirm('确认删除？'))
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+			
+		});
+//            console.log("lsdjalfasf");//控制台输出
+//			return false;			  //断点执行
+});
+
+</script>
+</body>
+</html>

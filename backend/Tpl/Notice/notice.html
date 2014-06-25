@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta content="email=no" name="format-detection" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0">
+<title>通知列表</title>
+<link rel="stylesheet" href="/css/app.style.css"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<meta name="msapplication-tap-highlight" content="no"/>
+<!--[if IE 6]>
+<script src="js/DD_belatedPNG.js"></script>
+<script>
+  DD_belatedPNG.fix('*');
+</script>
+<![endif]-->
+<style>
+	#body{overflow: scroll;}
+	
+</style>
+</head>
+<body id="body" >
+<div id="notice">
+	<volist name='list' id='vo'>
+	<a href="{$appbasepath}Notice/detail/?newsid={$vo['newsid']}&sid={$sid}">
+	  <div class="t-list">
+		<span style="float:left;padding-left:10px">{$vo['title']}</span>
+		<span style="float:right;padding-right:20px;padding-top:10px"><img src="/images/more.png" width="13" height="21" /></span>
+	  </div>
+   </a>
+	</volist>
+	
+	  
+</div>
+
+</body>
+<script type="text/javascript" src="/static/js/jquery-1.9.1.min.js"></script>
+<script>
+	var heightP		= window.screen.height;
+	var heightWeb   = heightP-64;
+	var heightCon   = heightP-92;
+	//document.getElementById('notice').style.height=heightCon+'px';
+	document.getElementById('body').style.height=heightWeb+'px';
+</script>
+</html>

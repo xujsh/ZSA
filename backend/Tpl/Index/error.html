@@ -1,0 +1,88 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name=”format-detection” content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta content="email=no" name="format-detection" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0">
+<title>错误页面</title> 
+<style>
+ body{ margin:0 auto; width:320px; height:480px; background:#E7E7E7}
+ body, h1, h2, h3, h4, h5, h6, p, div, ul, ol, li, dl, dt, dd, h1{ padding:0;}
+ html{font:12px/1.5 "Arial",arial,sans-serif;}
+ form { margin: 0;}
+ 
+
+ 
+ /* 导航 nav tab*/
+ ul,li{list-style-type:none}/*--清除列表格式--*/  
+.box{width:318px; height:auto;margin-bottom:5px;}/*--border边框为1个像素灰色的实线边框--*/  
+  
+.box_title{width:319px;height:25px;float:left; line-height:20px;margin:0px;background:#D6E8F2;color:#647784; font:16px;}/*--宽100%高30px左浮动行高30px背景灰色--*/  
+  
+.box_title li{width:318px;height:25px;line-height:20px;float:left;cursor:pointer;text-align:center;font:16px; color:#212121;}
+
+.box_content {width:318px; text-align:center; border:1px #ccc solid;}  
+  
+.cc{width:310px;height:25px;line-height:210px;float:left;display:block;color:#032A3B;background:#E5F1FA; font-weight:700; border-bottom: 2px solid  #00CC00; }    
+.j2,.j3,.j4{display:none}
+.j2{ text-align:left;}
+/*tab 结束*/
+.rows{ background:#FFFFFF; height:320px; margin-top:10px;}
+/*内容标题*/
+.title1{ font-size:16px; color:#929292; padding-left:11px; text-align:left;}
+.title2{ font-size:16px;}
+/*星级评价*/
+.rating{ vertical-align:middle; padding-left:10px;}
+/*星级评级*/
+.level{  }
+/*浏览次数*/
+.liulannum { font-size:15px;color:#808080;padding-left:160px}
+/*详细内容*/
+.content{ padding-left:5px;}
+.content_brief{ font-size:12px; margin:0px 2px;}
+
+
+ .ul_list{ background:#FFFFFF; font-size:16px;margin:0px;}
+ .ul_list li{ border: 1px solid  #CCCCCC;  width:300px; height:40px; vertical-align:middle; line-height:40px;} 
+ .to{ font-size:16px; margin-left:5px; }
+ .errormsg{ position:relative;top:20px; left:1px;};
+a:link{
+text-decoration:none;
+}
+ a:visited{
+text-decoration:none;
+
+}
+ a:hover{
+text-decoration:none;
+color:blue;
+}
+ a:active{
+text-decoration:none;
+}
+
+
+</style>
+</head>
+<body>
+
+<!-- 导航 tab -->
+<div class="box">  
+    <ul class="box_title">  
+        <li id="j1">错误提示</li>  
+    </ul>  
+<!--内容页-->
+<div class="box_content"> 
+        <div class="rows">
+        		
+				<h3 class="errormsg">{$msg}</h3>
+				<!--<a href="/{$url}" class="to">返回</a>-->
+				
+			</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>

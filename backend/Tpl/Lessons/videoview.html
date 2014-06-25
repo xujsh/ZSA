@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>视频预览后台管理</title>
+<link rel="stylesheet" href="/static/css/bootstrap.min.css">
+<link rel="stylesheet" href="/static/css/bootstrap-responsive.min.css">
+  <link href="video-js.css" rel="stylesheet" type="text/css">
+<!--[if lt IE 7]><link rel="stylesheet" href="http://blueimp.github.com/cdn/css/bootstrap-ie6.min.css"><![endif]-->
+<!--[if lt IE 9]><script src="/static/js/html5.js"></script><![endif]-->
+<!--
+<script type="text/javascript" src="/js/jwplayer/jwplayer.js" ></script>
+<script type="text/javascript">jwplayer.key="Yz+tMnQbIolniSrfbaCImqLZKS2/VP9iOVknrKEFLypeBTY9pKubUFy6I/s=";</script>
+-->
+<style type="text/css">
+	.mynav{ font-size:16px; margin:10px 0px;}
+    
+</style>
+</head>
+<body>
+<include file="./Tpl/Common/admin_head.html" />
+<div class="container-fluid">
+	  <div class="row-fluid">
+		<include file="./Tpl/Common/admin_leftmenu.html" highlight="302" />
+		<div class="span10">
+			<br/>
+			 <span class="mynav"> 
+		   当前位置：<a href="{$appbasepath}Course/courselist/categoryid/{$categoryid}" >{$categoryname} ></a> 
+		          <a href="{$appbasepath}Section/sectionslist/categoryid/{$categoryid}/courseid/{$courseid}" >{$coursename} ></a>
+				  <a href="{$appbasepath}Lessons/lessonslist/categoryid/{$categoryid}/courseid/{$courseid}/sectionsid/{$sectionsid}" >{$sectionsname} ></a>
+				   {$lessonsname}
+			 </span>
+			<div align="center" style="margin-top:10px">
+			<!--html5的video标签目前只支持播放.mp4、.ogg、.webm-->
+			
+			<video id="myVideo" poster="{$pciurl}" src="{$playurl}" controls="controls" loop="loop" width='640px' height='360px'>
+			</video>
+			<!--
+			<div id="myVideo">Loading the player...</div>-->
+			 <script type="text/javascript">
+			 //	var playurl = "{$playurl}";
+			//	var pciurl = "{$pciurl}";
+//			    jwplayer("myVideo").setup({
+//				 file: "{$playurl}",
+//       			 image:"{$pciurl}"
+//			    });
+			 </script>
+			
+			</div>
+		</div>
+	  </div>
+	</div>
+	
+</body>
+</html>

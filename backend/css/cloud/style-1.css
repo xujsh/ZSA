@@ -1,0 +1,749 @@
+/* ------------------------------
+css for guoshiwang
+design by liuqiuju
+date 2014-02-22
+last update 2014.04.22 18:59 Liuqiuju
+----------------------------*/
+/*首页*/
+.index_box{min-height:584px;position:absolute;top:12px;left:50%;margin:60px 0 0 -603px;}
+.index_hb{width:1205px;height:560px;overflow:hidden;overflow:hidden;}
+.index_tab{width:1115px;height:560px;margin:0 auto;overflow:hidden;position:relative;}
+.index_tab .big_ul{height:560px;width:6000px;left: 0;position:absolute;}
+.index_tab li{width:1115px;height:560px;float:left;}
+.index_tab_next{background:url("button-1.png")/*tpa=http://taobao.guoshi.com/img/button.png*/ no-repeat -29px 0;width:29px;height:53px;display:block;position:absolute;right:0;top:265px;cursor:pointer;}
+.index_tab_prev{background:url("button-1.png")/*tpa=http://taobao.guoshi.com/img/button.png*/ no-repeat;width:29px;height:53px;display:block;position:absolute;left:0;top:265px;cursor:pointer;}
+.index_box1 .box1,.box2 .box2_tb,.box2 .box2_map,.box3 .live,.box3 .code,.box3 .box3_plan,.index_box1 .box4,.index_box1 .box5,.index_box1 .box6,.index_box2 .box1,.index_box2 .box2,.index_box2 .box3{-webkit-box-shadow: 0px 0px 6px #1e1e1e;-moz-box-shadow: 0px 0px 6px #1e1e1e;box-shadow: 0px 0px 6px #1e1e1e;}
+.index_box1 .box1 img{width:365px;height:365px;}
+.index_box1 .box1,.index_box1 .box2,.index_box1 .box3{width:365px;height:365px;margin:0 0 10px 0;}
+.index_box1 .box4,.index_box1 .box5,.index_box1 .box6{width:365px;height:176px;overflow:hidden;position:relative;}
+.index_box1 .box2,.index_box1 .box5{margin:0 10px;}
+.index_box1 .box3_plan,.index_box1 .box2_tb{position:relative;width:365px;height:178px;overflow:hidden;}
+.index_box1 .box2_map{position:relative;height:178px;overflow:hidden;cursor:pointer;}
+.index_box1 .box2_map .pic img{width:365px;height:178px;}
+.index_box1 .box2_map .box2_map_b2{position:absolute;bottom:0;left:97px;width:289px;height:48px;background:#000;filter: alpha(opacity=50);-moz-opacity: 0.5;opacity: 0.5;z-index: 2;}
+.index_box1 .box2_map input{width:230px;height:48px;margin:0 0 0 45px;background:none;position:absolute;bottom:0;right:0;font-size:18px;z-index:3;}
+.index_box1 .box2_map .ss_map{background: url("ss_map-1.png")/*tpa=http://taobao.guoshi.com/img/ss_map.png*/ no-repeat;display: block;width: 23px;height: 23px;position: absolute;left: 105px;bottom: 10px;z-index: 3;}
+.index_box1 .box2_map .box2_map_b1{width:97px;position:absolute;left:0;bottom:0;height:48px;background:#282929;}
+.box2_map_b1 .add img{position:relative;top:12px;left:14px;}
+.box2_map_b1 .sub img{position:relative;top:12px;left:20px;}
+.fl .txt{position:absolute;top:136px;left:0;z-index:3;line-height:18px;padding:0 14px;}
+.txt,.txt a{font-size:13px;}
+.bg{position:absolute;bottom:0;left:0;width:365px;height:45px;background:#000;filter: alpha(opacity=50);-moz-opacity: 0.5;opacity: 0.5;z-index: 2;}
+.index_box1 .box5 h3,.box4 h3,.box3_plan h3,.box2_tb h3{position:absolute;left:13px;top:13px;font-size:30px;z-index:4;font-weight:100;}
+.box4 a img{width:365px;height:174px;}
+.box4 h3{position:absolute;left:13px;top:13px;font-size:30px;z-index:4;font-weight:100;}
+.scroll{overflow:hidden;width:365px;height:178px;}
+.scroll .txt{width:230px;overflow:hidden;height:36px;}
+.scroll ul li{width:365px;height:178px;position:relative;overflow:hidden;}
+.scroll ul li img{width:365px;height:178px;}
+.scroll_point{overflow:hidden;position:absolute;right:10px;bottom:7px;z-index:2;width:64px;height:12px;overflow:hidden;}
+.scroll_point li{background:url("dot-1.png")/*tpa=http://taobao.guoshi.com/img/dot.png*/ no-repeat 0 0;width:13px;height:12px;float:left;margin-right:3px;cursor:pointer;}
+.scroll_point .on{background:url("dot-1.png")/*tpa=http://taobao.guoshi.com/img/dot.png*/ no-repeat 0 -75px;}
+.scroll_plan .on{background:url("dot-1.png")/*tpa=http://taobao.guoshi.com/img/dot.png*/ no-repeat 0 -25px;}
+.scroll_tb .on{background:url("dot-1.png")/*tpa=http://taobao.guoshi.com/img/dot.png*/ no-repeat 0 -50px;}
+.box3_sp,.box2_tb{height:178px;margin:0 0 10px 0;}
+.box3_sp .live{margin:0 10px 0 0;}
+.index_box1 .box3_plan{margin:10px 0 0 0;}
+.box3_sp .live,.box3_sp .code,.box3_sp .live img,.box3_sp .code img{width:176px;height:178px;}
+.index_box1 .box4 .tq_con{padding:15px 20px;z-index:2;position:absolute;left:0;top:0;width:346px;overflow:hidden;}
+.index_box1 .box4 .tq_con .tq_txt .celsius{font-size:73px;}
+.index_box1 .box4 .tq_con .tq_txt{width:140px;}
+.index_box1 .box4 .tq_con .tq_txt span{margin:0 10px;font-size:20px;}
+.index_box1 .box4 .tq_con .tq_pic .box4 .tq_con .tq_pic img{width:141px;height:107px;}
+.index_box1 .box4 .tq_con .tq_pic{float:right;}
+.index_box1 .box4 .pic img{width:365px;height:176px;}
+.index_box1 .box4 .city_con{width:365px;height:48px;line-height:48px;}
+.index_box1 .box4 .city_con .date{font-size:18px;width:221px;padding:0 0 0 20px;background:#000;position:absolute;bottom:0;left:145px;z-index:2;filter: alpha(opacity=50);-moz-opacity: 0.5;opacity: 0.5;}
+.index_box1 .box4 .city_con .city{width:90px;font-size:26px;background:url("ditu-1.png")/*tpa=http://taobao.guoshi.com/img/ditu.png*/ no-repeat 24px center;background-color:#10100f;position:absolute;left:0;bottom:0;z-index:3;padding:0 0 0 55px;}
+/*第二屏*/
+.index_box2 .box1{width:365px;height:365px;margin:0 0 10px 0;position:relative;}
+.index_box2 .box1 .pic,.index_box2 .box1 .pic img{width:365px;height:365px;}
+.index_box2 .box1 .txt{top:325px;}
+.index_box2 .box1 .title_con{position:absolute;top:20px;left:20px;}
+.index_box2 .box1 .title_con span{font-size:18px;}
+.index_box2 .box1 .title_con .tit{font-size:30px;}
+.index_box2 .box1 .bofang{position:absolute;left:50%;top:50%;margin:-45px 0 0 -45px;width:91px;height:90px;display:none;}
+.index_box2 .box2{width:740px;height:176px;background:#9C3;}
+.index_box2 .box2 img{width:740px;height:176px;}
+.index_box2 .box3{width:176px;height:176px;background:#9C3;position:relative;}
+.index_box2 .box3 img{width:176px;height:176px;}
+.index_box2 .box3 h3{width:120px;position:absolute;font-size:30px;font-weight:100;bottom:25px;left:30px;text-align:center;}
+.index_box2 .m_b_dis{margin:0 10px;}
+#search{width:325px;height:37px;background:#fff;position:absolute;top:82px;left:21px;padding:3px;overflow:hidden;}
+#search .sea_bg{background:url("ss2-1.jpg")/*tpa=http://taobao.guoshi.com/img/ss2.jpg*/ no-repeat;display:block;float:left;width:39px;height:37px;}
+#search input{display:block;float:left;width:226px;height:31px;padding:3px 10px;font-size:14px;color:#c6c6c6;}
+#search .sear_but{background:url("ss1-1.jpg")/*tpa=http://taobao.guoshi.com/img/ss1.jpg*/ no-repeat;height:37px;display:block;float:left;width:40px;cursor:pointer;}
+/*****果实淘宝播放页******/
+.player_box{background:#262a2d;width:100%;}
+.player_bar_box,.comment_big_con{background:#fff;}
+.player_bar{width:1186px;height:45px;margin:0 auto;line-height:45px;}
+.player_bar span{display: block;float: left;background: url("ico-2.png")/*tpa=http://taobao.guoshi.com/img/ico.png*/ no-repeat -79px 12px;padding: 0 0 0 25px;}
+.player_bar2 span{background: url("ico-2.png")/*tpa=http://taobao.guoshi.com/img/ico.png*/ no-repeat -79px -33px;}
+.player_bar span,.player_bar span a{color:#666;}
+.player_bar .price{display:block;float:right;color:#000;font-family:"宋体";}
+.player_bar .price input{width:60px;height:24px;line-height:24px;background:#f29000;border-radius:5px;text-align:center;margin:0 5px 0 12px;font-family:"宋体";cursor:pointer;}
+.player_bar .price2 input{background:#ff414c;}
+.player_con{width:1186px;margin:0 auto;height:550px;overflow:hidden;padding:14px 0;}
+.video .player{width:885px;height:504px;overflow:hidden;}
+.player_con .video,.comment_con .comment{width:886px;float:left;margin:0 10px 0 0;}
+.player_con .video .interact_box{height:46px;width:885px;background:#000;}
+.interact_box_le{float:left;}
+.interact_box_rg{float:right;margin:0 12px 0 0;}
+.interact_box_le span,.interact_box_rg span{float:left;height:46px;line-height:46px;display:block;padding:0 0 0 30px;margin:0 0 0 13px;background:url("ico-2.png")/*tpa=http://taobao.guoshi.com/img/ico.png*/ no-repeat 0 -150px;cursor:pointer;}
+.interact_box_le .btn_cai{background-position:0 -184px;}
+.interact_box_le .btn_share{background-position:0 -225px;}
+.interact_box_rg .mob{background-position:0 -271px;}
+.interact_box_rg .weixin{background-position:0 -320px;padding:0 0 0 40px;height:34px;}
+.interact_box_rg .plkd{background:none;padding: 0;}
+.player_con .relation,.comment_con .sp_summ{width:285px;float:left;overflow:hidden;}
+.player_con .relation .tab_ul li{float:left;width:71px;height:40px;line-height:40px;text-align:center;font-size:14px;background:#222;}
+.player_con .relation .tab_ul2 li{width:142px;}
+.player_con .relation .tab_ul3 li{width:95px;}
+.player_con .relation .tab_ul li.on{background:#f29000;}
+.player_con .relation .tab_ul2 li.on{background:#ff414c;}
+.relation .rela_sp ul{height:510px;width:285px;}
+.relation .rela_sp li{width:259px;margin:0 auto;overflow:hidden;border-bottom:1px solid #424242;padding:15px 0;}
+.relation .rela_sp li img{width:148px;height:83px;float:left;}
+.relation .rela_sp li .wenzi{float:left;width:99px;margin:0 0 0 12px;}
+.relation .rela_sp li .wenzi h3{font-family:"宋体";line-height:18px;font-weight:100;margin:0 0 10px 0;}
+.relation .rela_sp li .wenzi span{font-family:"宋体";}
+/**微信互动 滚动条**/
+.Musictab{float:left;width:285px;height:510px;}
+.mCSB_container_line{background:#333 url("bor-1.jpg")/*tpa=http://taobao.guoshi.com/img/bor.jpg*/ repeat-y 41px 0px;padding-left:15px;}
+.mCSB_container{width:260px;/* height:624px;*/overflow:hidden;}
+.Notelist{float:left;width:260px;overflow:hidden;padding-top:20px;}
+.Notelist a.Img{float:left;width:50px;height:50px;overflow:hidden;border:2px #fff solid;-moz-border-radius:27px;-webkit-border-radius:27px;border-radius:27px;behavior:url("PIE-1.htc")/*tpa=http://taobao.guoshi.com/css/PIE.htc*/;position:relative;z-index:9;box-shadow:2px 2px 2px #999 ;}
+.Notelist a.Img img{width:50px;height:50px;-moz-border-radius:25px;-webkit-border-radius:25px;border-radius:25px;behavior:url("PIE-1.htc")/*tpa=http://taobao.guoshi.com/css/PIE.htc*/;position:relative;z-index:9;}
+.Notelist ul{float:left;width:180px;overflow:hidden;padding-left:15px;}
+.Notelist ul li{float:left;width:100%;}
+.Notelist ul li.Name a{float:left;font-size:13px;color:#f29000;line-height:24px;}
+.Notelist ul li.Name2 a{color:#ff414c;}
+.Notelist ul li.Name span{float:right;font-size:12px;color:#959595;line-height:24px;background:url("time-1.png")/*tpa=http://taobao.guoshi.com/img/time.png*/ no-repeat left 5px;padding-left:18px;}
+.Notelist ul li.Txt{font-size:12px;line-height:22px;padding:10px 0px;}
+.Notelist ul li.Txt img{float:left;width:180px;padding-bottom:5px;}
+.comment_con .comment,.comment_con .sp_summ{border:1px solid #e9e9e9;}
+.comment_con{width:1186px;margin:0 auto;height:268px;padding:14px 0;}
+.comment_con .tit_bar{height:38px;line-height:38px;background:#f9f7f7;border-bottom:1px solid #e9e9e9;font-size:14px;color:#000;padding:0 0 0 15px;}
+.comment_con .tit_bar span{float:right;margin:8px 8px 0 0;}
+.comment_con .tit_bar .new_r_t{margin:5px 17px 0 0;}
+.comment_con .tit_bar span a{display:block;float:left;background:url("ico-2.png")/*tpa=http://taobao.guoshi.com/img/ico.png*/ no-repeat 0 -97px;width:40px;height:24px;margin:0 0 0 10px;}
+.comment_con .tit_bar span #recording{background-position: 0 -121px;}
+.comment_con .tit_bar span #screen_shot.on{background-position:-45px -97px;}
+.comment_con .tit_bar span #screen_shot2.on{background-position:0 -560px;}
+.comment_con .tit_bar span #recording.on{background-position:-45px -121px;}
+.comment_con .tit_bar span .report,.comment_con .tit_bar span .test{ width:60px;height:26px;diaplay:block;float:left;line-height:26px;background:#f19001;text-align:center;color:#fff;}
+.con_for_comm{margin:20px 14px;overflow:hidden;}
+.con_for_comm textarea{width:642px;height:107px;border:1px solid #cdcdcd;padding:12px;overflow:hidden;float:left;}
+.con_for_comm1 textarea{width:832px;margin:0 0 8px 0;}
+.con_for_comm span{display:block;float:right;width:172px;height:116px;background:#e9e9e9;border-radius:5px;text-align:center;padding:8px 0;}
+.con_for_comm span img{width:151px;height:84px;}
+.con_for_comm span a{color:#000;font-size:16px;line-height:30px;}
+.con_for_comm1 .pl_bottom{float:right;overflow:hidden;}
+.con_for_comm1 .pl_bottom .publish{width:120px;height:32px;color:#fff;text-align:center;background:#f19001;cursor:pointer;}
+.con_for_comm1 .pl_bottom b{color:#777;font-weight:100;margin:0 40px 0 10px;}
+.sp_summ .text{padding:20px 12px;}
+.sp_summ .text b{color:#000;}
+.sp_summ .text p{line-height:24px;color:#666;height:96px;overflow:hidden;}
+.sp_summ .show_more{height:20px;background:#ececec;text-align:center;line-height:20px;display:block;color:#999}
+.sp_summ .show_more b{border-color: #666666 #EDEEF0 #EDEEF0 #EDEEF0;border-style: solid;border-width: 4px;font-size: 0;height: 0;line-height: 0;width: 0;}
+/**滚动条**/
+.jspContainer{overflow:hidden;position:relative;}
+.jspPane{position:absolute;}
+.jspVerticalBar{position:absolute;top:0;right:0;width:10px;height:100%;}
+.jspHorizontalBar{position:absolute;bottom:0;left:0;width: 100%;height:2px;z-index:999;}
+.jspCap{display:none;}
+.jspHorizontalBar .jspCap{float:left;}
+.jspTrack{background:#dddddd;}
+.jspDrag{background:#bbbbbb;position:relative;top:0;left:0;cursor:pointer;}
+.jspHorizontalBar .jspDrag{float:left;height:8px;position:absolute;top:-3px;z-index:3;}
+.jspHorizontalBar .jspTrack{float:left;height:2px;position:absolute;top:-4px;z-index:3;}
+.jspArrow{background:#50506d;text-indent:-20000px;display:block;cursor:pointer;padding:0;margin:0;}
+.jspArrow.jspDisabled{cursor:default;background:#80808d;}
+.jspVerticalBar .jspArrow{height:16px;}
+.jspHorizontalBar .jspArrow{width: 16px;float:left;height:100%;}
+.jspVerticalBar .jspArrow:focus{outline:none;}
+.jspCorner{background:#eeeef4;float:left;height:100%;}
+/*微信互动页面*/
+.player_con .video{position:relative;}
+.code_box{background:#fff;width:516px;height:259px;position:absolute;left:50%;top:50%;margin:-170px 0 0 -258px;z-index:999;}
+.code_box .tit{border-bottom:1px solid #dcdcdc;height:55px;line-height:55px;overflow:hidden;padding:0 10px;}
+.code_box .tit h1{font-size:24px;color:#000;float:left;font-weight:100;}
+.code_box .tit h1 span{font-size:16px;color:#b9b9b9;}
+.code_box .tit h1 i{margin:0 5px;}
+.code_box .code_txt{padding:20px 15px 0;overflow:hidden;}
+.code_txt .explain,.code_txt .code_img{float:left;}
+.code_txt .code_img img,.mob_txt img{width:151px;height:150px;}
+.code_txt .explain{width: 310px;overflow: hidden;margin: 0 0 0 20px;}
+.code_txt .explain h3{color:#f29000;font-size:18px;font-family:"微软雅黑";font-weight:100;}
+.code_txt .explain p{color:#606060;line-height:18px;font-size:13px;margin:10px 0 0 0;}
+.code_close{background:url("close-1.gif")/*tpa=http://taobao.guoshi.com/img/close.gif*/ no-repeat 0 center;width:24px;height:55px;float:right;cursor:pointer;}
+.mob_txt{text-align:center;padding:15px 0;}
+.mob_box{width:258px;height:238px;background:#fff;position:absolute;left:50%;top:50%;margin:-159px 0 0 -129px;}
+/*果实淘宝*/
+.wrap{width:1185px;overflow:hidden;margin:0 auto;min-height:1200px;position:relative;}
+.taobao_top{width:1185px;overflow:hidden;}
+.top_img{width:290px;height:214px;border-top:1px solid #fff;border-right:1px solid #fff;float:left;}
+.top_img img{width:290px;height:214px;}
+.top_lunbo{width:893px;height:215px;border-top:1px solid #fff;float:left;position:relative;}
+.top_lunbo img{width:893px;height:215px;}
+.search_sort{width:1185px;height:31px;5px 0;padding:0 15px 0 15px;background:#fff;padding:5px 0 5px 0;}
+.search_sort .search{display:inline;width:253px;height:29px;border:1px solid #e7e7e7;float:left;background:#faf8f9;margin:0 43px 0 0;}
+.search_sort .search .search_txt{width:205px;height:29px;border:1px solid #e7e7e7;border:none;color:#000;padding:0 0 0 5px;}
+.search_sort .search .search_btn{width:35px;height:25px;background:url("search_btn-1.jpg")/*tpa=http://taobao.guoshi.com/img/search_btn.jpg*/ no-repeat;cursor:pointer;}
+.search_sort .sort{width:740px;height:31px;overflow:hidden;float:left;}
+.search_sort .sort li{width:122px;height:31px;float:left;text-align:center;border-right:1px solid #dadada;cursor:pointer;}
+.search_sort .sort li a{color:#000;line-height:31px;font-size:16px;}
+.search_sort .sort li ul li.hover{background:#f5a603;} 
+.search_sort .sort li ul li.hover a{color:#ffffff;}
+.search_sort .edit{float:right;width:101px;height:30px;}
+.search_sort .edit .edit_btn{width:101px;height:30px;background:url("edit_img-1.jpg")/*tpa=http://taobao.guoshi.com/img/edit_img.jpg*/ no-repeat;cursor:pointer;}
+.subject_categories{width:286px;overflow:hidden;float:left;border:1px solid #e8e6e7;}
+.subject_categories h3{float:left;background:#f5a603;width:258px;height:43px;padding:15px 15px 10px 15px;}
+.subject_categories h3 p{float:left;background:#f5a603;width:258px;height:43px;border-left:3px solid #f9cb69;}
+.subject_categories h3 .subject_categories_1{font-size:18px;line-height:28px;}
+.subject_categories h3 span{width:100%;float:left;color:#fff;padding:0 0 0 15px;font-family:"微软雅黑";}
+.subject_categories{width:286px;overflow:hidden;float:left;background:#f9f7f8;position:relative;}
+.subject_categories a{color:#656565;font-size:16px;line-height:40px;font-weight:bold;padding:0 0 0 30px;}
+.subject_categories .listbox{color:#656565;width:286px;overflow:hidden;}
+.subject_categories .listbox h2{color:#656565;padding:0 0 0 20px;line-height:40px;font-size:16px;cursor:pointer;border-bottom:1px solid #e7e7e7;}
+.subject_categories .listbox h2 span{float:right;font-size:16px;margin-right:10px;padding:0 10px 0 0;color:#ccc;}
+.subject_categories .listbox div{display:none;}
+.subject_list{overflow:hidden;width:897px;float:right;}
+.subject_list li{width:293px;overflow:hidden;border:1px solid #D9D9D9;margin:0 0 10px 4px;float:left;}
+.subject_list li .subject_info{width:293px;overflow:hidden;}
+.subject_list li .subject_info .subject_img img{width:293px;height:165px;}
+.subject_list li .subject_info h3 a{float:left;width:253px;color:#010101;background:url("subject_h3_img-1.jpg")/*tpa=http://taobao.guoshi.com/img/subject_h3_img.jpg*/ no-repeat;background-position:5% 50%;line-height:30px;padding:0 0 0 40px;font-size:16px;font-family:"微软雅黑";font-weight:normal;}
+.subject_list li .subject_info p span{color:#656565;padding:0 20px 0 20px;line-height:20px;}
+.subject_list li .subject_info p .charge{background:url("charge_img-1.jpg")/*tpa=http://taobao.guoshi.com/img/charge_img.jpg*/ no-repeat;background-position:23% 50%;padding:0 0 0 60px;}
+.subject_list li .subject_info p .charge2{background:url("nocharge-1.jpg")/*tpa=http://taobao.guoshi.com/img/nocharge.jpg*/ no-repeat;background-position:23% 50%;padding:0 0 0 130px;}
+.subject_list li .subject_info .count{display:inline;float:left;border-top:1px solid #d9d9d9;width:253px;margin:10px 0 0 20px;}
+.subject_list li .subject_info p span{cursor:pointer;}
+.subject_list li .subject_info p .like{display:inline;float:left;background:url("like_img-1.jpg")/*tpa=http://taobao.guoshi.com/img/like_img.jpg*/ no-repeat;background-position:center left;margin:0 0 0 30px;line-height:30px;}
+.subject_list li .subject_info p .views{display:inline;float:right;background:url("view_img-1.jpg")/*tpa=http://taobao.guoshi.com/img/view_img.jpg*/ no-repeat;background-position:center left;margin:0 20px 0 0;line-height:30px;padding:0 0 0 25px;}
+.subject_categories .class_list{padding:0 20px 0 20px;display:none;background:#fff;border-bottom:1px solid #e7e7e7;overflow:hidden;}
+.subject_categories .class_list a{float:left;font-size:12px;padding:4px;font-weight:normal;line-height:18px;}
+.subject_categories .class_list a:hover{text-decoration:underline;}
+.level{width:897px;overflow:hidden;float:right;background:#fff;}
+.level p{padding:0 15px 0 15px;border-bottom:1px solid #d8d7d7;}
+.level p a{color:#656565;padding:0 8px 0 8px;line-height:24px;}
+.float_tap .return{background:url("top_bg-1.jpg")/*tpa=http://taobao.guoshi.com/images/top_bg.jpg*/ no-repeat;}
+.float_tap .return2{background:url("top_bg2-1.jpg")/*tpa=http://taobao.guoshi.com/images/top_bg2.jpg*/;}
+.float_tap .return a{width:90px;height:90px;}
+
+.float_tap .video{background:url("video_bg-1.jpg")/*tpa=http://taobao.guoshi.com/images/video_bg.jpg*/ no-repeat;}
+.float_tap .video2{background:url("video_bg2-1.jpg")/*tpa=http://taobao.guoshi.com/images/video_bg2.jpg*/;}
+.float_tap .video a{width:90px;height:90px;}
+
+.float_tap .pinglun{background:url("pinglun_bg-1.jpg")/*tpa=http://taobao.guoshi.com/images/pinglun_bg.jpg*/ no-repeat;}
+.float_tap .pinglun2{background:url("pinglun_bg2-1.jpg")/*tpa=http://taobao.guoshi.com/images/pinglun_bg2.jpg*/;}
+.float_tap .pinglun a{width:90px;height:90px;}
+
+.float_tap .like{background:url("like_bg-1.jpg")/*tpa=http://taobao.guoshi.com/images/like_bg.jpg*/ no-repeat;}
+.float_tap .like2{background:url("like_bg2-1.jpg")/*tpa=http://taobao.guoshi.com/images/like_bg2.jpg*/;}
+.float_tap .like a{width:90px;height:90px;}
+
+.float_tap .shop{background:url("shop_bg-1.jpg")/*tpa=http://taobao.guoshi.com/images/shop_bg.jpg*/ no-repeat;}
+.float_tap .shop2{background:url("shop_bg2-1.jpg")/*tpa=http://taobao.guoshi.com/images/shop_bg2.jpg*/;}
+.float_tap .shop a{width:90px;height:90px;}
+
+.kns_alert{min-width:583px;min-height:580px;position:absolute;top:310px;left:380px;overflow:hidden;}
+.kns_close{float:right;position:absolute;top:0;right:0;}
+.video_alert{width:583px;height:400px;}
+.video_close{float:right;}
+/*果实淘宝筛选css*/
+.sort .source,.sort .format{background:url("charge-1.jpg")/*tpa=http://taobao.guoshi.com/img/charge.jpg*/ no-repeat;background-position:75% 50%;}
+.sort .fee_type{background:url("charge-1.jpg")/*tpa=http://taobao.guoshi.com/img/charge.jpg*/ no-repeat;background-position:85% 50%;}
+.sort .source_click,.sort .format_click{background:url("charge_click-1.jpg")/*tpa=http://taobao.guoshi.com/img/charge_click.jpg*/ no-repeat;background-position:75% 50%;}
+.sort .fee_type_click{background:url("charge_click-1.jpg")/*tpa=http://taobao.guoshi.com/img/charge_click.jpg*/ no-repeat;background-position:85% 50%;}
+.search_sort .sort .charge{background:url("time-1.jpg")/*tpa=http://taobao.guoshi.com/img/time.jpg*/ no-repeat;background-position:75% 50%;}
+.search_sort .sort .charge_up{background:url("time_up-1.jpg")/*tpa=http://taobao.guoshi.com/img/time_up.jpg*/ no-repeat;background-position:75% 50%;}
+.search_sort .sort .hot{background:url("time-1.jpg")/*tpa=http://taobao.guoshi.com/img/time.jpg*/ no-repeat;background-position:80% 50%;}
+.search_sort .sort .hot_up{background:url("time_up-1.jpg")/*tpa=http://taobao.guoshi.com/img/time_up.jpg*/ no-repeat;background-position:80% 50%;}
+.search_sort .sort .time{background:url("time-1.jpg")/*tpa=http://taobao.guoshi.com/img/time.jpg*/ no-repeat;background-position:75% 50%;}
+.search_sort .sort .time_up{background:url("time_up-1.jpg")/*tpa=http://taobao.guoshi.com/img/time_up.jpg*/ no-repeat;background-position:75% 50%;}
+.sort .source ul,.sort .format ul,.sort .fee_type ul{display:none;float:left;position:absolute;width:123px;height:93px;}
+.search_sort .sort li ul li{width:122px;height:25px;float:left;text-align:center;border-right:1px solid #dadada;background:#fff;}
+.search_sort .sort li ul li a{color:#656565;line-height:31px;font-size:14px;}
+/*轮播图css*/
+.taobao_lunbo{width:893px;height:215px;overflow:hidden;float:left;}
+.index_hb{width:893pxpx;overflow:hidden;position:relative;margin:0 auto;}
+.taobao_lunbo li{width:893px;height:215px;position:relative;}
+.taobao_lunbo li .pic img{width:893px;height:215px;}
+.taobao_lunbo .pic img{width:893px;height:215px;}
+.taobao_num{width:80px;height:13px;float:left;position:absolute;right:10px;top:190px;z-index:9;}
+.taobao_num li{width:13px;height:12px;background: url("dot-1.png")/*tpa=http://taobao.guoshi.com/img/dot.png*/ no-repeat 0 0;float:left;}
+.taobao_num .on{background:url("dot-1.png")/*tpa=http://taobao.guoshi.com/img/dot.png*/ no-repeat 0 -50px;float:left;}
+.taobao_num_li{height:20px;line-height:20px;float:left;display:inline;}
+#ssss{position:relative;top:0;z-index:1000;}
+.fixed{position:fixed;top:0;z-index:1000;}
+.fixed2{position:fixed;top:41px;z-index:1000;}
+.float_tap{position:fixed;bottom:100px;right:0px;z-index:1000;}
+.float_tap li{width:53px;height:55px;border-bottom:1px solid #cecece;cursor:pointer;}
+/*果实物联css*/
+.wl_wrap{width:100%;height:100%;overflow:hidden;background:#292929;margin:0 auto;}
+.wl_map{width:1186px;height:596px;background:url("wulian_bg-1.jpg")/*tpa=http://taobao.guoshi.com/img/wulian_bg.jpg*/ no-repeat;margin:0 auto;position:relative;}
+.map_menu{height:350px;width:111px;position:absolute;left:0;top:80px;}
+.map_menu li{width:111px;height:87px;position:relative;cursor:pointer;}
+.map_menu li .text{width:111px;height:72px;z-index:10;position:absolute;top:0;left:0;padding:15px 0 0 0;}
+.map_menu li .text a{display:block;}
+.map_menu li .bg{width:111px;height:87px;background-color:#000;filter:alpha(opacity=50);moz-opacity:0.5;opacity:0.5;position:absolute;top:0;left:0;z-index:5;}
+.map_menu .on .bg{width:111px;height:87px;background-color:#000;filter:alpha(opacity=70);moz-opacity:0.7;opacity:0.7;position:absolute;top:0;left:0;z-index:5;}
+.map_menu a{display:block;filter:alpha(opacity=100);moz-opacity:1;opacity:1;text-align:center;}
+.map_menu .on a{display:block;filter:alpha(opacity=100);moz-opacity:1;opacity:1;text-align:center;}
+.sjmy{width:200px;height:470px;position:absolute;top:0px;right:10px;background:url("black_png-1.png")/*tpa=http://taobao.guoshi.com/img/black_png.png*/;}
+.sjmy .sjmy_detail{width:200px;height:335px;position:relative;top:0;left:0;}
+.sjmy h3{float:left;width:200px;height:34px;background:url("sjmy_bg-1.png")/*tpa=http://taobao.guoshi.com/img/sjmy_bg.png*/;text-align:center;line-height:34px;font-size:14px;font-family:"微软雅黑";}
+.sjmy h3 a{display:inline;float:right;margin:11px 10px 0 0;}
+.sjmy .sjmy_info{float:left;padding:10px;position:absolute;top:35px;left:0;z-index:10;height:350px;}
+.sjmy .sjmy_info img{width:177px;height:98px;cursor:pointer;}
+.sjmy .sjmy_img{cursor:pointer;}
+.sjmy .sjmy_info .summary{float:left;padding:10px 0 0 0;text-indent:2em;line-height:18px;}
+.sjmy .sjmy_info .contact{float:left;margin:15px 0 0 0;}
+.sjmy .sjmy_info .contact span{float:left;width:177px;overflow:hidden;}
+.sjmy .bg{width:200px;height:340px;alpha(opacity=70);moz-opacity:0.7;opacity:0.7;position:absolute;top:34px;left:0;z-index:2;}
+.sjmy .sjmy_info .ljck{width:113px;height:35px;background:url("btn_img-1.jpg")/*tpa=http://taobao.guoshi.com/img/btn_img.jpg*/ no-repeat;margin:0 0 0 30px;cursor:pointer;position:absolute;bottom:-50px;left:0;}
+.wl_map .gzsz_all{width:200px;height:380px;position:absolute;overflow:hidden;background:url("black_png-1.png")/*tpa=http://taobao.guoshi.com/img/black_png.png*/;}
+.wl_map .gzsz{width:200px;height:345px;overflow-y:scroll;overflow-x:hidden;background:url("gzsz_line_bg-1.jpg")/*tpa=http://taobao.guoshi.com/img/gzsz_line_bg.jpg*/ repeat-y 14px;z-index:5;position:relative;}
+.wl_map .gzsz .bg{width:187px;height:380px;position:absolute;left:0;top:0;background:#000;filter:alpha(opacity=60);moz-opacity:0.6;opacity:0.6;z-index:1;}
+.wl_map .gzsz_all h3{float:left;width:200px;height:34px;background-color:#242421;background-image:url("gzsz_h3_img-1.jpg")/*tpa=http://taobao.guoshi.com/img/gzsz_h3_img.jpg*/;background-repeat:no-repeat;background-position:4% 50%;text-align:center;line-height:34px;font-size:14px;font-family:"微软雅黑";}
+.wl_map .gzsz ul{float:left;padding:0 0 0 10px;left:0;background: url("gzsz_line_bg-1.jpg")/*tpa=http://taobao.guoshi.com/img/gzsz_line_bg.jpg*/ repeat-y scroll 14px center rgba(0, 0, 0, 0);position:absolute;z-index:10;}
+.wl_map .gzsz ul li img{height:87px;width:157px;}
+.wl_map .gzsz span{float:left;width:157px;padding:0 0 0 15px;line-height:18px;}
+.wl_map .gzsz .time{display:block;background:url("gzsz_li_img-1.jpg")/*tpa=http://taobao.guoshi.com/img/gzsz_li_img.jpg*/ no-repeat 0 center;padding:0 0 0 15px;margin:10px 0 0 0;color:#3ba5f0;}
+.wl_map .gzsz_all h3 a{display:inline;float:right;margin:11px 10px 0 0;}
+.click_a{background:#f5a603;}
+/****************************果实应用*******************************/
+.app_re_top{height:425px;position:relative;margin:0 0 13px 0;}
+.app_re_nav{height:37px;line-height:37px;background:#e9e9e8;}
+.app_re_nav li{float:left;width:110px;text-align:center;font-size:18px;}
+.app_re_nav li a{color:#000;}
+.app_re_nav li.on{background:#f2ae41;color:#fff;}
+.app_re_nav li.on a{color:#fff;}
+.fl{float:left;}
+.tab_rightbox ul li.none{border:none;}
+.tab_ba{width:700px;height:297px;position:absolute;left:80px;top:61px;filter:alpha(opacity=60);opacity:0.6;background:#fff;}
+.tab_box{width:700px;height:297px;position:absolute;left:80px;top:61px;}
+.tab_leftbox{width:487px;padding:29px 32px 36px 29px;height:232px;overflow:hidden;}
+.leftbox_a{width:217px;}
+.leftbox_a .tt{width:194px;height:40px;}
+.leftbox_a .tt h3{float:left;font-size:36px;color:#000;line-height:27px;cursor:pointer;}
+.leftbox_a .tt span{display:block;float:right;width:40px;height:19px;text-align:center;line-height:19px;color:#fff;background:#f2ae41;font-size:12px;cursor:pointer;}
+.leftbox_a h4{line-height:30px;font-size:14px;font-weight:100;color:#6b6b6b;}
+.leftbox_a .pho{width:217px;height:163px;}
+.leftbox_b{width:250px;overflow:hidden;margin:0 0 0 20px;}
+.p1{line-height:20px;font-size:14px;margin:0 0 35px 0;color:#000;}
+.p2{line-height:20px;font-size:16px;font-weight:100;margin:0 0 10px 0;color:#000;}
+.p3{width:133px;padding:0 12px 0 20px;height:47px;line-height:47px;background:url("ck_rg-1.png")/*tpa=http://taobao.guoshi.com/img/ck_rg.png*/ no-repeat 125px center;background-color:#f2ae41;}
+.p3 a{font-size:24px;color:#fff;}
+.tab_rightbox{width:150px;height:297px;}
+.line{width:2px;height:297px;background:#fff;}
+.tab_rightbox ul li{height:72px;border-bottom:2px solid #fff;text-align:center;line-height:75px;font-size:24px;color:#2b2b2b;cursor:pointer;}
+.tab_rightbox ul li.hover{color:#f2ae41;background:url("tab_li-1.png")/*tpa=http://taobao.guoshi.com/img/tab_li.png*/ no-repeat;height:75px;border-bottom:none;}
+.yd_box_top{height:24px;text-align:center;font-size:14px;margin:15px 0;font-family: "宋体";}
+.yd_box_top span{height:25px;color:#000;background: url("ico-2.png")/*tpa=http://taobao.guoshi.com/img/ico.png*/ no-repeat 82px -371px;padding: 0 25px 0 0;margin: 0 10px;display:inline-block;}
+.yd_box_top #mac,.yd_box_top #mac2{background-position:55px -395px;}
+.yd_box_top #window.on,.yd_box_top #window2.on{background-position:1px -350px;}
+.yd_box_top #mac.on,.yd_box_top #mac2.on{background-position:-30px -395px;}
+.yd_box_top a{line-height:24px;color:#000;}
+.yd_box_top span.on a{color:#f2ae41;}
+.yd_boc_bottom ul li{float:left;overflow:hidden;margin:0 5px 22px;}
+.yd_boc_bottom ul li img{width:286px;height:181px;}
+.yd_boc_bottom .infor{border:1px solid #e7e7e7;padding:10px 14px;}
+.yd_boc_bottom .infor h3{font-size:24px;border-bottom:1px solid #d6d6d6;line-height:30px;font-weight:100;}
+.yd_boc_bottom .infor h3 a{color:#000;}
+.yd_boc_bottom .infor h3 span{font-size:14px;color:#000;}
+.yd_boc_bottom .infor p{line-height:18px;color:#333;font-family:"宋体";margin:10px 0 0 0;}
+/*果实应用详情页*/
+.app_box1{width:1184px;height:380px;overflow:hidden;border:1px solid #e8e8e8;margin:19px 0 14px 0;}
+.app_box1 .hb_left{width:827px;height:360px;float:left;overflow:hidden;position:relative;margin:10px 0 0 10px;}
+.tabs1_pic_prev{width:46px;height:94px;background:url("button2-1.png")/*tpa=http://taobao.guoshi.com/img/button2.png*/ no-repeat -46px 0;cursor:pointer;position:absolute;left:0;top:137px;z-index:10;}
+.tabs1_pic_next{width:46px;height:94px;background:url("button2-1.png")/*tpa=http://taobao.guoshi.com/img/button2.png*/ no-repeat 0 0;cursor:pointer;position:absolute;right:0;top:137px;z-index:10;}
+.index_scroll ul li{height: 360px;margin-right:14px;float: left;}
+.app_box1 .hb_right{width:303px;height:320px;float:left;margin:27px 0 0 29px;}
+.app_box1 .hb_right h3{font-weight:100;font-size:36px;color:#333;}
+.app_box1 .hb_right p{font-size:14px;color:#666;line-height:18px;}
+.app_box1 .hb_right .download p{color:#666;font-family:"宋体";line-height:20px;font-size:12px;}
+.app_box1 .hb_right .download .huoqu{width: 168px;height:62px;line-height:62px;display:block;margin:35px 0 0 0;text-align: left;font-size:30px;background:url("download-1.png")/*tpa=http://taobao.guoshi.com/img/download.png*/ no-repeat 155px center;background-color:#f2ae41;padding:0 23px;text-shadow:-1px 2px 2px #b88431;}
+.app_box2 .appraise{width:834px;float:left;overflow:hidden;border:1px solid #e8e8e8;border-width:0 1px 1px 1px;margin:0 11px 0 0;}
+.app_box2 .appraise .app_xw_tit{border-width:1px 0 1px 0;}
+.appraise_kuang{margin:12px 0 15px 0;overflow:hidden;}
+.appraise_kuang .touxiang{float:left;overflow:hidden;margin:0 10px;}
+.appraise_kuang .touxiang img{width:50px;height:50px;}
+.appraise_kuang textarea{display:block;float:left;width:734px;height:154px;border:1px solid #d6d6d6;padding:5px;}
+.star_box2{height:31px;overflow:hidden;margin:0 0 0 70px;}
+.star_box2 a,.star a{width:25px;height:25px;display:block;float:left;background:url("star-1.png")/*tpa=http://taobao.guoshi.com/img/star.png*/ no-repeat;background-size:25px 25px;margin:0 5px 0 0;}
+.star_box2 a:hover{background:url("star_hover-1.png")/*tpa=http://taobao.guoshi.com/img/star_hover.png*/ no-repeat;background-size:25px 25px;}
+.star_box2 input{display:block;float:left;width:91px;height:31px;background:#f2ae41;color:#fff;font-size:18px;cursor:pointer;}
+.star_box3{height:31px;overflow:hidden;margin:0 0 0 70px;}
+.star_box3 a{width:25px;height:25px;display:block;float:left;background:url("star-1.png")/*tpa=http://taobao.guoshi.com/img/star.png*/ no-repeat;background-size:25px 24px;margin:0 5px 0 0;}
+.star_box3 input{display:block;float:left;width:91px;height:31px;background:#f2ae41;color:#fff;font-size:18px;cursor:pointer;}
+.user_app_list{border-bottom:1px solid #e7e7e7;padding-bottom:23px;}
+.user_app_list dl{margin:25px 0 0 0;}
+.user_app_list dl,.user_app_list .summ_top{overflow:hidden;}
+.user_app_list dt{margin:0 10px 0 0;}
+.user_app_list dt,.user_app_list dt img{width:50px;height:50px;}
+.user_app_list dt,.user_app_list dd{float:left;}
+.user_app_list .summ_top{margin:0 0 5px 0;}
+.user_app_list .summ_top span{color:#585858;font-size:13px;margin:0 10px 0 0;}
+.user_app_list .summ_top .star a,.hb_right .star a{background-size: 14px 13px;display: inline-block;width: 14px;height: 13px;float: right;margin:0 1px;}
+.wrap .app_box1 .hb_right .star a{background-size: 14px 13px;display: inline-block;width: 14px;height: 13px;float: left;margin:0 1px;}
+.hb_right .star{float:left;}
+.hb_right .star{margin:10px 0;overflow:hidden;}
+.user_app_list dd p{color:#333;line-height:20px;font-family:"宋体";}
+.app_box2 .hot_app{width:336px;float:left;overflow:hidden;}
+.app_xw_tit{height:38px;line-height:38px;border:1px solid #e8e8e8;color:#010101;font-size:14px;padding:0 15px;}
+.app_box2 .hot_app ul{padding:14px;overflow:hidden;border:1px solid #e8e8e8;border-width:0 1px 1px 1px;}
+.app_box2 .hot_app ul li{height:90px;padding:14px 0;border-bottom:1px solid #e8e8e8;}
+.app_box2 .hot_app ul li img{width:120px;height:90px;display:block;float:left;}
+.app_box2 .hot_app ul li .detail{width:170px;float:left;overflow:hidden;padding:0 0 0 16px;}
+.app_box2 .hot_app ul li .detail h3{color:#000;font-family:"宋体";line-height:20px;}
+.app_box2 .hot_app ul li .detail h3 a{color:#000;}
+.app_box2 .hot_app ul li .detail p{color:#333;font-family:"宋体";line-height:20px;}
+.app_box2 .hot_app .ad1,.app_box2 .hot_app .ad1 img{width:336px;height:264px;overflow:hidden;}
+.app_box2 .hot_app .ad1{border:1px solid #e8e8e8;margin:14px 0 0 0;}
+.page{width:380px;height: 20px;padding:17px 0;margin:0 auto;}
+.page span{height:25px;line-height:25px;display:block;float:left;border:1px solid #ccc;background:#f3f3f3;margin:0 5px;padding:0 10px;cursor:pointer;}
+.page span a{color:#000;}
+.page span.on{background:#f2ae41;border:none;}
+/*果实直播*/
+.live_main{width:100%;top:61px;left:0;bottom:0;background:#272b2e;padding:0 0 40px;float:left;}
+.live_nav{width:1230px;margin:0 auto;}
+.live_nav .month{font-family:"微软雅黑";font-size:36px;color:#ffffff;padding:10px 0 0;}
+.live_nav .month span{font-family:Arial;font-size:74px;}
+.live_list{margin:0 0 0 -9px;}
+.live_list li{float:left;width:168px;padding:0 0 0 9px;cursor:pointer;}
+.live_list li h4{font-family:"微软雅黑";font-size:18px;color:#169b16;font-weight:normal;line-height:44px;}
+.live_list li h4 .date{float:right;}
+.live_list li .pic img{width:168px;height:126px;}
+.live_list li ul{background:#169b16;overflow:hidden;}
+.live_list li ul li{width:140px;font-family:"微软雅黑";font-size:14px;color:#ffffff;padding:10px 14px;}
+.live_list li ul li .time,.live_list li ul li .title{display:block;}
+.live_list li ul li a{color:#ffffff;}
+.live_list li ul li.on{background:#ffffff;color:#272626;}
+.live_list li ul li.on .time{color:#169b16;}
+.live_hb{position:relative;width:1230px;height:536px;box-shadow:0 4px 4px 0 #444444;margin:20px auto 0;}
+.live_tab_main li{position:relative;width:800px;height:536px;}
+.live_tab_main li .pic_box{width:800px;}
+.live_tab_main li .pic_box .pic img{width:800px;height:536px;}
+.live_tab_main li .pic_box .txt_box{position:absolute;left:0;top:0;z-index:3;}
+.live_tab_main li .pic_box .txt{width:420px;position:absolute;left:0;top:190px;z-index:3;padding:0 30px;}
+.live_tab_main li .pic_box .txt .sort{height:30px;line-height:30px;color:#ffffff;font-size:16px;font-family:"微软雅黑";}
+.live_tab_main li .pic_box .txt_box .sort_bg{width:480px;height:30px;position:absolute;left:0;top:190px;background:#000000;opacity:0.3;filter:alpha(opacity=30);}
+.live_tab_main li .pic_box .txt_box .txt a.play{display:block;width:112px;height:44px;line-height:44px;font-size:22px;font-family:"微软雅黑";color:#ffffff;background:url("gszb_play-1.png")/*tpa=http://taobao.guoshi.com/images/gszb_play.png*/ no-repeat 78px 9px #ff414c;padding:0 0 0 15px;margin:5px 0 0;}
+.live_tab_main li .pic_box .txt_bg{width:480px;height:164px;position:absolute;left:0;top:220px;background:#000000;opacity:0.7;filter:alpha(opacity=70);}
+.live_tab_main li .pic_box .txt h4{color:#ffffff;font-size:40px;font-family:"微软雅黑";font-weight:normal;padding:10px 0 0;}
+.live_tab_main li .pic_box .txt h4 a{color:#ffffff;font-size:36px;line-height:40px;}
+.live_tab_main li .pic_box .txt p{color:#ffffff;font-size:14px;line-height:28px;display:block;}
+.live_tab_main li .pic_box .txt .play{display:block;width:112px;height:44px;line-height:44px;font-size:22px;font-family:"微软雅黑";color:#ffffff;background:url("ico-2.png")/*tpa=http://taobao.guoshi.com/img/ico.png*/ no-repeat 85px -1172px #ff414c;padding:0 0 0 15px;margin:5px 0 0;}
+.live_hb .txt_list{position:absolute;right:0;top:0;width:400px;padding:16px 15px;background:#1e1e1e;}
+.live_hb .txt_list ul li{height:70px;margin:2px 0 0;cursor:pointer;background:#323131}
+.live_hb .txt_list ul li .sort,.live_hb .txt_list ul li .title{line-height:66px;font-size:14px;font-family:"微软雅黑";color:#ffffff;margin:2px 0 2px 0;}
+.live_hb .txt_list ul li .sort{float:left;width:85px;text-align:center;}
+.live_hb .txt_list ul li .title{float:left;width:299px;padding:0 8px;}
+.live_hb .txt_list ul li.on{position:relative;background:#4c4c4c;}
+
+.live_hb .txt_list ul li.on .bg{width:85px;height:5px;background:#ffffff;opacity:0.4;filter:alpha(opacity=40);position:absolute;bottom:0;left:0;z-index:3;}
+.live_hb .txt_list ul .on .sort1{background:#4c4c4c;}
+.live_hb .txt_list ul li .sort1{background:#323131;}
+.live_hb .txt_list ul li .sort2{background:#027cd2;}
+.live_hb .txt_list ul li .sort3{background:#c4461a;}
+.live_tab_num{position:absolute;left:0;bottom:20px;z-index:3;}
+.live_tab_num li{float:left;width:89px;height:56px;border:2px solid #c9c9c9;margin:0 0 0 18px;}
+.live_tab_num li img{width:89px;height:56px;cursor:pointer;}
+.live_tab_num li.on{border:2px solid #ff414c;margin:-18px 0 0 18px;}
+.live_player_box{width:1155px;height:663px;margin:35px auto 0;position:absolute;left:50%;margin:0 0 0 -577.5px;}
+.live_player_box{background:#919392;}
+.live_player_box .join{height:110px;line-height:110px;text-align:center;background:#121212;color:#ffffff;font-size:20px;font-family:"微软雅黑";}
+.live_player_box .join span{color:#169b16;font-size:50px;padding:0 0 0 30px;}
+.live_tabs{position:absolute;top:212px;right:0;}
+.live_tabs li{width:53px;height:53px;background:url("ico-2.png")/*tpa=http://taobao.guoshi.com/img/ico.png*/ no-repeat -74px -727px;margin:0 0 2px;cursor:pointer;}
+.live_tabs li span{display:none;}
+.live_tabs li.ico1{background-position:0 -1228px;}
+.live_tabs li.ico2{background-position:0 -1282px;}
+.live_tabs li.ico3{background-position:0 -1336px;}
+.live_tabs li.ico4{background-position:0 -1390px;}
+.live_tabs li.ico5{background-position:0 -1444px;}
+.live_tabs li.ico6{background-position:0 -1498px;}
+.live_tabs li:hover span,.live_tabs li.on span{display:block;width:53px;height:53px;background:#169b16;line-height:53px;font-size:16px;font-family:"微软雅黑";color:#ffffff;text-align:center;}
+.live_tabs li.ico5:hover span{line-height:20px;padding:7px 0 0;height:46px;}
+.live_siderbar{display:none;width:300px;position:absolute;z-index:2000;background:#ffffff;top:61px;bottom:0;right:0;}
+.live_sider_content{background:#fafafa;overflow:hidden;}
+.live_sider_content .nav{height:18px;line-height:18px;padding:15px 0;border-bottom:1px solid #d6d6d6;margin:0 0 0 -1px;}
+.live_sider_content .nav li{float:left;border-left:1px solid #d6d6d6;font-size:16px;font-family:"微软雅黑";color:#444444;padding:0 15px;cursor:pointer;}
+.live_sider_content .nav li.on{color:#169b16;}
+.live_sider_content .txt_list{background:url("right_line-1.gif")/*tpa=http://taobao.guoshi.com/img/right_line.gif*/ repeat-y 40px 0;overflow:hidden;}
+.live_sider_content .txt_list li{padding:18px 0 0 15px;overflow:hidden;}
+.live_sider_content .txt_list li .user_pic{float:left;width:60px;height:60px;}
+.live_sider_content .txt_list li .user_pic img{width:60px;height:60px;}
+.live_sider_content .txt_list li .txt{float:left;width:190px;padding:0 0 0 10px;}
+.live_sider_content .txt_list li .user{height:30px;line-height:30px;font-family:"微软雅黑";overflow:hidden;}
+.live_sider_content .txt_list li .name{float:left;color:#169b16;}
+.live_sider_content .txt_list li .time{float:right;background:url("ico-2.png")/*tpa=http://taobao.guoshi.com/img/ico.png*/ no-repeat -88px -1265px;padding:0 0 0 18px;color:#969696;}
+.live_sider_content .txt_list li .pic{width:185px;height:122px;padding:5px 0 0;}
+.live_sider_content .txt_list li .pic img{width:185px;height:122px;}
+.live_sider_content .txt_list li .summary{color:#646464;line-height:20px;font-family:"微软雅黑";padding:5px 0 0;}
+.live_sider_content .detail_box{overflow:hidden;}
+.live_sider_content .code{width:187px;height:227px;margin:55px auto 0;}
+.live_sider_content .code img{display:block;width:187px;height:187px;}
+.live_sider_content .code .txt{display:block;width:187px;line-height:40px;background:#a0a0a0;text-align:center;font-family:"微软雅黑";font-size:18px;color:#ffffff;}
+.live_sider_content .detail{padding:62px 28px 0;}
+.live_sider_content .detail .title{color:#169b16;font-family:"微软雅黑";font-size:18px;padding:0 0 25px;}
+.live_sider_content .detail .summary p{font-size:14px;font-family:"微软雅黑";color:#606060;padding:0 0 10px;}
+.live_intro_bg{width:1155px;height:663px;background:#000000;position:absolute;left:0;top:0;opacity:0.8;filter:alpha(opacity=80);}
+.live_intro{position:absolute;left:0;top:0;z-index:3;padding:60px 55px 0;}
+.live_intro div,.live_intro p{font-family:"微软雅黑";color:#ffffff;}
+.live_intro .title{font-size:34px;padding:0 0 30px;}
+.live_intro .summary{padding:0 0 50px;}
+.live_intro .summary p{line-height:30px;color:#b8b8b8;font-size:16px;}
+.live_intro .lecturer .pic{float:left;width:182px;height:182px;}
+.live_intro .lecturer .pic img{width:182px;height:182px;}
+.live_intro .lecturer .txt{float:left;padding:50px 0 0 25px;}
+.live_intro .lecturer .txt p{font-size:16px;line-height:30px;}
+.live_intro .lecturer .txt p span{font-size:22px;padding:0 10px 0 0;}
+.live_pic{width:162px;height:143px;position:absolute;bottom:0;left:0;background:url("comment_row3-1.png")/*tpa=http://taobao.guoshi.com/img/comment_row3.png*/ no-repeat 80px 137px;}
+.live_pic2{width:160px;height:135px;position:absolute;top:0;left:0;z-index:9;border:1px solid #0d101d;}
+.live_pic .bg{width:160px;height:135px;background:#000000;opacity:0.4;filter:alpha(opacity=40);}
+.live_pic .pic{width:160px;height:135px;position:absolute;bottom:0;left:0;z-index:10;}
+.live_pic .pic img{display:block;width:140px;height:87px;padding:10px 10px 0;}
+.live_pic .comment{display:block;width:160px;height:28px;line-height:28px;color:#ffffff;font-size:14px;font-family:"微软雅黑";text-align:center;cursor:pointer;}
+.live_comment_box{display:none;width:524px;height:115px;position:absolute;bottom:0;left:0;background:url("comment_row3-1.png")/*tpa=http://taobao.guoshi.com/img/comment_row3.png*/ no-repeat 80px 109px;}
+.live_comment_box2{width:522px;height:107px;position:absolute;top:0;left:0;z-index:9;border:1px solid #0d101d;}
+.live_comment_box .bg{width:522px;height:107px;background:#000000;opacity:0.4;filter:alpha(opacity=40);}
+.live_comment{position:absolute;bottom:0;left:0;z-index:10;}
+.live_comment .pic{float:left;width:140px;height:87px;padding:10px;}
+.live_comment .pic img{width:140px;height:87px;}
+.live_comment .txt{float:left;width:244px;height:71px;resize:none;padding:8px 10px;margin:10px 10px 0 0;}
+.live_comment .btn{float:left;width:78px;background:#169b16;color:#ffffff;font-size:16px;font-family:"微软雅黑";line-height:36px;margin:61px 0 0;cursor:pointer;}
+.program_list{width:1230px;overflow:hidden;margin:0 auto;color:#000;}
+.program_list ul{padding:0 0 0 15px;}
+.program_list ul li ul{padding:0;}
+.program_list ul li h3{}
+.program_list ul li{float:left;width:161px;margin:20px 5px 0 5px;color:#000;padding:0 0 30px 0;;}
+.program_list ul li ul li{height:55px;color:#000;margin:0;padding:0;background:#cccccc;}
+.program_list ul li ul .on{height:55px;color:#000;margin:0;padding:0;background:#f4f4f4;border-bottom:1px solid #cfcfcf;}
+.program_list ul li ul li .time{float:left;width:141px;color:#ff414c;line-height:25px;padding:0 10px 0 10px;}
+.program_list ul li ul li .name{float:left;width:141px;color:#555555;line-height:25px;padding:0 10px 0 10px;cursor:pointer;}
+.program_list ul li ul li .name a{color:#555555;}
+.date_list{float:left;overflow:hidden;}
+.date_list h3 span{float:left;color:#333333;font-size:16px;padding:0 16px 0 0;line-height:50px;}
+.date_list img{width:161px;height:90px;}
+
+
+/*果实云图*/
+.campus_search{position:absolute;top:80px;left:120px;background:#fff;filter: alpha(opacity=70);-moz-opacity: 0.7;opacity: 0.7;}
+.campus_search .area{float:left;height:26px;line-height:26px;padding:0 20px 0 0;color:#000;line-height:30px;}
+.campus_search .area span{margin:0 5px;cursor:pointer;color:#000;line-height:30px;}
+.campus_search .sort{float:left;height:26px;line-height:26px;color:#000;line-height:30px;width:870px;}
+.campus_search .sort span{float:left;cursor:pointer;color:#000;line-height:30px;}
+.campus_search .letter span{float:left;width:28px;text-align:center;cursor:pointer;font-family:Arial;}
+.campus_search .letter .all{margin:0 37px 0 0;}
+.campus_search .letter .on{background:#ff9000;color:#ffffff;}
+.campus_search .search{float:left;border:1px solid #cccccc;border-radius:2px;-webkit-border-radius:2px;}
+.campus_search .search .ico{width:16px;height:28px;background:url("ico-2.png")/*tpa=http://taobao.guoshi.com/img/ico.png*/ no-repeat -78px -1425px #ffffff;padding:0 0 0 7px;}
+.campus_search .search .txt{float:left;width:154px;height:20px;line-height:20px;padding:4px 5px;color:#000;}
+.campus_search .search .btn{float:left;width:54px;height:28px;line-height:28px;background:#ff9000;color:#ffffff;font-size:14px;font-family:"微软雅黑";cursor:pointer;border-radius:0 2px 2px 0;-webkit-border-radius:0 2px 2px 0;}
+
+.campus_siderbar .close{width:15px;height:15px;position:fixed;right:35px;top:140px;bottom:25px;z-index:999;background:url("yuntu_close-1.png")/*tpa=http://taobao.guoshi.com/img/yuntu_close.png*/;}
+.campus_siderbar{position:fixed;right:25px;top:132px;bottom:25px;z-index:999;background:url("nav_sort-1.png")/*tpa=http://taobao.guoshi.com/img/nav_sort.png*/ repeat;overflow:hidden;color:#000;height:452px;}
+.campus_siderbar .campus{border-bottom:1px solid #ffffff;padding:15px 0 0;margin:0 12px 12px;overflow:hidden;color:#000;}
+.campus_siderbar .campus .pic{float:left;width:72px;height:72px;}
+.campus_siderbar .campus .pic img{width:60px;height:60px;border:2px solid #cccccc;padding:4px;border-radius:34px;-webkit-border-radius:34px;}
+.campus_siderbar .campus .txt{float:left;width:139px;padding:0 0 0 15px;color:#000;}
+.campus_siderbar .campus .txt .title{font-size:18px;font-family:"微软雅黑";padding:0 0 5px;color:#000;}
+.campus_siderbar .campus .txt .title a{color:#000;}
+.campus_siderbar .campus .txt span{height:18px;line-height:18px;background:#ff9000;color:#000;font-family:"微软雅黑";padding:0 5px;}
+.campus_siderbar .campus .txt .summary{line-height:18px;padding:5px 0 0;color:#000;}
+.campus_siderbar .campus .txt .summary p{color:#000;}
+.campus_siderbar .pic_list{background:url("right_line-1.gif")/*tpa=http://taobao.guoshi.com/img/right_line.gif*/ repeat-y 39px 0;overflow:hidden;}
+.campus_siderbar .pic_list li{padding:0 0 0 12px;overflow:hidden;}
+.campus_siderbar .pic_list li .user_pic{float:left;width:54px;height:54px;}
+.campus_siderbar .pic_list li .user_pic img{width:48px;height:48px;border:3px solid #cccccc;border-radius:27px;-webkit-border-radius:27px;}
+.campus_siderbar .pic_list li .txt{float:left;width:160px;padding:0 0 0 10px;}
+.campus_siderbar .pic_list li .txt .title,.campus_siderbar .pic_list li .txt .date{line-height:20px;color:#000;}
+.campus_siderbar .pic_list li .txt .title a,.campus_siderbar .pic_list li .txt .date a{color:#000;}
+.campus_siderbar .pic_list li .txt .title span{font-weight:bold;color:#000;}
+.campus_siderbar .pic_list li .txt .date{padding:0 0 5px;color:#000;}
+.campus_siderbar .pic_list li .txt .summary{line-height:20px;color:#000;}
+.campus_siderbar .pic_list li .txt .pic{width:160px;height:100px;}
+.campus_siderbar .pic_list li .txt .pic img{width:160px;height:100px;}
+.campus_siderbar .pic_list li .txt .like,.thing_info .like{background:url("ico-2.png")/*tpa=http://taobao.guoshi.com/img/ico.png*/ no-repeat -83px -350px;padding:0 0 0 20px;line-height:30px;color:#999999;cursor:pointer;color:#000;}
+.campus_degree_box{display:none;width:442px;height:120px;position:absolute;top:50%;left:50%;border:1px solid #e8ebed;margin:-60px 0 0 -221px;}
+.campus_degree_box .bg{width:442px;height:120px;background:#ffffff;margin:-60px 0 0 -221px;position:absolute;top:50%;left:50%;opacity:0.8;filter:alpha(opacity=80);}
+.campus_degree{position:absolute;width:442px;height:120px;top:50%;left:50%;z-index:3;margin:-60px 0 0 -221px;}
+.campus_degree .close{float:right;margin:5px 7px 0 0;width:30px;height:30px;cursor:pointer;background:url("pl_close-1.png")/*tpa=http://taobao.guoshi.com/img/pl_close.png*/ no-repeat;background-position:center center;}
+.campus_degree ul{padding:0 12px;}
+.campus_degree ul li{float:left;height:32px;line-height:32px;background:#aaaaaa;padding:0 18px;margin:18px 10px 0;color:#ffffff;font-family:"微软雅黑";font-size:16px;cursor:pointer;}
+.campus_degree ul li.on{background:#ff9000;}
+.thing_box{top:120px;left:65px;margin:0;}
+.thing_info{position:absolute;right:325px;top:132px;z-index:999;background:url("nav_sort-1.png")/*tpa=http://taobao.guoshi.com/img/nav_sort.png*/ repeat;border:1px solid #e8ebed;padding:5px 12px 0;overflow:hidden;}
+.thing_info .sort{padding:0 0 8px;overflow:hidden;}
+.thing_info .sort .enter{float:right;height:20px;line-height:20px;background:url("ico-2.png")/*tpa=http://taobao.guoshi.com/img/ico.png*/ no-repeat -56px -1466px #ff9000;color:#ffffff;padding:0 20px 0 3px;}
+.thing_info .sort span{font-weight:bold;}
+.thing_info .pic{width:208px;height:142px;padding:0 0 8px;}
+.thing_info .title{line-height:20px;}
+
+.campus_index{width:1255px;overflow:hidden;margin:20px auto;}
+.campus_index .explore_list .box{width:234px;}
+.campus_index_title{background:url("ico-2.png")/*tpa=http://taobao.guoshi.com/img/ico.png*/ no-repeat -80px -1677px;float:left;line-height:53px;}
+.campus_index_title span{color:#ff9000;line-height:53px;height:53px;background:url("campus_h2_bg-1.jpg")/*tpa=http://taobao.guoshi.com/images/campus_h2_bg.jpg*/ no-repeat left center;padding:0 0 0 25px;}
+.campus_index .campus_list li.campus_nav{width:210px;padding:12px;}
+.campus_nav dl{overflow:hidden;}
+.campus_nav dl dt{float:left;width:80px;height:80px;}
+.campus_nav dl dt img{width:80px;height:80px;}
+.campus_nav dl dd{float:left;padding:0 0 0 12px;width:110px;}
+.campus_nav dl dd h2{font-size:24px;font-family:"微软雅黑";font-weight:normal;color:#3e3e3e;}
+.campus_nav dl dd span{display:block;width:65px;height:20px;line-height:20px;background:#ff9000;font-family:"微软雅黑";color:#ffffff;margin:5px 0 0;text-align:center;-webkit-border-radius:3px;border-radius:3px;}
+.campus_nav dl dd .like{width:43px;background:url("like_png-1.png")/*tpa=http://taobao.guoshi.com/img/like_png.png*/ no-repeat 10% 50% #ff9000;padding:0 0 0 22px;cursor:pointer;}
+.campus_nav .txt_list{padding:10px 0;border-bottom:1px solid #dddcdc;overflow:hidden;}
+.campus_nav .txt_list span{display:block;height:28px;line-height:28px;color:#979797;font-size:14px;font-family:"微软雅黑";margin:0 0 10px;padding:0 0 0 22px;}
+.campus_nav .txt_list .ico1{background:url("ganyan-1.png")/*tpa=http://taobao.guoshi.com/img/ganyan.png*/ no-repeat 2% 50%;}
+.campus_nav .txt_list .ico2{background:url("xy_pic-1.png")/*tpa=http://taobao.guoshi.com/img/xy_pic.png*/ no-repeat 2% 50%;}
+.campus_nav .txt_list .ico3{background:url("xy_vedio-1.png")/*tpa=http://taobao.guoshi.com/img/xy_vedio.png*/ no-repeat 2% 50%;}
+.campus_nav .txt_list .num{float:right;background:#b8b8b8;}
+.campus_nav .txt_list2{padding:10px 0;}
+.campus_nav .txt_list2 .ico{height:28px;line-height:28px;color:#979797;font-size:14px;font-family:"微软雅黑";margin:0 0 10px;background:url("ico-2.png")/*tpa=http://taobao.guoshi.com/img/ico.png*/ no-repeat -85px -1520px;padding:0 0 0 22px;}
+.campus_nav .txt_list2 .num{background:#b8b8b8;-webkit-border-radius:3px;border-radius:3px;font-size:12px;padding:0 3px;color:#ffffff;margin:0 0 0 12px;}
+.campus_nav .txt_list2 .ico4{background:url("xy_like-1.png")/*tpa=http://taobao.guoshi.com/img/xy_like.png*/ no-repeat 2% 50%;}
+.campus_nav .txt_list2 .ico5{background-position:-90px -1589px;}
+.campus_nav .txt_list2 .ico6{background-position:-87px -1612px;}
+.campus_list li{float:left;width:234px;border:1px solid #e1e1e1;margin:0 0 15px 0;/*-webkit-box-shadow:0 1px 4px #444444;box-shadow:0 1px 4px #444444;*/overflow:hidden;}
+.campus_list li .title_box{padding:12px 12px 8px;width:210px;overflow:hidden;}
+.campus_list li .pic img{width:210px;}
+.campus_list li .title{height:30px;line-height:30px;font-size:14px;font-family:"微软雅黑";}
+.campus_list li .title a{color:#383838;}
+.campus_list li .date{height:24px;line-height:24px;font-family:"微软雅黑";}
+.campus_list li .time{float:left;background:url("clock_bg-1.png")/*tpa=http://taobao.guoshi.com/img/clock_bg.png*/ no-repeat 0 50%;padding:0 0 0 18px;color:#c9c9c9;}
+.campus_list li .comment{float:right;background:url("pinglun_bg-1.png")/*tpa=http://taobao.guoshi.com/img/pinglun_bg.png*/ no-repeat 10% 50%;padding:0 0 0 20px;color:#ff9000;}
+.campus_list li .comment_txt{background:#fafafa;border-top:1px solid #e3e3e3;padding:15px 12px;overflow:hidden;}
+.campus_list li .comment_txt dt{float:left;width:30px;height:30px;}
+.campus_list li .comment_txt dt img{width:30px;height:30px;}
+.campus_list li .comment_txt dd{float:left;width:170px;color:#b5b5b5;line-height:18px;padding:0 0 0 10px;}
+.campus_list li .comment_txt dd span{color:#222222;}
+.campus_list li .summary{width:210px;line-height:20px;padding:0 12px;}
+.campus_list li .summary p{padding:0 0 10px;color:#979797;}
+/*果实云图*/
+
+/*果实聚合*/
+.campus_all{width:100%;position:absolute;top:61px;left:0;padding:0 0 60px;}
+.campus_box{width:1230px;margin:30px auto 0;overflow:hidden;}
+.campus_box .left,.campus_box .mid,.campus_box .right{float:left;}
+.campus_box .mid,.campus_box .right{width:393px;padding:0 0 0 10px;}
+.campus_box .left{width:424px;}
+.campus_box  h3{height:40px;line-height:40px;font-size:20px;font-family:"微软雅黑";color:#ffffff;font-weight:normal;background:url("ico-2.png")/*tpa=http://taobao.guoshi.com/img/ico.png*/ no-repeat 0 -1580px;padding:0 0 0 40px;}
+.campus_box  h3 a{color:#ffffff;}
+.campus_box .title1{background:url("ico-2.png")/*tpa=http://taobao.guoshi.com/img/ico.png*/ no-repeat -68px -2075px #ff8f00;}
+.campus_box .title2{background:url("ico-2.png")/*tpa=http://taobao.guoshi.com/img/ico.png*/ no-repeat -68px -1837px #0bbbb5;}
+.campus_box .title3{background:url("ico-2.png")/*tpa=http://taobao.guoshi.com/img/ico.png*/ no-repeat -65px -832px #ff1344;}
+.campus_box .title4{background:url("ico-2.png")/*tpa=http://taobao.guoshi.com/img/ico.png*/ no-repeat -65px -1879px #169b16;}
+.campus_box .title5{background:url("ico-2.png")/*tpa=http://taobao.guoshi.com/img/ico.png*/ no-repeat -65px -1919px #4ae0eb;}
+.campus_box .bg1{background:#ff8f00;}
+.campus_box .bg2{background:#0bbbb5;}
+.campus_box .bg3{background:#ff1344;}
+.campus_box .bg4{background:#009c00;}
+.campus_box .bg5{background:#4ae0eb;}
+
+.campus_box .box1,.campus_box .box4{position:relative;margin:5px 0 0;}
+.campus_box .box1 .pic,.campus_box .box4 .pic{width:424px;height:325px;}
+.campus_box .box1 .pic img,.campus_box .box4 .pic img{width:424px;height:325px;}
+.campus_box .box1 .bg{display:none;width:424px;height:40px;background:#000000;opacity:0.7;filter:alpha(opacity=70);position:absolute;bottom:0;left:0;}
+.campus_box .box1 .title{display:none;width:388px;height:40px;line-height:40px;color:#ffffff;font-size:16px;font-family:"微软雅黑";padding:0 18px;position:absolute;bottom:0;left:0;z-index:3;}
+.campus_box .box1 .title a{color:#ffffff;}
+.campus_box .box1 .date{float:right;font-family:Arial;font-size:14px;}
+.campus_box .box1.on .bg,.campus_box .box1.on .title,.campus_box .box4.on .title_box,.campus_box .box3 li.on .title_box .subtitle,.campus_box .box3 li.on .position{display:block;}
+.campus_box .box1 .ico,.campus_box .box3 .ico{width:36px;height:36px;background:url("ico-2.png")/*tpa=http://taobao.guoshi.com/img/ico.png*/ no-repeat 0 -1593px;position:absolute;top:0;left:0;}
+.campus_box .box1 .ico1,.campus_box .box3 .ico1{background-position:0 -1631px;}
+.campus_box .box1 .ico2,.campus_box .box3 .ico2{background-position:0 -1669px;}
+
+.campus_box .box2{width:388px;height:142px;padding:18px 18px 0;margin:5px 0 0;overflow:hidden;}
+.campus_box .box2 .title{height:30px;overflow:hidden;}
+.campus_box .box2 .title h3{float:left;height:30px;line-height:30px;font-size:20px;font-family:"微软雅黑";color:#ffffff;font-weight:normal;background:none;padding:0 10px 0 0;}
+.campus_box .box2 .title span{float:left;line-height:30px;font-family:"微软雅黑";color:#ffffff;}
+.campus_box .box2 ul{padding:10px 0 0;overflow:hidden;}
+.campus_box .box2 ul li{float:left;width:97px;}
+.campus_box .box2 ul li a{line-height:30px;font-size:14px;font-family:"微软雅黑";color:#ffffff;}
+
+.campus_box .box3{margin:0 0 0 -5px;}
+.campus_box .box3 li{float:left;width:194px;height:160px;position:relative;margin:5px 0 0 5px;}
+.campus_box .box3 li .pic img{width:194px;height:160px;}
+.campus_box .box3 li .bg{display:none;width:194px;height:160px;background:#000000;opacity:0.7;filter:alpha(opacity=70);position:absolute;top:0;bottom:0;left:0;z-index:3;cursor:pointer;}
+.campus_box .box3 li .title{display:none;width:164px;position:absolute;left:15px;bottom:15px;z-index:4;}
+.campus_box .box3 li .title a{display:block;font-size:20px;font-family:"微软雅黑";color:#ffffff;}
+.campus_box .box3 li .date{font-size:14px;font-family:Arial;color:#939393;}
+.campus_box .box3 li.on .bg,.campus_box .box3 li.on .title{display:block;}
+.campus_box .box3 li.big,.campus_box .box3 li.big .pic,.campus_box .box3 li.big .pic img,.campus_box .box3 li.big .bg{width:393px;height:160px;overflow:hidden;}
+.campus_box .box3 li.big .title{width:363px;}
+.campus_box .box3 li .position{display:none;width:164px;font-size:14px;font-family:"微软雅黑";color:#ffffff;position:absolute;top:22px;left:15px;z-index:4;}
+.campus_box .box3 li .position a,.campus_box .box3 .title_box .subtitle a{color:#ffffff;}
+.campus_box .box3 li .title_box{width:164px;position:absolute;left:15px;bottom:0;z-index:4;}
+.campus_box .box3 li .title_box .title{left:0;bottom:44px;}
+.campus_box .box3 li .title_box .subtitle{display:none;width:164px;font-size:14px;font-family:"微软雅黑";color:#ffffff;position:absolute;left:0;bottom:22px;z-index:4;}
+.campus_box .box3 li.big .position,.campus_box .box3 li.big .title_box .subtitle{width:363px;}
+.campus_box .box3 li .living1,.campus_box .box3 li .living1 a{color:#64cf4f;}
+.campus_box .box3 li .living2,.campus_box .box3 li .living2 a{color:#4ae0eb;}
+
+.campus_box .box4 .title_box{display:none;width:388px;position:absolute;bottom:12px;left:0;padding:0 18px;}
+.campus_box .box4 .title_box .title,.campus_box .box4 .title_box .subtitle{font-size:30px;font-family:"微软雅黑";color:#ffffff;}
+.campus_box .box4 .title_box a{color:#ffffff;}
+.campus_box .box4 .title_box .subtitle{font-size:12px;}
+.campus_box .box4 .title_box .subtitle span{font-size:18px;padding:0 10px 0 0;}
+.classroom_hb{width:424px;height:325px;position:relative;}
+.classroom_tab_main li{float:left;width:424px;height:325px;position:relative;}
+.classroom_tab_main li .pic{width:424px;height:325px;}
+.classroom_tab_main li .pic img{width:424px;height:325px;}
+.classroom_tab_main li .title{width:388px;height:41px;line-height:41px;font-size:30px;font-family:"微软雅黑";color:#ffffff;position:absolute;left:15px;bottom:75px;z-index:3;}
+.classroom_tab_main li .title img{vertical-align:middle;padding:0 0 0 8px;}
+.classroom_tab_main li .subtitle{width:388px;position:absolute;left:15px;bottom:30px;z-index:3;}
+.classroom_tab_main li .subtitle p{font-size:16px;font-family:"微软雅黑";color:#ffffff;}
+.classroom_tab_main li .title a,.classroom_tab_main li .subtitle a{color:#ffffff;}
+.classroom_tab_num{height:12px;position:absolute;bottom:20px;right:25px;z-index:3;}
+.classroom_tab_num li{float:left;width:12px;height:12px;background:url("ico-1.png")/*tpa=http://img/ico.png*/ no-repeat 0 -1709px;margin:0 0 0 10px;cursor:pointer;text-indent:-50000px;}
+.classroom_tab_num li.on{background-position:0 -1725px;}
+.header .return{float:left;width:53px;height:53px;background:url("campus_return-1.jpg")/*tpa=http://taobao.guoshi.com/img/campus_return.jpg*/ no-repeat center center;}
+.campus_header{width:1250px;overflow:hidden;margin:0 auto;}
+#bds_more_div{background: url("ico-2.png")/*tpa=http://taobao.guoshi.com/img/ico.png*/ no-repeat 0 -225px;}
+
+.btn_ding{float:left;height:46px;line-height:46px;display:block;padding:0 0 0 30px;margin:0 0 0 13px;background:url("ico-2.png")/*tpa=http://taobao.guoshi.com/img/ico.png*/ no-repeat 0 -150px;cursor:pointer;}
+.btn_cai{float:left;height:46px;line-height:46px;display:block;padding:0 0 0 30px;margin:0 0 0 13px;background:url("ico-2.png")/*tpa=http://taobao.guoshi.com/img/ico.png*/ no-repeat 0 -185px;cursor:pointer;}
+
+
+/*学校主页*/
+#yt_content{padding:10px;}
+pl_content{widht:250px;height:70px;}
+.pl_textarea{width:205px;height:44px;}
+.pl_btn{width:40px;height:25px;margin:5px 0 0 0;background:#666;float:left;}
+.pl_close{display:inline;float:right;width:14px;height:14px;background:url("pl_close-1.png")/*tpa=http://taobao.guoshi.com/img/pl_close.png*/ no-repeat;margin:10px 0 0 0;}
+.yt_textarea{width:205px;height:50px;color:#999;}
+
+
+/*提示框*/
+.prompt{width:360px;height:220px;border:2px solid #f29000;float:left;}
+.prompt .info{width:360px;height:146px;float:left;border-bottom:1px solid #cdcdcd;text-align:center;line-height:146px;vertial-align:middle;}
+.prompt .info img{float:left;margin:50px 0 0 100px;*margin:25px 0 0 50px;}
+.prompt .info span{line-height:146px;float:left;height:146px;}
+.prompt .determine{width:89px;height:31px;background:#f29000;border:0;color:#fff;}
+
+/*content page*/
+.allfile_box{width:1184px; margin:0 auto;padding:20px 0; background:#fff; overflow:hidden;}
+.center_box{width:1184px; margin:0 auto;border:1px solid #e9e9e9;overflow:hidden;}
+.tit_box{ height:60px; line-height:60px;}
+.tit_box .tit_left{ float:left;}
+.tit_box .tit_left h3{ font-size:24px; color:#252525; float:left;}
+.tit_box .tit_left  span{ color:#666; margin:0 0 0 20px; line-height:70px;}
+.tit_box .tit_right{ float:right;}
+.tit_box .tit_right a{ display:block; width:84px; height:28px; float:left;line-height:28px;border-radius:3px; padding:0 0 0 10px;}
+.tit_box .tit_right .t_r_1{ background:url("icon1-1.jpg")/*tpa=http://taobao.guoshi.com/img/icon1.jpg*/ no-repeat 70px center;background-color:#fba127;}
+.tit_box .tit_right .t_r_2{ background:url("icon2-1.jpg")/*tpa=http://taobao.guoshi.com/img/icon2.jpg*/ no-repeat 70px center;background-color:#fba127;margin:0 0 0 5px;}
+.center_box .interact_box2 span{color:#97a09f;}
+.u_p_con li{ float:left; height:38px; line-height:38px; padding:0 20px; color:#676566; cursor:pointer;font-size:14px;}
+.u_p_con li.on{ color:#fff; background:#f39001;}
+
+/*lc 20140422*/
+.lc_con{ margin:30px 0;}
+.lc_con p{ font-size:14px; color:#333; line-height:25px; margin:10px 0;}
+.lc_con p a{ color:#03F;}
+.lc_con .lc_tit{ background:#d6dee1; height:30px; line-height:30px; padding:0 10px;color:#000;margin:5px 0;}
+
+
+
+
+

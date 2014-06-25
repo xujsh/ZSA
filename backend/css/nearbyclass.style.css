@@ -1,0 +1,18 @@
+html{font:12px/1.5 'lantinghei sc',"Arial",arial,sans-serif;}
+body{width:320px;margin:0;padding:0;}
+ul{padding:0;margin:0}
+.body_style{margin:0 auto;width:308px;height:0 auto;}
+.content_body{padding-top: 50px;background:#40abce;width:320px;}
+.class_top{width:320px;height:42px; position: fixed;}
+.list_file{margin: 0 auto;width:308px;height:138px;background:url('/images/fenleifujin.png')no-repeat;background-size:308px 138px;}
+#title_ul{background:url('/images/classtop.png')no-repeat;background-size:320px 42px;width:320px;height:42px;}
+.class_top ul li{display:inline;cursor:pointer;float:left;text-align:center;width:106px;margin-top: 10px;}
+.unname{width:280px;height:44px;margin: 0 auto;}
+.unname .unname_left{color:#2f5d70;font-size:18px;float:left; margin-top: 10px;}
+.unname .unname_right{color:#a6a6a6;font-size:15px;float:right; margin-top: 10px;}
+.myname{width:280px;height:35px;margin: 0 auto;padding-top:0px;}
+.myname .unname_left{color:#a6a6a6;font-size:15px;float:left;}
+.myname .unname_right{color:#a6a6a6;font-size:12px;float:right;}
+.fromwhere{width:310px;height:44px;}
+.fromwhere .daozhe{float:left;width:155px;height:44px;}
+.fromwhere .iphonestyle{float:left;width:155px;height:44px;}

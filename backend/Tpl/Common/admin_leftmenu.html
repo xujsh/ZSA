@@ -1,0 +1,21 @@
+<style>
+	.span2{ margin:0; width:270px; box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;border-left:1px outset #F4F4F4; background-color:#F4F4F4;}
+	.row-fluid .span2{ margin:0; width:270px; box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;border-left:1px outset #F4F4F4; background-color:#F4F4F4;}
+	.span2 > .uinfo_ifon{margin-top:10px;font-size:14px; font-weight:600; width:220px; height:50px; text-align:center; line-height:50px; vertical-align:middle;}
+	.nav-list{  margin-left:29px;}
+	.nav-header{margin:0; font-size:15px; border-bottom: 0px solid #DBDBDB;border-top: 1px solid #DBDBDB;}
+	.span2 > ul li{ height:50px; line-height:50px; vertical-align: middle; }
+    .span2 > .nav-list > ul li a{ padding-top:0px; padding-bottom:0px; text-decoration:none; /*border-bottom: 1px solid #DBDBDB;*/border-top: 1px solid #DBDBDB; }
+</style>
+<div class="span2">
+ 	<div class="uinfo_ifon"><i class="icon-user"></i> &nbsp;&nbsp; 你好,  {$adminloginname} &nbsp;&nbsp;</div>
+  <ul class="nav nav-list">
+  	<volist  name="menuarr" id="vo">
+    <li class="nav-header">{$vo['name']}</li>
+	  <assign name="sub" value="$vo['child']" />
+	 <volist name="sub" id="voment">
+	 	 <li <if condition="[highlight] eq $voment['highlight'] " > class="active" </if>> <a href="{$voment['path']}">{$voment['name']}</a></li>
+	 </volist>
+	</volist>
+  </ul>
+</div>

@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name=”format-detection” content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta content="email=no" name="format-detection" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<title>首页</title>
+<style>
+ @charset "utf-8";
+/* CSS Document */
+ html{font:12px/1.5 "Arial" ,arial,sans-serif;overflow-x:hidden; overflow-y:hidden;}
+ body{ margin:0 auto; width:320px;height:auto; background:#e7e7e7;text-align:center; overflow-x:hidden; overflow-y:hidden;}
+ body, h1, h2, h3, h4, h5, h6, p, div, ul, ol, li, dl, dt, dd, h1{ padding:0;}
+ form { margin: 0;}
+ 
+ /* 导航 nav tab*/
+ ul,li{list-style-type:none}/*--清除列表格式--*/  
+ /*courseindex head*/
+/*
+.nav{width:310px;height:20px;float:left; line-height:44px;margin:0px;background:#D6E8F2;color:#647784; font:16px;	position:fixed;
+	top:0px;z-index:1000;opacity:1.75;box-sizing:border-box;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;}*//*--宽100%高30px左浮动行高30px背景灰色--*/
+	.nav{width:305px;height:20px;float:left; line-height:44px; margin-left:7px;background:#D6E8F2;color:#647784; font:16px;}
+.cc{width:305px;height:20px;line-height:20px;float:left;color:#032A3B;background:#E5F1FA; font-weight:700;text-align:center; border-bottom: 1px solid #08cb36;}
+
+.box{ width:320px;height:auto;margin-bottom:5px;background:#e7e7e7; text-align:center; }/*--border边框为1个像素灰色的实线边框--*/  
+.j2,.j4{ width:320px;height:atuo;display:none; margin-top:0px;margin-right:auto;margin-left:auto;background:#e7e7e7;}
+.j3{ width:320x;height:atuo; display:none; margin-top:0px;margin-right:auto;margin-left:auto;background:#e7e7e7;}
+.j1{ width:320px;height:atuo; margin-top:0px;margin-right:auto;margin-left:auto;background:#e7e7e7;}
+/*tab 结束*/
+ #rtid{width:300px;height:10px; margin-left:auto;margin-right:auto;}
+/*内容标题*/
+.title1{ font-size:18px; color:#2E2E2E; padding-left:11px; text-align:left;}
+.rows{ border:1px solid #cccccc; background:#FFF; width:304px; margin-left:7px;}
+/*底边框阴影效果*/
+.bottom-mask{width:306px; height:3px; margin-left:7px; background-color: #d7d7d7; display:block;}
+
+		
+/*星级评价*/
+.rating{ text-align:center;  vertical-align:middle; height:25px; line-height:25px;}
+/*星级评级*/
+.level{ margin-left:30px;margin-right:20px; display: block; float:left;}
+.level img{margin-left:4px;vertical-align:middle;}
+
+/*购买人数次数*/
+.liulannum { font-size:14px;color:#989898;padding-left:10px; vertical-align:middle; display: block; float:left;}
+.liulannum img{ vertical-align: middle; vertical-align:middle; padding:0px 2px;}
+.liulannum_n{vertical-align:middle;}
+/*售价*/
+.price{width:70px;font-size:14px; padding-top:2px; margin-left:11px; vertical-align:middle;display: block;float:left; text-align:left;}
+.price_f1{ color:#6b6b6b; font-size:13px;}
+.price_f2{ color:#e74700;font-size:14px;}
+/*详细内容*/
+.content{ padding-left:1px; padding-bottom:10px; }
+
+/*作者头像*/
+.content_upicture{width:58px;float:left; height:56px;}
+/*作者圆形头像*/
+.content_upicture img{width:50px;height:50px; border-radius:50px; margin-top:5px; }
+
+/*作者部分*/
+.content_aut{width:240px; height:56px;float:left; padding-left:2px; padding-top:2px; overflow:hidden; text-align:left;}
+.title2{ font-size:15px; margin-top:0px;}
+.content_brief{ height:40px; font-size:12px; color:#666666; margin-top:0px; margin-bottom:0px; margin-right:0px;}
+
+/*间隔*/
+.brdiv{ width:320px;height:13px; margin:0px; background-color:#e7e7e7;}
+/*分类*/
+ .ul_list{ background:#e7e7e7; font-size:16px;margin:0px; margin-bottom:9px;}
+ .ul_list li{ border: 1px solid #CCCCCC;background:#FFF;  width:297px; height:60px; vertical-align:middle;} 
+ 
+ /*列表激活样式*/
+ .to{ font-size:16px;float: right;margin-top:20px;margin-right:10px;}
+ .className{
+	float:left;
+	margin-top: 20px;
+    margin-left: 21px;
+	font-size: 18px;
+	color: #2E2E2E;
+}
+a:link{
+text-decoration:none;
+}
+ a:visited{
+text-decoration:none;
+}
+ a:hover{
+text-decoration:none;
+color:blue;
+}
+ a:active{
+text-decoration:none;
+}
+
+/*分割线*/
+ hr{ 
+     float:left;
+	 margin-left:7px;  
+     width:95.5%;
+	 border-color: #EFEFEF; 
+     border-style: solid;
+     border-width: 1px;  
+   }
+
+</style>
+</head>
+<body id="body">
+<div class="box" id="box" align="center"> 
+<div class="j1" id="j1_rows">
+         <div class="rows">
+                <a href="/Cdetails/index?courseid=20&sid=5fa19d47b011b890784d6b02d1176aa0" id="j1_like1"><img src="/images/index/lazyLoad1.gif"  data-original="/Uploads/images/4/52ce9d2487b94.jpg" width="304" height="191" class="titleimg"></a>
+                <div class="title1">
+                       易中天品三国                </div>
+                <div class="rating">
+                	     <span class="price"><font class="price_f2">
+                	     								            已购买
+							 
+						 </font></span>
+                         <span class="level">
+                         	<img src='/images/public/star_on.png' width='16' height='17'><img src='/images/public/star_on.png' width='16' height='17'><img src='/images/public/star_on.png' width='16' height='17'><img src='/images/public/star_on.png' width='16' height='17'><img src='/images/public/star_on.png' width='16' height='17'>                        </span> 
+                         <span class="liulannum">
+                           <img src="/images/public/s_num.png" width="13" height="17" >&nbsp;<span class="liulannum_n" > 1</span>				
+                         </span>
+						 <span style=" clear:both"></span>
+                </div>
+                  <!--清除float-->
+                <div style=" clear:both"></div>
+                <hr />
+                <div class="content">
+                     <div class="content_upicture">
+                                <img src="/Uploads/201401/52cf676aee1a9.jpg" width="75" height="75">
+                     </div>
+					 <section>
+                     <div class="content_aut">
+                    	<span class="title2">易中天</span>
+                        <p class="content_brief">
+                         &nbsp;&nbsp;&nbsp;&nbsp;易中天，湖南省长沙市人，1981年毕业于武汉大学，获文学硕士学位并留校任教...                        </p>
+                    </div>
+					</section>
+                     <div style=" clear:both"></div>
+           		</div>
+        </div>
+		<div class="bottom-mask"></div>
+        <div class="brdiv"></div>
+		
+         <div class="rows">
+                <a href="/Cdetails/index?courseid=17&sid=5fa19d47b011b890784d6b02d1176aa0" id="j1_like1"><img src="/images/index/lazyLoad1.gif"  data-original="/Uploads/images/8/52b8fa26352ca.jpg" width="304" height="191" class="titleimg"></a>
+                <div class="title1">
+                       人力资源管理                </div>
+                <div class="rating">
+                	     <span class="price"><font class="price_f2">
+                	     								            已购买
+							 
+						 </font></span>
+                         <span class="level">
+                         	<img src='/images/public/star_on.png' width='16' height='17'><img src='/images/public/star_on.png' width='16' height='17'><img src='/images/public/star_on.png' width='16' height='17'><img src='/images/public/star_on.png' width='16' height='17'><img src='/images/public/star_on.png' width='16' height='17'>                        </span> 
+                         <span class="liulannum">
+                           <img src="/images/public/s_num.png" width="13" height="17" >&nbsp;<span class="liulannum_n" > 4</span>				
+                         </span>
+						 <span style=" clear:both"></span>
+                </div>
+                  <!--清除float-->
+                <div style=" clear:both"></div>
+                <hr />
+                <div class="content">
+                     <div class="content_upicture">
+                                <img src="/Uploads/201312/52aa9681530db.gif" width="75" height="75">
+                     </div>
+					 <section>
+                     <div class="content_aut">
+                    	<span class="title2">彭剑锋</span>
+                        <p class="content_brief">
+                         &nbsp;&nbsp;&nbsp;&nbsp;华夏基石咨询集团董事长，华夏基石管理咨询集团创始人，中国人民大学教授、博导...                        </p>
+                    </div>
+					</section>
+                     <div style=" clear:both"></div>
+           		</div>
+        </div>
+		<div class="bottom-mask"></div>
+        <div class="brdiv"></div>
+		
+         <div class="rows">
+                <a href="/Cdetails/index?courseid=23&sid=5fa19d47b011b890784d6b02d1176aa0" id="j1_like1"><img src="/images/index/lazyLoad1.gif"  data-original="/Uploads/images/c/52d3447a70c2d.jpg" width="304" height="191" class="titleimg"></a>
+                <div class="title1">
+                       CSJ个人视频作品集                </div>
+                <div class="rating">
+                	     <span class="price"><font class="price_f2">
+                	     	免费 
+							 
+						 </font></span>
+                         <span class="level">
+                         	<img src='/images/public/star_on.png' width='16' height='17'><img src='/images/public/star_on.png' width='16' height='17'><img src='/images/public/star_on.png' width='16' height='17'><img src='/images/public/star_on.png' width='16' height='17'><img src='/images/public/star_off.png' width='16' height='17'>                        </span> 
+                         <span class="liulannum">
+                           <img src="/images/public/s_num.png" width="13" height="17" >&nbsp;<span class="liulannum_n" > 0</span>				
+                         </span>
+						 <span style=" clear:both"></span>
+                </div>
+                  <!--清除float-->
+                <div style=" clear:both"></div>
+                <hr />
+                <div class="content">
+                     <div class="content_upicture">
+                                <img src="/Uploads/201402/52fb83b19044e.jpg" width="75" height="75">
+                     </div>
+					 <section>
+                     <div class="content_aut">
+                    	<span class="title2">小席</span>
+                        <p class="content_brief">
+                         &nbsp;&nbsp;&nbsp;&nbsp;华夏基石咨询集团董事长，华夏基石管理咨询集团创始人，中国人民大学教授、博导...                        </p>
+                    </div>
+					</section>
+                     <div style=" clear:both"></div>
+           		</div>
+        </div>
+		<div class="bottom-mask"></div>
+        <div class="brdiv"></div>
+		
+         <div class="rows">
+                <a href="/Cdetails/index?courseid=23&sid=5fa19d47b011b890784d6b02d1176aa0" id="j1_like1"><img src="/images/index/lazyLoad1.gif"  data-original="/Uploads/images/c/52d3447a70c2d.jpg" width="304" height="191" class="titleimg"></a>
+                <div class="title1">
+                       CSJ个人视频作品集                </div>
+                <div class="rating">
+                	     <span class="price"><font class="price_f2">
+                	     	免费 
+							 
+						 </font></span>
+                         <span class="level">
+                         	<img src='/images/public/star_on.png' width='16' height='17'><img src='/images/public/star_on.png' width='16' height='17'><img src='/images/public/star_on.png' width='16' height='17'><img src='/images/public/star_on.png' width='16' height='17'><img src='/images/public/star_off.png' width='16' height='17'>                        </span> 
+                         <span class="liulannum">
+                           <img src="/images/public/s_num.png" width="13" height="17" >&nbsp;<span class="liulannum_n" > 0</span>				
+                         </span>
+						 <span style=" clear:both"></span>
+                </div>
+                  <!--清除float-->
+                <div style=" clear:both"></div>
+                <hr />
+                <div class="content">
+                     <div class="content_upicture">
+                                <img src="/Uploads/201402/52fb83b19044e.jpg" width="75" height="75">
+                     </div>
+					 <section>
+                     <div class="content_aut">
+                    	<span class="title2">小席</span>
+                        <p class="content_brief">
+                         &nbsp;&nbsp;&nbsp;&nbsp;华夏基石咨询集团董事长，华夏基石管理咨询集团创始人，中国人民大学教授、博导...                        </p>
+                    </div>
+					</section>
+                     <div style=" clear:both"></div>
+           		</div>
+        </div>
+		<div class="bottom-mask"></div>
+        <div class="brdiv"></div>
+		
+         <div class="rows">
+                <a href="/Cdetails/index?courseid=23&sid=5fa19d47b011b890784d6b02d1176aa0" id="j1_like1"><img src="/images/index/lazyLoad1.gif"  data-original="/Uploads/images/c/52d3447a70c2d.jpg" width="304" height="191" class="titleimg"></a>
+                <div class="title1">
+                       CSJ个人视频作品集                </div>
+                <div class="rating">
+                	     <span class="price"><font class="price_f2">
+                	     	免费 
+							 
+						 </font></span>
+                         <span class="level">
+                         	<img src='/images/public/star_on.png' width='16' height='17'><img src='/images/public/star_on.png' width='16' height='17'><img src='/images/public/star_on.png' width='16' height='17'><img src='/images/public/star_on.png' width='16' height='17'><img src='/images/public/star_off.png' width='16' height='17'>                        </span> 
+                         <span class="liulannum">
+                           <img src="/images/public/s_num.png" width="13" height="17" >&nbsp;<span class="liulannum_n" > 0</span>				
+                         </span>
+						 <span style=" clear:both"></span>
+                </div>
+                  <!--清除float-->
+                <div style=" clear:both"></div>
+                <hr />
+                <div class="content">
+                     <div class="content_upicture">
+                                <img src="/Uploads/201402/52fb83b19044e.jpg" width="75" height="75">
+                     </div>
+					 <section>
+                     <div class="content_aut">
+                    	<span class="title2">小席</span>
+                        <p class="content_brief">
+                         &nbsp;&nbsp;&nbsp;&nbsp;华夏基石咨询集团董事长，华夏基石管理咨询集团创始人，中国人民大学教授、博导...                        </p>
+                    </div>
+					</section>
+                     <div style=" clear:both"></div>
+           		</div>
+        </div>
+		<div class="bottom-mask"></div>
+        <div class="brdiv"></div>
+		
+         <div class="rows">
+                <a href="/Cdetails/index?courseid=23&sid=5fa19d47b011b890784d6b02d1176aa0" id="j1_like1"><img src="/images/index/lazyLoad1.gif"  data-original="/Uploads/images/c/52d3447a70c2d.jpg" width="304" height="191" class="titleimg"></a>
+                <div class="title1">
+                       CSJ个人视频作品集                </div>
+                <div class="rating">
+                	     <span class="price"><font class="price_f2">
+                	     	免费 
+							 
+						 </font></span>
+                         <span class="level">
+                         	<img src='/images/public/star_on.png' width='16' height='17'><img src='/images/public/star_on.png' width='16' height='17'><img src='/images/public/star_on.png' width='16' height='17'><img src='/images/public/star_on.png' width='16' height='17'><img src='/images/public/star_off.png' width='16' height='17'>                        </span> 
+                         <span class="liulannum">
+                           <img src="/images/public/s_num.png" width="13" height="17" >&nbsp;<span class="liulannum_n" > 0</span>				
+                         </span>
+						 <span style=" clear:both"></span>
+                </div>
+                  <!--清除float-->
+                <div style=" clear:both"></div>
+                <hr />
+                <div class="content">
+                     <div class="content_upicture">
+                                <img src="/Uploads/201402/52fb83b19044e.jpg" width="75" height="75">
+                     </div>
+					 <section>
+					<div class="content_aut">
+                    	<span class="title2">小席</span>
+                        <p class="content_brief">
+                         &nbsp;&nbsp;&nbsp;&nbsp;华夏基石咨询集团董事长，华夏基石管理咨询集团创始人，中国人民大学教授、博导...                        </p>
+                    </div>
+					</section>
+                     <div style=" clear:both"></div>
+           		</div>
+        </div>
+		<div class="bottom-mask"></div>
+        <div class="brdiv"></div>
+		
+         <div class="rows">
+                <a href="/Cdetails/index?courseid=23&sid=5fa19d47b011b890784d6b02d1176aa0" id="j1_like1"><img src="/images/index/lazyLoad1.gif"  data-original="/Uploads/images/c/52d3447a70c2d.jpg" width="304" height="191" class="titleimg"></a>
+                <div class="title1">
+                       CSJ个人视频作品集                </div>
+                <div class="rating">
+                	     <span class="price"><font class="price_f2">
+                	     	免费 
+							 
+						 </font></span>
+                         <span class="level">
+                         	<img src='/images/public/star_on.png' width='16' height='17'><img src='/images/public/star_on.png' width='16' height='17'><img src='/images/public/star_on.png' width='16' height='17'><img src='/images/public/star_on.png' width='16' height='17'><img src='/images/public/star_off.png' width='16' height='17'>                        </span> 
+                         <span class="liulannum">
+                           <img src="/images/public/s_num.png" width="13" height="17" >&nbsp;<span class="liulannum_n" > 0</span>				
+                         </span>
+						 <span style=" clear:both"></span>
+                </div>
+                  <!--清除float-->
+                <div style=" clear:both"></div>
+                <hr />
+                <div class="content">
+                     <div class="content_upicture">
+                                <img src="/Uploads/201402/52fb83b19044e.jpg" width="75" height="75">
+                     </div>
+					 <section>
+                     <div class="content_aut">
+                    	<span class="title2">小席</span>
+                        <p class="content_brief">
+                         &nbsp;&nbsp;&nbsp;&nbsp;华夏基石咨询集团董事长，华夏基石管理咨询集团创始人，中国人民大学教授、博导...                        </p>
+                    </div>
+					</section>
+                     <div style=" clear:both"></div>
+           		</div>
+        </div>
+		<div class="bottom-mask"></div>
+        <div class="brdiv"></div>
+		
+         <div class="rows">
+                <a href="/Cdetails/index?courseid=23&sid=5fa19d47b011b890784d6b02d1176aa0" id="j1_like1"><img src="/images/index/lazyLoad1.gif"  data-original="/Uploads/images/c/52d3447a70c2d.jpg" width="304" height="191" class="titleimg"></a>
+                <div class="title1">
+                       CSJ个人视频作品集                </div>
+                <div class="rating">
+                	     <span class="price"><font class="price_f2">
+                	     	免费 
+							 
+						 </font></span>
+                         <span class="level">
+                         	<img src='/images/public/star_on.png' width='16' height='17'><img src='/images/public/star_on.png' width='16' height='17'><img src='/images/public/star_on.png' width='16' height='17'><img src='/images/public/star_on.png' width='16' height='17'><img src='/images/public/star_off.png' width='16' height='17'>                        </span> 
+                         <span class="liulannum">
+                           <img src="/images/public/s_num.png" width="13" height="17" >&nbsp;<span class="liulannum_n" > 0</span>				
+                         </span>
+						 <span style=" clear:both"></span>
+                </div>
+                  <!--清除float-->
+                <div style=" clear:both"></div>
+                <hr />
+                <div class="content">
+                     <div class="content_upicture">
+                                <img src="/Uploads/201402/52fb83b19044e.jpg" width="75" height="75">
+                     </div>
+					 <section>
+                     <div class="content_aut">
+                    	<span class="title2">小席</span>
+                        <p class="content_brief">
+                         &nbsp;&nbsp;&nbsp;&nbsp;华夏基石咨询集团董事长，华夏基石管理咨询集团创始人，中国人民大学教授、博导...                        </p>
+                    </div>
+					</section>
+                     <div style=" clear:both"></div>
+           		</div>
+        </div>
+		<div class="bottom-mask"></div>
+        <div class="brdiv"></div>
+	
+         <div class="rows">
+                <a href="/Cdetails/index?courseid=23&sid=5fa19d47b011b890784d6b02d1176aa0" id="j1_like1"><img src="/images/index/lazyLoad1.gif"  data-original="/Uploads/images/c/52d3447a70c2d.jpg" width="304" height="191" class="titleimg"></a>
+                <div class="title1">
+                       CSJ个人视频作品集                </div>
+                <div class="rating">
+                	     <span class="price"><font class="price_f2">
+                	     	免费 
+							 
+						 </font></span>
+                         <span class="level">
+                         	<img src='/images/public/star_on.png' width='16' height='17'><img src='/images/public/star_on.png' width='16' height='17'><img src='/images/public/star_on.png' width='16' height='17'><img src='/images/public/star_on.png' width='16' height='17'><img src='/images/public/star_off.png' width='16' height='17'>                        </span> 
+                         <span class="liulannum">
+                           <img src="/images/public/s_num.png" width="13" height="17" >&nbsp;<span class="liulannum_n" > 0</span>				
+                         </span>
+						 <span style=" clear:both"></span>
+                </div>
+                  <!--清除float-->
+                <div style=" clear:both"></div>
+                <hr />
+                <div class="content">
+                     <div class="content_upicture">
+                                <img src="/Uploads/201402/52fb83b19044e.jpg" width="75" height="75">
+                     </div>
+					 <section>
+                     <div class="content_aut">
+                    	<span class="title2">小席</span>
+                        <p class="content_brief">
+                         &nbsp;&nbsp;&nbsp;&nbsp;华夏基石咨询集团董事长，华夏基石管理咨询集团创始人，中国人民大学教授、博导...                        </p>
+                    </div>
+					</section>
+                     <div style=" clear:both"></div>
+           		</div>
+        </div>
+		<div class="bottom-mask"></div>
+        <div class="brdiv"></div>
+		
+         <div class="rows">
+                <a href="/Cdetails/index?courseid=23&sid=5fa19d47b011b890784d6b02d1176aa0" id="j1_like1"><img src="/images/index/lazyLoad1.gif"  data-original="/Uploads/images/c/52d3447a70c2d.jpg" width="304" height="191" class="titleimg"></a>
+                <div class="title1">
+                       CSJ个人视频作品集                </div>
+                <div class="rating">
+                	     <span class="price"><font class="price_f2">
+                	     	免费 
+							 
+						 </font></span>
+                         <span class="level">
+                         	<img src='/images/public/star_on.png' width='16' height='17'><img src='/images/public/star_on.png' width='16' height='17'><img src='/images/public/star_on.png' width='16' height='17'><img src='/images/public/star_on.png' width='16' height='17'><img src='/images/public/star_off.png' width='16' height='17'>                        </span> 
+                         <span class="liulannum">
+                           <img src="/images/public/s_num.png" width="13" height="17" >&nbsp;<span class="liulannum_n" > 0</span>				
+                         </span>
+						 <span style=" clear:both"></span>
+                </div>
+                  <!--清除float-->
+                <div style=" clear:both"></div>
+                <hr />
+                <div class="content">
+                     <div class="content_upicture">
+                                <img src="/Uploads/201402/52fb83b19044e.jpg" width="75" height="75">
+                     </div>
+					 <section>
+                     <div class="content_aut">
+                    	<span class="title2">小席</span>
+                        <p class="content_brief">
+                         &nbsp;&nbsp;&nbsp;&nbsp;华夏基石咨询集团董事长，华夏基石管理咨询集团创始人，中国人民大学教授、博导...                        </p>
+                    </div>
+					</section>
+                     <div style=" clear:both"></div>
+           		</div>
+        </div>
+		<div class="bottom-mask"></div>
+        <div class="brdiv"></div>
+    </div>
+	<div class="j2" id="j2_rows"></div>
+	 <div class="j3" align="center" id="j3_rows">
+        </div>
+</div>
+<script type="text/javascript" src="/static/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="/static/js/jquery.lazyload.min.js"></script> 
+<!--<script src="/js/scroller.js" ></script>-->
+<script src="/js/slowtouchCSJ.js" ></script>
+<script type="text/javascript">
+	 var div_body = document.getElementById("body");
+	 addSlowTouchObj(div_body);
+	 $(document).ready(function(){     
+//   var heightP		= window.screen.height;
+//   var heightWeb	= heightP-64+'px';
+//document.getElementById('box').style.height = heightWeb;
+
+	  
+//	var rtid = $('#rtid').html();
+//	$('#j1_rows').hide();
+//	$('#j2_rows').hide();
+//	$('#31_rows').hide();
+//    if(rtid =='new'){
+//		$('#j1_rows').show();
+//	}else if(rtid =='hot'){
+//		$('#j2_rows').show();
+//	}else if(rtid =='type'){
+//		$('#j3_rows').show();
+//	}
+	
+	 $("img.titleimg").lazyload({ 
+	   threshold:100,  
+       effect : "fadeIn"   
+     });
+	 
+});  
+//console.log( $('*').length );    //加载DOM长度。越小越好
+</script> 
+</body>
+</html>

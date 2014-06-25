@@ -1,0 +1,16 @@
+html{font-family:'黑体'}
+body{margin:0 auto;width:320px;background: none repeat scroll 0 0 #E7E7E7;overflow:hidden;}
+.person_style{margin:0 auto;background:#e7e7e7;width:320px;}
+.content_person{width: 303px;margin-left:8px;}
+
+.body_top{width:320px;min-height:207px;background:url("/images/personal/bg.png")no-repeat;background-size:320px 207px;}
+.header_pic{width:320px;padding-top: 33px;text-align: center;}
+.header_pic img{border-radius: 50px;}
+.class_name{font-size:24px;color:#FFFFFF;font-family:'微软雅黑';text-align: center;width:320px;}
+.und_line{width:280px;height:2px;margin-left:12px;background-color:#d8d8d8;margin-top: 9px;}
+.buy_conrse{width:304px;/*height:100px;*/}
+.course_pic{width:100px;height:100px;float:left;}
+.course_pic img{margin-left:10px;}
+.course_name{width:190px;float:right;}
+.sub_div{bottom:0px; line-height: 50px; z-index: 1000; background:url("/images/question/fen.jpg")no-repeat;width:304px;height:53px;color:#ffffff;font-size:24px;text-align:center}
+.logout{bottom:0px;line-height: 50px; z-index: 1000; background:url("/images/personal/logout.png")no-repeat;background-size:304px 53px;width:304px;height:53px;color:#ffffff;font-size:24px;text-align:center}

@@ -1,0 +1,28 @@
+D:\msysgit>git config --global user.email xiwn@icesmart.cn
+D:\msysgit>git config --global user.name "xwn"
+//git安装详细文档
+http://www.xbc.me/install-git-on-windows/
+
+ git@git.52686.com:testzone.git
+
+git clone git@git.52686.com:hmteacher.git  d:\icesmartphpcode\testzon
+http://112.124.58.233/phpMyAdmin/ 
+
+
+这是个你的测试环境：http://xiwn.test.icesmart.cn
+服务器登录信息：
+112.124.58.233 
+用户名：xiwn
+密码：icesmart!#%246
+/opt/web/xiwn.test.icesmart.cn
+
+https://basecamp.com/2483863/
+
+https://basecamp.com/1937431 
+
+https://basecamp.com/1937431/projects/2456801-/documents/4539887-
+
+liunx
+112.124.58.233
+root
+Ice123456

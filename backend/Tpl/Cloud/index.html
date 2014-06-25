@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8">
+<meta name="publisher" content="TideCMS 8.5">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>云应用</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="/css/cloud/base.css" rel="stylesheet" type="text/css" />
+<link href="/css/cloud/colorbox.css" rel="stylesheet" type="text/css" />
+<link href="/css/cloud/style.css" rel="stylesheet" type="text/css" />
+<script src="/static/js/jquery-1.9.1.min.js"></script>
+<script src="/js/cloud/common.js"></script>
+
+<script src="/js/cloud/jquery.mousewheel.js"></script>
+<script src="/js/cloud/jquery.jscrollpane.min.js"></script>
+<script src="/js/cloud/videoPlayer.js"></script>
+<script src="/js/cloud/colorbox.js"></script>
+<script src="/js/cloud/tideChannelLivePlayer.js"></script>
+<script>
+$(document).ready(function(){
+//Examples of how to assign the Colorbox event to elements
+$(".taobao_video").click(function(){
+$("#ajax").colorbox({contentWidth:"300px", contentHeight:"195px"});
+})
+});
+</script>
+<script type="text/javascript">
+var page=1;
+var username="小白";
+var userid	="1124227";
+var	userpic="/images/cloud/2014/3/2014331393842044677_13.jpg";
+
+function type_change(){
+
+	$(".listbox h2").click(function(){
+var cid=$(this).attr("cid");
+if($(".listbox span").eq(cid).html()=="-"){
+$(".class_list").eq(cid).hide();
+$(".listbox span").eq(cid).html("+");
+}else{
+$(".listbox span").html("+");
+$(".class_list").hide();
+$(".listbox span").eq(cid).html("-");
+$(".class_list").eq(cid).show();
+}
+});
+}
+/*
+$(function(){ 
+$(".taobao_kns").click(function(){
+$(".kns_alert").show();
+});
+$(".kns_close").click(function(){
+$(".kns_alert").hide();
+});
+
+$(".taobao_video").click(function(){
+
+$(".video_alert").show();
+var obj_video = $(".video_alert");
+var x_video = ($(window).width()-583)/2;
+var y_video = ($(window).height()-10)/2; 
+obj_video.css("top",y_video).css("left",x_video);
+});
+
+$(".video_close").click(function(){
+$(".video_alert").hide();
+});
+
+})*/
+
+ 
+
+//kns
+$(function(){
+	$(".taobao_kns").click(function(){
+		var keyword = $(".search_txt").val();
+		var link = document.getElementById.href='kns.html-keyword=.htm'+ keyword;
+		if(keyword!="")
+		{	
+
+                 $.colorbox({iframe:true,href:link,width:680,height:680});
+
+                     
+		}else
+		{
+			$(".search_txt").focus();
+			alert("请输入关键字");
+		}
+		
+	});
+
+//video弹出层
+$(".taobao_video").click(function(){
+var obj_video = $(".video_alert");
+var x_video = ($(window).width()-583)/2;
+var y_video = ($(window).height()-200)/2; 
+$(".video_alert").show();
+obj_video.css("top",y_video).css("left",x_video);
+});
+
+$(".video_close").click(function(){
+$(".video_alert").hide();
+});
+
+})
+
+
+//左侧类别列表
+function show_type(){
+$.ajax({
+	type:"GET",
+	dataType:"HTML",
+	url:"/php/taobao_type.php?&random="+Math.random(),
+	success:function(data){
+	$(".listbox").html(data);
+	type_change();
+	}
+	})
+}
+
+function level_one(){
+$("#level_1 a").click(function(){
+if($("#level_1").children().hasClass("click_a"))
+{
+ $("#level_1").children().removeClass("click_a");
+ }
+$(this).addClass("click_a");
+});
+}
+
+function level_two(){
+$("#level_2 a").click(function(){
+if($("#level_2").children().hasClass("click_a"))
+{
+ $("#level_2").children().removeClass("click_a");
+ }
+$(this).addClass("click_a");
+});
+}
+
+
+function level_three(){
+$("#level_3 a").click(function(){
+if($("#level_3").children().hasClass("click_a"))
+{
+ $("#level_3").children().removeClass("click_a");
+ }
+$(this).addClass("click_a");
+});
+}
+
+function show_xj(cid,jibie){
+
+ setTimeout('level_one();',300);
+ setTimeout('level_two();',300);
+ setTimeout('level_three();',300);
+ if(jibie==1){
+ $(".level p").html("");
+ }
+ if(jibie==2){
+ $("#level_2").html("");
+ $("#level_3").html("");
+ }
+$.ajax({
+	type:"GET",
+	dataType:"json",
+	url:"/php/taobao_type.php?cid="+cid+"&jibie="+jibie+"&random="+Math.random(),
+	success:function(data){
+	//alert(data.jibie);
+	$("#level_"+data.jibie).html(data.html);
+	if(data.html==""){
+	$(".class_list a").removeClass("cur_on");
+	$("a[cid='"+cid+"']").addClass("cur_on");
+	show_list(cid,1);
+	}
+	}
+	})
+}
+
+//获取列表
+function show_list(cid,d_page,_this){
+if(d_page==1){
+page=1;
+}
+if(cid==0){
+cid=$(".cur_on").attr("cid");
+}
+if(cid==undefined){
+cid="";
+}
+if(_this){
+$("#ailisi li").attr("Status","");
+_this.attr("Status","on");
+var change_=_this.attr("class");
+}else{
+var change_=$("li[Status='on']").attr("class");
+}
+var keyword=$("#keyword").val();
+if(keyword=="可汗学院、公开课、人文..."){
+keyword="";
+}
+var format=$(".format_on").html();
+var source_from=$(".source_from").html();
+var price=$(".price").html();
+$.ajax({
+	type:"GET",
+	dataType:"HTML",
+	url:"/search/guoshi_search.php?cid="+cid+"&page="+page+"&keyword="+keyword+"&change_="+change_+"&format="+format+"&source_from="+source_from+"&price="+price+"&random="+Math.random(),
+	success:function(data){
+	if(d_page==1){
+	$(".subject_list ul").html(data);
+	}else{
+	$(".subject_list ul").append(data);
+	}
+	page++;
+	show_playnum();
+	like("","show");
+    like("","all");
+	}
+	})
+}
+
+
+
+$( document ).ready( function(){
+	$( ".source" ).hover(
+		function(){
+			if( !$(this).children().hasClass( 'hd-noborder' )){
+				$( "#quickview .bd" ).hide();
+				$( this ).children().eq(1).show();
+				$( this ).addClass( "source_click" );
+				$( this ).children().eq(0).addClass( "" );
+				$( this ).children().children().eq(1).addClass( "up3j" );
+			}
+		},
+		function(){
+			$( this ).children().eq(1).hide();
+                        $( this ).removeClass( "source_click" );
+			$( this ).children().eq(0).removeClass( "highlight" );
+			$( this ).children().children().eq(1).removeClass( "up3j" );
+		}
+	);
+
+	$( ".format" ).hover(
+		function(){
+			if( !$(this).children().hasClass( 'hd-noborder' )){
+				$( "#quickview .bd" ).hide();
+				$( this ).children().eq(1).show();
+                                $( this ).addClass( "format_click" );
+				$( this ).children().eq(0).addClass( "" );
+			}
+		},
+		function(){
+			$( this ).children().eq(1).hide();
+                        $( this ).removeClass( "format_click" );
+		}
+	);
+
+	$( ".fee_type" ).hover(
+		function(){
+			if( !$(this).children().hasClass( 'hd-noborder' )){
+				$( "#quickview .bd" ).hide();
+				$( this ).children().eq(1).show();
+                                $( this ).addClass( "fee_type_click" );
+				$( this ).children().eq(0).addClass( "" );
+
+			}
+		},
+		function(){
+			$( this ).children().eq(1).hide();
+                        $( this ).removeClass( "fee_type_click" );
+			$( this ).children().eq(0).removeClass( "highlight" );
+
+		}
+	);
+});
+
+
+
+$(function(){
+$(".search_sort .sort li ul li").hover(
+  function(){
+    $(this).addClass("hover");
+  },
+  function(){
+    $(this).removeClass("hover");
+  });
+$(".return").hover(
+function(){
+$(this).stop().addClass("return2");
+},
+function(){
+$(this).stop().removeClass("return2");
+});
+
+$(".video").hover(
+function(){
+$(this).stop().addClass("video2");
+},
+function(){
+$(this).stop().removeClass("video2");
+});
+
+$(".pinglun").hover(
+function(){
+$(this).stop().addClass("pinglun2");
+},
+function(){
+$(this).stop().removeClass("pinglun2");
+});
+
+
+$(".like").hover(
+function(){
+$(this).stop().addClass("like2");
+},
+function(){
+$(this).stop().removeClass("like2");
+});
+
+
+$(".shop").hover(
+function(){
+$(this).stop().addClass("shop2");
+},
+function(){
+$(this).stop().removeClass("shop2");
+});
+
+});
+
+//浏览数
+function show_playnum(){
+var ids="";
+$(".subject_list li").each(function(i){
+if(i==0){
+ids += $(this).attr("ids");
+} else{
+ ids += ","+$(this).attr("ids");
+ }
+})
+$.ajax({
+	type:"GET",
+	dataType:"json",
+	url:"/php/play_num.php?ids="+ids+"&type=all&random="+Math.random(),
+	success:function(data){
+	var j=0;
+for(var i=1;i<=data.length;i++){
+$("#views_"+data[j].cid).html(data[j].playnum);
+j++;
+}
+	}
+	})
+}
+
+//喜欢
+function like(cid,op){
+if(op=="1"){
+op="update";
+}
+if(op=="show"){
+var ids="";
+$(".subject_list li").each(function(i){
+if(i==0){
+ids += $(this).attr("ids");
+} else{
+ ids += ","+$(this).attr("ids");
+ }
+})
+}
+$.ajax({
+	type:"GET",
+	dataType:"json",
+	url:"/php/like.php?cid="+cid+"&ids="+ids+"&userid="+userid+"&type="+op+"&random="+Math.random(),
+	success:function(data){
+//window.console.info(data)
+if(op=="update"){
+$("#like_"+cid).css('background','url(/img/like_img2.png) no-repeat left center');
+$("#like_"+cid).attr("onclick","");
+$("#like_"+data.cid).html(data.love);
+}
+if(op=="show"){
+	var j=0;
+for(var i=1;i<=data.length;i++){
+$("#like_"+data[j].cid).html(data[j].love);
+j++;
+}
+	}
+if(op=="all"){
+	var j=0;
+for(var i=1;i<=data.length;i++){
+$("#like_"+data[j].cid).css('background','url(/img/like_img2.png) no-repeat left center');
+$("#like_"+data[j].cid).attr("onclick","");
+j++;
+}
+}	
+}
+})
+}
+$(function(){
+show_type();
+var url=document.URL;
+var para="";
+if(url.lastIndexOf("?")>0)
+{     
+     para=decodeURI(url.substring(url.lastIndexOf("?")+1,url.length));
+     //para;
+     var arr = para.split("?");
+     var two = arr[0].split("=");
+     var id="";
+     id = two[1];
+}
+if(id!="" && id!=undefined){
+$("#keyword").val(id);
+}
+show_list(0,1);
+})
+
+
+
+function menuFixed(search_sort){
+var obj = document.getElementById("search_sort");
+var _getHeight = obj.offsetTop;
+
+window.onscroll = function(){
+	if($(document).height() -( $(window).height()+$(document).scrollTop())==0){
+		show_list(0,0);
+    }   
+changePosl(search_sort,_getHeight);
+}
+
+
+function changePosl(search_sort,height){
+var obj = document.getElementById("search_sort");
+var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+if(scrollTop < height){
+
+$("#subject_categories").removeClass("fixed2");
+$("#search_sort").removeClass("fixed");
+}else{
+$("#search_sort").addClass("fixed");
+$("#subject_categories").addClass("fixed2");
+}
+}
+}
+
+
+
+$(function(){
+$(".charge").click(function(){
+if( $(this).hasClass("charge_up")){
+$(this).removeClass("charge_up");
+$(this).addClass("charge");
+var _this=$(this);
+show_list(0,1,_this);
+}
+else{
+var _this=$(this);
+$(this).addClass("charge_up")
+$(this).removeClass("charge")
+show_list(0,1,_this);
+}
+});
+
+$(".time").click(function(){
+if( $(this).hasClass("time_up")){
+$(this).removeClass("time_up")
+$(this).addClass("time")
+show_list(0,1);
+}else{
+var _this=$(this);
+$(this).removeClass("time")
+$(this).addClass("time_up")
+show_list(0,1,_this);
+}
+});
+
+$(".hot").click(function(){
+$(".subject_list").hide();
+if( $(this).hasClass("hot_up")){
+$(this).removeClass("hot_up")
+$(this).addClass("hot")
+}
+else{
+$(this).addClass("hot_up")
+$(this).removeClass("hot")
+}
+setTimeout("$('.subject_list').show()",200);
+});
+
+$(".format ul a").click(function(){
+$(".format ul a").removeClass("format_on");
+$(this).addClass("format_on");
+show_list(0,1);
+})
+
+$(".source ul a").click(function(){
+$(".source ul a").removeClass("source_from");
+$(this).addClass("source_from");
+show_list(0,1);
+})
+
+
+$(".fee_type ul a").click(function(){
+$(".fee_type ul a").removeClass("price");
+$(this).addClass("price");
+show_list(0,1);
+})
+
+
+});
+
+function search(keyword){
+$("#keyword").val(keyword);
+show_list(0,1);
+}
+
+
+function one(){
+$(".class_list a").click(function(){
+if($(".class_list").children().hasClass("click_a")){
+ $( ".class_list" ).children().removeClass( "click_a" );
+ }
+$(this).addClass("click_a"); 
+});
+}
+</script>
+<script type="text/javascript">
+window.onload = function(){
+menuFixed('search_sort');
+setTimeout('one();',300);
+}
+</script>
+
+
+</head>
+
+<body>
+<div class="header">
+	<div class="header_index">
+        <h1 class="logo"><a href="#">果实网</a></h1>
+        <ul class="menu">
+            <li><a href="/Cloud/index">云应用</a></li>
+            <!--<li><a href="#">果实物联</a></li>
+            <li><a href="#">果实直播</a></li>
+            <li><a href="javascript:;">果实定制</a></li>
+            <li><a href="javascript:;">果实评测</a></li>
+            <li><a href="javascript:;">2077科学探究园</a></li>-->
+        </ul>
+        <div class="right"><a href="javascript:;" class="ico6"></a><a href="javascript:;" class="ico7"></a></div>
+    </div>
+</div>
+
+<div class="wrap">
+<div class="taobao_top">
+	<div class="top_img">
+    	<a href="" title="摄影公开课" target="_blank"><img src="/images/cloud/2014/3/21/20143211395370097437_1.jpg"  alt="摄影公开课" title="摄影公开课"/></a>
+
+    </div>
+    <div class="top_lunbo">
+      	<!--轮播图开始-->
+<div class="taobao_lunbo" id="taobao_lunbo">
+<ul>
+	<li>
+<div class="pic">
+<a href="" target="_blank"><img src="/images/cloud/2014/3/21/20143211395393452812_1.jpg"/></a>
+</div>
+</li>
+	<li>
+		<div class="pic">
+			<a href="" title="新课上线：指数" target="_blank">
+				<img src="/images/cloud/2014/3/21/20143211395393401046_1.jpg"/>
+			</a>
+		</div>
+	</li>
+<li>
+<div class="pic">
+<a href="" title="如何跟压力做朋友" target="_blank">
+	<img src="/images/cloud/2014/3/21/20143211395393362843_1.jpg"/></a>
+</div>
+</li>
+<li>
+<div class="pic">
+<a href="" title="微积分预备" target="_blank"><img src="/images/cloud/2014/3/21/20143211395370228546_1.jpg" alt="微积分预备" title="微积分预备"/></a>
+</div>
+</li>
+           </ul>
+            </div>
+            <div class="taobao_num" id="taobao_num">
+            	<ul id="taobao_li" class="taobao_li">
+                    <li id="taobao_num_special" class='on'></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+</div>      
+<script>       
+jQuery("#taobao_lunbo").jCarouselLite({
+        auto:3000,
+        speed:10,
+        visible:1,
+        stop:$("#taobao_lunbo"),
+        btnGo: $("#taobao_li li"),
+        btnGoOver:true
+});     
+</script>
+<!--轮播图结束-->
+    </div>
+</div>
+<div class="subject_categories" id="subject_categories">
+<h3><p><span class="subject_categories_1">应用分类</span><br /></p></h3>
+
+    <div class="listbox jq">
+		<ul id="title_ul">
+		<volist name="cainfo" id="vo">
+    	
+			<li <if condition="$vo['name'] eq 学习应用">class="click_a1"</if>>
+			<a href="javascript:void(0)" onclick="appHit({$vo['categoryid']})">
+			[{$vo['name']}]
+			</a>
+			</li>
+		
+		</volist>
+		</li>
+</div>
+</div>
+<div class="level">
+	<p id="level_1"></p>
+	<p id="level_2"></p>
+	<p id="level_3"></p>
+</div>
+<div class="subject_list">
+<ul>
+	
+    
+</ul>
+</div>
+
+</div>
+<div class="kns_alert" >
+		<ul class="filter-app-list" id="appDong">
+			<volist name="courseinfo" id="vo">
+				<li>
+					<a href="/Cloud/listdetail?courseid={$vo['courseid']}">
+						<div class="yingyong">
+							<div class="pic"><img src="{$vo['picture']}" width="70px" height="70px;"></div>
+							<h4>{$vo['name']}</h4>
+							<div class="s-index-star s-index-star-9">
+								<div class="wrap2">
+									<span class="xing">
+										<img src="/images/public/star_on.png" height="13">
+									</span>
+									<span class="xing">
+										<img src="/images/public/star_on.png" height="13">
+									</span>
+									<span class="xing">
+										<img src="/images/public/star_on.png" height="13">
+									</span>
+									<span class="xing">
+										<img src="/images/public/star_on.png" height="13">
+									</span>
+									<span class="xing">
+										<img src="/images/public/star_off.png" height="13">
+									</span>
+								</div>
+							</div>
+							<div class="down-num">
+								<span class="s-index-icon down-icon">&nbsp;</span>
+								291万下载
+							</div>
+						</div>
+					</a>
+				</li>
+			</volist>
+		</ul>
+</div>
+<div class="footer">
+    <div class="copyright">
+        <p><a></a>|<a href="javascript:;">使用指南</a>|<a href="javascript:;">云应用</a>|<a href="javascript:;">联系我们</a></p>
+    </div>
+</div>
+
+<script>
+	function appHit(categoryid){
+			var ul = document.getElementById('title_ul');
+			var lis = ul.getElementsByTagName('li');
+			for(var i=0;i<lis.length;i++)
+				{
+					lis[i].addEventListener("click", function(event)
+					{
+						$(this).parent().children("li").attr("class", "");
+						$(this).attr("class", "click_a1");
+					});
+				}
+			$.post('/Cloud/getApp',{categoryid:categoryid},function(data){
+				
+				jsons	= eval(data);
+				if(jsons){
+					
+						var workstype = document.getElementById("appDong");      
+						var childs = workstype.childNodes; 
+						for(var i = childs.length - 1; i >= 0; i--) {      
+							workstype.removeChild(childs[i]);
+						}   
+				for(var i=0; i<jsons.length; i++){
+						var $tr=$('<li><a href="/Cloud/listdetail?courseid='+jsons[i].courseid+'"><div class="yingyong"><div class="pic"><img src='+jsons[i].picture+' width="70px" height="70px;"></div><h4>'+jsons[i].name+'</h4><div class="s-index-star s-index-star-9"><div class="wrap2"><span class="xing"><img src="/images/public/star_on.png" height="13"></span><span class="xing"><img src="/images/public/star_on.png" height="13"></span><span class="xing"><img src="/images/public/star_on.png" height="13"></span><span class="xing"><img src="/images/public/star_on.png" height="13"></span><span class="xing"><img src="/images/public/star_off.png" height="13"></span></div></div><div class="down-num"><span class="s-index-icon down-icon">&nbsp;</span>291万下载</div></div></a></li>');
+						$tr.appendTo("#appDong");
+					}  
+					}else{
+						alert('暂无应用');
+					}
+			})
+	}
+set_class(".header .menu li","cur","云应用");
+</script>
+</body>
+</html>

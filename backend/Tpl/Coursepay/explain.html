@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta content="email=no" name="format-detection" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0">
+<title>购买课程</title>
+<link rel="stylesheet" href="/css/buy.style.css">
+<style type='css/type'>
+
+</style>
+</head>
+<body id='body'><!--html5的video标签目前只支持播放.mp4、.ogg、.webm-->
+<div class='body_style' id='body_style'>
+	<div class='content_body' id='content_body'>
+			<div class='buy_top' name='buy_conrse'>
+				<div class="cname">
+				{$course['name']}
+				
+				</div>
+				<div class="underlines"></div>
+				<div class="centent-left">
+					<img class='images' width='45' height='45' src="{$userInfo['picture']}">
+				</div>
+				<div class="centent-right">
+					<span style="font-size:14px;display:block">{$userInfo['username']}</span>
+					<span style="font-size:12px;">{$userInfo['descp']}</span>
+				</div>
+			</div>
+
+			<div class="scroCon" id="scroCon">
+				<ul>
+					<li class="title_tp">
+						你可以得到
+					</li>
+					<li class="title_con">
+						{$getSenum}&nbsp章{$getJie}&nbsp节&nbsp;{$course["duration"]}&nbsp小时的内容
+					</li>
+					<li class="title_tp">
+						可用性
+					</li>
+					<li class="title_con">
+						您可以通过Ipad/Iphone应用访问您的课程
+					</li>
+					<li class="title_tp">
+						可访问性
+					</li>
+					<li class="title_con">
+						只要您注册了可以一生使用此账号
+					</li>
+					<li class="title_tp">
+						退款政策
+					</li>
+					<li class="title_con">
+						本课程购买是最终销售，不进行退款
+					</li>
+					
+				</ul>
+			</div>
+	</div>
+		<div class="bottom">
+		<if condition='$isfree eq 1 and $cheapprice neq 0'>
+			<span  onclick="buyfun({$courseid},{$userid},1)">
+		<else/>
+			<span  onclick="buyfun({$courseid},{$userid},0)">
+		</if>
+			<div class="bottom1" style="display:block">
+				<if condition='$isfree eq 1'>
+					<if condition='$cheapprice eq 0'>
+						<span class="yuanjia" style="color:#FFFFFF;font-size:12px;line-height:20px;;margin-left:220px;float:right;margin-right:5px;">原价
+							<span style='text-decoration :line-through;'>￥{$price}</span>
+						</span>
+						<span class="mianfei" style="color:#FFFFFF;font-size:14px;line-height:0px;;margin-left:220px;font-weight:600">免费</span>
+					</if>
+					<if condition='$cheapprice eq $price'>
+						<span class="yuanjia" style="color:#FFFFFF;font-size:12px;line-height:30px;;margin-left:220px;float:right;margin-right:5px;">原价
+							<span style='text-decoration :line-through;'>￥{$price}</span>
+						</span>
+					</if>
+					<if condition='$cheapprice neq 0 and $cheapprice neq $price'>
+						<span class="yuanjia" style="color:#FFFFFF;font-size:12px;line-height:30px;;margin-left:220px;float:right;margin-right:5px;">原价
+							<span style='text-decoration :line-through;'>￥{$price}</span>
+						</span>
+						<span class="mianfei" style="color:#FFFFFF;font-size:18px;line-height:0px;;margin-left:220px;font-weight:600">￥{$cheapprice}</span>
+					</if>
+				</if>
+			</div>
+		</span>
+		<div>
+</div>
+<script src="/static/js/jquery-1.9.1.min.js"></script>
+<!--基础文件，分别是jQuery基库和拖拽UI插件-->
+<script src="/js/jquery_dialogs/jquery.js" type="text/javascript"></script>
+<script src="/js/jquery_dialogs/jquery.ui.draggable.js" type="text/javascript"></script>
+
+<!-- 对话框核心JS文件和对应的CSS文件-->
+<script src="/js/jquery_dialogs/jquery.alerts.js" type="text/javascript"></script>
+<link href="/js/jquery_dialogs/jquery.alerts.css" rel="stylesheet" type="text/css" media="screen" />
+<script>
+	var heightP		= window.screen.height;
+	var heightWeb   = heightP-64;
+	var heightCon   = heightP-257;
+	document.getElementById('body').style.height=heightWeb+'px';
+	document.getElementById('body_style').style.height=heightWeb+'px';
+	document.getElementById('scroCon').style.height=heightCon+'px';
+	function buyfun(cid,userid,num){
+		alert(num);
+			if(num==1){
+				jConfirm("请确认您的购买你确定想以￥{$course['cheapprice']}的价格购买'{$course['name']}'的课程吗",'确认购买',function(r){
+					if(r==true){
+					$.post('/Coursepay/saveBuy',{courseid:cid,userid:userid},function(data){
+						if(data){
+							jAlert('购买成功');
+							location = '/Cdetails/?courseid={$courseid}&sid={$sid}';
+						}
+					})
+					}
+				})
+			}else{
+				jConfirm("此课程是免费课程，您若想购买可以到浏览器购买http://coursemant.test.icesmart.cn",'确认购买',function(r){
+				})
+			}
+	}
+</script>
+</body>
+</html>

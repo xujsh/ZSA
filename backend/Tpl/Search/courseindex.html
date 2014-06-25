@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name=”format-detection” content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta content="email=no" name="format-detection" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<title>搜索结果</title> 
+<link rel="stylesheet" href="/css/index.style.css">
+<style>
+	.box{ position:absolute;top:0px;}
+</style>
+</head>
+<body>
+
+<!-- 导航 tab -->
+<div class="box">  
+<div class="j1" id="j1_rows">
+    	<volist  name="list" id="vo">
+         <div class="rows">
+         		<if condition=" $vo['price'] gt 0">
+                   <a href="{$appbasepath}Cdetails/index?courseid={$vo['courseid']}&sid={$sid}" id="j1_like1">
+                <else />
+				   <a href="{$appbasepath}LessonsHistory/getdetails/?courseid={$vo['courseid']}&sid={$sid}" id="j1_like1">
+				</if>
+				<img src="/images/index/lazyLoad1.gif" data-original="{$vo['picture']}" width="304" height="191" class="titleimg"></a>
+                <div class="title1">
+                       {$vo['name']}
+                </div>
+                <div class="rating">
+                	     <span class="price"><font class="price_f2">
+                	     	<if condition=" $vo['price'] eq 0">
+                	     	             免费 
+								<elseif condition="$vo['price'] eq -1"/>
+								            已购买
+								<elseif condition="$vo['price'] eq $vo['cheapprice']"/>
+									¥{$vo['price']}
+								<else />
+									<if condition=" $vo['cheapprice'] neq 0">
+										 <s><font style="text-decoration :line-through;">¥{$vo['price']}</font></s>&nbsp;
+										  <font style="color:#2E8B14">¥{$vo['cheapprice']}</font>
+									 <else />
+									     <s><font style="text-decoration :line-through;">¥{$vo['price']}</font></s>&nbsp;
+									   	 <font style="color:#2E8B14">免费</font>
+									</if>
+							</if> 
+						 </font></span>
+                         <span class="level">
+                         	<php> 
+							   $arr =  $vo['icolevel'];
+							   foreach ($arr as $v){
+							    echo "<img src='/$v' width='15' height='16'>";
+							   }
+							</php>
+                        </span> 
+                         <span class="liulannum">
+                           <img src="{$appbasepath}images/public/s_num.png" width="13" height="17" >&nbsp;<span class="liulannum_n" > {$vo['studennum']}</span>				
+                         </span>
+						 <span style=" clear:both"></span>
+                </div>
+                  <!--清除float-->
+                <div style=" clear:both"></div>
+                <hr />
+         
+                <div class="content">
+                     <div class="content_upicture">
+                                <img src="{$vo['upicture']}" width="75" height="75">
+                     </div>
+                     <div class="content_aut">
+                    	<span class="title2">{$vo['username']}</span>
+                        <p class="content_brief">
+                         &nbsp;&nbsp;&nbsp;&nbsp;{$vo['descp']}
+                        </p>
+                    </div>
+                     <div style=" clear:both"></div>
+           		</div>
+        </div>
+        <div class="brdiv"></div>
+		</volist>
+    </div>
+</div>
+</div>
+<script type="text/javascript" src="/static/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="/static/js/jquery.lazyload.min.js"></script>
+<script>
+$(document).ready(function(){    
+    $("img.titleimg").lazyload({ 
+	   threshold:100,  
+       effect : "fadeIn"   
+     });
+});
+//课程详情
+  var cname ='{$vo['cname']}';
+	function returnTitle(){
+		return cname;
+	}
+
+</script>
+</body>
+</html>

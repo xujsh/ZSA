@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF8">
+<title></title>
+<link rel="stylesheet" type="text/css" href="http://s.8666.com/css/css201307.css">
+<link rel="stylesheet" type="text/css" href="{$appbasepath}css/pop.css">
+</head>
+<body style='background-color:#fff;'>
+
+
+<div >
+	<div class="pers_popupCont">
+		<div class="pers_popupContDiv1" >
+			
+			<div class="pers_popupContMain1">
+				<div class="liDiv1 haoPing marginB20">
+					此课时综合得分：
+					<a href="http://www.8666.com/member/9606/Score"><img src="http://s.8666.com/images/v1201305/new_img_06.gif" alt=""><img src="http://s.8666.com/images/v1201305/new_img_06.gif" alt=""><img src="http://s.8666.com/images/v1201305/new_img_06.gif" alt=""><img src="http://s.8666.com/images/v1201305/new_img_06.gif" alt=""><img src="http://s.8666.com/images/v1201305/new_img_06.gif" alt=""></a>
+					5.0
+				</div>
+				<div class="liDiv1 liDiv2">
+					<div class="liDiv1L1a">专业程度：</div>
+					<div class="liDiv1L2a colorDiv1"  id='r_score_a_td'>
+						<div class="" id="r_score_a_1" name="1" ></div>
+						<div class="" id="r_score_a_2" name="2"></div>
+						<div class="" id="r_score_a_3" name="3"></div>
+						<div class="" id="r_score_a_4" name="4"></div>
+						<div class=""     id="r_score_a_5" name="5"></div>
+					</div>
+					<input type='hidden' id='r_score_a' value=0 >
+					<script>
+					init_r_score("a");
+					</script>
+					<div class="liDiv1L3a orange" id='r_score_a_v' >5分,非常满意</div>
+					<div class="clear"></div>
+				</div>
+				<div class="liDiv1 liDiv2">
+					<div class="liDiv1L1a">教学质量：</div>
+					<div class="liDiv1L2a colorDiv2" id='r_score_b_td'>
+						<div class="" id="r_score_b_1" name="1" ></div>
+						<div class="" id="r_score_b_2" name="2"></div>
+						<div class="" id="r_score_b_3" name="3"></div>
+						<div class="" id="r_score_b_4" name="4"></div>
+						<div class="" id="r_score_b_5" name="5"></div>
+					</div>
+					<input type='hidden' id='r_score_b' value=0 >
+					<script>
+					init_r_score("b");
+					</script>
+					<div class="liDiv1L3a orange" id='r_score_b_v' >5分,非常满意</div>
+					<div class="clear"></div>
+				</div>
+				<div class="liDiv1 liDiv2">
+					<div class="liDiv1L1a">老师态度：</div>
+					<div class="liDiv1L2a colorDiv3" id='r_score_c_td'>
+						<div class="" id="r_score_c_1" name="1"></div>
+						<div class="" id="r_score_c_2" name="2"></div>
+						<div class="" id="r_score_c_3" name="3"></div>
+						<div class=""id="r_score_c_4" name="4"></div>
+						<div class="" id="r_score_c_5" name="5"></div>
+					</div>
+					<input type='hidden' id='r_score_c' value=0 >
+					<script>
+					init_r_score("c");
+					</script>
+					<div class="liDiv1L3a orange" id='r_score_c_v' >5分,非常满意</div>
+					<div class="clear"></div>
+				</div>
+				<div class="liDiv1">
+					<div class="liDiv1L1a">评论一下：</div>
+					<div class="liDiv1L2"><textarea cols="" rows="" class="input1a" id="content">您填写的投诉内容外教不会看到哦，请放心填写。</textarea></div>
+					<div class="clear"></div>
+				</div>
+				<div class="liDiv1">
+					<div class="liDiv1L1a">&nbsp;</div>
+					<div class="liDiv1L2">
+						<a class="btnLink1 marginL0" href="#"><span class="btnLink1Main" id='submitcomment'>提交</span></a>
+					</div>
+					<div class='alert' id='errormsg' ></div>
+					<div class="clear"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+schedueid = '{$schedueid}';
+$(document).ready(function () {
+	
+	$("#content").focus(function(){
+		
+		if($(this).val() == "您填写的投诉内容外教不会看到哦，请放心填写。")
+		{
+			$(this).val("");
+		}
+		
+	})
+	
+	$("#content").blur(function(){
+		
+		if($(this).val() == "")
+		{
+			$(this).val("您填写的投诉内容外教不会看到哦，请放心填写。");
+		}
+		
+	})
+	
+	$("#submitcomment").click(function(){
+		
+		$("#errormsg").hide();
+		_scorea = parseInt($("#r_score_a").val());
+		_scoreb = parseInt($("#r_score_b").val());
+		_scorec = parseInt($("#r_score_c").val());
+		_content = $("#content").val();
+		
+		if(_scorea == 0 || _scoreb==0 || _scorec == 0)
+		{
+			$("#errormsg").html("请选择所有评分");
+			$("#errormsg").show();
+			return false;
+		}
+		
+		$.post("{$appbasepath}SchedueComment/addcomment/", {schedueid:schedueid,scorea:_scorea,scoreb:_scoreb,scorec:_scorec,content:_content},function(json){
+			
+			if(json.status == 1)
+			{
+				$("#errormsg").html(json.info);
+				$("#errormsg").show();
+			}
+			else
+			{
+				$("#errormsg").html(json.info);
+				$("#errormsg").show();
+			}
+			
+	  },"json");
+		
+		return false;
+	})
+	
+	
+});
+</script>
+</body>
+</html>

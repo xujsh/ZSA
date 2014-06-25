@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>学校用户注册</title>
+<link rel="stylesheet" href="/static/css/bootstrap.min.css">
+<link rel="stylesheet" href="/static/css/bootstrap-responsive.min.css">
+<style type="text/css">
+ body{ margin:0 auto;}
+ .body_style{width:420px;height:510px;margin:auto 0;background:#e7e7e7;margin:0 auto;}
+ .content_body{width:415px;margin: 0 auto;height:481px;position:absolute;top:15px;margin-left:30px;}
+</style>
+</head>
+<body>
+<div class="body_style">
+		<div class="content_body" id="main">
+			<form action="{$appbasepath}Admin/saveregister/" id='form1' method="POST" enctype="multipart/form-data"><br>
+			<span class='label'>用户名</span>
+			<div class='input_name'>
+				<input class="input-xl" type="text" placeholder="请输入用户名" id='loginname' name="loginname">
+			</div>
+			<span class='label'>密码</span>
+			<div class='input_div'>
+				<input class="input-xl" type="password" placeholder="请输入密码" id='password' name="password">
+			</div>
+			<span class='label'> 再次输入密码</span>
+			<div class='input_div'>
+				<input class="input-xl" type="password" placeholder="请确认密码" id='confirm' name="confirm">
+			</div>
+			<span class='label'>企业验证序列号</span>
+			<div class='input_bom'>
+				<input class="input-xl" type="text" placeholder="请输入序列号" id='cdkey' name="cdkey">
+			</div>
+			<div class="form-action">
+				<button type="submit" id='sub' class="btn btn-primary" style="float:right; margin-right:100px;">提交</button>
+			</div>
+			</form>
+		</div>
+</div>
+<script src="/static/js/jquery-1.9.1.min.js"></script>
+<script>
+	
+	$(function(){
+		$("#loginname").blur(function(){
+			username=$("#loginname").val();
+//			var url = www_host+'/Login/checkName';
+//			$.post(url,{files:'username',val:username},function(data){
+//				if(data==1){
+//					alert('用户名已经存在');
+//					return false;
+//				}
+//			})
+		   if(username==''){
+				alert('登录用户名必填必填');
+				$("#loginname").focus();
+				return false;
+			}
+		});
+		
+		$("#password").blur(function(){
+		var	password=$("#password").val();
+			if(password==''){
+				alert('密码必填');
+				$("#password").focus();
+				return false;
+			}
+		});
+		$("#confirm").blur(function(){
+			var confirm=$("#confirm").val();
+			var	password=$("#password").val();
+			if(confirm==''){
+				alert('填写确认密码');
+				$("#confirm").focus();
+				return false;
+			}
+			if(confirm!==password){
+				alert('两次密码不一致');
+				return false;
+			}
+		});
+	   
+	   $("#cdkey").blur(function(){
+		var	cdkey=$("#cdkey").val();
+			if(cdkey==''){
+				alert('序列号必填');
+				$("#cdkey").focus();
+				return false;
+			}
+		});
+	})
+
+</script>
+</body>
+</html>

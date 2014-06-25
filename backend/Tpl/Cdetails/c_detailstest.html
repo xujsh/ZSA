@@ -1,0 +1,283 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta content="email=no" name="format-detection" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0">
+<title>课程详细</title>
+<link rel="stylesheet" href="/css/apptest.style.css"/>
+<link href="/css/li.css" rel="stylesheet">
+<script type="text/javascript" src="/static/js/jquery-1.9.1.min.js"></script>
+<script src="/js/jquery-ui-1.9.2.custom.min.js" ></script>
+<link rel="stylesheet" href="/js/ui-lightness/jquery-ui-1.8.18.custom.css"/>  
+<style>
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<meta name="msapplication-tap-highlight" content="no"/>
+</head>
+<body id='bodyonline'>
+<div id="all" class="bodyall">
+	<div class="body_top">
+		<div class="header" id='header'>
+			<div class="header-top">
+				<img src="{$details['picture']}" width="305" height="191">
+			</div>
+			<span>
+				<div class='dname'>{$details['name']}</div>
+				<div class='wang'><span class="wangzi">网</span></div>
+			</span>
+			<div class="underlines"></div>
+		<div class="centent" id='centent'>
+			<span class="centent-left">
+				<img class='images' width='45' height='45' src="{$details['upicture']}">
+			</span>
+			<div class="centent-right">
+				<span class="contentname">{$details['username']}</span>
+				<span style="color:#666666;display:block">{$details['descps']}<span>
+			</div>
+		</div>
+		<div class="daxue">
+			<div class="bordes">
+				<span class="bordes_left">所属院校:北京开放大学</span>
+				<span class="bordes_right"><img src="/images/bigicon.png" height="12px" width="7px"></span>
+			</div>
+		</div>
+	</div>
+	<!-----------滑动卡部分--------------------->
+	<div class="title_div" id='tabs'>
+			<ul id="title_ul">
+				<li id=0 class="clicked">简介</li>
+				<li id=1 class="">课程</li>
+				<li id=2 class="">评论</li>
+			</ul>
+	</div>
+	<div id="mask" class="mask">
+		
+	</div>
+	<div id="tabs-body" class="tabs-body">
+		<!------简介----------->
+		<div class="intro"  style="display:block" id="intro">
+			<div class="totlenum">
+				<span class="span_left">
+					<img width="13" height="18" src="{$appbasepath}images/s_num.png">
+					&nbsp;{$details['visitnums']}&nbsp;浏览数
+				</span>
+				<span class="span_right">
+					<volist  name="icolevel" id="vo">
+						<img width="15" height="15" src="{$appbasepath}{$vo}"/>
+					</volist>
+				</span>
+			</div>
+			<div class="intro_con" id="intro_con">
+				{$res['brief']}
+				<div class="teachinfo">
+					<p class="authorIntro">作者介绍</p>
+					<span class="picleft">
+						<img class='images' width='40' height='40' src="{$details['upicture']}">
+					</span>
+					<span class="authright">
+						<span class="riname">{$details['username']}</span><br>
+						<span class="rides">{$details['descps']}</span>
+					</span>
+					<p class="introdiv">{$details['descp']}</p>
+				</div>
+			</div>
+		</div>
+	<!---课程信息------>
+		<div  style="display:none" class="con" id="course">
+			<div class="totlecos">
+				<span class="">本课程共:&nbsp;{$sectionnum}章{$lessonnum}节</span>
+			</div>
+			<div class="course_con" id="course_con">
+				<ul class="course_ul">
+					<volist name="lessonslist" id='vo'>
+						<li class="partItitle">
+							<span class='secnum'>{$vo['num']}</span>
+							<span class="section">{$vo['sname']}</span>
+						</li>
+					<assign name="lessoninfo" value="$vo['lessoninfo']" />
+						<volist name="lessoninfo" id="v">
+								<if condition="$v['free'] eq 0">
+									<a href='/Video/?lessonsid={$v.lessonsid}&courseid={$courseid}&sid={$sid}&&class={$v["class"]}'>
+									<li class="chapter">
+										<div class='chnum'>{$v['playorder']}</div>
+										<div class="chvideo">
+											<span style="line-height: 30px;">{$v['name']}</span>
+											<span style='float:right;margin-right:80px;color:black;margin-top:10px;'>免费</span><br>
+											<span class="hourleng">时长:{$v['timelen']}&nbsp;分钟</span>
+										</div>
+									</li>
+									</a>
+								<else/>
+									<li class="chapter">
+										<div class='chnum'>{$v['playorder']}</div>
+										<div class="chvideo">
+											<span style="line-height: 30px;">{$v['name']}</span><br>
+											<span class="hourleng">时长:{$v['timelen']}</span>
+										</div>
+									</li>
+								</if>
+					
+						</volist>
+					</volist>
+				</ul>
+			</div>
+		</div>
+		<!-----评论信息------------>
+		<div style="display:none" class="meg" id="message">
+			<div class="totlenum">
+				<span class="comment_left">
+					<volist  name="icolevel" id="vo">
+						<img  width="15" height="15" src="{$appbasepath}{$vo}">
+					</volist>
+				</span>
+				<span class="comment_right">{$magecount}:&nbsp;评论数</span>
+			</div>
+			<div class="comment" id="comment">
+				<volist name="mages" id="vo">
+					<div class="com_img"><img src="{$vo['picture']}" width="30px" height="30px"></div>
+					<div class="com_con">
+						
+						<p>{$vo['username']} - {$vo['createtime']}</p>
+						<p class="com_icolevel">
+							<volist name="vo[assesslevel]" id="val">
+								<img src="{$appbasepath}{$val}" width=15 height=15 >
+							</volist>
+						</p>
+						<p class="com_content">{$vo['content']}</p>
+					</div>
+				</volist>
+					<if condition="$magecount gt 10">
+						<div id="more" style="clear:both;padding-left:100px;">
+							<a href="javascript:;" onclick='funMore()' style='font-size:14px; color:blue;'>
+							更多内容111</a>
+						</div>
+					</if>
+			</div> 
+		</div>
+	</div>
+	<!------底部购买图片----------------------->
+	<div class="scrFooter">
+			<a href='/Coursepay/?cid={$courseid}&amp;sid={$sid}'>
+				<div class="footerimg">
+				<if condition='$isfree eq 1'>
+					<if condition='$cheapprice eq 0'>
+						<span class="yuanjia">原价
+							<span style='text-decoration :line-through;'>￥{$price}</span>
+						</span>
+						<span class="mianfei">免费</span>
+					</if>
+					<if condition='$cheapprice eq $price'>
+						<span class="yuanjia">原价
+							<span style='text-decoration :line-through;'>￥{$price}</span>
+						</span>
+					</if>
+					<if condition='$cheapprice neq 0 and $cheapprice neq $price'>
+						<span class="yuanjia">原价
+							<span style='text-decoration :line-through;'>￥{$price}</span>
+						</span>
+						<span class="mianfei">￥{$cheapprice}</span>
+					</if>
+				</if>
+				</div>
+			</a>
+	</div>
+</div>
+<script src="/js/slowtouch.js"></script>
+<script src="/js/li.js"></script>
+
+<script src="/js/masktouch.js"></script>
+<script type="text/javascript">
+	var nowSlowtouchObj;
+	var touchIDArray = ["intro_con","course_con","comment"];
+	function returnTitle(){
+
+		return "课程详情";
+	}
+	
+	function changeNowSlowtouchObjByID(id)
+	{
+		if(nowSlowtouchObj)
+		{
+			removeSlowTouchObj(nowSlowtouchObj);
+		}
+		var slowTouchID = touchIDArray[id];
+		nowSlowtouchObj = document.getElementById(slowTouchID);
+		addSlowTouchObj(nowSlowtouchObj);	
+	}
+	changeNowSlowtouchObjByID(0);
+	
+	var heightP		= window.screen.height;
+	var heightWeb	= heightP+300+'px';
+	var htmlBody = document.getElementById('bodyonline');
+	var divAll = document.getElementById('all');
+	htmlBody.style.height=heightWeb;
+	divAll.style.height=heightWeb;
+	var divMask = document.getElementById('mask');
+	//mask touch
+	addMaskTouchObj(htmlBody, divMask);
+
+	var heightP		= window.screen.height;
+	var heightWeb	= heightP-220+'px';
+	var intro = document.getElementById('intro');
+	var course_con = document.getElementById('course_con');
+	var comment = document.getElementById('comment');
+	intro.style.height=heightWeb;
+	course_con.style.height=heightWeb;
+	comment.style.height=heightWeb;
+	
+	//滑到底部自动加载
+	var htmlbodyscrollend = function()
+	{
+		
+		//取网页卷上去的高度
+		h1=document.body.scrollTop?document.body.scrollTop:document.documentElement.scrollTop;
+		//取网页中能看到高
+		h2=document.documentElement.clientHeight?document.documentElement.clientHeight:document.body.clientHeight
+		//取网页正文高，包含被卷上去的内容
+		h3=document.documentElement.scrollHeight?document.documentElement.scrollHeight:document.body.scrollHeight;
+		//alert(h3);
+		if((h1+h2)>=h3)
+		{
+			//alert('touch end 滚动条已经到最下面啦');
+			if("{$magecount}">10){
+			alert('cccc');
+				funMore();
+			}
+		}
+	}
+	window.onscroll = htmlbodyscrollend;
+	//加载更多
+	var nowpage = 1;
+	function funMore()
+	{
+		nowpage++;
+		$("#more").remove();
+		var courseid = "{$courseid}";
+		var pageNum    = 10;
+		$.post('/Cdetails/morecont',{nowpage:nowpage,pageNum:pageNum,courseid:courseid},function(data){
+			var comment  = $('#comment');
+			var arr = eval(data);
+			for(var i=0;i<arr.length;i++){	
+				var assesslevel = arr[i]['assesslevel'];
+				var img="";
+				for(var j=0;j<assesslevel.length;j++){
+					img+="<img src={$appbasepath}"+assesslevel[j]+" width=15 height=15 >";
+				}
+				var html = "<div class='com_img'><img src="+arr[i]['picture']+" width='30px' height='30px'></div><div class='com_con'><p>"+arr[i]['username']+" - "+arr[i]["createtime"]+"</p><p class='com_icolevel'>"+img+"</p><p class='com_content'>"+arr[i]['content']+"</p></div>";
+				comment.append(html);
+			}
+			var more ="<div id='more' style='clear:both;padding-left:100px;'><a href='javascript:;' onclick='funMore()' style='font-size:14px; color:blue;'>更多内容...</a></div>";
+			comment.append(more);
+		})
+	}
+
+	
+</script>
+</body>
+</html>

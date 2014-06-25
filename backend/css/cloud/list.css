@@ -1,0 +1,7 @@
+.middle{width:1100px;margin: 0 auto;min-height:500px;}
+.leftcon{width:750px;float:left;min-height:500px;}
+.rightcon{width:250px;float:left;min-height:500px;border:1px solid #999999; margin-top: 20px;}
+.content-min-border{border: 1px solid #D8D8D8;height: 500px;margin: 20px;width: 700px;}
+
+.mod-guess{border: 1px solid #D8D8D8;margin-bottom: 10px;}
+.mod-guess h3{background-color: #EFEFEF;border-bottom: 1px solid #D8D8D8;color: #000000;font-size: 14px;height: 40px;line-height: 40px;padding: 0 10px;}

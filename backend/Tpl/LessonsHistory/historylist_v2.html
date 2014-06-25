@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta content="email=no" name="format-detection" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0">
+<title>用户培训记录</title>
+<style>
+html{font:12px/1.5 '黑体',"Arial",arial,sans-serif;}
+body{margin:0 auto;width:320px;background: none repeat scroll 0 0 #e7e7e7;}
+a{text-decoration:none;}
+.body_style{margin:0 auto;background:#e7e7e7;width:320px;height:0 auto;}
+.content{background-color:#fff;border: 1px solid #C5C5C5;width:304px; margin-top:22px; margin-left:8px; box-shadow:1px 1px 2px rgba(0, 0, 0, 0.2); 
+			   -webkit-box-shadow:1px 1px 2px rgba(0, 0, 0, 0.2); 
+			   -moz-box-shadow:1px 1px 2px rgba(0, 0, 0, 0.2);  
+		 }
+.content_body{ width:304px; height:100px;
+			   display:-webkit-box; display:-moz-box; display:box;
+			   -webkit-box-orient:horizontal;-moz-box-orient:horizontal;box-orient:horizontal;
+			 }
+.course_pic{ width:111px;height:100px; padding:0px;}
+.course_pic img{width:111px;height:100px; margin:0px; padding:0px;}
+
+.course_name{width:193px;height:100px; -moz-box-flex:1; -webkit-box-flex:1; box-flex:1;
+			   display:-webkit-box; display:-moz-box; display:box;
+			   -webkit-box-orient:block-axis;-moz-box-orient:block-axis;box-orient:block-axis;
+             }
+.course_name .title{width:163px;  margin-left:14px;font-size:16px; color:#2E2E2E; margin-top:10px; -moz-box-flex:2; -webkit-box-flex:2; box-flex:2;}
+.course_name .price{width:163px; margin-left:14px;-moz-box-flex:1; -webkit-box-flex:1; box-flex:1;}
+.course_name .price img{ margin-right:4px;}
+.course_name .price .price_1{color:#6b6b6b; font-size:14px;margin-right:10px;}
+.course_name .progress_txt{width:163px; margin-left:14px; padding-right:10px; font-size:14px; color:#878787; text-align:right;
+                           -moz-box-flex:1; -webkit-box-flex:1; box-flex:1;
+						   display:box;display:-webkit-box; display:-moz-box;
+						   box-pack:end;box-align:end;
+						   -webkit-box-pack:end;-webkit-box-align:end;-moz-box-pack:end;-moz-box-align:end;
+						   }
+.progress{width:304px;height:5px;margin:0; background-color:#EFEFEF}
+.progress .progress_1{width:182px; height:5px; background-color:#00F31C}
+</style>
+</head>
+<body id='body'>
+<div class='body_style' id='body_style'>
+	<volist name='list' id='vo'>
+	<div class="content">
+	<div class='content_body'>
+		<div class='course_pic'>
+			<a href="{$appbasepath}Cdetails/index?courseid={$vo['courseid']}&sid={$sid}" id="j1_like1">
+			<img src="{$vo['picture']}" width="111px" height="100px" />
+			</a>
+		</div>
+		<div class='course_name'>
+			<div class="title">{$vo['cname']}</div>
+		    <div class="price">
+			 	<span class='price_1'>
+						<if condition=" $vo['price'] eq 0">
+						<font color="#E74700">免费</font>
+						<elseif condition="$vo['price'] eq -1"/>
+						<font color="#E74700">已购买</font>
+						<else />
+						  <if condition=" $vo['cheapprice'] neq 0">
+									  <font style="color:#E74700;text-decoration :line-through;">¥{$vo['price']}</font>&nbsp;
+									  <font style="color:#2E8B14">¥{$vo['cheapprice']}</font>
+								 <else />
+								      <font color="#E74700">¥{$vo['price']}</font>
+								</if>
+						</if>
+						</span>
+				<span>
+					<!--指数级别-->
+							<php> 
+							   $arr =  $vo['icolevel'];
+							   foreach ($arr as $v){
+							    echo "<img src='/$v' width='15px' height='16px'>";
+							   }
+							</php>						
+				</span>
+		    </div>
+		 <div class="progress_txt">完成度{$vo['progress']}%</div>
+		</div>
+	</div>
+	<div class="progress"><div class="progress_1" style="width:{$vo['width']}px; height:5px; "></div></div>
+   </div>
+   </volist>
+   <!--
+	<div class='content'>ssssss</div>
+	<div class='content'>ssssss</div>
+	<div class='content'>ssssss</div>
+	-->
+</div>
+<script src="/static/js/jquery-1.9.1.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>课程信息列表 后台管理</title>
+<link rel="stylesheet" href="/static/css/bootstrap.min.css">
+<link rel="stylesheet" href="/static/css/bootstrap-responsive.min.css">
+<link rel="stylesheet" href="{$appbasepath}css/scojs.css">
+<!--[if lt IE 7]><link rel="stylesheet" href="http://blueimp.github.com/cdn/css/bootstrap-ie6.min.css"><![endif]-->
+<!--[if lt IE 9]><script src="/static/js/html5.js"></script><![endif]-->
+</head>
+<body>
+<div class="container-fluid">
+	  <div class="row-fluid">
+		<div class="span10">
+		  <h3>课程列表列表</h3>
+		<div>
+			<form action="/Recommends/selectCourse/" method="POST" enctype="multipart/form-data">
+				<select name='checkField'>
+					<option value='name' <eq name="checkField" value="name">selected = 'selected'</eq>>课程名称</option>
+					<option value='categoryid'  <eq name="checkField" value="categoryid">selected = 'selected'</eq>>课程类型 </option>
+				</select>
+				<select class="select" name="categoryid" id="categoryid">
+			  	  <option value='0'>全部</option>
+			  	  <volist  name="categoryList" id="catvo">
+					<option value="{$catvo['categoryid']}"  <if condition= " $categoryid eq $catvo['categoryid']"> selected="selected" </if>>{$catvo['name']}</option>
+				  </volist>
+				</select>
+				<input class="input-xlarge" type="text" placeholder="请输入选择数据" id='seachValue' name="seachValue" value="{$seachValue}">
+				<button type="submit" id='sub' class="btn btn-primary">搜索</button>
+			</form>
+		</div>
+		  <table class="table">
+			<thead>
+			<tr>
+				<th>选择</th>
+				<th>课程图像</th>
+				<th>课程名称</th>
+			</tr>
+			</thead>
+			<tbody>
+			<volist  name="courses" id="vo">
+				<tr>
+					<td>
+					<input type="radio" name="courseid" id='courseid{$vo.courseid}' value="{$vo.courseid}">
+					<input type="hidden" id="name{$vo.courseid}" value="{$vo.name}">
+					</td>
+					<td><img src='{$vo.picture}' width='60px' height='60px' ></td>
+					<td >{$vo.name}</td>
+				</tr>
+			</volist>
+			</tbody>
+		  </table>
+		</div>
+	</div>
+</div>
+<script src="/static/js/jquery-1.9.1.min.js"></script>
+<script>
+	var courseid = 0;
+	var coursename ='';
+$(document).ready(function(){ 
+	$("input[id^='courseid']").change(function(){
+		courseid = $(this).val();
+		coursename = $(this).next().val();
+	})
+});
+	
+	var api = frameElement.api, W = api.opener;
+	api.button({
+	    id:'valueOk',
+	    name:'确定',
+	    callback:ok
+	});
+    function ok(){
+      W.document.getElementById('courseid').value = courseid;
+	  W.document.getElementById('coursename').innerHTML = coursename;
+    };
+</script>
+</body>
+</html>

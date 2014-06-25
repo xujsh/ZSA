@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name=”format-detection” content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta content="email=no" name="format-detection" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<title>课程介绍</title>
+<style>
+html{font:12px/1.5 '黑体',"Arial",arial,sans-serif;}
+body{margin:0 auto;width:320px;background: none repeat scroll 0 0 #e7e7e7;}
+a{text-decoration:none;-webkit-tap-highlight-color:transparent;}
+.bodyall {width:320px;}
+.body_top{width:320px;background:#FFFFFF;height:315px;}
+/*头部课程标题图片*/
+.header{width:320px}
+.header-top {color:#636f95;padding-bottom: 14px;}
+.centent {width:320px;min-height:50px;line-height:20px}
+/* 圆形头像 */
+.centent-left {width:40px;float:left;padding-left:10px;padding-top:20px;}
+.centent-right {width:240px;float:left;	padding-left:6px;padding-top:20px;}
+.centent-right div{font-size:12px;color:#919191;line-height:15px;}
+
+/*导航菜单*/
+nav{margin:0;padding:0;background: url(/images/unbuytitle/titleBG.png) no-repeat 0px 0px / 320px 40px; background-color:#fff;}
+div.title_div{margin-left:50px;}
+div.title_div ul{margin: 0;padding: 4px 0px 0px 0px;background: url(/images/unbuytitle/sliderBG.png) no-repeat 5px 0px/95px 40px;width:240px;height: 34px;font-weight: 600;transition: background-position .2s ease-in .2s;}
+div.title_div ul li{display: inline;float: left;width: 106px;text-align:center;color: #000000;transition: color .2s ease-in .2s;}
+div.title_div ul.touched0{background-position: 5px 0px;}
+div.title_div ul.touched1{background-position: 111px 0px;}
+div.title_div ul.touched2{background-position: 217px 0px;}
+div.title_div ul li.clicked{color: #ffffff;}
+.tabs-body{background:#FFFFFF;}
+
+
+/*课程简介*/
+.intro{background:#f2f3f5;}
+.intro_con{width:290px;padding-left:18px;padding-bottom:20px;text-indent: 2em;padding-top: 20px;color:#4d4d4d;line-height: 24px;}
+.intro_title{ padding-left:19px; font-size:18px; font-weight:bold;}
+.intro_author{background:#f2f3f5;width:290px;}
+.intro_author .intro_img{ width:40px;float:left;padding-left:19px;padding-top:13px; height:35px;}
+.intro_author .intro_username{width:230px;float:left; padding-left:0px;padding-top:6px;height:33px;}
+.intro_author .intro_username div{font-size:12px;color:#575757;line-height:33px;}
+.intro_scroll{ overflow-x:hidden; overflow-y:scroll; height:322px;}
+.intro_descps{width:280px; padding-left:18px;}
+.totlenum{height:38px;border-bottom:#e6e7e9 1px solid;width:320px;line-height:2;background:#f2f3f5}
+.span_left{float:left;padding-left:18px;}
+.span_left img{padding-top:10px;}
+.span_left span{ font-size:14px; font-weight:bold;}
+.span_right{float:right;padding-right:14px;padding-top: 10px;}
+.span_right img{ margin:0 3px;}
+
+/*课程评论*/
+.comment{background:#ffffff;width:320px;padding-bottom:60px;}
+.totlenum_left{float:left; margin-left:75px;margin-top:10px;}
+.totlenum_left img{ margin:0 3px;}
+.totlenum_right{float:left;margin-top:8px; margin-left:4px; font-size:12px; font-weight:bold;}
+.comment_centent{background:#ffffff;width:304px;overflow-x:hidden; overflow-y:scroll;}
+.com_img{width:50px;height:30px;float:left;margin-top:20px;padding-left: 10px;}
+.com_con{width:242px;float:left;}
+.com_name{ margin:0px; margin-top:20px;}
+.com_icolevel{ margin:0px;}
+.com_title{margin:0px; margin-top:7px; font-size:16px;font-weight:bold;}
+.com_content{margin:0px; margin-top:5px;word-break:break-all;}
+/*遮罩层*/
+#mask{width:320px; height:250px; filter:alpha(opacity=50); opacity:0.5;position:absolute;top:310px;left:-1px;z-index:500;}
+</style>
+</head>
+<body id='bodyonline'>
+<div id="all" class="bodyall">
+	<!-----------课程介绍部分头部--------------------->
+	<div class="body_top" id="body_top" >
+	 <div class="header" id='header'>
+		<div class="header-top"><img src="{$details['picture']}" width="320" height="180"></div>
+			<span style="padding-left:10px;color:#636f95;font-size:18px;font-family:Arial-BoldMT;">{$details['name']}</span>
+		</div>
+		<div class="centent" id='centent'>
+			<span class="centent-left">
+				<img class='images' width='30' height='30' src="{$details['upicture']}">
+			</span>
+			<span class="centent-right">
+				<div><b>{$details['username']}</b></div>
+				<div>{$details['descps']}</div>
+			</span>
+		</div>
+	</div>
+	<!-----------滑动导航部分--------------------->
+	<nav>
+	<div class="title_div" id='tabs'>
+			<ul id='title_ul'>
+				<li id=0 class="clicked">简介</li>
+				<li id=1 class="">评论</li>
+			</ul>
+	</div>
+	</nav>
+	<div id="tabs-body" class="tabs-body">
+		<!--简介-->
+		<div class="intro"  style="display:block" id="intro">
+			<div class="totlenum" id="totlenum">
+				<span class="span_left">
+					<img width="14" height="15" src="{$appbasepath}images/s_num.png">
+					<span class=''>{$details['visitnums']} 浏览数</span>
+				</span>
+				<span class="span_right">
+					<volist  name="icolevel" id="vo">
+						<span><img width="15" height="15" src="{$appbasepath}{$vo}"/></span>
+					</volist>
+				</span>
+			</div>
+			<div class="intro_scroll">
+			<div class="intro_con" id="intro_con">{$brief}</div>
+			<div class="intro_title">演讲老师</div>
+			<div class="intro_author">
+				<span class="intro_author intro_img"> <img width='30' height='30' src="{$details['upicture']}"></span>
+				<span class="intro_author intro_username">
+					<div><b>{$details['username']}</b></div>
+				</span>
+				<div style="clear:both;"></div>
+				<div class="intro_descps">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$details['descp']}</div>
+				<br>
+			</div>
+			</div>
+		</div>
+		<!--评论-->
+		<div class="comment" style="display:none" id="comment">
+			<div class="totlenum">
+				<span class="totlenum_left">
+					<volist  name="icolevel" id="vo">
+						<img  width="15" height="15" src="{$appbasepath}{$vo}">
+					</volist>
+				</span>
+				<span class="totlenum_right">{$magecount} 评论总数</span>
+			</div>
+			<div class="comment_centent" id="comment_centent">
+				<volist name="mage" id="vo">
+					<div class="com_img"><img src="{$vo['picture']}" width="30px" height="30px"></div>
+					<div class="com_con">
+						
+						<p class='com_name'>{$vo['username']} - {$vo['createtime']}</p>
+						<p class="com_icolevel">
+							<volist name="vo[assesslevel]" id="val">
+								<img src="{$appbasepath}{$val}" width=15 height=15 >
+							</volist>
+						</p>
+						<p class="com_title">{$vo['ctitle']}</p>
+						<p class="com_content">{$vo['content']}</p>
+					</div>
+				</volist>
+					<!--<div style="clear:both;"></div>-->
+				<if condition="$limit gt 10">
+						<div style=" float:left; width:320px; height:40px; background-color:#fff; line-height:40px; display:block;" id='mores'>
+						 <a href="javascript:;" onclick='funMore()' style='font-size:14px; color:blue;test-align:center;margin-left:120px;'>更多内容...</a>
+						</div>
+				</if>
+			</div>
+		
+		</div>
+	</div>
+    <!-- 遮罩-->
+	<div id="mask" style="display:block;"></div>
+</div>
+<script type="text/javascript" src="/static/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="/js/slowtouch.js" ></script>
+<script type="text/javascript">
+    var availHeight = window.screen.availHeight;
+
+   	var headerHeader = document.getElementById("body_top").offsetHeight;
+
+	var tabsHeight = document.getElementById("tabs").offsetHeight;
+
+	var conheight = availHeight - headerHeader - tabsHeight + 253;
+	var introheight = conheight - 38;
+	var comment = conheight - 59;
+    var comment_centent = comment + 21;
+	$(".tabs-body").css("height",conheight);
+    $(".intro_scroll").css("height",introheight);
+	$(".comment").css("height",comment);
+	$(".comment_centent").css("height",comment_centent);
+	var ul = document.getElementById('title_ul');
+    var lis = ul.getElementsByTagName('li');
+	for(var i=0;i<lis.length;i++)
+	{
+		//lis[i].addEventListener("click",navEffect,false);
+		lis[i].addEventListener("touchend", navEffect, false);
+	}
+	//导航效果
+    function navEffect(event){
+			var index = $(this).index();
+			var divs  = $("#tabs-body >div");
+			$(this).parent().attr("class", "touched" + event.target.id);
+			$(this).parent().children("li").attr("class", "");
+			$(this).attr("class", "clicked");
+			divs.hide();//隐藏所有选中项内容
+			divs.eq(index).show(); //显示选中项对应内容
+	}
+	
+</script>
+<script type="text/javascript">
+var page = 1; //初始页码
+var courseid = {$courseid}; // 课程ID;
+var htmlbody = document.getElementById("bodyonline");
+var div_mask = document.getElementById("mask");
+
+var div_showcon1 = document.getElementById("tabs-body");
+var div_nowshowcon = div_showcon1;
+var isMove = false;
+var timeOut;
+
+//body滚动
+var htmlbodyscroll = function()
+{
+    isMove = true;
+    //取网页卷上去的高度
+    h1=document.body.scrollTop?document.body.scrollTop:document.documentElement.scrollTop;
+    //取网页中能看到高
+    h2=document.documentElement.clientHeight?document.documentElement.clientHeight:document.body.clientHeight
+    //取网页正文高，包含被卷上去的内容
+    h3=document.documentElement.scrollHeight?document.documentElement.scrollHeight:document.body.scrollHeight;
+    if((h1+h2)>=h3)
+    {
+        //alert('scroll 滚动条已经到最下面啦');
+        div_mask.style.display = "none";
+        addSlowTouchObj(div_nowshowcon);
+    }
+    else
+    {
+        div_mask.style.display = "block";
+        removeSlowTouchObj(div_nowshowcon);
+    }
+}
+
+var showMask = function()
+{
+    //取网页卷上去的高度
+    h1=document.body.scrollTop?document.body.scrollTop:document.documentElement.scrollTop;
+    //取网页中能看到高
+    h2=document.documentElement.clientHeight?document.documentElement.clientHeight:document.body.clientHeight
+    //取网页正文高，包含被卷上去的内容
+    h3=document.documentElement.scrollHeight?document.documentElement.scrollHeight:document.body.scrollHeight;
+    if(!(h1+h2)>=h3)
+    {
+        div_mask.style.display = "block";
+    }
+    removeSlowTouchObj(div_nowshowcon);
+    clearnTimeout(timeOut);
+}
+
+var htmlbodyscrollend = function()
+{
+    //alert("htmlbodyscrollend end");
+    //取网页卷上去的高度
+    h1=document.body.scrollTop?document.body.scrollTop:document.documentElement.scrollTop;
+    //取网页中能看到高
+    h2=document.documentElement.clientHeight?document.documentElement.clientHeight:document.body.clientHeight
+    //取网页正文高，包含被卷上去的内容
+    h3=document.documentElement.scrollHeight?document.documentElement.scrollHeight:document.body.scrollHeight;
+    if((h1+h2)>=h3)
+    {
+        //alert('touch end 滚动条已经到最下面啦');
+        div_mask.style.display = "none";
+        addSlowTouchObj(div_nowshowcon);
+		
+    }
+    else
+    {
+        div_mask.style.display = "block";
+        removeSlowTouchObj(div_nowshowcon);
+    }
+}
+
+var htmlbodytouchend = function()
+{
+    //alert("htmltouch end");
+    //取网页卷上去的高度
+    h1=document.body.scrollTop?document.body.scrollTop:document.documentElement.scrollTop;
+    //取网页中能看到高
+    h2=document.documentElement.clientHeight?document.documentElement.clientHeight:document.body.clientHeight
+    //取网页正文高，包含被卷上去的内容
+    h3=document.documentElement.scrollHeight?document.documentElement.scrollHeight:document.body.scrollHeight;
+    if((h1+h2)>=h3)
+    {
+        //alert('touch end 滚动条已经到最下面啦');
+        div_mask.style.display = "none";
+        addSlowTouchObj(div_nowshowcon);
+
+    }
+    else
+    {
+        //alert("isMove: " + isMove);
+        if(isMove)
+        {
+            div_mask.style.display = "block";
+            removeSlowTouchObj(div_nowshowcon);
+        }
+        else
+        {
+            timeOut = window.setTimeout("showMask()", 1000);
+            //showMask();
+        }
+    }
+    isMove = false;
+}
+
+var htmlbodytouchstart = function()
+{
+    div_mask.style.display = "none";
+}
+
+htmlbody.addEventListener("touchmove", htmlbodyscroll, false);
+htmlbody.addEventListener("touchend", htmlbodytouchend, false);
+window.onscroll = htmlbodyscrollend;
+div_mask.addEventListener("touchmove", htmlbodyscroll, false);
+div_mask.addEventListener("touchend", htmlbodytouchend, false);
+div_mask.addEventListener("touchstart", htmlbodytouchstart, false);
+
+var div_showcon2 = document.getElementById("comment_centent");
+//div_showcon2.addEventListener("touchmove", commentyscroll, false);
+//div_showcon2.addEventListener("touchend", commenttouchend, false);
+//div_showcon2.addEventListener("touchstart", commenttouchstart, false);
+//div_showcon2.addEventListener("click", getheight, false);
+function getheight(){
+alert(div_showcon2.clientHeight);
+}
+
+	//课程详情
+		function returnTitle(){
+		return '我的课程详情';
+	}
+	
+
+	//更多
+	function funMore(){ 
+		page = page + 1;
+		
+			$.getJSON( "/LessonsHistory/morecontreview/?page=" + page + "&courseid=" + courseid,function(json){
+				var data = json.retinfo.list;
+				$("#mores").remove();
+				var comment  = $('#comment_centent');
+				$.each(data,function(key,v){
+					var assesslevel = v.assesslevel;
+					var img='';
+					if(v['ctitle'] != null)var ctitle = v['ctitle'];
+					else var ctitle = '';
+					for(var i=0;i< assesslevel.length;i++){
+					 img +='<img width="15" height="15" src="/'+assesslevel[i]+'" />';
+					}
+					var html = '<div class="com_img"><img width="30px" height="30px" src="'+v['picture']+'"></div>'+
+							   '<div class="com_con">'+
+							   '<p class="com_name">'+v['username']+' - '+v['createtime']+'</p>'+
+							   '<p class="com_icolevel">'+img+
+							   '</p><p class="com_title">'+ctitle+'</p>'+
+							   '<p class="com_content">'+v['content']+'</p></div>';
+					comment.append(html);
+				}); 
+				var html2 = "<div style=' float:left; width:320px; height:40px; background-color:#fff; line-height:40px; display:block;'' id='mores'>"+
+						    "<a href='javascript:;' onclick='funMore()' style='font-size:14px; color:blue;test-align:center;margin-left:120px;'>更多内容...</a></div>";
+				comment.append(html2);
+				if(data.length<10){
+					document.getElementById('mores').style.display = 'none';
+				}
+				//alert(data.length);
+				console.log(data);
+			});
+	}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta content="email=no" name="format-detection" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0"/>
+<title>视频详情</title>
+<style>
+* {
+margin:0px auto;padding:0px;border:none;word-wrap:break-word;word-break:break-all;list-style:none;font-family:"黑体","Arial",arial,sans-serif;}
+*html, *html body {background-image: url(about:blank);background-attachment:fixed; }
+body {width:320px;height:auto;bbackground-color:#FFFFFF;margin:0px auto;}
+a{text-decoration:none;color:#333;}
+img {border:none;}
+h1, h2, h3, h4, h5, h6 {font-size:1em;}
+html {overflow:-moz-scrollbars-vertical;}
+dl, dt, dd, ul, li {list-style:none;margin:0px;padding:0px;border:0px;}
+.all {width:320px; min-height:350px; bbackground-color:#FFFFFF; color:#4A4A4A}
+.title{width:290px; margin-left:14px; font-size:18px; font-weight:bold; margin-top:15px; text-align:left;}
+.lesson_brief{width:290px;min-height:124px; margin-left:14px; margin-top:25px;font-size:14px; line-height:24px; }
+.focus{width:290px;min-height:124px; margin-left:14px; margin-top:25px;font-size:14px;}
+.focus_title{width:290px; margin-top:14px;font-size:14px; font-weight:bold;}
+.focus_content{ margin:0px; line-height:24px;}
+
+</style>
+<script type="text/javascript" src="/static/js/jquery-1.9.1.min.js"></script>
+</head>
+<!-- <body id='bodyonline' onscroll="htmlbodyscroll()"> -->
+<body id='bodyonline'>
+<div class="all">
+	<div class="title">
+		{$lessonlist['name']}
+	</div>
+	<div class="lesson_brief">
+		{$brief}
+	</div>
+	<div class="focus">
+		<div class="focus_title">课程重点：</div>
+		<volist  name="focusList" id="vo">
+			<div class='focus_content'>{$vo['focusname']}</div>
+		</volist>
+	</div>
+</div>
+<script type="text/javascript">
+	var availHeight=window.screen.availHeight;
+	
+//返回Title
+	function returnTitle(){
+	
+	 return '视频详情';
+	}
+</script>
+
+</body>
+</html>

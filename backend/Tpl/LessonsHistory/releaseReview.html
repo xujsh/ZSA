@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name=”format-detection” content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta content="email=no" name="format-detection" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<title>发布评论</title>
+<style>
+html{font:12px/1.5 '黑体',"Arial",arial,sans-serif;}
+body{margin:0 auto;width:320px;background: none repeat scroll 0 0 #e7e7e7;}
+a{text-decoration:none;-webkit-tap-highlight-color:transparent;}
+div{ -webkit-tap-highlight-color:transparent;}/*去除click点击阴影*/
+
+input::-webkit-input-placeholder { color:#aaaaaa; font-size:16px; font-weight:bold; }
+input::-moz-placeholder { color:#aaaaaa;font-size:16px; font-weight:bold; }
+input::-ms-input-placeholder{ color:#aaaaaa;font-size:16px;font-weight:bold; }
+
+textarea::-webkit-input-placeholder{font-size:16px;color:#aaaaaa;}
+textarea::-moz-placeholder{font-size:16px;color:#aaaaaa;}
+textarea::-ms-input-placeholder{font-size:16px;color:#aaaaaa;}
+.bodyall{ width:320px; background-color:#FFFFFF;}
+/*头部*/
+.top{ width:320px; height:79px; border-bottom:1px solid #CBCBCB; background-color:#fff; text-align:center;}
+.xing-span{padding-top: 12px;}
+.top_help{ margin-top:6px;font-size:15px; color:#818181;}
+/*标题*/
+.review_title{ width:320; height:59px; border-bottom:1px solid #CBCBCB;background-color:#fff;}
+.review_title input{ margin-left:15px; margin-top:9px; height:30px; width:292px; font-size:18px; font-weight:bold; border-width: 0px; padding:0px;}
+/*评论内容*/
+.review_content { width:320px;}
+.review_content textarea{ width:298px; height:197px;margin-top:15px;margin-left:13px; border-width:0px; font-size:16px;}
+/*div输入框*/
+/*.review_content .textareaone{ width:298px; height:197px;margin-top:15px;margin-left:13px; border-width:0px; font-size:16px; overflow-y:auto; overflow-x:hidden;word-break:break-all;}*/
+.review_content input{width:304px;height:46px;margin-left:8px; font-size:18px;}
+</style>
+</head>
+<body id='bodyonline'>
+<form action="{$appbasepath}LessonsHistory/saveReview/" method="POST" enctype="multipart/form-data">
+<div id="all" class="bodyall">
+ <input type="hidden" name="uid" value="{$uid}"/>
+ <input type="hidden" name="sid" value="{$sid}"/>
+ <input type="hidden" name="courseid" value="{$courseid}"/>
+<div class="top">
+			<div class="xing-span" style="display:block;">
+			　<img id="star_1" name="star" width="25" height="25" src="/images/start_off.png"/>
+			　<img id="star_2" name="star" width="25" height="25" src="/images/start_off.png"/>
+			　<img id="star_3" name="star" width="25" height="25" src="/images/start_off.png"/>
+			　<img id="star_4" name="star" width="25" height="25" src="/images/start_off.png"/>
+			　<img id="star_5" name="star" width="25" height="25" src="/images/start_off.png"/>
+			　<span id="hint"><font color='black'></font><input type='hidden' name='assesslevel' value="1" /></span>
+			</div>
+
+<div class="top_help">请进行投票评级</div>
+</div>
+<div class="review_title">
+	<input type="text" name="title" maxlength='32' placeholder="评论标题" value="">
+</div>
+<div class="review_content">
+	<textarea name="content" id="content" placeholder="评论内容" value=""></textarea>
+	<!--<div contenteditable="true" class="review_content textareaone"></div>-->
+	<input type="image" name="butsutime" src="/images/fabiao.png" />
+ </div>
+
+</div>
+</form>
+<script type="text/javascript" src="/static/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+	var availHeight=window.screen.availHeight;
+	$(".bodyall").css("height",availHeight - 45);
+	//alert(availHeight - 50);
+	var starCount = 0;    //星星数量
+	var checkClick = 0;  //是否选中
+  $(document).ready(function(){
+  	var obj = document.getElementsByName("star"); 
+		for(var i=1;i<=obj.length;i++){
+			//移入
+			$("#star_" + i).bind('mouseover',this, function(){
+				starCount = this.id.slice(5);
+				for(var j=1; j<= starCount;j++){
+					$("#star_" + j).attr("src", "/images/start_on.png");
+				}
+		        var level = ["1", "2", "3", "4", "5"];
+				$("#hint").html("<font color='black'>" + level[starCount - 1] + "</font>"); 
+				$("#hint").html("<input type='hidden' name='assesslevel' value=" + level[starCount - 1] + ">")
+	　　   
+			});
+			
+			//移出
+			$("#star_" + i).bind('mouseout', this, function(){
+				if (checkClick == 0) {
+					for (var j = 1; j <= obj.length; j++) {
+						$("#star_" + j).attr("src", "/images/start_off.png");
+					}
+					$("#hint").html("");
+				}
+			});
+			
+			//点击
+　　			$("#star_" + i).bind('click', this, function(){
+			　 starCount = this.id.slice(5);
+			   for (var j = 1; j <= obj.length; j++) {
+			   	 $("#star_" + j).attr("src", "/images/start_off.png");
+			   }
+			   for(var j =1; j <= starCount;j++  ){
+			   	 $("#star_" + j).attr("src", "/images/start_on.png");
+			   }
+			   checkClick = 1;
+			});
+		}
+});
+	
+	//课程详情
+		function returnTitle(){
+		return '我的课程评论';
+	}
+	var starCount = 0;
+	var checkClick = 0;
+
+</script>
+</body>
+</html>

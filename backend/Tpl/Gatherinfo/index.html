@@ -1,0 +1,820 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>录入学校信息</title>
+<!--<link rel="stylesheet" href="/static/css/bootstrap.min.css">-->
+<!--<link rel="stylesheet" href="/static/css/bootstrap-responsive.min.css">-->
+<!--[if lt IE 7]><link rel="stylesheet" href="http://blueimp.github.com/cdn/css/bootstrap-ie6.min.css"><![endif]-->
+<!--[if lt IE 9]><script src="/static/js/html5.js"></script><![endif]-->
+
+<style>
+body{margin:0 0;padding:0;font-family:"微软雅黑";}
+#titlepic {margin-bottom: 10px;}
+.ui-front {z-index:1500;}
+.inname{color:#258dc2;font-size:14px;font-weight:bold; float: left;width:100px;text-align:right;}
+.inputs{color:#258dc2;font-size:14px;margin-left:20px;width: 245px;}
+.toubu{width:1170;height:99px;margin:0 auto;background:url('/images/luru.png')no-repeat;}
+.bodya{width:1170px;margin: 0 auto;}
+.bitao{color:#36b8d8;font-size:36px;}
+.bodyinput{min-height: 590px;width: 541px;margin:0 auto;margin-top:64px;}
+.con_all{width:541px;min-height:591px;border:2px solid #dee9ee;}
+.staval{font-size:24px;color:#d66969;margin-left: 14px;}
+.sta{font-size:24px;color:#999999;}
+.inputstyle{width:217px;height:27px;border:2px solid #58b3d8;color:#258DC2}
+.jingstyle{width:100px;height:27px;border:2px solid #58b3d8;margin-left:15px;color:#258DC2}
+.input_all{ line-height: 40px;margin-left:70px;height: 50px;position: relative;}
+.selects{ height: 35px;width: 222px;border:2px solid #58b3d8;color:#258DC2}
+a:link{color:#c29f25;font-size:18px;}
+.logutwen a:link{color:#e9fff6;font-size:14px; text-decoration: none;margin-right:50px;}
+.jingname{color:#258dc2;font-size:14px;font-weight:bold;float:left;padding-left:50px;}
+.weiname{color:#258dc2;font-size:14px;font-weight:bold;float:left;margin-left:20px;}
+.weistyle{width:100px;height:27px;border:2px solid #58b3d8;margin-left:10px;color:#258DC2}
+.sub{background:#32ccff;width:100px;height:50px;-webkit-border-radius: 10px; border-radius: 10px;color:#FFFFFF;font-size:18px;font-family: "微软雅黑";}
+.wei_all{margin-left:70px;height:90px;color:#258DC2}
+.sub_all{margin-left:70px;height:70px;}
+.subinputs{color:#258dc2;font-size:14px;margin-left:20px;float:right;margin-right:253px;}
+.wenhao{ display: block;float: right;margin-right: 85px;margin-top: 5px;}
+textarea{width:281px;height:130px;border:2px solid #58b3d8;color:#258DC2}
+.textarea_all{margin-left:70px;height:150px;position: relative;}
+.logutwen{margin-left: 20px;color:#e9fff6;float:right;margin-top:40px;}
+.righttan{width:317px;height:102px;background:url('/images/tankuang.png');position:absolute;top:-10px;left:400px;color:#258dc2;font-size:14px;}
+.tanzi{width:278px;height:90px;line-height: 20px;margin-left:25px;}
+.logodi{width:100px;margin-left:120px}
+</style>
+</head>
+<body>
+<div class="all" id="all">
+		<div  id="toubu" class="bodya">
+			<div class="toubu">
+				<span class="logutwen">
+					<a href="javascript:void(0)" onclick="logut()">退出</a>
+				</span>
+				<span class="logutwen">
+					{$loginname}
+				</span>
+			</div>
+			<div class="bodyinput">
+				<span class="bitao">录入学校相关信息</span>
+				<div class="con_all">
+					<if condition="$info['isok'] eq 1 and $info['status'] eq 1">
+						<p style="margin-left:145px;margin-top:25px;">
+							<span class="sta">目前状态:</span>
+							<span class="staval">审核通过</span>
+							<span class="staval"><a href="#" onclick="upcon()">修改数据</a></span>
+						</p>
+					</if>
+					<if condition="$info['isok'] eq 0">
+						<p style="margin-left:145px;margin-top:25px;">
+						<span class="sta">目前状态:</span>
+						<span class="staval">等待完善</span>
+						</p>
+					</if>
+					<if condition="$info['isok'] neq 0 and $info['status'] eq 0">
+						<p style="margin-left:145px;margin-top:25px;">
+						<span class="sta">目前状态:</span>
+						<span class="staval">等待审核</span>
+						</p>
+					</if>
+					<if condition="$info['status'] eq 0">
+					<form action="/Gatherinfo/saveinfo/" name='form1' method="POST" enctype="multipart/form-data">
+						<input type="hidden" name="gid" value="{$info['gid']}">
+						<input type="hidden" name="uid" value="{$uid}">
+						<input type="hidden" name="key" value="{$keyvalue}">
+					<div class="input_all">
+						<span class="inname">学校名称</span>
+						<span class="inputs">
+							<input type="text" value="{$schoolname}" disabled placeholder="请输入学校名称" class="inputstyle">
+						</span>
+						<span class="wenhao" onmouseover="onfun(1)" onmouseout="offfun(1)">
+							<img src="/images/wenhao.png">
+						</span>
+						<div class="righttan" id="div1" style="display:none;">
+							<p class="tanzi">学校名称，注册时已填写，现在无需填写与修改</p>
+						</div>
+					</div>
+					<div class="input_all">
+						<span class="inname">学校英文名称</span>
+						<span class="inputs">
+							<input type="text" value="{$info['building_type']}" name="building_type" placeholder="请输入学校英文名称" class="inputstyle">
+						</span>
+						<span class="wenhao" onmouseover="onfun(20)" onmouseout="offfun(20)">
+							<img src="/images/wenhao.png">
+						</span>
+						<div class="righttan" id="div20" style="display:none;">
+							<p class="tanzi">进行英文名称填写，选填！</p>
+						</div>
+					</div>
+					<div class="input_all">
+						<span class="inname">学校简称</span>
+						<span class="inputs">
+							<input type="text" value="{$info['alias']}" class="inputstyle" name="alias">
+						</span>
+						<span class="wenhao" onmouseover="onfun(2)" onmouseout="offfun(2)">
+							<img src="/images/wenhao.png"></span>
+						<div class="righttan" style="display:none;" id="div2">
+							<p class="tanzi">学校的其他名称，包括俗称、原名等。选填！多个别名以','号隔开</p>
+						</div>
+					</div>
+
+					<div class="input_all">
+						<span class="inname">主页</span>
+						<span class="inputs">
+							<input type="text" value="{$info['facilities_cater']}" class="inputstyle" name="facilities_cater">
+						</span>
+						<span class="wenhao" onmouseover="onfun(3)" onmouseout="offfun(3)">
+							<img src="/images/wenhao.png"></span>
+						<div class="righttan" style="display:none;" id="div3">
+							<p class="tanzi">学校网址如：www.baidu.com</p>
+						</div>
+					</div>
+
+					<div class="input_all">
+						<span class="inname">办学性质</span>
+						<span class="inputs">
+							<input type="text" value="{$info['master_details_url']}" class="inputstyle" name="master_details_url">
+						</span>
+						<span class="wenhao" onmouseover="onfun(3)" onmouseout="offfun(3)">
+							<img src="/images/wenhao.png"></span>
+						<div class="righttan" style="display:none;" id="div3">
+							<p class="tanzi">公办、民办等</p>
+						</div>
+					</div>
+					<div class="textarea_all">
+						<span class="inname">办学宗旨</span>
+						<span class="inputs">
+							<textarea cols="5" rows="4" name="master_details_intro" style="width:217px;">{$info['master_details_intro']}</textarea>
+						</span>
+						<span class="wenhao"  onmouseover="onfun(4)" onmouseout="offfun(4)">
+							<img src="/images/wenhao.png">
+						</span>
+						<div class="righttan" id="div4" style="display:none;">
+							<p class="tanzi">填写办学的出发点,具有一定的价值观</p>
+						</div>
+					</div>
+					<div class="textarea_all">
+						<span class="inname">办学层次</span>
+						<span class="inputs">
+							<textarea cols="5" rows="4" name="master_details_picurl" style="width:217px;">{$info['master_details_picurl']}</textarea>
+						</span>
+						<span class="wenhao"  onmouseover="onfun(5)" onmouseout="offfun(5)">
+							<img src="/images/wenhao.png">
+						</span>
+						<div class="righttan" id="div5" style="display:none;">
+							<p class="tanzi">本校最高学历能发到什么程度,如专科、本科</p>
+						</div>
+					</div>
+					
+					<div class="textarea_all">
+						<span class="inname">办学规模</span>
+						<span class="inputs">
+							<textarea cols="5" rows="4" name="master_details_catalog" style="width:217px;">{$info['master_details_catalog']}</textarea>
+						</span>
+						<span class="wenhao"  onmouseover="onfun(6)" onmouseout="offfun(6)">
+							<img src="/images/wenhao.png">
+						</span>
+						<div class="righttan" id="div6" style="display:none;">
+							<p class="tanzi">可以指学校占地面积或是指招生人数</p>
+						</div>
+					</div>
+					<div class="textarea_all">
+						<span class="inname">机构设置</span>
+						<span class="inputs">
+							<textarea cols="5" rows="4" name="master_details_name" style="width:217px;">{$info['master_details_name']}</textarea>
+						</span>
+						<span class="wenhao"  onmouseover="onfun(7)" onmouseout="offfun(7)">
+							<img src="/images/wenhao.png">
+						</span>
+						<div class="righttan" id="div7" style="display:none;">
+							<p class="tanzi">办公室 办公室下设电话室、会议室、档案室、收发室等部门</p>
+						</div>
+					</div>
+					<div class="input_all">
+						<span class="inname">学校领导</span>
+						<span class="inputs">
+							<input type="text" value="{$info['master_details']}" class="inputstyle" name="master_details">
+						</span>
+						<span class="wenhao" onmouseover="onfun(8)" onmouseout="offfun(8)">
+							<img src="/images/wenhao.png"></span>
+						<div class="righttan" style="display:none;" id="div8">
+							<p class="tanzi">多个领导以','分隔开</p>
+						</div>
+					</div>
+					<div class="input_all">
+						<span class="inname">院校所在省份</span>
+						<span class="inputs">
+							<select class="selects" id="sheng" name="sheng">
+								<option>选择省</option>
+								<volist  name="shengInfo" id="vo">
+								<option <if condition="$info['province'] eq $vo['id']"> selected </if> value="{$vo['id']}">{$vo['name']}</option>
+								</volist>
+							</select>
+						</span>
+						<span class="wenhao"  onmouseover="onfun(9)" onmouseout="offfun(9)">
+							<img src="/images/wenhao.png">
+						</span>
+						<div class="righttan" id="div9" style="display:none;">
+							<p class="tanzi">选择所在省份。必填！如果不填写则一直处于待完善状态！</p>
+						</div>
+					</div>
+					<div class="input_all">
+						<span class="inname">院校所在市</span>
+						<span class="inputs">
+							<select class="selects" id="shi" name="shi">
+							<if condition="$info['city']">
+							<option value="{$info['city']}">{$info['cityname']}</option>
+							<else/>
+							<option value="0">选择市</option>
+							</if>
+							</select>
+						</span>
+						<span class="wenhao"  onmouseover="onfun(10)" onmouseout="offfun(10)">
+							<img src="/images/wenhao.png">
+						</span>
+						<div class="righttan" id="div10" style="display:none;">
+							<p class="tanzi">选择所在城市。必填！如果不填写则一直处于待完善状态！</p>
+						</div>
+					</div>
+					<div class="input_all">
+						<span class="inname">院校所在县</span>
+						<span class="inputs">
+							<select class="selects" id="xian" name="xian">
+							<if condition="$info['area']">
+							<option value="{$info['city']}">{$info['townname']}</option>
+							<else/>
+							<option value="0">选择县</option>
+							</if>
+							</select>
+						</span>
+						<span class="wenhao"  onmouseover="onfun(11)" onmouseout="offfun(11)">
+							<img src="/images/wenhao.png">
+						</span>
+						<div class="righttan" id="div11" style="display:none;">
+							<p class="tanzi">选择所在县。必填！如果不填写则一直处于待完善状态！</p>
+						</div>
+					</div>
+					<div class="input_all">
+						<span class="inname">通讯地址</span>
+						<span class="inputs">
+							<input type="text" class="inputstyle" id="address" name="address" value="{$info['address']}">
+						</span>
+						<span class="wenhao"  onmouseover="onfun(12)" onmouseout="offfun(12)">
+							<img src="/images/wenhao.png">
+						</span>
+						<div class="righttan" id="div12" style="display:none;">
+							<p class="tanzi">填写详细地址。必填！如果不填写则一直处于待完善状态！根据详细地址获取经纬度</p>
+						</div>
+					</div>
+					<div class="wei_all">
+						<span style="margin-left:125px;">
+							<a href="javascript:void(0)" onclick="getLonLat()">获取经纬度</a>
+						</span>
+						<div style="margin-top:15px;">
+						<span class="jingname" style="margin-left:20px;">经度 
+						<input type="text" class="jingstyle" id="longtitude1" name="longtitude" value="{$info['longtitude']}"></span>
+						<span class="weiname">纬度 <input type="text" class="weistyle" id="latitude1" name="latitude" value="{$info['latitude']}"></span>
+						</div>
+					</div>
+					<div class="input_all">
+						<span class="inname">座机电话</span>
+						<span class="inputs"><input type="text"  class="inputstyle" name="telephone" value="{$info['telephone']}"></span>
+						<span class="wenhao"  onmouseover="onfun(13)" onmouseout="offfun(13)">
+							<img src="/images/wenhao.png">
+						</span>
+						<div class="righttan" id="div13" style="display:none;">
+							<p class="tanzi">校内座机电话，必填！格式：010-xxxxxxxx 如果不填写则一直处于待完善状态！</p>
+						</div>
+					</div>
+					<div class="input_all">
+						<span class="inname">其他电话</span>
+						<span class="inputs"><input type="text" class="inputstyle" name="telephone_others" value="{$info['telephone_others']}"></span>
+						<span class="wenhao"  onmouseover="onfun(14)" onmouseout="offfun(14)">
+							<img src="/images/wenhao.png">
+						</span>
+						<div class="righttan" id="div14" style="display:none;">
+							<p class="tanzi">其他电话，如400、或是手机。选填！</p>
+						</div>
+					</div>
+					<div class="input_all">
+						<span class="inname">邮编</span>
+						<span class="inputs"><input type="text" class="inputstyle" name="facilities_parking" value="{$info['facilities_parking']}"></span>
+						<span class="wenhao"  onmouseover="onfun(22)" onmouseout="offfun(22)">
+							<img src="/images/wenhao.png">
+						</span>
+						<div class="righttan" id="div22" style="display:none;">
+							<p class="tanzi">填写所在地邮编</p>
+						</div>
+					</div>
+					<div class="input_all">
+						<span class="inname">传真</span>
+						<span class="inputs"><input type="text" class="inputstyle" name="hotel_environment" value="{$info['hotel_environment']}"></span>
+						<span class="wenhao"  onmouseover="onfun(23)" onmouseout="offfun(23)">
+							<img src="/images/wenhao.png">
+						</span>
+						<div class="righttan" id="div23" style="display:none;">
+							<p class="tanzi">其他电话，如400、或是手机。选填！</p>
+						</div>
+					</div>
+
+					<div class="textarea_all">
+						<span class="inname">学校简介</span>
+						<span class="inputs">
+							<textarea cols="5" rows="4" name="schooldetail" style="width:210px;">{$info['schooldetail']}</textarea>
+						</span>
+						<span class="wenhao"  onmouseover="onfun(21)" onmouseout="offfun(21)">
+							<img src="/images/wenhao.png">
+						</span>
+
+						<div class="righttan" id="div21" style="display:none;">
+							<p class="tanzi">学校简要信息</p>
+						</div>
+					</div>
+					<if condition="$info['logourl']==''">
+					<div class="input_all" style="">
+						<span class="inname">上传学校图片</span>
+						<span class="inputs">
+							<input  type="file" value="{$info['logourl']}" class="inputstyle" name="files" >
+						</span>
+						<span class="wenhao" onmouseover="onfun(4)" onmouseout="offfun(4)">
+							<img src="/images/wenhao.png">
+						</span>
+						<div class="righttan" id="div4" style="display:none;">
+							<p class="tanzi">上传学校图片。选填！上传尺寸为100px,100px或是等比</p>
+							<input type="hidden" value="{$info['logourl']}" name="logourl">
+						</div>
+					</div>
+					<else/>
+					<div class="input_all" style="height:170px;">
+						<div class="logodi"><img src="{$info['logourl']}" width="100px;" height="100px"></div>
+						<span class="inname">修改学校图片</span>
+						<span class="inputs">
+						<input  type="file" value="{$info['logourl']}" class="inputstyle" name="files" >
+						</span>
+						<input type="hidden" value="{$info['logourl']}" name="logourl">
+						<span class="wenhao" onmouseover="onfun(28)" onmouseout="offfun(28)">
+							<img src="/images/wenhao.png">
+						</span>
+						<div class="righttan" id="div28" style="display:none;">
+							<p class="tanzi">上传学校图片。选填！上传尺寸为100px,100px或是等比</p>
+						</div>
+					</div>
+					</if>
+					<div class="input_all">
+						<span class="inname">院校周边商圈</span>
+						<span class="inputs">
+							<input type="text" class="inputstyle" name="bizarea" value="{$info['bizarea']}">
+						</span>
+						<span class="wenhao"  onmouseover="onfun(15)" onmouseout="offfun(15)">
+							<img src="/images/wenhao.png">
+						</span>
+
+						<div class="righttan" id="div15" style="display:none;">
+							<p class="tanzi">所在的商圈，比如五道口、公主坟等</p>
+						</div>
+					</div>
+					<!---二次添加---->
+					<div class="input_all">
+						<span class="inname">精品课程名称</span>
+						<span class="inputs"><input type="text" class="inputstyle" name="recommend_dish_name" value="{$info['recommend_dish_name']}"></span>
+						<span class="wenhao"  onmouseover="onfun(16)" onmouseout="offfun(16)">
+							<img src="/images/wenhao.png">
+						</span>
+						<div class="righttan" id="div16" style="display:none;">
+							<p class="tanzi">精品课程是指具有一流教师队伍、一流教学内容、一流教学方法、一流教材、一流教学管理等特点的示范性课程</p>
+						</div>
+					</div>
+					<div class="input_all">
+						<span class="inname">学校邮箱</span>
+						<span class="inputs"><input type="text" class="inputstyle" name="master_listurl" value="{$info['master_listurl']}"></span>
+						<span class="wenhao"  onmouseover="onfun(17)" onmouseout="offfun(17)">
+							<img src="/images/wenhao.png">
+						</span>
+						<div class="righttan" id="div17" style="display:none;">
+							<p class="tanzi">管理员邮箱或是教室邮箱</p>
+						</div>
+					</div>
+					<div class="input_all">
+						<span class="inname">学校新浪账号</span>
+						<span class="inputs"><input type="text" class="inputstyle" name="weiboaccounturl" value="{$info['weiboaccounturl']}"></span>
+						<span class="wenhao"  onmouseover="onfun(18)" onmouseout="offfun(18)">
+							<img src="/images/wenhao.png">
+						</span>
+						<div class="righttan" id="div18" style="display:none;">
+							<p class="tanzi">学校申请的微博账号</p>
+						</div>
+					</div>
+					<div class="input_all">
+						<span class="inname">学校微信账号</span>
+						<span class="inputs"><input type="text" class="inputstyle" name="webchataccount" value="{$info['webchataccount']}"></span>
+						<span class="wenhao"  onmouseover="onfun(19)" onmouseout="offfun(19)">
+							<img src="/images/wenhao.png">
+						</span>
+						<div class="righttan" id="div19" style="display:none;">
+							<p class="tanzi">学习微信官方账号</p>
+						</div>
+					</div>
+					<!----//结束------->
+					<div class="sub_all">
+						<span class="subinputs"><input type="submit" value="提交" class="sub"></span>
+					</div>
+				</div>
+				</form>
+				<else/>
+				<form action="/Gatherinfo/saveinfo/" name='form1' method="POST" enctype="multipart/form-data">
+						<input type="hidden" name="gid" value="{$info['gid']}">
+						<input type="hidden" name="uid" value="{$uid}">
+						<input type="hidden" name="key" value="{$keyvalue}">
+					<div class="input_all">
+						<span class="inname">学校名称</span>
+						<span class="inputs">
+							<input type="text" value="{$schoolname}" disabled placeholder="请输入学校名称" class="inputstyle">
+						</span>
+						<span class="wenhao" onmouseover="onfun(1)" onmouseout="offfun(1)">
+							<img src="/images/wenhao.png">
+						</span>
+						<div class="righttan" id="div1" style="display:none;">
+							<p class="tanzi">学校名称，注册时已填写，现在无需填写与修改</p>
+						</div>
+					</div>
+					<div class="input_all">
+						<span class="inname">英文名称</span>
+						<span class="inputs">
+							<input type="text" disabled value="{$info['building_type']}" name="building_type" placeholder="请输入学校英文名称" class="inputstyle">
+						</span>
+						<span class="wenhao" onmouseover="onfun(20)" onmouseout="offfun(20)">
+							<img src="/images/wenhao.png">
+						</span>
+						<div class="righttan" id="div20" style="display:none;">
+							<p class="tanzi">学校英文名称</p>
+						</div>
+					</div>
+					<div class="input_all">
+						<span class="inname">学校简称</span>
+						<span class="inputs">
+							<input type="text" disabled value="{$info['alias']}" class="inputstyle" name="alias">
+						</span>
+						<span class="wenhao" onmouseover="onfun(2)" onmouseout="offfun(2)">
+							<img src="/images/wenhao.png"></span>
+						<div class="righttan" style="display:none;" id="div2">
+							<p class="tanzi">学校的其他名称，包括俗称、原名等。选填！多个别名以','号隔开</p>
+						</div>
+					</div>
+					<div class="input_all">
+						<span class="inname">办学性质</span>
+						<span class="inputs">
+							<input type="text" disabled value="{$info['master_details_url']}" class="inputstyle" name="master_details_url">
+						</span>
+						<span class="wenhao" onmouseover="onfun(3)" onmouseout="offfun(3)">
+							<img src="/images/wenhao.png"></span>
+						<div class="righttan" style="display:none;" id="div3">
+							<p class="tanzi">公办、民办等</p>
+						</div>
+					</div>
+					<div class="textarea_all">
+						<span class="inname">办学宗旨</span>
+						<span class="inputs">
+							<textarea cols="5" disabled rows="4" name="master_details_intro" style="width:217px;">{$info['master_details_intro']}</textarea>
+						</span>
+						<span class="wenhao"  onmouseover="onfun(4)" onmouseout="offfun(4)">
+							<img src="/images/wenhao.png">
+						</span>
+						<div class="righttan" id="div4" style="display:none;">
+							<p class="tanzi">填写办学的出发点,具有一定的价值观</p>
+						</div>
+					</div>
+					<div class="textarea_all">
+						<span class="inname">办学层次</span>
+						<span class="inputs">
+							<textarea cols="5" disabled rows="4" name="master_details_picurl" style="width:217px;">{$info['master_details_picurl']}</textarea>
+						</span>
+						<span class="wenhao"  onmouseover="onfun(5)" onmouseout="offfun(5)">
+							<img src="/images/wenhao.png">
+						</span>
+						<div class="righttan" id="div5" style="display:none;">
+							<p class="tanzi">本校最高学历能发到什么程度,如专科、本科</p>
+						</div>
+					</div>
+					
+					<div class="textarea_all">
+						<span class="inname">办学规模</span>
+						<span class="inputs">
+							<textarea cols="5" disabled  rows="4" name="master_details_catalog" style="width:217px;">{$info['master_details_catalog']}</textarea>
+						</span>
+						<span class="wenhao"  onmouseover="onfun(6)" onmouseout="offfun(6)">
+							<img src="/images/wenhao.png">
+						</span>
+						<div class="righttan" id="div6" style="display:none;">
+							<p class="tanzi">可以指学校占地面积或是指招生人数</p>
+						</div>
+					</div>
+					<div class="textarea_all">
+						<span class="inname">机构设置</span>
+						<span class="inputs">
+							<textarea cols="5" disabled rows="4" name="master_details_name" style="width:217px;">{$info['master_details_name']}</textarea>
+						</span>
+						<span class="wenhao"  onmouseover="onfun(7)" onmouseout="offfun(7)">
+							<img src="/images/wenhao.png">
+						</span>
+						<div class="righttan" id="div7" style="display:none;">
+							<p class="tanzi">办公室 办公室下设电话室、会议室、档案室、收发室等部门</p>
+						</div>
+					</div>
+					<div class="input_all">
+						<span class="inname">学校领导</span>
+						<span class="inputs">
+							<input type="text" disabled value="{$info['master_details']}" class="inputstyle" name="master_details">
+						</span>
+						<span class="wenhao" onmouseover="onfun(8)" onmouseout="offfun(8)">
+							<img src="/images/wenhao.png"></span>
+						<div class="righttan" style="display:none;" id="div8">
+							<p class="tanzi">多个领导以','分隔开</p>
+						</div>
+					</div>
+					<div class="input_all">
+						<span class="inname">院校所在省份</span>
+						<span class="inputs">
+							<select class="selects" disabled id="sheng" name="sheng">
+								<option>选择省</option>
+								<volist  name="shengInfo" id="vo">
+								<option <if condition="$info['province'] eq $vo['id']"> selected </if> value="{$vo['id']}">{$vo['name']}</option>
+								</volist>
+							</select>
+						</span>
+						<span class="wenhao"  onmouseover="onfun(9)" onmouseout="offfun(9)">
+							<img src="/images/wenhao.png">
+						</span>
+						<div class="righttan" id="div9" style="display:none;">
+							<p class="tanzi">选择所在省份。必填！如果不填写则一直处于待完善状态！</p>
+						</div>
+					</div>
+					<div class="input_all">
+						<span class="inname">院校所在市</span>
+						<span class="inputs">
+							<select class="selects" id="shi" disabled name="shi">
+							<if condition="$info['city']">
+							<option value="{$info['city']}">{$info['cityname']}</option>
+							<else/>
+							<option value="0">选择市</option>
+							</if>
+							</select>
+						</span>
+						<span class="wenhao"  onmouseover="onfun(10)" onmouseout="offfun(10)">
+							<img src="/images/wenhao.png">
+						</span>
+						<div class="righttan" id="div10" style="display:none;">
+							<p class="tanzi">选择所在城市。必填！如果不填写则一直处于待完善状态！</p>
+						</div>
+					</div>
+					<div class="input_all">
+						<span class="inname">院校所在县</span>
+						<span class="inputs">
+							<select class="selects" id="xian" disabled name="xian">
+							<if condition="$info['area']">
+							<option value="{$info['city']}">{$info['townname']}</option>
+							<else/>
+							<option value="0">选择县</option>
+							</if>
+							</select>
+						</span>
+						<span class="wenhao"  onmouseover="onfun(11)"  onmouseout="offfun(11)">
+							<img src="/images/wenhao.png">
+						</span>
+						<div class="righttan" id="div11" style="display:none;">
+							<p class="tanzi">选择所在县。必填！如果不填写则一直处于待完善状态！</p>
+						</div>
+					</div>
+					<div class="input_all">
+						<span class="inname">通讯地址</span>
+						<span class="inputs">
+							<input type="text" class="inputstyle" disabled id="address" name="address" value="{$info['address']}">
+						</span>
+						<span class="wenhao"  onmouseover="onfun(12)" onmouseout="offfun(12)">
+							<img src="/images/wenhao.png">
+						</span>
+						<div class="righttan" id="div12" style="display:none;">
+							<p class="tanzi">填写详细地址。必填！如果不填写则一直处于待完善状态！根据详细地址获取经纬度</p>
+						</div>
+					</div>
+					<div class="wei_all">
+						<span style="margin-left:125px;">
+							<a href="javascript:void(0)" onclick="getLonLat()">获取经纬度</a>
+						</span>
+						<div style="margin-top:15px;">
+						<span class="jingname" style="margin-left:20px;">经度 
+						<input type="text" class="jingstyle" disabled id="longtitude1" name="longtitude" value="{$info['longtitude']}"></span>
+						<span class="weiname">纬度 <input type="text" disabled class="weistyle" id="latitude1" name="latitude" value="{$info['latitude']}"></span>
+						</div>
+					</div>
+					<div class="input_all">
+						<span class="inname">座机电话</span>
+						<span class="inputs"><input type="text" disabled class="inputstyle" name="telephone" value="{$info['telephone']}"></span>
+						<span class="wenhao"  onmouseover="onfun(13)" disabled onmouseout="offfun(13)">
+							<img src="/images/wenhao.png">
+						</span>
+						<div class="righttan" id="div13" style="display:none;">
+							<p class="tanzi">校内座机电话，必填！格式：010-xxxxxxxx 如果不填写则一直处于待完善状态！</p>
+						</div>
+					</div>
+					<div class="input_all">
+						<span class="inname">其他电话</span>
+						<span class="inputs"><input type="text" disabled class="inputstyle" name="telephone_others" value="{$info['telephone_others']}"></span>
+						<span class="wenhao"  onmouseover="onfun(14)" onmouseout="offfun(14)">
+							<img src="/images/wenhao.png">
+						</span>
+						<div class="righttan" id="div14" style="display:none;">
+							<p class="tanzi">其他电话，如400、或是手机。选填！</p>
+						</div>
+					</div>
+					<div class="textarea_all">
+						<span class="inname">学校简介</span>
+						<span class="inputs">
+							<textarea cols="5" disabled rows="4" name="schooldetail" style="width:217px;">{$info['schooldetail']}</textarea>
+						</span>
+						<span class="wenhao" onmouseover="onfun(22)" onmouseout="offfun(22)">
+							<img src="/images/wenhao.png"></span>
+						<div class="righttan" style="display:none;" id="div22">
+							<p class="tanzi">学校简要描述</p>
+						</div>
+					</div>
+					<div class="input_all">
+						<span class="inname">院校周边商圈</span>
+						<span class="inputs">
+							<input type="text" class="inputstyle" disabled name="bizarea" value="{$info['bizarea']}">
+						</span>
+						<span class="wenhao"  onmouseover="onfun(15)" onmouseout="offfun(15)">
+							<img src="/images/wenhao.png">
+						</span>
+						<div class="righttan" id="div15" style="display:none;">
+							<p class="tanzi">所在的商圈，比如五道口、公主坟等</p>
+						</div>
+					</div>
+					<!---二次添加---->
+					<div class="input_all">
+						<span class="inname">精品课程名称</span>
+						<span class="inputs"><input type="text" disabled class="inputstyle" name="recommend_dish_name" value="{$info['recommend_dish_name']}"></span>
+						<span class="wenhao"  onmouseover="onfun(16)" onmouseout="offfun(16)">
+							<img src="/images/wenhao.png">
+						</span>
+						<div class="righttan" id="div16" style="display:none;">
+							<p class="tanzi">精品课程是指具有一流教师队伍、一流教学内容、一流教学方法、一流教材、一流教学管理等特点的示范性课程</p>
+						</div>
+					</div>
+					<div class="input_all">
+						<span class="inname">学校邮箱</span>
+						<span class="inputs"><input type="text" disabled class="inputstyle" name="master_listurl" value="{$info['master_listurl']}"></span>
+						<span class="wenhao"  onmouseover="onfun(17)" onmouseout="offfun(17)">
+							<img src="/images/wenhao.png">
+						</span>
+						<div class="righttan" id="div17" style="display:none;">
+							<p class="tanzi">管理员邮箱或是教室邮箱</p>
+						</div>
+					</div>
+					<div class="input_all">
+						<span class="inname">学校新浪账号</span>
+						<span class="inputs"><input type="text" disabled class="inputstyle" name="weiboaccounturl" value="{$info['weiboaccounturl']}"></span>
+						<span class="wenhao"  onmouseover="onfun(18)" onmouseout="offfun(18)">
+							<img src="/images/wenhao.png">
+						</span>
+						<div class="righttan" id="div18" style="display:none;">
+							<p class="tanzi">学校申请的微博账号</p>
+						</div>
+					</div>
+					<div class="input_all">
+						<span class="inname">学校微信账号</span>
+						<span class="inputs"><input type="text" disabled class="inputstyle" name="webchataccount" value="{$info['webchataccount']}"></span>
+						<span class="wenhao"  onmouseover="onfun(19)" onmouseout="offfun(19)">
+							<img src="/images/wenhao.png">
+						</span>
+						<div class="righttan" id="div19" style="display:none;">
+							<p class="tanzi">学习微信官方账号</p>
+						</div>
+					</div>
+					</if>
+				</div>
+			</div>
+		</div>
+
+</div>
+<div id='container' style='width:500px;height:300px;display:none;'></div>
+<script src="/static/js/jquery-1.9.1.min.js"></script>
+<script src="/static/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=1.2"></script>
+<script>
+
+	function onfun(id){
+
+		document.getElementById('div'+id).style.display="block";
+	}
+	function offfun(id){
+	
+		document.getElementById('div'+id).style.display="none";
+	}
+//获取屏幕的宽度
+	
+	var allwidth=document.body.clientWidth;
+	document.getElementById("all").style.width=allwidth+"px";
+	//获取经纬度
+	var map = new BMap.Map("container"); 
+	map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);
+	function gmshc_point(address){
+		//alert(address);
+		var options = {  
+		onSearchComplete: function(results){  
+		   if (local.getStatus() == BMAP_STATUS_SUCCESS){  
+			  var poi = results.getPoi(0);
+			 //alert(poi.point.lng+" "+poi.point.lat); 
+			 document.getElementById("longtitude1").value=poi.point.lng;
+			 document.getElementById("latitude1").value=poi.point.lat; 
+			} 
+			else{alert('error')} 
+			}  
+		};
+		local = new BMap.LocalSearch(map, options);  
+		local.search(address);  
+	}
+	function getLonLat(){
+		var address = document.getElementById("address").value;
+		gmshc_point(address);
+	}
+	//退出
+	function logut(){
+	
+		if(confirm('确定退出吗')){
+		
+			location = "/Gatherinfo/logout?key={$keyvalue}";
+		}
+	}
+/*onsubmit="return saveinfo();" */
+	function saveinfo(){
+		
+		var address		= $('#address').val();
+		alert(address);
+		var sheng		= $('#sheng').val();
+		var shi			= $('#shi').val();
+		var xian		= $('#xian').val();
+		var telephone	= $('#telephone').val();
+		if(address==""){
+			alert('详细地址不能为空');
+			return false;
+		}else if(sheng==0){
+			alert('请选择省份');
+			return false;
+		}else if(shi==0){
+			alert('请选择市');
+			return false;
+		}else if(xian==0){
+			alert('请选择县');
+			return false;
+		}else if(telephone==""){
+			alert('请填写座机');
+			return false;
+		}else{
+			return true;
+		}
+	}
+	function upcon(){
+		location = "/Gatherinfo/upstatus?gid={$info['gid']}&&key={$keyvalue}";
+	}
+	$(function(){
+		$("#sheng").change(function(){
+			shengid = $(this).val();
+
+			/*删除子节点*/
+			var shi			= document.getElementById("shi");      
+			var childs		= shi.childNodes; 
+			for(var i = childs.length - 1; i >= 0; i--) {      
+				shi.removeChild(childs[i]);
+			}  
+			//得到市
+			var url		= "/Gatherinfo/getCity";
+			$.post(url,{shengid:shengid},function(data){
+				jsons	= eval(data);
+				$('#shi').append('<option value="0">选择市</option>');
+				for(var i=0; i<jsons.length; i++){  
+					$('#shi').append('<option value='+jsons[i].id+'>'+jsons[i].name+'</option>');
+				 }  
+			});
+		})
+
+		$("#shi").change(function(){
+			sid = $(this).val();
+			/*删除子节点*/
+			var xian			= document.getElementById("xian");      
+			var childs		= xian.childNodes;
+			for(var i = childs.length - 1; i >= 0; i--) {      
+				xian.removeChild(childs[i]);
+			}  
+			//得到市
+			var url		= "/Gatherinfo/getTown";
+			$.post(url,{sid:sid},function(data){
+				jsons	= eval(data);
+				$('#xian').append('<option value="0">选择县</option>');
+				for(var i=0; i<jsons.length; i++){  
+					$('#xian').append('<option value='+jsons[i].id+'>'+jsons[i].name+'</option>');
+				 }  
+			});
+		})
+	});
+</script>
+</body>
+</html>

@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name=”format-detection” content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta content="email=no" name="format-detection" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0">
+<title>首页</title> 
+<style>
+ body{ margin:0 auto; width:320px; height:480px; background:#E7E7E7;}
+ body, h1, h2, h3, h4, h5, h6, p, div, ul, ol, li, dl, dt, dd, h1{ padding:0;}
+ html{font:12px/1.5 "Arial",arial,sans-serif;}
+ form { margin: 0;}
+ 
+ /*搜索样式开始*/
+ .search{ 
+ 			background:#2D6CA7;
+			background-color:#2E6CA6;
+			background-image:url('{$appbasepath}images/index/search.png');
+			width:320px;
+			height:44px; 
+			line-height:44px; 
+			text-align:center; 
+			vertical-align:middle;}
+ /*搜索按钮*/
+#go { 
+float: left; 
+position:relative;  
+top:13px;
+left:10px;
+} 
+/*搜索框*/
+#search_text {
+color:#cccccc;
+float: left; 
+position:relative;  
+top:10px;
+left:17px;
+border: 0; 
+width: 250px; 
+height:22px; 
+background: none; 
+font-size: 1.2em; 
+outline:none;
+
+} 
+ /*搜索样式结束*/
+ 
+ /* 导航 nav tab*/
+ ul,li{list-style-type:none}/*--清除列表格式--*/  
+.box{width:318px;border:1px #ccc solid; margin-bottom:5px;}/*--border边框为1个像素灰色的实线边框--*/  
+  
+.box_title{width:318px;height:30px;float:left; line-height:30px;margin:3px;background:#D6E8F2;color:#647784; font:16px;margin-left:0px}/*--宽100%高30px左浮动行高30px背景灰色--*/  
+  
+.box_title li{width:106px;height:30px;line-height:30px;float:left;cursor:pointer;text-align:center;}
+   
+.box_content{width:310px;height:auto;float:left; text-align:center;}  
+    
+.cc{width:200px;height:30px;line-height:21px;float:left;display:block;color:#032A3B;background:#E5F1FA; font-weight:700; border-bottom: 2px solid  #00CC00; }    
+.j2,.j3,.j4{display:none;margin-left:6px;}
+.j1{ margin-left:5px;}
+/*tab 结束*/
+.rows{ background:#FFFFFF;}
+/*内容标题*/
+.title1{ font-size:16px; color:#2E2E2E; padding-left:11px; text-align:left;}
+.title2{ font-size:16px;}
+/*星级评价*/
+.rating{ vertical-align:middle; padding-left:10px;}
+/*星级评级*/
+.level{  }
+/*浏览次数*/
+.liulannum { font-size:15px;color:#808080;padding-left:160px}
+/*详细内容*/
+.content{ padding-left:5px;}
+.content_brief{ font-size:12px; margin:0px 2px;}
+
+/*作者头像*/
+.content_upicture{width:40%;float:left;display:block;}
+
+/*作者部分*/
+.content_aut{width:60%;float:left;display:block}
+
+ .ul_list{ background:#FFFFFF; font-size:16px;margin:0px;}
+ .ul_list li{ border: 1px solid  #CCCCCC;  width:300px; height:40px; vertical-align:middle; line-height:40px;} 
+ 
+ /*列表激活样式*/
+ .ul_list a:hover{ display:block;color:#032A3B; background-color:#D4EFFF;}
+ .to{ font-size:16px; margin-left:200px; }
+ 
+a:link{
+text-decoration:none;
+}
+ a:visited{
+text-decoration:none;
+}
+ a:hover{
+text-decoration:none;
+color:blue;
+}
+ a:active{
+text-decoration:none;
+}
+
+
+</style>
+</head>
+<body>
+<!--搜索-->
+<div class="search">
+<form id="search_form" method="post" action="#">
+<input type="image" src="{$appbasepath}images/index/btn_search_box.png" width="20" height="20"  id="go" alt="Search" title="Search" /> 
+<input type="text" id="search_text" value="请输入搜索内容"  />
+</form>
+</div>
+
+<!-- 导航 tab -->
+<div class="box">  
+    <ul class="box_title">  
+        <li id="j1" class="cc">最新</li>  
+        <li id="j2">热门</li>  
+        <li id="j3">分类</li>  
+    </ul>  
+<!--内容页-->
+<div class="box_content"> 
+    <!--最新--> 
+    <div class="j1" id="j1_rows">
+         <div class="rows">
+                <a href="{$appbasepath}Cdetails/index/courseid/{$list['courseid']}" id="j1_like1"><img src="{$list['picture']}" width="305" height="180"></a>
+                <div class="title1">
+                       {$list['name']}
+                </div>
+                <div class="rating">
+                         <span class="level">
+                         	<volist  name="icolevel" id="vo">
+                            <img src="{$appbasepath}{$vo}" width="15" height="15"> 
+							</volist>
+                        </span> 
+                         <span class="liulannum">
+                           <img src="{$appbasepath}images/public/eye.png" width="16" height="12">&nbsp;{$list['visitnums']}				
+                         </span>
+                </div>
+                  <!--清除float-->
+                <div style=" clear:both"></div>
+                  
+                  <hr/>
+                <div class="content">
+                     <div class="content_upicture">
+                                <img src="{$list['upicture']}" width="75" height="75">
+                     </div>
+                     <div class="content_aut">
+                    	<span class="title2">{$list['username']}</span>
+                        <p class="content_brief">
+                         &nbsp;&nbsp;&nbsp;&nbsp;{$list['descp']}
+                        </p>
+						<!--<a href='/Video/?lessonsid=31' style="font-size:18px">测试连接</a>-->
+					    <a style="font-size:16px;margin-left:130px;cursor:pointer;" id="j1_goto">更多...</a>
+                    </div>
+                     <div style=" clear:both"></div>
+					 
+           		</div>
+        </div>
+        <br/>
+		
+    </div>
+    <!--最热门--> 
+        <div class="j2" id="j2_rows"> 
+                <div class="rows">
+                 <a href="{$appbasepath}/Cdetails/index/courseid/17" id="j2_like1">
+                <img src="{$appbasepath}images/index/jianjie.png" width="305" height="180" id="j2_img1" ></a>
+                <div class="title1" id="j2_title1">
+                        	阿米巴经营模式
+                </div>
+                <div class="rating">
+                         <span class="level" id="j2_level1">
+                        </span> 
+                         <span class="liulannum">
+                           <img src="{$appbasepath}images/public/eye.png" width="16" height="12">&nbsp;<span id="j2_num1">75</span>				
+                         </span>
+                </div>
+                  <!--清除float-->
+                <div style=" clear:both"></div>
+                  
+                  <hr/>
+                <div class="content">
+                     <div class="content_upicture">
+                                <img src="{$appbasepath}images/index/pic.png" width="75" height="75" id="j2_uimg1">
+                     </div>
+                     <div class="content_aut">
+                    	<span class="title2" id="j2_uname1">鹏建峰</span>
+                        <p class="content_brief" id="j2_desc1">
+                         &nbsp;&nbsp;&nbsp;&nbsp;华夏基石咨询集团副总裁工学硕士，MBA技术经济博士，具有多年的大型集团管理工作经验
+                        </p>
+						<a style="font-size:16px;margin-left:130px;cursor:pointer;" id="j2_goto">更多...</a>
+                    </div>
+                     <div style=" clear:both"></div>
+           		</div>
+        </div>
+        <br/>
+          
+        </div>  
+        <div class="j3" align="center">
+             <ul class="ul_list" id="j3_ul">
+             
+             </ul>  
+        </div>  
+</div>
+   
+</div>
+<script src="{$appbasepath}static/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">  
+$(document).ready(function(){  
+ //Tap事件
+ $(".box_title li").click(function(){
+ 	 $(this).addClass("cc").siblings().removeClass();//移动到当下的li增加样式.cc其他的不加并移除样式  
+     $($(this).parent().next().find("div."+$(this).attr("id"))).show().siblings().hide();       //获取当前的id属性值与之前的.结合，合成类，显示，其他隐藏  
+ });
+ //获得焦点时候清空
+ $("#search_text").focus(function(){
+ 	$("#search_text").val("");
+ });
+ 	
+ /**
+  * 最新点击事件
+  */
+ $("#j1").click(function(){
+ 	//alert('j1');
+	//console.log('j1');
+ });
+ 
+ $("#j1_goto").click(function(){
+ 	$.getJSON("{$appbasepath}IosApi/getRecCourse/rtid/11", function(json){
+		var data = json.retinfo.list;
+		var lihtml = "";
+		$.each(data,function(i,v){
+			if(v['picture'] =="" ) v['picture'] ='/images/index/jianjie.png';
+		
+			//组装星星等级
+				var leve= 5;
+				var con = v['assesslevel'];
+				var img ="";
+       			for(var j=0; j<con;j++){
+				 img += "<img src='{$appbasepath}images/public/star_on.png' width='15' height='15'>";	 
+        		} 	 
+        		an = leve - con;
+				if(an!=0){
+					for(var j=0;j<an;j++){
+					 img +="<img src='{$appbasepath}images/public/star_off.png' width='15' height='15'>";
+					}
+				}
+				//迭代取数据
+				  lihtml +='<div class="rows">'+
+				  '<a href="{$appbasepath}Cdetails/index/courseid/'+v['courseid'] +'">'+  
+				  '<img src="'+v['picture']+'" width="305" height="180" id="j1_img" ></a>'+
+                '<div class="title1" id="j1_title1">'+v['name']+'</div>'+
+                '<div class="rating">'+
+                         '<span class="level" id="j1_level">'+ img +'</span>'+ 
+                         '<span class="liulannum">'+
+                         '<img src="{$appbasepath}images/public/eye.png" width="16" height="12">&nbsp;<span id="j1_num">'+ v['visitnums'] +'</span>'+				
+                         '</span></div>'+ 
+                '<div style=" clear:both"></div><hr/>'+
+                '<div class="content">'+
+                     '<div class="content_upicture">'+
+                          '<img src="'+ v['upicture'] +'" width="75" height="75" id="j1_uimg">'+
+                     '</div>'+
+                     '<div class="content_aut">'+
+                    	'<span class="title2" id="j1_uname">'+v['username']+'</span>'+
+                        '<p class="content_brief" id="j1_desc">'+
+                        '&nbsp;&nbsp;&nbsp;&nbsp;'+ v['descp'] +'</p></div>'+
+						'<div style="clear:both"></div></div></div><br/>';
+			
+		});   
+
+	     $('#j1_rows').html(lihtml);
+	});
+ });
+ 
+ 
+ /**
+  * 热门点击事件
+  */
+ $("#j2").click(function(){
+	$.getJSON("{$appbasepath}IosApi/getRecCourse/rtid/10", function(data){
+				var arr = data['retinfo']['list'];
+				if(arr['0']['picture'] =="" ) arr['0']['picture'] ='/images/index/jianjie.png';
+				var href = "{$appbasepath}Cdetails/index/courseid/"+arr['0']['courseid'];
+				$('#j2_like1').attr("href",href);
+				$('#j2_img1').attr("src",arr['0']['picture']);
+				$('#j2_title1').html(arr['0']['name']);
+				//组装星星等级
+				var leve= 5;
+				var con = arr['0']['assesslevel'];
+				var img ="";
+       			for(var i=0; i<con;i++){
+				 img += "<img src='{$appbasepath}images/public/star_on.png' width='15' height='15'>";	 
+        		} 	 
+        		an = leve - con;
+				if(an!=0){
+					for(var j=0;j<an;j++){
+					 img +="<img src='{$appbasepath}images/public/star_off.png' width='15' height='15'>";
+					}
+				}
+				$('#j2_level1').html(img);
+				$('#j2_num1').html(arr['0']['visitnums'])
+				$('#j2_uimg1').attr("src",arr['0']['upicture']);
+				$('#j2_uname1').html(arr['0']['username']);
+				$('#j2_desc1').html(arr['0']['descp'])
+//				console.log(arr['0']['visitnums']);				
+	});
+});
+        
+		 $("#j2_goto").click(function(){
+		 	$.getJSON("{$appbasepath}IosApi/getRecCourse/rtid/10", function(json){
+					var data = json.retinfo.list;
+					var lihtml = "";
+					$.each(data,function(i,v){
+						if(v['picture'] =="" ) v['picture'] ='/images/index/jianjie.png';
+					
+						//组装星星等级
+							var leve= 5;
+							var con = v['assesslevel'];
+							var img ="";
+			       			for(var j=0; j<con;j++){
+							 img += "<img src='{$appbasepath}images/public/star_on.png' width='15' height='15'>";	 
+			        		} 	 
+			        		an = leve - con;
+							if(an!=0){
+								for(var j=0;j<an;j++){
+								 img +="<img src='{$appbasepath}images/public/star_off.png' width='15' height='15'>";
+								}
+							}
+							//迭代取数据
+				  			lihtml +='<div class="rows">'+
+							         '<a href="{$appbasepath}/Cdetails/index/courseid/'+ v['courseid']+'" id="j2_like'+i+'">'+
+                					 '<img src="'+v['picture']+'" width="305" height="180" id="j2_img"></a>'+
+                					 '<div class="title1" id="j2_title1">'+v['name']+'</div>'+
+                					 '<div class="rating">'+
+                         			 '<span class="level" id="j2_level1">'+img+'</span>'+ 
+                        			 '<span class="liulannum">'+
+                           			 '<img src="{$appbasepath}images/public/eye.png" width="16" height="12">&nbsp;<span id="j2_num1">'+v['visitnums'] +'</span>'+				
+                                     '</span></div><div style=" clear:both"></div><hr/>'+
+                					 '<div class="content">'+
+                     				 '<div class="content_upicture">'+
+                                     '<img src="'+ v['upicture'] +'" width="75" height="75" id="j2_uimg"></div>'+
+                     				 '<div class="content_aut">'+
+                    				 '<span class="title2" id="j2_uname">'+ v['username']+'</span>'+
+                        			 '<p class="content_brief" id="j2_desc">'+
+                         			 '&nbsp;&nbsp;&nbsp;&nbsp;'+v['descp'] +'</p>'+
+                    				 '</div><div style=" clear:both"></div></div></div><br/>';
+					});
+					
+					 $('#j2_rows').html(lihtml);
+						
+			});
+		     
+		 });
+		
+			 /**
+			  * 分类点击事件
+			  */
+			 $("#j3").click(function(){
+				 	$.getJSON("{$appbasepath}IosApi/getCategoryall/", function(json){
+						var data = json.retinfo.list;
+						var lihtml = "";
+						$('#j3_ul').empty();
+						$.each(data,function(i,v){
+							var color = getRandColor();
+						   //lihtml +='<a href="{$appbasepath}Index/getCourseList/categoryid/'+v['categoryid']+'"><li style="border-left-color:'+ color + ';border-left-width:2px">'+ v['name'] + '><span class="to"> > </span> </li></a>';
+						   $('#j3_ul').append('<a href="{$appbasepath}Index/getCourseList/categoryid/'+v['categoryid']+'"><li style="border-left-color:'+ color + ';border-left-width:2px">'+ v['name'] + '<span class="to"> > </span> </li></a>');
+						});
+				       // $('#j3_ul').html(lihtml);
+					// console.log(lihtml);
+				   });
+			 
+ 			}); 
+			
+			//获取随机颜色
+			function getRandColor(){
+				var r = Math.floor(Math.random() * 255).toString(16);
+				var g = Math.floor(Math.random() * 255).toString(16);
+				var b = Math.floor(Math.random() * 255).toString(16);
+				r = r.length == 1 ? "0" + r : r;
+				g = g.length == 1 ? "0" + g : g;
+				b = b.length == 1 ? "0" + b : b;
+				return "#" + r + g + b;
+			}
+});  
+
+/*初始加载隐藏地址栏*/
+window.addEventListener("load",function() {
+  // Set a timeout...
+  setTimeout(function(){
+    // Hide the address bar!
+    window.scrollTo(0, 1);
+  }, 0);
+}); 
+
+  
+</script>  
+</body>
+</html>

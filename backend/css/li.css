@@ -1,0 +1,9 @@
+@charset "utf-8";
+body{margin: 0;}
+div.title_div{background: url(/images/huadong.png) no-repeat;background-size:318px 34px;}
+div.title_div ul{margin: 0;padding: 4px 0px 0px 0px;background: url(/images/clicked.png) no-repeat 0px 1px;background-size:106px 40px;width: 320px;height: 34px;font-weight: 600;transition: background-position .2s ease-in 0.1s;}
+div.title_div ul li{display: inline;float: left;width: 106px;text-align:center;color: #5a99bf;transition: color .2s ease-in .2s;}
+div.title_div ul.touched0{background-position: 0px 1px;}
+div.title_div ul.touched1{background-position: 107px 1px;}
+div.title_div ul.touched2{background-position: 213px 1px;}
+div.title_div ul li.clicked{color: #ff8400;font-size:15px;}

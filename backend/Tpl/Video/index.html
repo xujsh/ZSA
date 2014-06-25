@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta content="email=no" name="format-detection" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0">
+<title>课程播放页</title>
+<link rel="stylesheet" href="/css/vedio.style.css">
+<style type='css/type'>
+	/*自定义弹出框样式style_1
+			*/
+		#popup_container.style_1 {
+			font-family: Georgia, serif;
+			color: #A4C6E2;
+			background: #005294;
+			border-color: #113F66;
+		}
+		
+		#popup_container.style_1 #popup_title {
+			color: #FFF;
+			font-weight: normal;
+			text-align: left;
+			background: #76A5CC;
+			border: solid 1px #005294;
+			padding-left: 1em;
+		}
+		
+		#popup_container.style_1 #popup_content {
+			background: none;
+		}
+		
+		#popup_container.style_1 #popup_message {
+			padding-left: 0em;
+		}
+		
+		#popup_container.style_1 INPUT[type='button'] {
+			border: outset 2px #76A5CC;
+			color: #A4C6E2;
+			background: #3778AE;
+		}
+</style>
+</head>
+<body id='body'><!--html5的video标签目前只支持播放.mp4、.ogg、.webm-->
+<div class='body_style' id='body_style'>
+	<section>
+		<div class='top_video'>
+			<div class='videos'>
+				<!--webkit-playsinline-->
+				<video id="myVideo" src="{$video}" controls  width='320px' autoplay height='180px' webkit-playsinline>
+				</video>
+			</div>
+			<!--<div class='btn'></div>-->
+		</div>
+	</section>
+	<div class='content_body' id='content_body'>
+		<div class='content_con' id='content_con'>
+			<section>
+				<div class='des_top'>
+					<div class='des_name'>
+						<span id='kfzTopRightP2' style='width:50px;'>{$seinfo['name']}</span>
+					</div>
+					<div style='padding-top:10px;padding-bottom:10px'>
+						<span style='padding-left:10px;'  id='span'>
+						<!--指数级别-->
+						</span>
+						<span style='font-size:15px;color:#808080;padding-left:0px'>
+							<img src='/images/public/s_num.png' width='13px' height='17px'>&nbsp;{$seinfo['visitnum']}
+						</span>
+						<!--继续学习答题页面 -->
+						<span style=" float:right;padding-right:12px;font-size:15px;">
+							<!--<a href="/Ques/index/{$lessonsid}" style="color:#2973EE;">开始练习</a>-->
+						</span> 
+					</div>
+				</div>
+			</section>
+			<div class='und_line'></div>
+			<div class='des_body'>
+				<section class='fllowname'>
+					<empty name="resFocus">
+						<div id='biao'>课程简介</div>
+					<else />
+						<div id='biao'>课程重点</div>
+					</empty>
+					<div class="news_banner_about_cont" id='foucsInfo'>
+						<empty name="resFocus">
+									{$brief}
+						<else />
+							<volist name='resFocus' id='vo'>
+							<a href="javascript:focus({$vo['focustime']});">
+								<p id="id_{$vo['focustime']}" name='foucsClass'>
+									{$vo['focusname']}
+								</p>
+							</a>
+							</volist>
+						</empty>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="/static/js/jquery-1.9.1.min.js"></script>
+<!--基础文件，分别是jQuery基库和拖拽UI插件-->
+<script src="/js/jquery_dialogs/jquery.js" type="text/javascript"></script>
+<script src="/js/jquery_dialogs/jquery.ui.draggable.js" type="text/javascript"></script>
+
+<!-- 对话框核心JS文件和对应的CSS文件-->
+<script src="/js/jquery_dialogs/jquery.alerts.js" type="text/javascript"></script>
+<link href="/js/jquery_dialogs/jquery.alerts.css" rel="stylesheet" type="text/css" media="screen" />
+
+
+<script src='/js/video.js' ></script>
+<script type='text/javascript'>var www_host = "{:C('APP_SITE_URI')}";</script>
+<script>
+	var sum=5;//星的总数
+	var str="";
+	var star="{$starLevel}";
+
+	for(var i=1;i<=sum;i++){
+		if(i<=star){
+			str+="<img src='/images/public/star_on.png' width='17px' height='18px'>&nbsp;";
+		}else{
+			str+="<img src='/images/public/star_off.png' width='17px' height='18px'>&nbsp;";
+		}
+	}
+	$("#span").html(str);
+
+	function returnTitle(){
+	
+		return "视频播放";
+	}
+		if("{$end}"==1){
+
+			if(confirm("此课程已经播放完毕，是否继续收看")){
+				myVideo.currentTime = 0;
+			}else{
+				location = '/Cdetails/index/?courseid={$courseid}&sid={$sid}';
+			}
+		}
+
+	//分享
+		/*bShare.addEntry({
+			title: $('#kfzTopRightP2').html(),
+			url: window.location.href,
+		});*/
+		
+	//var obj = document.getElementById("content_con");
+	//addSlowTouchObj(obj);
+	var heightP		= window.screen.height;
+	var heightWeb	= heightP-266+'px';
+	var heightPs	=document.body.clientHeight;
+	document.getElementById('content_body').style.height=heightWeb;
+	//获取时间
+	var myVideo=document.getElementById("myVideo");
+	myVideo.addEventListener("timeupdate", function () {
+		//myVideo.currentTime = {$playtime};
+		var vLength	=Math.floor(myVideo.duration);
+		var vTime	= Math.floor(myVideo.currentTime);
+		isHaveTime(vTime);
+		if("{$end}"==0){
+			if(vTime!=""&&vTime%60==0){
+				var url		= www_host+'/Video/edittime';
+				var uid		= '{$uid}';
+				var lessonid='{$lessonsid}';
+					$.post(url,{vTime:vTime,uid:uid,lessonsid:lessonid},function(data){
+					})
+			}
+		}
+			if(vLength==vTime){
+				var url = www_host+'/Video/editend';
+				var uid		= '{$uid}';
+				var lessonid='{$lessonsid}';
+				$.post(url,{end:'1',uid:uid,lessonsid:lessonid,vLength:0},function(data){
+					if(data){
+						jConfirm('已经播放完毕，是否继续播放', '确定对话框', function(r) {
+							if(r==true){
+								myVideo.currentTime = 0;
+							}
+							if(r==false){
+								location = '/Cdetails/index/courseid/{$courseid}';
+							}
+						});
+					}
+				})
+			}
+	}, false);
+	window.onbeforeunload = function () {
+          
+				jConfirm('真要关闭窗口吗', '确定对话框', function(r) {
+					if(r==true){
+						var url		= www_host+'/Video/edittime';
+						var uid		= '{$uid}';
+						var lessonid='{$lessonsid}';
+						var vTime = Math.floor(myVideo.currentTime);
+						$.post(url,{vTime:vTime,uid:uid,lessonsid:lessonid},function(data){
+						})
+					}
+
+                });
+        }
+	function focus(focustime){
+		myVideo.currentTime=focustime;
+		myVideo.autoplay=true;
+		myVideo.play();
+	}
+	
+	var myVideo=document.getElementById("myVideo");
+    
+
+    myVideo.addEventListener("canplay", function()
+                             {
+                                //alert("canplay");
+                                //myVideo.currentTime=30.0;
+                                var playtime = '{$playtime}';
+                                var playtimes=parseInt(playtime);
+                                if(playtimes!=0)
+                                {
+                                    //alert(playtimes);
+                                    myVideo.currentTime=playtimes;
+                                    myVideo.autoplay=true;
+                                    myVideo.play();
+                                }
+                             })
+	
+   
+	var timeObj = new Object();
+	var arrTime = eval({$arrTime});
+	var num     = "{$num}";
+	for(var i = 0;i<num;i++)
+	{
+		timeObj["time_"+arrTime[i]] = "id_"+arrTime[i];
+		
+	}
+	
+	function isHaveTime(nowTime)
+	{
+		if(timeObj["time_" + nowTime] != null)
+		{			
+			showFocusByID(timeObj["time_" + nowTime]);
+		}
+	}
+	
+	function showFocusByID(idString)
+	{	
+		var focusTime=document.getElementById(idString);
+		focusTime.style.cssText ='color:red';
+		startmarquee();
+	}
+	
+	function startmarquee() {
+
+		var focusId		= document.getElementById('content_body');
+		//var heightTop	= 
+		function start(){
+			focusId.style.top=-206+"px";
+		}
+		setTimeout(start,'1');
+	}
+
+</script>
+</body>
+</html>

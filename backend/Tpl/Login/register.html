@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta content="email=no" name="format-detection" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0">
+<title>注册</title>
+<link rel="stylesheet" href="/css/login.style.css">
+<style type='css/type'>
+</style>
+</head>
+<body>
+<div class="body_style">
+		<div class="content_body" id="main">
+			<form action="{$appbasepath}Login/saveReg/" id='form1' method="POST" enctype="multipart/form-data"><br>
+			<span class='label'>用户名</span>
+			<div class='input_name'>
+				<input class="input-xl" type="text" placeholder="请输入用户名" id='username' name="username">
+			</div>
+			<span class='label'>密码</span>
+			<div class='input_div'>
+				<input class="input-xl" type="password" placeholder="请输入密码" id='password' name="password">
+			</div>
+			<span class='label'> 再次输入密码</span>
+			<div class='input_div'>
+				<input class="input-xl" type="password" placeholder="请确认密码" id='repassword' name="repassword">
+			</div>
+			<span class='label'>电子邮箱</span>
+			<div class='input_bom'>
+				<input class="input-xl" onblur='form_email()' type="text" placeholder="请输入Email" id='email' name="email">
+			</div>
+			<div class="form-action">
+				<!--<button type="submit" id='sub' class="btn btn-primary">提交</button>-->
+				<a onclick='register()' href="javascript:void(0)" id='links'>
+					<img src='/images/sub.jpg' width='304px' height='53px'>
+				</a>
+			</div>
+			</form>
+		</div>
+</div>
+<script src="/static/js/jquery-1.9.1.min.js"></script>
+<script src='/js/login-form.js'></script>
+<script>
+	var www_host = "{$url}";
+	function form_email(){
+
+		var femail=document.getElementById('email').value;
+		if(femail==''){
+			alert('Email必填');
+			$("#email").focus();
+			return false;
+		}
+		var myreg =new RegExp("[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"); 
+		if (!myreg.test(femail))
+		{
+		 alert("邮箱地址格式错误或含有非法字符!");
+		 return false;
+		}
+		var url = www_host+'/Login/checkName';
+		$.post(url,{files:'email',val:femail},function(data){
+				if(data==1){
+					alert('邮箱已经存在');
+					return false;
+				}
+		})
+	}
+	$(function(){
+		$("#username").blur(function(){
+			username=$("#username").val();
+			var url = www_host+'/Login/checkName';
+			$.post(url,{files:'username',val:username},function(data){
+				if(data==1){
+					alert('用户名已经存在');
+					return false;
+				}
+			})
+		});
+	})
+
+</script>
+</body>
+</html>

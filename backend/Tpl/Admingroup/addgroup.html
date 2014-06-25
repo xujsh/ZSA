@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title><eq name="edittag" value="1">修改用户组<else />创建用户组</eq> 后台管理</title>
+<link rel="stylesheet" href="/static/css/bootstrap.min.css">
+<link rel="stylesheet" href="/static/css/bootstrap-responsive.min.css">
+<!--[if lt IE 7]><link rel="stylesheet" href="http://blueimp.github.com/cdn/css/bootstrap-ie6.min.css"><![endif]-->
+<!--[if lt IE 9]><script src="/static/js/html5.js"></script><![endif]-->
+
+<style>
+#titlepic {
+	margin-bottom: 10px;
+}
+
+.ui-front {
+	z-index:1500;
+}
+
+.after_input {margin-left:5px;color:#FF0000;font-size:14px;folat:left;}
+
+</style>
+</head>
+<body>
+<include file="./Tpl/Common/admin_head.html" />
+<div class="container-fluid">
+	<div class="row-fluid">
+		<eq name="edittag" value="1">
+		<include file="./Tpl/Common/admin_leftmenu.html" highlight="20" />
+		<else />
+	  	<include file="./Tpl/Common/admin_leftmenu.html" highlight="20" />
+	  	</eq>
+		<div class="span10" id="main">
+			<h3><eq name="edittag" value="1">修改用户组<else />创建用户组</eq></h3>
+			<form action="{$appbasepath}Admingroup/save/" method="POST" id='form1' enctype="multipart/form-data">
+			<eq name="edittag" value="1">
+				<input type="hidden" name="gid" value="{$group['gid']}">
+			</eq>
+			
+			<label>群组名称</label>
+			<input class="input-xlarge" type="text" id="gname"  placeholder="请输入群组名称" name="gname" <eq name="edittag" value="1">value="{$group['gname']}"</eq>>
+			<span>名称不能为空</span>
+			<br/><br/>
+			
+			<label>选择 '超级管理员用户组/其它管理员组' 权限</label>
+			<eq name="edittag" value="1">
+			  <input class="input-radio"  type="radio" name="flag" value="1" <if condition=" $group['flag'] eq 1">checked="checked" </if> />超级管理员用户组&nbsp;&nbsp;
+			  <input class="input-radio"  type="radio" name="flag" value="0" <if condition=" $group['flag'] eq 0">checked="checked" </if> />其它管理员组&nbsp;&nbsp;
+			<else />
+			  <input class="input-radio"  type="radio" name="flag" value="1" />超级管理员用户组&nbsp;&nbsp;
+			  <input class="input-radio"  type="radio" name="flag" value="0" checked='checked' />其它管理员组&nbsp;&nbsp;
+			</eq>
+			
+			<br/><br/>
+			<label>选择  '只读/编辑/写入/审核 课程' 权限</label>
+			<eq name="edittag" value="1">
+			   <input class="input-radio"  type="radio" name="type" value="0" <if condition=" $group['type'] eq 0">checked="checked" </if>/>可编辑&nbsp;&nbsp;
+			   <input class="input-radio"  type="radio" name="type" value="1" <if condition=" $group['type'] eq 1">checked="checked" </if>/>只读&nbsp;&nbsp;
+			   <input class="input-radio"  type="radio" name="type" value="2" <if condition=" $group['type'] eq 2">checked="checked" </if>/>写入&nbsp;&nbsp;
+			   <input class="input-radio"  type="radio" name="type" value="3" <if condition=" $group['type'] eq 3">checked="checked" </if>/>审核
+			 <else />	
+			   <input class="input-radio"  type="radio" name="type" value="0" />可编辑&nbsp;&nbsp;
+			   <input class="input-radio"  type="radio" name="type" value="1" checked='checked'/>只读&nbsp;&nbsp;
+			   <input class="input-radio"  type="radio" name="type" value="2" />写入&nbsp;&nbsp;
+			   <input class="input-radio"  type="radio" name="type" value="3" />审核课程 
+			</eq>
+		    
+			<br/></br>
+			
+			
+			<label>选择 '可见菜单' 权限</label>
+			<div style="width:80%">
+			<eq name="edittag" value="1">
+				<volist  name="dictlist" id="vo">
+	         	 <input type="checkbox" id='authority' name='authority[]' value="{$vo['permission']}" <if condition=" $vo['checked'] eq 1">checked="checked"</if> >{$vo['name']}&nbsp;&nbsp;&nbsp;
+	            </volist>
+			 <else />
+	            <volist  name="dictlist" id="vo">
+	         	 <input type="checkbox" id='authority' name='authority[]' value="{$vo['permission']}" >{$vo['name']}&nbsp;&nbsp;&nbsp;
+	            </volist>
+			 </eq>
+			</div>
+			<br/>
+			<if condition="($readonly eq 0)OR($readonly eq 2) ">
+			<div class="form-action">
+				<button type="submit" class="btn btn-primary">保存</button>
+				<a href="{$appbasepath}Admingroup/index/" class="btn">取消</a>
+			</div>
+			<eq name="edittag" value="1"><input type="hidden" name="act" value="update"><else /><input type="hidden" name="act" value="add"></eq>
+			</if>
+			</form>
+		</div>
+	</div>
+</div>
+<script src="/static/js/jquery-1.9.1.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name=”format-detection” content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta content="email=no" name="format-detection" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<title>课程列表</title> 
+<link rel="stylesheet" href="/css/index.style.css">
+<style>
+	.box{ position:absolute;top:0px;}
+</style>
+</head>
+<body>
+
+<!-- 导航 tab -->
+<div class="box">  
+<div class="j1" id="j1_rows">
+    	<volist  name="booklist" id="vo">
+         <div class="rows">
+                <a href="{$appbasepath}Bookdetail/index?bid={$vo['bid']}&sid={$sid}" >
+				<img src="/images/index/lazyLoad1.gif" data-original="{$vo['picture']}" width="304" height="191" class="titleimg"></a>
+                <div class="title1">
+                       {$vo['bookname']}
+                </div>
+                <div class="rating"></div>
+                  <!--清除float-->
+                <div style=" clear:both"></div>
+                <hr />
+         
+                <div class="content">
+                     <div class="content_upicture">
+                                <img src="{$vo['upicture']}" width="75" height="75">
+                     </div>
+                     <div class="content_aut">
+                    	<span class="title2">{$vo['username']}</span>
+                        <p class="content_brief">
+                         &nbsp;&nbsp;&nbsp;&nbsp;{$vo['desc']}
+                        </p>
+                    </div>
+                     <div style=" clear:both"></div>
+           		</div>
+        </div>
+        <div class="brdiv"></div>
+		</volist>
+    </div>
+</div>
+</div>
+<script type="text/javascript" src="/static/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="/static/js/jquery.lazyload.min.js"></script>
+<script>
+$(document).ready(function(){    
+    $("img.titleimg").lazyload({ 
+	   threshold:100,  
+       effect : "fadeIn"   
+     });
+});
+
+//书籍标题
+	function returnTitle(){
+		return '书籍';
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,189 @@
+[ 2014-06-06T00:32:15+08:00 ] 192.168.56.1 /Divboot/
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000598s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000683s ]
+NOTIC: [2] ob_start(): function 'ob_gzhandler' not found or invalid function name /opt/ThinkPHP/Lib/Core/App.class.php 第 49 行.
+NOTIC: [8] ob_start(): failed to create buffer /opt/ThinkPHP/Lib/Core/App.class.php 第 49 行.
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000424s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000478s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000264s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000335s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.046936s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.047044s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001311s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000569s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000227s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001027s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.004177s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001053s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001242s ]
+
+[ 2014-06-06T00:32:15+08:00 ] ERR: (ThinkException) 非法操作:Bootstrap%e5%8f%af%e8%a7%86%e5%8c%96%e5%b8%83%e5%b1%80%e7%b3%bb%e7%bb%9f_files
+[ 2014-06-06T00:32:15+08:00 ] 192.168.56.1 /Divboot/Bootstrap%E5%8F%AF%E8%A7%86%E5%8C%96%E5%B8%83%E5%B1%80%E7%B3%BB%E7%BB%9F_files/city.jpg
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001069s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001241s ]
+NOTIC: [2] ob_start(): function 'ob_gzhandler' not found or invalid function name /opt/ThinkPHP/Lib/Core/App.class.php 第 49 行.
+NOTIC: [8] ob_start(): failed to create buffer /opt/ThinkPHP/Lib/Core/App.class.php 第 49 行.
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000456s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000511s ]
+NOTIC: [8] Undefined index: class /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 63 行.
+NOTIC: [8] Undefined index: type /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 63 行.
+NOTIC: [8] Undefined index: file /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 62 行.
+NOTIC: [8] Undefined index: line /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 62 行.
+NOTIC: [4096] Object of class DivbootAction could not be converted to string /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 64 行.
+NOTIC: [8] Array to string conversion /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 64 行.
+NOTIC: [8] Undefined index: class /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 63 行.
+NOTIC: [8] Undefined index: type /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 63 行.
+NOTIC: [8] Undefined index: class /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 63 行.
+NOTIC: [8] Undefined index: type /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 63 行.
+NOTIC: [2] include(): Filename cannot be empty /opt/ThinkPHP/Common/functions.php 第 60 行.
+NOTIC: [2] include(): Failed opening '' for inclusion (include_path='.:/usr/local/php-fpm/lib/php:/opt/ThinkPHP/Extend/Vendor/') /opt/ThinkPHP/Common/functions.php 第 60 行.
+
+[ 2014-06-06T00:32:15+08:00 ] ERR: (ThinkException) 非法操作:Bootstrap%e5%8f%af%e8%a7%86%e5%8c%96%e5%b8%83%e5%b1%80%e7%b3%bb%e7%bb%9f_files
+[ 2014-06-06T00:32:15+08:00 ] 192.168.56.1 /Divboot/Bootstrap%E5%8F%AF%E8%A7%86%E5%8C%96%E5%B8%83%E5%B1%80%E7%B3%BB%E7%BB%9F_files/a_002.jpg
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000626s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000752s ]
+NOTIC: [2] ob_start(): function 'ob_gzhandler' not found or invalid function name /opt/ThinkPHP/Lib/Core/App.class.php 第 49 行.
+NOTIC: [8] ob_start(): failed to create buffer /opt/ThinkPHP/Lib/Core/App.class.php 第 49 行.
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000421s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000475s ]
+NOTIC: [8] Undefined index: class /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 63 行.
+NOTIC: [8] Undefined index: type /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 63 行.
+NOTIC: [8] Undefined index: file /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 62 行.
+NOTIC: [8] Undefined index: line /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 62 行.
+NOTIC: [4096] Object of class DivbootAction could not be converted to string /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 64 行.
+NOTIC: [8] Array to string conversion /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 64 行.
+NOTIC: [8] Undefined index: class /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 63 行.
+NOTIC: [8] Undefined index: type /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 63 行.
+NOTIC: [8] Undefined index: class /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 63 行.
+NOTIC: [8] Undefined index: type /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 63 行.
+NOTIC: [2] include(): Filename cannot be empty /opt/ThinkPHP/Common/functions.php 第 60 行.
+NOTIC: [2] include(): Failed opening '' for inclusion (include_path='.:/usr/local/php-fpm/lib/php:/opt/ThinkPHP/Extend/Vendor/') /opt/ThinkPHP/Common/functions.php 第 60 行.
+
+[ 2014-06-06T00:32:15+08:00 ] ERR: (ThinkException) 非法操作:Bootstrap%e5%8f%af%e8%a7%86%e5%8c%96%e5%b8%83%e5%b1%80%e7%b3%bb%e7%bb%9f_files
+[ 2014-06-06T00:32:15+08:00 ] 192.168.56.1 /Divboot/Bootstrap%E5%8F%AF%E8%A7%86%E5%8C%96%E5%B8%83%E5%B1%80%E7%B3%BB%E7%BB%9F_files/1.jpg
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000657s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000851s ]
+NOTIC: [2] ob_start(): function 'ob_gzhandler' not found or invalid function name /opt/ThinkPHP/Lib/Core/App.class.php 第 49 行.
+NOTIC: [8] ob_start(): failed to create buffer /opt/ThinkPHP/Lib/Core/App.class.php 第 49 行.
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.003771s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003999s ]
+NOTIC: [8] Undefined index: class /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 63 行.
+NOTIC: [8] Undefined index: type /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 63 行.
+NOTIC: [8] Undefined index: file /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 62 行.
+NOTIC: [8] Undefined index: line /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 62 行.
+NOTIC: [4096] Object of class DivbootAction could not be converted to string /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 64 行.
+NOTIC: [8] Array to string conversion /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 64 行.
+NOTIC: [8] Undefined index: class /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 63 行.
+NOTIC: [8] Undefined index: type /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 63 行.
+NOTIC: [8] Undefined index: class /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 63 行.
+NOTIC: [8] Undefined index: type /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 63 行.
+NOTIC: [2] include(): Filename cannot be empty /opt/ThinkPHP/Common/functions.php 第 60 行.
+NOTIC: [2] include(): Failed opening '' for inclusion (include_path='.:/usr/local/php-fpm/lib/php:/opt/ThinkPHP/Extend/Vendor/') /opt/ThinkPHP/Common/functions.php 第 60 行.
+
+[ 2014-06-06T00:32:15+08:00 ] ERR: (ThinkException) 非法操作:Bootstrap%e5%8f%af%e8%a7%86%e5%8c%96%e5%b8%83%e5%b1%80%e7%b3%bb%e7%bb%9f_files
+[ 2014-06-06T00:32:15+08:00 ] 192.168.56.1 /Divboot/Bootstrap%E5%8F%AF%E8%A7%86%E5%8C%96%E5%B8%83%E5%B1%80%E7%B3%BB%E7%BB%9F_files/2.jpg
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000732s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000827s ]
+NOTIC: [2] ob_start(): function 'ob_gzhandler' not found or invalid function name /opt/ThinkPHP/Lib/Core/App.class.php 第 49 行.
+NOTIC: [8] ob_start(): failed to create buffer /opt/ThinkPHP/Lib/Core/App.class.php 第 49 行.
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.004315s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004433s ]
+NOTIC: [8] Undefined index: class /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 63 行.
+NOTIC: [8] Undefined index: type /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 63 行.
+NOTIC: [8] Undefined index: file /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 62 行.
+NOTIC: [8] Undefined index: line /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 62 行.
+NOTIC: [4096] Object of class DivbootAction could not be converted to string /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 64 行.
+NOTIC: [8] Array to string conversion /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 64 行.
+NOTIC: [8] Undefined index: class /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 63 行.
+NOTIC: [8] Undefined index: type /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 63 行.
+NOTIC: [8] Undefined index: class /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 63 行.
+NOTIC: [8] Undefined index: type /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 63 行.
+NOTIC: [2] include(): Filename cannot be empty /opt/ThinkPHP/Common/functions.php 第 60 行.
+NOTIC: [2] include(): Failed opening '' for inclusion (include_path='.:/usr/local/php-fpm/lib/php:/opt/ThinkPHP/Extend/Vendor/') /opt/ThinkPHP/Common/functions.php 第 60 行.
+
+[ 2014-06-06T00:32:15+08:00 ] ERR: (ThinkException) 非法操作:Bootstrap%e5%8f%af%e8%a7%86%e5%8c%96%e5%b8%83%e5%b1%80%e7%b3%bb%e7%bb%9f_files
+[ 2014-06-06T00:32:15+08:00 ] 192.168.56.1 /Divboot/Bootstrap%E5%8F%AF%E8%A7%86%E5%8C%96%E5%B8%83%E5%B1%80%E7%B3%BB%E7%BB%9F_files/3.jpg
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.013791s ]
+INFO: [ route_check ] --END-- [ RunTime:0.014016s ]
+NOTIC: [2] ob_start(): function 'ob_gzhandler' not found or invalid function name /opt/ThinkPHP/Lib/Core/App.class.php 第 49 行.
+NOTIC: [8] ob_start(): failed to create buffer /opt/ThinkPHP/Lib/Core/App.class.php 第 49 行.
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000470s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000536s ]
+NOTIC: [8] Undefined index: class /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 63 行.
+NOTIC: [8] Undefined index: type /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 63 行.
+NOTIC: [8] Undefined index: file /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 62 行.
+NOTIC: [8] Undefined index: line /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 62 行.
+NOTIC: [4096] Object of class DivbootAction could not be converted to string /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 64 行.
+NOTIC: [8] Array to string conversion /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 64 行.
+NOTIC: [8] Undefined index: class /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 63 行.
+NOTIC: [8] Undefined index: type /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 63 行.
+NOTIC: [8] Undefined index: class /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 63 行.
+NOTIC: [8] Undefined index: type /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 63 行.
+NOTIC: [2] include(): Filename cannot be empty /opt/ThinkPHP/Common/functions.php 第 60 行.
+NOTIC: [2] include(): Failed opening '' for inclusion (include_path='.:/usr/local/php-fpm/lib/php:/opt/ThinkPHP/Extend/Vendor/') /opt/ThinkPHP/Common/functions.php 第 60 行.
+
+[ 2014-06-06T00:32:15+08:00 ] ERR: (ThinkException) 无法加载模块:images
+[ 2014-06-06T00:32:15+08:00 ] ERR: (ThinkException) 无法加载模块:images
+[ 2014-06-06T00:32:15+08:00 ] ERR: (ThinkException) 非法操作:Bootstrap%e5%8f%af%e8%a7%86%e5%8c%96%e5%b8%83%e5%b1%80%e7%b3%bb%e7%bb%9f_files
+[ 2014-06-06T00:32:15+08:00 ] 192.168.56.1 /Divboot/Bootstrap%E5%8F%AF%E8%A7%86%E5%8C%96%E5%B8%83%E5%B1%80%E7%B3%BB%E7%BB%9F_files/sports.jpg
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.005557s ]
+INFO: [ route_check ] --END-- [ RunTime:0.008273s ]
+NOTIC: [2] ob_start(): function 'ob_gzhandler' not found or invalid function name /opt/ThinkPHP/Lib/Core/App.class.php 第 49 行.
+NOTIC: [8] ob_start(): failed to create buffer /opt/ThinkPHP/Lib/Core/App.class.php 第 49 行.
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000744s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000821s ]
+NOTIC: [8] Undefined index: class /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 63 行.
+NOTIC: [8] Undefined index: type /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 63 行.
+NOTIC: [8] Undefined index: file /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 62 行.
+NOTIC: [8] Undefined index: line /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 62 行.
+NOTIC: [4096] Object of class DivbootAction could not be converted to string /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 64 行.
+NOTIC: [8] Array to string conversion /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 64 行.
+NOTIC: [8] Undefined index: class /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 63 行.
+NOTIC: [8] Undefined index: type /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 63 行.
+NOTIC: [8] Undefined index: class /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 63 行.
+NOTIC: [8] Undefined index: type /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 63 行.
+NOTIC: [2] include(): Filename cannot be empty /opt/ThinkPHP/Common/functions.php 第 60 行.
+NOTIC: [2] include(): Failed opening '' for inclusion (include_path='.:/usr/local/php-fpm/lib/php:/opt/ThinkPHP/Extend/Vendor/') /opt/ThinkPHP/Common/functions.php 第 60 行.
+
+[ 2014-06-06T00:32:17+08:00 ] ERR: (ThinkException) 无法加载模块:images
+[ 2014-06-06T00:32:17+08:00 ] ERR: (ThinkException) 非法操作:css
+[ 2014-06-06T00:32:17+08:00 ] 192.168.56.1 /Divboot/css/bootstrap-combined.min.css
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000596s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000681s ]
+NOTIC: [2] ob_start(): function 'ob_gzhandler' not found or invalid function name /opt/ThinkPHP/Lib/Core/App.class.php 第 49 行.
+NOTIC: [8] ob_start(): failed to create buffer /opt/ThinkPHP/Lib/Core/App.class.php 第 49 行.
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000418s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000472s ]
+NOTIC: [8] Undefined index: class /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 63 行.
+NOTIC: [8] Undefined index: type /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 63 行.
+NOTIC: [8] Undefined index: file /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 62 行.
+NOTIC: [8] Undefined index: line /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 62 行.
+NOTIC: [4096] Object of class DivbootAction could not be converted to string /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 64 行.
+NOTIC: [8] Array to string conversion /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 64 行.
+NOTIC: [8] Undefined index: class /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 63 行.
+NOTIC: [8] Undefined index: type /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 63 行.
+NOTIC: [8] Undefined index: class /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 63 行.
+NOTIC: [8] Undefined index: type /opt/ThinkPHP/Lib/Core/ThinkException.class.php 第 63 行.
+NOTIC: [2] include(): Filename cannot be empty /opt/ThinkPHP/Common/functions.php 第 60 行.
+NOTIC: [2] include(): Failed opening '' for inclusion (include_path='.:/usr/local/php-fpm/lib/php:/opt/ThinkPHP/Extend/Vendor/') /opt/ThinkPHP/Common/functions.php 第 60 行.
+

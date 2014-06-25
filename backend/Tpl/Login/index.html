@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta content="email=no" name="format-detection" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0">
+<title>登陆</title>
+<link rel="stylesheet" href="/css/login.style.css">
+<style type='css/type'>
+</style>
+</head>
+<body>
+<div class="body_style">
+		<div class="login_body" id="main">
+			<form action="{$appbasepath}Login/saveLogin/" id='form1' method="POST" enctype="multipart/form-data"><br>
+			<span class='label'>用户名</span>
+			<div class='input_name'>
+				<input class="input-xl" type="text" placeholder="请输入用户名" id='username' name="email">
+			</div>
+			<span class='label'>密码</span>
+			<div class='login_div'>
+				<input class="input-xl" type="password" placeholder="请输入密码" id='password' name="password">
+			</div>
+
+			<div class="login_div">
+				<a onclick='sub()' href="javascript:form1.submit();" id='links'>
+					<img src='/images/login.jpg' width='304px' height='53px'>
+				</a>
+			</div>
+			<span style='color:#7b98b4;font-size:18px;'>如果还没有用户名</span>
+		   <div class='login_div'>
+				<a href="{$appbasepath}Login/register">
+					<img src='/images/register.jpg' width='304px' height='53px'>
+				</a>
+			</div>
+			</form>
+		</div>
+</div>
+<script src="/static/js/jquery-1.9.1.min.js"></script>
+<script src='/js/login-form.js'></script>
+</body>
+</html>

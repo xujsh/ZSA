@@ -1,0 +1,314 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title><eq name="edittag" value="1">修改课程基本信息 <else />添加课程基本信息 </eq></title>
+<link rel="stylesheet" href="/static/css/bootstrap.min.css">
+<link rel="stylesheet" href="/static/css/bootstrap-responsive.min.css">
+<!--[if lt IE 7]><link rel="stylesheet" href="http://blueimp.github.com/cdn/css/bootstrap-ie6.min.css"><![endif]-->
+<!--[if lt IE 9]><script src="/static/js/html5.js"></script><![endif]-->
+
+<style>
+#titlepic {
+	margin-bottom: 10px;
+}
+
+.ui-front {
+	z-index:1500;
+}
+
+.textarea1{ width:550px;height:114px; }
+
+.mynav{ font-size:16px; margin:10px 0px;}
+</style>
+</head>
+<body>
+<include file="./Tpl/Common/admin_head.html" />
+<include file="./Tpl/Public/editor.html" />
+<div class="container-fluid">
+	<div class="row-fluid">
+		<eq name="edittag" value="1">
+		<include file="./Tpl/Common/admin_leftmenu.html" highlight="302" />
+		<else />
+	  	<include file="./Tpl/Common/admin_leftmenu.html" highlight="302" />
+	  	</eq>
+		<div class="span10" id="main">
+			<br/>
+			<eq name="edittag" value="1">
+				 <span class="mynav">当前位置：
+				 <a href="{$appbasepath}Course/courselist/categoryid/{$categoryid}" > {$categoryname} ></a>
+				 {$coursename} > 修改
+				 </span>
+				<h3>修改课程信息</h3>
+			<else />
+				<h3>添加课程信息</h3>
+			</eq>
+			<form action="{$appbasepath}Course/savecourse/" method="POST" enctype="multipart/form-data">
+			<eq name="edittag" value="1"><input type="hidden" name="courseid" value="{$coursesvo['courseid']}"></eq>
+			<label> 所属院校</label>
+			<div id="schoolname1"></div>
+			<input class="input-xlarge" type="text" placeholder="院校" id="schoolid" name="schoolid" <eq name="edittag" value="1">value="{$coursesvo['schoolid']}"</eq>>
+			<a href="{$appbasepath}Course/selectSchool/" class="btn small-btn" id='selectschool'>请选择所属学校ID用户</a>
+			&nbsp;&nbsp;<spqn id="erroruid">所属学校名称必须填写，请从学校信息管理中获得。</spqn><br/>
+			
+			<label>课程类型</label>
+			<select class="select" name="categoryid">
+				<eq name="edittag" value="1">
+				  <volist  name="categorylist" id="vo">
+						<option value="{$vo['categoryid']}" <if condition=" $cid eq $vo['categoryid'] "> selected='selected' </if>> {$vo['name']} </option> 
+			      </volist>	
+				<else/>
+				  <volist  name="categorylist" id="vo">
+					<option value="{$vo['categoryid']}" >{$vo['name']}</option>
+			      </volist>
+				</eq>	
+			</select>
+			
+			<label>课程内容类型</label>
+			<select class="select" name="classfile">
+				<option value="0">多节课程内容</option>
+				<eq name="edittag" value="1">
+					<volist  name="classfile" id="classfilevo">
+						<option value="{$classfilevo[0]}" <if condition=" $classfileok eq $classfilevo['0'] "> selected='selected' </if> >{$classfilevo['1']}</option>
+					</volist>
+				<else/>
+					<volist  name="classfile" id="classfilevo">
+						<option value="{$classfilevo[0]}">{$classfilevo['1']}</option>
+					</volist>
+				</eq>	
+			</select>
+
+			<label>课程名称</label>
+			<input class="input-xlarge" type="text" placeholder="课程名称" id="name" name="name" <eq name="edittag" value="1">value="{$coursesvo['name']}"</eq>>&nbsp;&nbsp;<spqn id="errorname">课程名称不能重复</spqn>
+			<label>课程简介</label>
+			<textarea id="content" name="content" style="width:650px;height:400px;visibility:hidden;"><eq name="edittag" value="1">{$coursesvo['brief']}</eq></textarea>
+			<span id="errorbrief"></span>
+			<br/><br/>
+			
+			<!--
+			<label>课程详细介绍</label>	
+			<textarea rows = '7' cols='150' name='description' class="textarea1"><eq name="edittag" value="1">{$coursesvo['description']}</eq></textarea>
+			-->
+			<!--
+			<label>关键词</label>
+			<input class="input-xlarge" type="text" placeholder="关键词" name="keyword" <eq name="edittag" value="1">value="{$coursesvo['keyword']}"</eq>><br/>
+			
+			<label>课程目标</label>
+			<input class="input-xlarge" type="text" placeholder="课程目标" name="target" <eq name="edittag" value="1">value="{$coursesvo['target']}"</eq>><br/>
+			<label>目标听众</label>
+			<input class="input-xlarge" type="text" placeholder="目标听众" name="audience" <eq name="edittag" value="1">value="{$coursesvo['audience']}"</eq>><br/>
+			<label>课程要求</label>
+			<input class="input-xlarge" type="text" placeholder="课程要求" name="claim" <eq name="edittag" value="1">value="{$coursesvo['claim']}"</eq>><br/>
+			-->
+		   
+			<lable>作者名称</lable><br/>
+			<input class="input-xlarge" type="text" placeholder="作者" id="uid" name="uid" <eq name="edittag" value="1">value="{$coursesvo['userid']}"</eq>>
+			<a href="{$appbasepath}News/selectuser/" class="btn small-btn" id='selectuser'>请选择作者用户</a>
+			&nbsp;&nbsp;<spqn id="erroruid">作者名称必须填写，并且是有效注册用户ID.请从用户管理中获得。</spqn><br/>
+			<eq name="edittag" value="1"><input type="hidden" name="srcuid" value="{$coursesvo['userid']}" /> </eq><br/>
+			
+			<label>课程级别</label>
+			<div style="vertical-align:middle;width:100%;height:20px;line-height:20px;">
+			<eq name="edittag" value="1">
+				<input class="input-radio" type="radio" name="level" value="0" <if condition=" $coursesvo['level'] eq 0"> checked='checked'</if> />容易理解&nbsp;&nbsp;
+				<input class="input-radio" type="radio" name="level" value="1" <if condition=" $coursesvo['level'] eq 1"> checked='checked'</if> />初级&nbsp;&nbsp;
+				<input class="input-radio" type="radio" name="level" value="2" <if condition=" $coursesvo['level'] eq 2"> checked='checked'</if> />中级&nbsp;&nbsp;
+				<input class="input-radio" type="radio" name="level" value="3" <if condition=" $coursesvo['level'] eq 3"> checked='checked'</if> />高级&nbsp;&nbsp;
+			<else />
+				<input class="input-radio" type="radio" name="level" value="0"  checked='checked'/>容易理解&nbsp;&nbsp;
+				<input class="input-radio" type="radio" name="level" value="1" />初级&nbsp;&nbsp;
+				<input class="input-radio" type="radio" name="level" value="2" />中级&nbsp;&nbsp;
+				<input class="input-radio" type="radio" name="level" value="3" />高级&nbsp;&nbsp;
+			</eq>
+			</div><br/>
+			
+		    <label>课程评价级别</label>
+			<div style="font-size:18pt;vertical-align:middle;width:100%;height:20px;line-height:20px;">
+				<span id="s1"  onmouseover="setstar(1)" onmouseout="setstar(1)" title="1星" onclick="clickstar(1)" <if condition="$coursesvo['assesslevel'] egt 1"> style="color:#FFD119" <else /> style="color:#999999"</if>>★</span>
+				<span id="s2"  onmouseover="setstar(2)" onmouseout="setstar(2)" title="2星" onclick="clickstar(2)" <if condition="$coursesvo['assesslevel'] egt 2"> style="color:#FFD119" <else /> style="color:#999999"</if>>★</span>
+				<span id="s3"  onmouseover="setstar(3)" onmouseout="setstar(3)" title="3星" onclick="clickstar(3)" <if condition="$coursesvo['assesslevel'] egt 3"> style="color:#FFD119" <else /> style="color:#999999"</if>>★</span>
+				<span id="s4"  onmouseover="setstar(4)" onmouseout="setstar(4)" title="4星" onclick="clickstar(4)" <if condition="$coursesvo['assesslevel'] egt 4"> style="color:#FFD119" <else /> style="color:#999999"</if>>★</span>
+				<span id="s5"  onmouseover="setstar(5)" onmouseout="setstar(5)" title="5星" onclick="clickstar(5)" <if condition="$coursesvo['assesslevel'] egt 5"> style="color:#FFD119" <else /> style="color:#999999"</if>>★</span>
+			</div>
+			<input class="input-xlarge" type='hidden' placeholder="级别" style="width:60px" id='assesslevel' name='assesslevel' <eq name="edittag" value="1">value="{$coursesvo['assesslevel']}"</eq> />
+			
+			<br/>
+		   
+		   
+			<label>课程是否免费</label>
+			<div style="vertical-align:middle;width:100%;height:20px;line-height:20px;">
+			<eq name="edittag" value="1">
+				<input class="input-radio" type="radio" id='free0' name="free" value="0" <if condition=" $coursesvo['free'] eq 0">checked="checked"</if> />免费&nbsp;&nbsp;
+				<input class="input-radio" type="radio" id='free1' name="free" value="1" <if condition=" $coursesvo['free'] eq 1">checked="checked"</if>/>收费&nbsp;&nbsp;
+			<else />
+				<input class="input-radio" type="radio" id='free0' name="free" value="0" checked="checked" />免费&nbsp;&nbsp;
+				<input class="input-radio" type="radio" id='free1' name="free" value="1" />收费&nbsp;&nbsp;
+			</eq>
+			</div><br/>
+			
+			<div id="inprice"  <if condition=" $coursesvo['free'] eq 0">style="display:none;"<else />style="display:block;"</if>>
+			<label>价格</label>
+			<input class="input-xlarge" type="text" placeholder="价格" style="width:60px" name="price" <eq name="edittag" value="1">value="{$coursesvo['price']}"</eq>>
+			<span>&nbsp;商品原价格</span>
+			<label>实际价格</label>
+			<input class="input-xlarge" type="text" placeholder="实际价格" style="width:60px" name="cheapprice" <eq name="edittag" value="1">value="{$coursesvo['cheapprice']}"</eq>>
+			<span>&nbsp;商品优惠打折后，实际价格。(实际价格与商品价格相等时候，为商品原价。实际价格为0时候，商品售价为免费)</span>
+			</div><br/>
+			<!--
+			<label>课程是否发布</label>
+			<div styple="vertical-align:middle"
+				<eq name="edittag" value="1">
+					<input class="input-radio" style="vertical-align:middle;" type="radio" name="releases" value="0" <if condition=" $coursesvo['releases'] eq 0">checked="checked" </if>/>未发布&nbsp;&nbsp;
+					<input class="input-radio" style="vertical-align:middle;" type="radio" name="releases" value="1" <if condition=" $coursesvo['releases'] eq 1">checked="checked" </if>/>已发布&nbsp;&nbsp;
+				<else />
+				    <input class="input-radio" style="vertical-align:middle;" type="radio" name="releases" value="0" checked="checked" />未发布&nbsp;&nbsp;
+					<input class="input-radio" style="vertical-align:middle;" type="radio" name="releases" value="1" />已发布&nbsp;&nbsp;
+				</eq>
+			</div><br/>		
+			-->
+				
+		   <label>上传课程图片 ：<span>请上传640 * 480  或 800 * 600  或  1024 * 768  大小的图片</span></label>
+		   <eq name="edittag" value="1"><p><img src="{$coursesvo['picture']}" width="320px" height="191px"></p></eq>
+		   <input type='file' name='files'>
+		   
+		     <!-- 上传宣传视频文件
+		   <br/><br/>
+		    <label>上传课程视频</label>
+			<input type='file' name='videofiles' >
+			<eq name="edittag" value="1">
+				<p>guid 串 {$coursesvo['spreadvideo']}</p>
+			</eq>
+			<a href="{$appbasepath}Course/coursevideoview/guid/{$coursesvo['spreadvideo']}/courseid/{$coursesvo['courseid']}/categoryid/{$cid}" class="btn small-btn" id="button">预览</a>
+			-->
+			
+			<br/><br/>
+		    <eq name="edittag" value="1">
+			<lable>更新时间</lable><br/>
+			<input class="input-xlarge" type="text" placeholder="更新时间" name="createtime" value="{$coursesvo['createtime']}" >
+			</eq>
+			
+			
+			<if condition="($readonly eq 0) OR ($readonly eq 2) ">
+			<div class="form-action" align="center">
+				<button type="submit" class="btn btn-primary" id="submit">保存</button>
+				
+			<eq name="edittag" value="1">
+				<input type="hidden" name="act" value="update">
+				<a href="{$appbasepath}Course/courselist/categoryid/{$cid}" class="btn">取消</a>
+			<else />
+				<input type="hidden" name="act" value="add">
+				<a onClick="javascript:history.back(-1)" class="btn" >取消</a>
+			</eq>
+			</div>
+			</if>
+			</form>
+		</div>
+	</div>
+</div>
+<script src="/static/js/jquery-1.9.1.min.js"></script>
+<script src="/static/js/lhgdialog.min.js"></script>
+<script type="text/javascript">
+//星级评价
+<!--
+var nowindex = 1;	//默认几个星
+var startnum = 5;	//星的个数
+var selectedcolor = "#FFD119";	//选上的颜色
+var uselectedcolor = "#999999";    //未选的颜色
+function _$(id)
+{
+return document.getElementById(id);
+}
+function setstar(index)
+{
+for(var i=1;i<=index;i++){
+_$("s"+i).style.color=selectedcolor;
+_$("s"+i).style.cursor="pointer";
+}
+for(var i=(index+1);i<=startnum;i++){
+_$("s"+i).style.color=uselectedcolor;
+_$("s"+i).style.cursor="pointer";
+}
+}
+
+function clickstar(index)
+{
+_$('assesslevel').value = index;
+//alert(index+"星");
+}
+-->
+$(document).ready(function(){ 
+   	   $( "#selectuser" ).dialog({
+	  		 id:'selectuser',
+			 skin:'iblue',					//皮肤
+			 content: 'url:/Course/selectuserid/',
+			 title:'选择用户',
+			 width:500,   
+             height:400,
+			 fixed:true,
+			 left: '50%',
+   		     top:1,
+			 max:true,   
+             min:true, 
+             lock:true,
+			 close: function(){
+				//alert('ok');
+    		} 		 
+	  });
+	      //选择学校
+	     $( "#selectschool" ).dialog({
+	  		 id:'selectschool',
+			 skin:'iblue',					//皮肤
+			 content: 'url:/Course/selectSchool/',
+			 title:'选择学校',
+			 width:500,   
+             height:400,
+			 fixed:true,
+			 left: '50%',
+   		     top:1,
+			 max:true,   
+             min:true, 
+             lock:true,
+			 close: function(){
+				//alert('ok');
+    		} 		 
+	  });
+	  //收费免费事件
+	  $('#free1').click(function(){
+	  	 $('#inprice').css('display','block');
+	  });
+	  
+	  $('#free0').click(function(){
+	  	 $('#inprice').css('display','none');
+	  });
+	  
+	  //提交验证
+	  $('form').submit(function(){
+	  	 var name = $('#name').val();
+		 var content_brief = $('#content').val();
+		 var uid = $('#uid').val();
+		 if (name.length == 0) {
+		 	alert("课程名称不能为空");
+			$('#errorname').html("课程名称不能为空");
+			$('#errorname').css( "color","red");
+			$('#name').focus();
+			return false;
+//		 }else if(content_brief.length == 0){
+//		 	alert("课程简介不能为空");
+//		 	$('#errorbrief').html("课程简介不能为空");
+//			$('#errorbrief').css( "color","red");
+//			$('#errorbrief').focus();
+//			return false;
+		 }else if(uid.length == 0){
+		 	 alert("作者ID不能为空");
+		 	$('#erroruid').html("作者ID不能为空");
+			$('#erroruid').css( "color","red");
+			$('#uid').focus();
+			return false;
+		 }
+		 return true;
+	  });
+	
+   });
+</script>
+</body>
+</html>

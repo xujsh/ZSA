@@ -1,0 +1,6 @@
+/* Localized versions of Info.plist keys */
+"APP_TITLE_USER_CENTER" = "User center";
+"APP_TITLE_MY_COURSES" = "My courses";
+"APP_TITLE_DISCOVER" = "Discover";
+"APP_TITLE_MSG" = "Message";
+"APP_TITLE_CIRCLE" = "Circle";

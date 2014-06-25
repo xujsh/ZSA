@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name=”format-detection” content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta content="email=no" name="format-detection" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0" />
+<link rel="stylesheet" type="text/css" href="/css/jqcloud.css" />
+<title>搜索页</title> 
+<style>
+ body{ margin:0 auto; width:320px; height:480px; background:#E7E7E7;}
+ body, h1, h2, h3, h4, h5, h6, p, div, ul, ol, li, dl, dt, dd, h1{ padding:0;}
+ html{font:12px/1.5 '黑体',"Arial",arial,sans-serif;}
+ form { margin: 0;}
+ 
+ /*搜索样式开始*/
+ .search{ 
+ 			background:#2D6CA7;
+			background-color:#2E6CA6;
+			background-image:url('{$appbasepath}images/index/search1.png');
+			width:305px;
+			height:44px; 
+			line-height:44px; 
+			text-align:center; 
+			vertical-align:middle;
+			margin-top:0px;
+			margin-left:8px;
+			}
+ /*搜索按钮*/
+#go { 
+float: left; 
+position:relative;  
+top:13px;
+left:10px;
+} 
+/*搜索框*/
+#search_text {
+color:#cccccc;
+float: left; 
+position:relative;  
+top:10px;
+left:17px;
+border: 0; 
+width: 250px; 
+height:22px; 
+background: none; 
+font-size: 1.2em; 
+outline:none;
+
+} 
+ /*搜索样式结束*/
+
+a:link{
+text-decoration:none;
+}
+ a:visited{
+text-decoration:none;
+}
+ a:hover{
+text-decoration:none;
+color:blue;
+}
+ a:active{
+text-decoration:none;
+}
+ 
+.body_style{margin:0 auto;background:#e7e7e7;width:320px;height:auto;}
+.content_body{ min-height:370px; background-color: #FFFFFF;border: 1px solid #BCBCBC;width:304px;margin-left:8px; margin-top:0px;}
+
+.buy_conrse{margin-bottom:10px;width:304px;height:100px;}
+.course_pic{width:100px;height:100px;float:left;}
+.course_pic img{margin-left:10px;}
+.course_name{width:190px;height:90px;float:right;}
+.searchTab{ margin-left:240px; margin-top:2px;}
+.searchTab:link{ font-size:14px; color:#00CCFF;}
+.searchTab:visited{ font-size:114px; color:#00CCFF;}
+.searchTab:hover{ font-size:14px; color:#00CCFF;}
+.searchTab:active{ font-size:14px; color:#00CCFF;}
+/*
+.refresh{margin-left:270px; margin-top:2px;}
+*/
+.tabDIV{ display:inline-block; border:1px solid #C2DDE0; margin:0 auto;text-align:left;display:-ms-flexbox;
+-ms-flex-pack:center;
+-ms-flex-align:center;
+display:box;
+box-pack:center;
+box-align:center;
+display:-webkit-box;
+-webkit-box-pack:center;
+-webkit-box-align:center;}
+
+
+/*分类*/
+  ul,li{list-style-type:none}
+  .j3{ width:320x;height:atuo; display:block; margin-top:0px;margin-right:auto;margin-left:auto;background:#e7e7e7;}
+ .ul_list{ background:#e7e7e7; font-size:16px;margin:0px; margin-bottom:9px;}
+ .ul_list li{ border: 1px solid #CCCCCC;background:#FFF;  width:303px; height:60px; vertical-align:middle;} 
+  /*列表激活样式*/
+ .to{ font-size:16px;float: right;margin-top:20px;margin-right:10px;}
+ .className{
+	float:left;
+	margin-top: 20px;
+    margin-left: 21px;
+	font-size: 18px;
+	color: #2E2E2E;
+}
+</style>
+</head>
+<body>
+<!--搜索-->
+<div class="search">
+<form id="search_form" method="post" action="/Search/getSearchResults/sid/{$sid}">
+<input type="image" src="{$appbasepath}images/index/btn_search_box.png" width="20" height="20"  id="go" alt="Search" title="Search" /> 
+<input type="text" id="search_text" name='search_text' value="请输入搜索内容"  />
+<input type="hidden" value="{$sid}" name="sid" />
+</form>
+</div>
+
+<div class="box">  
+<!--内容页-->
+<div class='body_style' id='body_style' >
+	<div class='content_body'>
+	<!--<a href="/Search/index?num={$grounum}&sid={$sid}" class="searchTab">换一组</a>-->
+	<!--<div class="refresh">
+	<a href="/Search/index?num={$grounum}&sid={$sid}" class="searchTab">
+		<img src="/images/public/refresh.png" width="30" height="30"/>
+	</a>
+	</div>-->
+	<div id="tags" style="width:304px;height:370px;text-align:left; " align="left"></div>
+    </div>
+	<!--分类-->
+        <div class="j3" align="center" id="j3_rows">
+             <ul class="ul_list" id="j3_ul">
+             	<volist  name="categorylist" id="vo">
+             		<a href="{$appbasepath}Search/getCourseList?categoryid={$vo['categoryid']}&sid={$sid}">
+             			<li style="{$vo['style']}">
+						<div class="className">{$vo['name']}</div>
+						<div class="to">
+							<img src="/images/index/big.jpg" width="12px" height="21px">
+						</div>
+						</li>
+					</a>
+             	</volist>
+             </ul> 
+        </div>
+</div>
+
+<script type="text/javascript" src="/static/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">  
+  var word_array = [
+                      {text:'北京风物谈',weight: 24,link:'/Search/getTabResults?search_text=北京风物谈&keyid=1&sid=ssss'},
+                      {text:'长桥音乐',weight: 24,link:'/Search/getTabResults?search_text=长桥音乐&keyid=1&sid=ssss'},
+					  {text:'北京历史文化',weight:20,link:'/Search/getTabResults?search_text=北京历史文化&keyid=1&sid=ssss'},
+					  {text:'word',weight:20,link:'/Search/getTabResults?search_text=word&keyid=1&sid=ssss'},
+					  {text:'Hello',weight:16,link:'/Search/getTabResults?search_text=Hello&keyid=1&sid=ssss'},
+					  {text:'wemole',weight:16,link:'/Search/getTabResults?search_text=wemole&keyid=1&sid=ssss'},
+					  {text:'京剧艺术',weight:16,link:'/Search/getTabResults?search_text=京剧艺术&keyid=1&sid=ssss'},
+					  {text:'广告设计',weight:14,link:'/Search/getTabResults?search_text=广告设计&keyid=1&sid=ssss'},
+					  {text:'筒子河',weight:14,link:'/Search/getTabResults?search_text=筒子河&keyid=1&sid=ssss'},
+					  {text:'三国',weight:14,link:'/Search/getTabResults?search_text=三国&keyid=1&sid=ssss'},
+					  {text:'水浒',weight:14,link:'/Search/getTabResults?search_text=水浒&keyid=1&sid=ssss'},
+					  {text:'同志',weight:14,link:'/Search/getTabResults?search_text=同志&keyid=1&sid=ssss'},
+					  {text:'朋友',weight:14,link:'/Search/getTabResults?search_text=朋友&keyid=1&sid=ssss'},
+  					  {text:'人力资源',weight:12,link:'/Search/getTabResults?search_text=人力资源&keyid=1=&sid=ssss'},
+					  {text:'企业',weight:12,link:'/Search/getTabResults?search_text=企业&keyid=1&sid=ssss'},
+					  {text:'管理',weight:12,link:'/Search/getTabResults?search_text=管理&keyid=1&sid=ssss'},
+					  {text:'真假曹操',weight:12,link:'/Search/getTabResults?search_text=真假曹操&keyid=1&sid=ssss'},
+					  {text:'易中天',weight:12,link:'/Search/getTabResults?search_text=易中天&keyid=1&sid=ssss'},
+					  {text:'中国结',weight:12,link:'/Search/getTabResults?search_text=中国结&keyid=1&sid=ssss'},
+					  {text:'换一组',weight:12,link:'/Search/index?num={$grounum}&sid={$sid}'}
+					  ];
+ $(function(){
+		
+		 //获得焦点时候清空
+		 $("#search_text").focus(function(){
+		 	$("#search_text").val("");
+		 }); 
+		 
+		 for(var i = 0;i<word_array.length;i++){
+		 	 var color = getRandColor();
+		 	 $("#tags").append('<div class="tabDIV" id="tabDIV'+i+'" style="font-size:'+word_array[i]['weight']+'">'+
+			                   '<a style="color:'+color+'" href="'+word_array[i]['link']+'">'+word_array[i]['text']+'</a></div>');
+			 $('#tabDIV'+i).css("font-size","14px");
+			 if(i==0) $('#tabDIV0').css("font-size","24px");
+			 if(i==7) $('#tabDIV7').css("font-size","24px");
+			 if(i==13) $('#tabDIV13').css("font-size","24px");
+			 if(i==6) $('#tabDIV6').css("font-size","18px");
+			 if(i==9) $('#tabDIV6').css("font-size","18px");
+			
+		 }
+        
+      });
+
+		//获取随机颜色
+			function getRandColor(){
+				var r = Math.floor(Math.random() * 255).toString(16);
+				var g = Math.floor(Math.random() * 255).toString(16);
+				var b = Math.floor(Math.random() * 255).toString(16);
+				r = r.length == 1 ? "0" + r : r;
+				g = g.length == 1 ? "0" + g : g;
+				b = b.length == 1 ? "0" + b : b;
+				return "#" + r + g + b;
+			}
+</script>  
+</body>
+</html>

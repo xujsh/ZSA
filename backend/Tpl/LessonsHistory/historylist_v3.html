@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta content="email=no" name="format-detection" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0">
+<title>我的课程</title>
+<style>
+html{font:12px/1.5 '黑体',"Arial",arial,sans-serif;}
+body{margin:0 auto;width:320px;background: none repeat scroll 0 0 #e7e7e7;}
+a{text-decoration:none;}
+.body_style{margin:0 auto;background:#e7e7e7;width:320px;height:0 auto;}
+/*
+.content{background-color:#fff;border: 1px solid #C5C5C5;width:304px; margin-top:22px; margin-left:8px; box-shadow:1px 1px 2px rgba(0, 0, 0, 0.2); 
+			   -webkit-box-shadow:1px 1px 2px rgba(0, 0, 0, 0.2); 
+			   -moz-box-shadow:1px 1px 2px rgba(0, 0, 0, 0.2);  
+		 }
+*/
+.content_body{ background-color:#fff;border: 1px solid #C5C5C5;width:304px; margin-top:20px; margin-bottom:15px; margin-left:8px; box-shadow:1px 1px 2px rgba(0, 0, 0, 0.2); 
+			   -webkit-box-shadow:1px 1px 2px rgba(0, 0, 0, 0.2); 
+			   -moz-box-shadow:1px 1px 2px rgba(0, 0, 0, 0.2)}
+.course_pic{ width:304px;height:191px; padding:0px;}
+.course_pic img{width:304px;height:191px; margin:0px; padding:0px;}
+
+.course_name{width:300px;}
+.course_name .title{width:288px;  margin-left:14px;font-size:16px; color:#2E2E2E; margin-top:10px; margin-bottom:10px }
+.course_name .price{width:270px; margin-left:14px; margin-top:10px;margin-bottom:10px}
+.course_name .price img{ margin-right:4px;}
+.course_name .price .price_1{color:#6b6b6b; font-size:14px;margin-right:10px;}
+.course_name .progress_txt{width:288px; margin-left:14px; margin-bottom:5px;font-size:12px; color:#878787; text-align:left;}
+.progress{width:250px;height:10px;margin:0 auto; background-color:#EFEFEF; border-radius: 10px;-webkit-border-radius:10px;-moz-border-radius:10px;}
+.progress .progress_1{height:10px; background-color:#00F31C;border-radius: 10px;-webkit-border-radius:10px;-moz-border-radius:10px;}
+</style>
+</head>
+<body id='body'>
+<div class='body_style' id='body_style'>
+	<volist name='list' id='vo'>
+	<div class='content_body'>
+		<div class='course_pic'>
+			<a href="{$appbasepath}LessonsHistory/getdetails/?courseid={$vo['courseid']}&sid={$sid}" id="j1_like1">
+			<img src="{$vo['picture']}" width="304" height="191"  />
+			</a>
+		</div>
+		<div class='course_name'>
+			<div class="title">{$vo['cname']}</div>
+		    <div class="price">
+				<span class='price_1'>{$vo['username']}</span>
+					<!--指数级别-->
+							<php> 
+							   $arr =  $vo['icolevel'];
+							   foreach ($arr as $v){
+							    echo "<img src='/$v' width='15px' height='16px'>";
+							   }
+							</php>						
+				</span>
+		    </div>
+			 <div class="progress_txt">下一节:{$vo['nextlessonsname']}</div>
+		</div>
+		<div class="progress"><div class="progress_1" style="width:{$vo['width']}px; height:10px; "></div></div>
+		<br/></br>
+	</div>
+   </volist>
+   <!--
+	<div class='content'>ssssss</div>
+	<div class='content'>ssssss</div>
+	<div class='content'>ssssss</div>
+	-->
+</div>
+<script src="/static/js/jquery-1.9.1.min.js"></script>
+</body>
+</html>

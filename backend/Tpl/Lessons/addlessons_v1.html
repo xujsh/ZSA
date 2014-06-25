@@ -1,0 +1,376 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title><eq name="edittag" value="1">修改课程内容<else />添加课程内容</eq> 后台管理</title>
+<link rel="stylesheet" href="/static/css/bootstrap.min.css">
+<link rel="stylesheet" href="/static/css/bootstrap-responsive.min.css">
+<link rel = "stylesheet" type = "text/css" href = "/js/uploadify/uploadify.css">
+<!--[if lt IE 7]><link rel="stylesheet" href="http://blueimp.github.com/cdn/css/bootstrap-ie6.min.css"><![endif]-->
+<!--[if lt IE 9]><script src="/static/js/html5.js"></script><![endif]-->
+
+<style>
+#titlepic {
+	margin-bottom: 10px;
+}
+
+.ui-front {
+	z-index:1500;
+}
+
+body,div,ul,li,a,h1,h2{margin:0;padding:0}
+ul,li{list-style-type:none}/*--清除列表格式--*/  
+.box{width:800px;height:400px;border:1px #ccc solid}/*--border边框为1个像素灰色的实线边框--*/  
+  
+.box_title{width:100%;height:30px;float:left; line-height:30px;background:#B9E3FB}/*--宽100%高30px左浮动行高30px背景灰色--*/  
+  
+.box_title li{width:200px;height:30px;line-height:30px;float:left;cursor:pointer;text-align:center}/*--宽度50px左浮动移动过去出现手形式内容居中--*/  
+  
+.box_content{width:100%;height:auto;float:left}  
+  
+.box_content li{width:100%;float:left}  
+  
+.cc{width:200px;height:30px;line-height:30px;float:left;display:block;color:#3e3e3e;background:#fff}  
+  
+.j2,.j3,.j4{display:none}  
+  
+  .mynav{ font-size:16px; margin:10px 0px;}
+</style>
+<include file="./Tpl/Public/editor.html" />
+</head>
+<body>
+<div class="container-fluid">
+	<div class="row-fluid">
+		<eq name="edittag" value="1">
+		<include file="./Tpl/Common/admin_leftmenu.html" highlight="302" />
+		<else />
+	  	<include file="./Tpl/Common/admin_leftmenu.html" highlight="302" />
+	  	</eq>
+		<div class="span10" id="main">
+			<br/>
+			<eq name="edittag" value="1">
+				<span class="mynav"> 
+			   	当前位置：<a href="{$appbasepath}Course/courselist/categoryid/{$categoryid}" >{$categoryname} ></a> 
+		          <a href="{$appbasepath}Section/sectionslist/categoryid/{$categoryid}/courseid/{$courseid}" >{$coursename} ></a>
+				  <a href="{$appbasepath}Lessons/lessonslist/categoryid/{$categoryid}/courseid/{$courseid}/sectionsid/{$sectionsid}" >{$sectionsname} ></a>
+				   {$lessonsname} > 修改
+			 </span>
+				<h3>修改视频内容</h3>
+			<else />
+				<h3>添加视频内容</h3>
+			</eq>
+ 
+		    <form action="{$appbasepath}Lessons/savelessons/" method="POST" enctype="multipart/form-data">
+			<eq name="edittag" value="1">
+				<input type="hidden" name="lessonsid" value="{$lessonsvo['lessonsid']}">	
+			</eq>
+			<input type="hidden" name="courseid" value="{$courseid}">
+			<input type="hidden" name="sectionsid" value="{$sectionsid}">
+			<input type="hidden" name="categoryid" value="{$categoryid}">
+			<label>视频内容名称</label>
+			<input class="input-xlarge" type="text" placeholder="内容名称" id="name" name="name" <eq name="edittag" value="1">value="{$lessonsvo['name']}"</eq>>&nbsp;&nbsp;<span id="errorname">请填写资源名称，名称不能重复</span>
+			<label>视频内容简介</label>
+			<!--<textarea row = '3' col='4' name='brief'><eq name="edittag" value="1">{$lessonsvo['brief']}</eq></textarea>-->
+			<textarea id="content_brief" name="content" style="width:650px;height:400px;visibility:hidden;"><eq name="edittag" value="1">{$lessonsvo['brief']}</eq></textarea>
+			<!--
+			<label>课程内容详细介绍</label>	
+			<textarea row = '3' col='4' name='description'><eq name="edittag" value="1">{$lessonsvo['description']}</eq></textarea>
+			-->
+			<!--
+			<label>搜索关键词标签</label>
+			<input class="input-xlarge" type="text" placeholder="搜索关键词" name="searchkey" <eq name="edittag" value="1">value="{$lessonsvo['searchkey']}"</eq>>
+			&nbsp;&nbsp;<spqn>填写多个检索关键词标签请用  ; 隔开。如  China;Japan</spqn>
+			<br/>
+			-->
+			<label>上传者</label>
+			<input class="input-xlarge" type="text" placeholder="制作者" name="author" id="author" <eq name="edittag" value="1">value="{$lessonsvo['author']}"</eq>><span id='errorauthor'></span><br/>
+			<label>排序号</label>
+			<input class="input-xlarge" type="text" placeholder="序号" id='playorder' name="playorder" <eq name="edittag" value="1">value="{$lessonsvo['playorder']}"</eq>>&nbsp;&nbsp;<span id='errororder'>请填写视频课时序号,序号必须唯一</span>
+			<br/>
+			<label>视频内容是否免费 ：&nbsp;&nbsp;<spqn>收费课程,每门课程只有一节免费试听。</spqn></label> 
+			<div style="vertical-align:middle;width:100%;height:20px;line-height:20px;">
+			<eq name="edittag" value="1">
+				<input class="input-radio" type="radio" name="free" value="0" <if condition=" $lessonsvo['free'] eq 0">checked="checked"</if> />免费&nbsp;&nbsp;
+				<input class="input-radio" type="radio" name="free" value="1" <if condition=" $lessonsvo['free'] eq 1">checked="checked"</if>/>收费&nbsp;&nbsp;
+			<else />
+				<input class="input-radio" type="radio" name="free" value="0" <if condition=" $lessonsfree eq 0">checked="checked"</if>/>免费&nbsp;&nbsp;
+				<input class="input-radio" type="radio" name="free" value="1" <if condition=" $lessonsfree eq 1">checked="checked"</if>/>收费&nbsp;&nbsp;
+			</eq>
+			</div>
+			
+			<br/>
+			<label>上传文件类型</label>
+				<select class="select" name="class" id="class">
+				  <eq name="edittag" value="1">
+				  	<volist  name="mediatypeslist" id="vo">
+						<option value="{$vo['typeid']}" <if condition=" $vo['typeid'] eq $tid ">selected='selected'</if>> {$vo['typename']} </option> 
+			      	</volist>
+				  <else/>
+				  	<volist  name="mediatypeslist" id="vo">
+						<option value="{$vo['typeid']}" <if condition=" $vo['typeid'] eq 4 ">selected='selected'</if>> {$vo['typename']} </option> 
+			      	</volist>
+				  </eq>	
+				</select><br/>
+		<div id="type"> 		
+				<div class="box">  
+					<ul class="box_title">  
+					<li id="j1" class="cc">上传本地视频文件</li>  
+					<li id="j2">选择已有资源文件</li>  
+					</ul>  
+					<ul class="box_content"> 
+					 <div class="j1">
+				        <div style="padding:20px 40px;">
+							<input type="file" name="videofiles" id="videofiles" />
+							<if condition="$readonly eq 0"><a onclick="doUpload()" class="btn btn-primary">上传</a><a onClick="cancelUpload()"  class="btn">清除</a></if>
+							<spqn>必须上传.mp4格式文件 或 选择挂载资源</spqn>
+							<!--<input type="hidden" name="upfileguid" id="upfileguid" value="">-->
+								<p>guid 串 <span id="guidshow">{$lessonsvo['resguid']}</span></p>
+							
+							<!--<label>上传视频截图</label><input type="file" name="picfiles">-->
+						</div>
+						   <div style="padding:2px 40px;">
+							<input type="file" name="videom3ufiles" id="videom3ufiles" />
+							<if condition="$readonly eq 0"><a onclick="doUploadm3u()" class="btn btn-primary">上传</a><a onClick="cancelUploadm3u()"  class="btn">清除</a></if>
+							<spqn>必须上传m3u格式的.zip压缩包 或 选择挂载资源</spqn>
+							<input type="hidden" name="upfileguid" id="upfileguid" value="">
+								<p>guid 串 <span id="guidm3ushow">{$lessonsvo['resguid']}</span></p>
+							
+							<!--<label>上传视频截图</label><input type="file" name="picfiles">-->
+						</div>
+				     </div> 
+					 <div class="j2">
+					 	<div style="padding:50px 40px;">
+							<label>挂载资源：请填写guid串</label>
+								<input type="text" name="guid" style=" margin:2px"> <spqn>必填项，请从资源列表里查找你要挂载的资源文件guid</spqn>
+								<eq name="edittag" value="1">
+									<p>截图guid 串 {$lessonsvo['resguid']}</p>
+								</eq>
+									 <!--<a href="" class="btn">选择已有资源文件</a>-->
+						</div>
+						<!--<input type="hidden" name="resguid" value=''>-->
+						
+				    </div>
+					</ul>   
+				</div>
+				<br/>
+				<label>视频播放长度</label>
+				<input class="input-xlarge" type="text" placeholder="1:20" name="timelen" <eq name="edittag" value="1">value="{$lessonsvo['timelen']}"</eq>>
+				<span> 输入格式为 <font color="red">1:20</font> 表示为 1分20秒</span>
+				<br/>
+				
+				<label>上传视频截图</label>
+				<input type="file" name="picfiles" id="picfiles" />
+				<if condition="($readonly eq 0)OR($readonly eq 2)"><a onclick="doUploadpic()" class="btn btn-primary">上传</a><a onClick="cancelUploadpic()"  class="btn">清除</a></if>
+				<input type="hidden" name="upfilepciguid" id="upfilepciguid" value="">
+				<p>guid 串 <span id="picquidshow">{$lessonsvo['picguid']}</span></p>
+				<eq name="edittag" value="1"><img src="{$picurl}" width='100' height='90'></eq>
+		</div>
+			<if condition="($readonly eq 0)OR($readonly eq 2)">
+			<div class="form-action" align="center">
+				<button type="submit" class="btn btn-primary" >保存</button>
+	            <eq name="edittag" value="1">
+	            	<input type="hidden" name="act" value="update">
+					<a href="{$appbasepath}Lessons/lessonslist/sectionsid/{$sectionsid}/courseid/{$courseid}/categoryid/{$categoryid}" class="btn">取消</a>
+					<else />
+					<input type="hidden" name="act" value="add">
+					<a class="btn" onClick="javascript:history.back(-1)">取消</a>
+				</eq>
+			</div> 
+			</if>
+		   </form>
+		</div>
+	</div>
+</div>
+
+<script src="/js/uploadify/jquery-1.9.1.min.js"></script>
+<script src = "/js/uploadify/jquery.uploadify.min.js"></script>
+<script type="text/javascript">  
+var www_host = "{:C('APP_SITE_URI')}";
+var i=0;//初始化数组下标
+var uploadInfo = []; //存储名称
+	$(function(){
+		$('#videofiles').uploadify({
+            'auto'     : false,									//关闭自动上传
+            'debug'    : false, 								//开启调试模式
+            'width'    : 150, 									//上传按钮的宽
+            'height'   : 20,									//上传按钮的高 
+            'fileObjName':'videofiles', 						//上传的表单名称  <input type = "file" name = "file_upload" />
+            'removeTimeout' : 3,								//文件队列上传完成1秒后删除
+            'swf'      : '/js/uploadify/uploadify.swf', 		//   加载插件的flash文件 
+//          'uploader' : www_host+'/Lessons/updataFile/', 		//上传的脚本
+            'uploader' : www_host+'/Uploadify/updataFile/', 	//上传的脚本
+            'method'   : 'post',								//方法，服务端可以用$_POST数组获取数据
+            'buttonText' : '选择上传文件',						//设置按钮文本
+            'multi'    : false,									//允许同时上传多张图片
+            'uploadLimit' : 10,								     //一次最多只允许上传10张图片
+            'fileTypeDesc' : 'All Files',					     //只允许上传图像
+            'fileTypeExts' : '*.*',								//允许上传的图片格式---注意前端判断过，后端必须要判断
+            'fileSizeLimit' : '300 MB',							//限制上传的图片不得超过200KB 
+            'formData' : { 'adminuid' : '{$adminuid}','adminloginname' : '{$adminloginname}' },
+			'onUploadStart':function(file){
+				$('#videofiles').uploadify('settings',"formData",{'class':$('#class').val(),'name' : $('#name').val()});
+			},
+            'onUploadSuccess' : function(file, data, response){
+                   uploadInfo[i]=data;
+                   i++;
+				   if(data){
+						$('#guidshow').html(data);
+						$('#upfileguid').val(data);
+						//console.log(data);	
+						//alert('添加成功');
+						//location = www_host+'/Resource/reslist';
+				   }
+            },
+			'onQueueComplete' : function(queueData) {						//上传队列全部完成后执行的回调函数
+//	            if(uploadInfo.length>0)
+//	            alert('成功上传的文件有：'+encodeURIComponent(uploadInfo));
+     		}
+        });		
+		
+		//上传m3u压缩文件
+		$('#videom3ufiles').uploadify({
+            'auto'     : false,									//关闭自动上传
+            'debug'    : false, 								//开启调试模式
+            'width'    : 150, 									//上传按钮的宽
+            'height'   : 20,									//上传按钮的高 
+            'fileObjName':'videom3ufiles', 						//上传的表单名称  <input type = "file" name = "file_upload" />
+            'removeTimeout' : 3,								//文件队列上传完成1秒后删除
+            'swf'      : '/js/uploadify/uploadify.swf', 		//   加载插件的flash文件 
+            'uploader' : www_host+'/Uploadify/updataM3uFile/', 	//上传的脚本
+            'method'   : 'post',								//方法，服务端可以用$_POST数组获取数据
+            'buttonText' : '选择上传文件',						//设置按钮文本
+            'multi'    : false,									//允许同时上传多张图片
+            'uploadLimit' : 10,								     //一次最多只允许上传10张图片
+            'fileTypeDesc' : 'All Files',					     //只允许上传图像
+            'fileTypeExts' : '*.*',								//允许上传的图片格式---注意前端判断过，后端必须要判断
+            'fileSizeLimit' : '300 MB',							//限制上传的图片不得超过200KB 
+            'formData' : { 'adminuid' : '{$adminuid}','adminloginname' : '{$adminloginname}' },
+			'onUploadStart':function(file){
+				$('#videom3ufiles').uploadify('settings',"formData",{'class':$('#class').val(),'name' : $('#name').val()});
+			},
+            'onUploadSuccess' : function(file, data, response){
+                   uploadInfo[i]=data;
+                   i++;
+				   if(data){
+						$('#guidm3ushow').html(data);
+						$('#upfileguid').val(data);
+						//console.log(data);	
+						//alert('添加成功');
+						//location = www_host+'/Resource/reslist';
+				   }
+            },
+			'onQueueComplete' : function(queueData) {						//上传队列全部完成后执行的回调函数
+//	            if(uploadInfo.length>0)
+//	            alert('成功上传的文件有：'+encodeURIComponent(uploadInfo));
+     		}
+        });		
+		
+		
+		$('#picfiles').uploadify({
+            'auto'     : false,									//关闭自动上传
+            'debug'    : false, 								//开启调试模式
+            'width'    : 150, 									//上传按钮的宽
+            'height'   : 20,									//上传按钮的高 
+            'fileObjName':'picfiles', 							//上传的表单名称  <input type = "file" name = "file_upload" />
+            'removeTimeout' : 5,								//文件队列上传完成1秒后删除
+            'swf'      : '/js/uploadify/uploadify.swf', 		//加载插件的flash文件 
+ //         'uploader' : www_host+'/Lessons/updatapicFile/',    //上传的脚本
+            'uploader' : www_host+'/Uploadify/updatapicFile/', 	//上传的脚本
+            'method'   : 'post',								//方法，服务端可以用$_POST数组获取数据
+            'buttonText' : '选择上传图片',						//设置按钮文本
+            'multi'    : true,									//允许同时上传多张图片
+            'uploadLimit' : 10,								     //一次最多只允许上传10张图片
+            'fileTypeDesc' : 'Image Files',					     //只允许上传图像
+            'fileTypeExts' : '*.gif; *.jpg; *.png',				//允许上传的图片格式---注意前端判断过，后端必须要判断
+            'fileSizeLimit' : '300 MB',							//限制上传的图片不得超过200KB ,
+            'formData' : { 'adminuid' : '{$adminuid}','adminloginname' : '{$adminloginname}' },
+			'onUploadStart':function(file){
+				$('#picfiles').uploadify('settings',"formData",{'name' : $('#name').val()});
+			},
+            'onUploadSuccess' : function(file, data, response){
+				   if(data){
+						$('#picquidshow').html(data);
+						$('#upfilepciguid').val(data);
+						alert(data);
+						//console.log(data);	
+						//alert('添加成功');
+						//location = www_host+'/Resource/reslist';
+				   }
+            },
+
+        });	
+		
+	
+	  
+	  //提交验证
+	  $('form').submit(function(){
+	  	  var name = $('#name').val();
+	  	  var author = $('#author').val();
+	  	  var playorder = $('#playorder').val();
+	  	if (name.length == 0) {
+			alert("名称不能为空");
+			$('#errorname').html("名称不能为空");
+			$('#errorname').css( "color","red");
+			$('#name').focus();
+			return false;
+		}else if(author.length == 0){
+			alert("上传者不能为空");
+		 	$('#errorauthor').html("上传者不能为空");
+			$('#errorauthor').css( "color","red");
+			$('#author').focus();
+			return false;
+		}else if(playorder.length == 0){
+			alert("序号不能为空");
+		 	$('#errororder').html("序号不能为空");
+			$('#errororder').css( "color","red");
+			$('#playorder').focus();
+			return false;
+		}
+		return true;
+	  });
+		
+    });
+	
+	 $(".box_title li").click(function(){
+ 	 $(this).addClass("cc").siblings().removeClass();//移动到当下的li增加样式.cc其他的不加并移除样式  
+     $($(this).parent().next().find("div."+$(this).attr("id"))).show().siblings().hide();       //获取当前的id属性值与之前的.结合，合成类，显示，其他隐藏  
+	 });
+
+	  
+	  $("#class").change(function(){
+	  	 var type = $('#class').val();
+		 if(type==5) $("#type").hide();
+	  });
+	  
+		//上传
+	function doUpload(){
+			$('#videofiles').uploadify('upload','*');
+	}
+	
+	//取消
+	function  cancelUpload(){
+		$('#videofiles').uploadify('cancel','*');
+	}
+	
+			//上传
+	function doUploadpic(){
+			$('#picfiles').uploadify('upload','*');
+	}
+	
+	//取消
+	function  cancelUploadpic(){
+		$('#picfiles').uploadify('cancel','*');
+	}
+	
+				//上传
+	function doUploadm3u(){
+			$('#videom3ufiles').uploadify('upload','*');
+	}
+	
+	//取消
+	function  cancelUploadm3u(){
+		$('#videom3ufiles').uploadify('cancel','*');
+	}
+</script>  
+</body>
+</html>

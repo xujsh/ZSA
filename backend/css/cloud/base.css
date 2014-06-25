@@ -1,0 +1,39 @@
+/* ------------------------------
+css for guoshiwang
+design by liuqiuju
+date 2014-02-21
+last update 2014.03.18 10:21 Liuqiuju
+---------------------------- */
+/* Reset */
+body,h1,h2,h3,h4,h5,h6,p,form,ul,ol,li,input,select,label,dl,dt,dd{margin:0;padding:0;font-family: Arial,"微软雅黑";font-size:12px;color:#fff;-webkit-text-size-adjust:none;}
+input,select,label{vertical-align:middle;font-size:12px;}
+ul,ol,li{list-style:none;}
+img,input{border:0;}
+.clear{clear:both;height:0;overflow:hidden;}
+.fl{ float:left;} 
+a{color:#fff;text-decoration:none;outline:none;}
+a:hover{color:#fff;}
+
+.header{width:100%;height:53px;background:#1e1e1e;box-shadow: 0px 0px 1px #1e1e1e;}
+.header_index{width:1186px;height:53px;margin:0 auto;}
+.header .logo{float:left;width:106px;height:53px;}
+.header .logo a{display:block;width:106px;height:53px;background:url("/images/cloud/logo.jpg")/*tpa=http://shouye.guoshi.com/img/logo.jpg*/ no-repeat 0 center;text-indent:-50000px;}
+.header .menu{float:left;height:53px;margin:0 0 0 19px;border-left:2px solid #191919;}
+.header .menu li{float:left;line-height:50px;font-size:16px;padding:0 10px;background:url("../images/cloud/line.jpg")/*tpa=http://shouye.guoshi.com//img/line.jpg*/ no-repeat right 2px;}
+.header .menu li a{display:block; font-size:16px;min-width:99px; text-align:center;}
+.header .menu li.cur{border-bottom:3px solid #f28f00;}
+.header .menu li.cur1{border-bottom:3px solid #3ba5f0;}
+.header .menu li.cur2{border-bottom:3px solid #ff414c;}
+.header .right{float:right;}
+.header .right a{float:left;height:53px;background:url("ico-3.png")/*tpa=http://shouye.guoshi.com//img/ico.png*/ no-repeat;margin:0 0 0 24px;}
+.header .right .ico6{width:28px;background-position:0 11px;}
+.header .right .ico7{width:28px;background-position:0 -36px;position:relative;}
+.bds_more{background:none;}
+
+.wrap_box{width:100%;min-height:665px;/*position:absolute;top:61px;left:0;*/}
+/*.main{width:100%;position:absolute;top:61px;left:0;bottom:45px;}
+*/
+.footer{width:100%;position:fixed;left:0;bottom:0;z-index:999999;}
+.footer .copyright{background:#232323;text-align:right; height:30px; line-height:30px; padding:0 58px 0 0;}
+.footer .copyright p,.footer .copyright p a{color:#adadad;}
+.footer .copyright p a{margin:0 9px;}

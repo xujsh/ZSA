@@ -1,0 +1,70 @@
+@charset "utf-8";
+/* CSS Document */
+html{font:12px/1.5 '黑体',"Arial",arial,sans-serif;}
+body {width:320px;/*overflow:hidden;*/background:#FFFFFF}
+a:link { text-decoration: none;color:#000000}
+a:active { text-decoration:none;color:#000000}
+a:hover { text-decoration:none;color:#000000}
+a:visited { text-decoration: none;color:#000000}
+.bodyall {width:320px;overflow:hidden;background:#f2f3f5}
+.body_top{width:320px;background:#FFFFFF;height:100px;}
+.header{width:320px;height: 240px;}
+.header-top {color:#636f95;padding-bottom: 14px;}
+.header span{color:#636f95;font-size:18px;height:50%}
+.dname{padding-top:10px;padding-left:10px;}
+.centent {width:310px;min-height:50px;line-height:20px}
+.dongtai{width:320px;}
+/* 圆形头像 */
+.centent-left {width:60px;float:left;padding-left:10px;padding-top:20px;}
+.centent-right {width:230px;float:left;	padding-left:10px;padding-top:15px;}
+.centent-right span {font-size:12px;color:#575757;line-height: 20px;}
+.descps{color:#4f4f4f}
+.article {width:320px;height:45px;padding-top:15px;}
+ul{padding:0;margin:0;list-style:none;}
+.article ul li{display:inline;cursor:pointer;float:left;text-align:center;width:106px;}
+.tab_menu_clearfix{width:320px;}
+.tab-nav-action{background:url('/images/slider.png')no-repeat 5px 0;background-size:95px 22px;height:22px;font-size:12px;color:#FFFFFF; padding-top:2px;}
+.tab-nav{background:#FFFFFF;font-size:12px;}
+.tabs-body{background:#FFFFFF;min-height:200px;}
+.totlenum{height:38px;border-bottom:#e6e7e9 1px solid;width:320px;line-height:2;background:#f2f3f5}
+.totlecos{border-bottom:#e6e7e9 1px solid;width:320px;height: 38px;line-height: 3;background:#f2f3f5;text-align: center;}
+.span_left{float:left;padding-left:18px;}
+.span_left img{padding-top:10px;}
+.span_right{float:right;padding-right:14px;padding-top: 10px;}
+.comment_left{float:left;padding-left:68px;margin-top:10px;}
+.comment_right{float:right;padding-right:14px;padding-top:5px; padding-right: 90px;}
+.intro{background:#FFFFFF}
+.intro_con{font-size:14px;width:320px;color:#4d4d4d;overflow-y:scroll;overflow-x:hidden;padding-bottom:50px;}
+.scrFooter{ background: url("/images/bottom.png") repeat-x scroll 0 0 rgba(0, 0, 0, 0);text-align:center;width:320px;height:58px;position:fixed;bottom:0px;}
+.footerimg{background:url('/images/buy41.png')no-repeat 0 0;background-size:304px 46px;margin-top:6px;margin-left:8px;width:304px;height:46px;}
+.course_con{width:320px;overflow:scroll;}
+.course_con ul li{list-style-type:none;width:320px;}
+.partItitle{background:url('/images/partItitle.png')no-repeat;background-size:320px 35px;width:320px;height:35px;}
+.secnum{line-height:3;  padding-left: 52px;color: #FFFFFF;font-weight: 600;}
+.section{line-height:2;padding-left: 16px;}
+.chapter{background:url('/images/chapter.png')no-repeat;background-size:320px 60px;width:320px;height:60px;}
+.chnum{float:left;padding-left: 28px;padding-top: 22px;width:36px;}
+.chvideo{float:right;width:240px;padding-top:10px;}
+.com_icolevel img{margin:0 2px;}
+/*评论信息*/
+.comment{background:#ffffff;width:320px;height:250px;overflow:scroll;}
+.com_img{width:50px;height:30px;float:left;margin-top:20px;padding-left: 10px;}
+.com_con{width:242px;float:left;}
+.span_right  img{margin:0 2px;}
+.comment_left img{margin:0 2px;}
+.yuanjia{color:#FFFFFF;font-size:12px; padding-top: 5px;margin-left:190px;float:right;margin-right:5px;}
+.mianfei{color:#FFFFFF;font-size:14px;line-height:20px;;margin-left:190px;font-weight:bold;}
+.qian{color:#FFFFFF;font-size:24px;line-height:50px;margin-left:190px;}
+.picleft{float:left;height:40px;width:50px;padding-top: 18px;}
+.authright{float:left;width:230px;padding-top:18px;}
+.authorIntro{font-size:18px;font-weight:500;margin:0;padding:0;padding-top: 15px;}
+.riname{font-size:14px;color:#494a4c}
+.rides{font-size:14px;color:#a5a6a8}
+.introdiv{font-size:14px;}
+.hourleng{color:#a5a6a8}
+.teachall{font-size: 18px;font-weight: bold;padding-left: 19px;}
+.authorIntro{ background:none repeat scroll 0 0 #F2F3F5;width:290px;}
+/*粉丝数*/
+.mfans{width:320px; height:50px;line-height:42px;}
+.tli{min-height:75px;width:320px;border-bottom:1px solid #EFEFEF;background:#FFF;}
+div.mask{//background: #778899;width: 320px;height:360px;opacity: 0;position: absolute;top:175px;}

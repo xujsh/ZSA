@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title><eq name="edittag" value="1">修改管理用户密码<else />添加管理用户</eq> 后台管理</title>
+<link rel="stylesheet" href="/static/css/bootstrap.min.css">
+<link rel="stylesheet" href="/static/css/bootstrap-responsive.min.css">
+<!--[if lt IE 7]><link rel="stylesheet" href="http://blueimp.github.com/cdn/css/bootstrap-ie6.min.css"><![endif]-->
+<!--[if lt IE 9]><script src="/static/js/html5.js"></script><![endif]-->
+
+<style>
+#titlepic {
+	margin-bottom: 10px;
+}
+
+.ui-front {
+	z-index:1500;
+}
+
+</style>
+</head>
+<body>
+<div class="container-fluid">
+	<div class="row-fluid">
+		<eq name="edittag" value="1">
+		<include file="./Tpl/Common/admin_leftmenu.html" highlight="601" />
+		<else />
+	  	<include file="./Tpl/Common/admin_leftmenu.html" highlight="601" />
+	  	</eq>
+		<div class="span10" id="main">
+			<h3><eq name="edittag" value="1">修改用户信息<else />添加用户</eq></h3>
+			<form id="form" action="{$appbasepath}Company/saveCompuser/" method="POST" enctype="multipart/form-data">
+			<eq name="edittag" value="1"><input type="hidden" name="userid" value="{$userinfo['userid']}"></eq>
+			<label>用户名</label>
+			<input class="input-xlarge" type="text" placeholder="请输入用户名" id='username' name="username" <eq name="edittag" value="1">value="{$userinfo['username']}"</eq>><span id='uname'></span>
+			<label>用户邮箱</label>
+			<input class="input-xlarge" type="text" placeholder="请输入邮箱" id='email' name="email" <eq name="edittag" value="1">value="{$userinfo['email']}"</eq>><span id='em'></span>
+			<eq name="edittag" value="1"> <else/>
+			<label>登录密码</label>
+			<input class="input-xlarge" type="password" placeholder="请输入密码" name="password">
+			<label>登录密码</label>
+			<input class="input-xlarge" type="password" placeholder="请再次输入密码" name="confirm">
+			</eq>
+		    <br/><br/>
+			<!--<label>专家类型：<span>是否是专家，还是普通用户</span></label>
+			<input class="input-radio" type="radio" id='experts0' name="experts" value="0" <if condition=" $userinfo['experts'] eq 0">checked="checked"</if>/>用户&nbsp;&nbsp;
+			<input class="input-radio" type="radio" id='experts1' name="experts" value="1" <if condition=" $userinfo['experts'] eq 1">checked="checked"</if>/>专家&nbsp;&nbsp;
+			-->
+
+			<label>用户类型：<span>是学习管理者，还是学生用户</span></label>
+			<input class="input-radio" type="radio" id='identity0' name="identity" value="0" <if condition=" $userinfo['Identity'] eq 0">checked="checked"</if>/>学生用户&nbsp;&nbsp;
+			<input class="input-radio" type="radio" id='identity1' name="identity" value="1" <if condition=" $userinfo['Identity'] eq 1">checked="checked"</if>/>学习管理者&nbsp;&nbsp;
+			<br/><br/>
+			<label>用户评价级别</label>
+			<input class="input-xlarge" type="text" placeholder="请输入评价级别" id='level' name="level" <eq name="edittag" value="1">value="{$userinfo['level']}"</eq>><span id='lev'></span>
+			<label>用户头衔标题</label>
+			<input class="input-xlarge" type="text" placeholder="请输入头衔标题" id='title' name="title" <eq name="edittag" value="1">value="{$userinfo['title']}"</eq>><span id='tit'></span>
+			<label>用户个人网站连接</label>
+			<input class="input-xlarge" type="text" placeholder="请输入人网站链接" id='links' name="links" <eq name="edittag" value="1">value="{$userinfo['links']}"</eq>><span id='lin'></span>
+			<label>个人简介</label>
+			<textarea row = '3' col='4' name='descp' id='descp' style="width:400px;height:200px;"><eq name="edittag" value="1">{$userinfo['descp']}</eq></textarea>
+			<if condition="$ret eq 1">
+			<label>隶属机构:<span id="company"></span></label>
+			<a class="btn small-btn" id='seleoffunit'>请选择机构</a>&nbsp;&nbsp;<span>如果企业管理员或专家不隶属于任何机构。则默认为0</span>
+			</if>
+			<input type="hidden" name="cdkey" id="cdkey" value="{$cdkey}">
+			<input type="hidden" name="funid" id="funid" value="{$funid}">
+			<br/><br/>
+			<label>用户个人虚拟货币</label>
+			<input class="input-xlarge" type="text" placeholder="最大不能超过{$maxgold}" id='gold' name="gold" <eq name="edittag" value="1">value="{$userinfo['gold']}"</eq>><span id='glod_help'></span>
+			
+			<if condition="$readonly neq 1">
+			<div class="form-action">
+				<button type="submit" id='sub' class="btn btn-primary">保存</button>
+				<a href="{$appbasepath}Company/userlist/" class="btn">取消</a>
+			</div>
+			</if>
+			<eq name="edittag" value="1"><input type="hidden" name="act" value="update"><else /><input type="hidden" name="act" value="add"></eq>
+			</form>
+		</div>
+	</div>
+</div>
+<script src="/static/js/jquery-1.9.1.min.js"></script>
+<script src="/static/js/lhgdialog.min.js"></script>
+<script type="text/javascript">
+   $(function(){
+   	   $( "#seleoffunit" ).dialog({
+	  		 id:'seleoffunit',
+			 skin:'iblue',					//皮肤
+			 content: 'url:/Company/selectCompany/',
+			 title:'选择机构',
+			 width:500,   
+             height:400,
+			 fixed:true,
+			 left: '50%',
+   		     top:1,
+			 max:true,   
+             min:true, 
+             lock:true,
+			 close: function(){} 		 
+	  });
+});
+</script>  
+<script type='text/javascript'>
+	var maxgold = {$maxgold};
+		$(function(){
+			$('#username').blur(function(){
+			var username=$('#username').val();
+			if(username==""){
+				$('#uname').html('用户名不能为空').css('color','red');
+				return false;
+			}
+			$('#form').submit(function(){
+				var gold=$('#gold').val();
+				if(gold > maxgold){
+					$('#glod_help').html('企业账号余额不够').css('color','red');
+					alert('企业账号余额不够');
+					return false;
+				}
+			});
+		})
+</script>
+</body>
+</html>

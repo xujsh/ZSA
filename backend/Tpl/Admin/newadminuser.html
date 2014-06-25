@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title><eq name="edittag" value="1">编辑管理用户<else />添加管理用户</eq> 后台管理</title>
+<link rel="stylesheet" href="/static/css/bootstrap.min.css">
+<link rel="stylesheet" href="/static/css/bootstrap-responsive.min.css">
+<!--[if lt IE 7]><link rel="stylesheet" href="http://blueimp.github.com/cdn/css/bootstrap-ie6.min.css"><![endif]-->
+<!--[if lt IE 9]><script src="/static/js/html5.js"></script><![endif]-->
+
+<style>
+#titlepic {
+	margin-bottom: 10px;
+}
+
+.ui-front {
+	z-index:1500;
+}
+
+</style>
+</head>
+<body>
+<include file="./Tpl/Common/admin_head.html" />
+<div class="container-fluid">
+	<div class="row-fluid">
+		<eq name="edittag" value="1">
+		<include file="./Tpl/Common/admin_leftmenu.html" highlight="18" />
+		<else />
+	  	<include file="./Tpl/Common/admin_leftmenu.html" highlight="18" />
+	  	</eq>
+		<div class="span10" id="main">
+			<h3><eq name="edittag" value="1">授权用户权限<else />添加管理用户</eq></h3>
+			<form action="{$appbasepath}Admin/saveadminuser/" method="POST">
+			<eq name="edittag" value="1"><input type="hidden" name="adminuserid" value="{$adminuser['id']}"></eq>
+			<label>登录名称</label>
+			<input class="input-xlarge" type="text" placeholder="请输入用户名" name="loginname" <eq name="edittag" value="1">value="{$adminuser['loginname']}" readonly="readonly"</eq>>
+			<eq name="edittag" value="1"><else />
+			  <label>登录密码</label>
+			  <input class="input-xlarge" type="password" placeholder="请输入密码" name="password" >
+			  <label>登录密码</label>
+			  <input class="input-xlarge" type="password" placeholder="请再次输入密码" name="confirm">
+			</eq>
+			<br/><br/>
+			<label>隶属机构:<span id="company">{$adminuser['unitname']}</span></label>
+			<a class="btn small-btn" id='seleoffunit'>请选择机构</a>&nbsp;&nbsp;<span>如果企业管理员或专家不隶属于任何机构。则默认为0</span>
+			<input type="hidden" name="funid" id="funid" <eq name="edittag" value="1">value="{$adminuser['funid']}" <else/>value="0" </eq>>
+			<br/><br/>
+			
+			<div id=""></div>
+			<label>请选择 '用户组' 权限</label>
+			<div style="width:80%">
+			<eq name="edittag" value="1">
+				<volist  name="grouplist" id="vo">
+	         	 <input type="checkbox" id='gid_{$i}' name='gid[]' value="{$vo['gid']}" <if condition=" $vo['checked'] eq 1">checked="checked"</if> >{$vo['gname']}&nbsp;&nbsp;&nbsp;
+	            </volist>
+			 <else />
+	            <volist  name="grouplist" id="vo">
+	         	 <input type="checkbox" id='gid_{$i}' name='gid[]' value="{$vo['gid']}" >{$vo['gname']}&nbsp;&nbsp;&nbsp;
+	            </volist>
+			 </eq>
+			</div>
+			<br/><br/>
+			<label>用户授权 '可见菜单':</label>
+			<div style="width:90%">
+			  {$authoName}
+			</div>
+			
+			<br/><br/>
+			<if condition="($readonly eq 0) OR($readonly eq 2) ">
+			<div class="form-action">
+				<button type="submit" class="btn btn-primary">保存</button>
+				<a href="{$appbasepath}Admin/adminuserlist/" class="btn">取消</a>
+			</div>
+			<eq name="edittag" value="1"><input type="hidden" name="act" value="update"><else /><input type="hidden" name="act" value="add"></eq>
+			</if>
+			</form>
+		</div>
+	</div>
+</div>
+<script src="/static/js/jquery-1.9.1.min.js"></script>
+<script src="/static/js/lhgdialog.min.js"></script>
+<script type="text/javascript">
+   $(function(){
+   	   $( "#seleoffunit" ).dialog({
+	  		 id:'seleoffunit',
+			 skin:'iblue',					//皮肤
+			 content: 'url:/Admin/selectOffunit/',
+			 title:'选择机构',
+			 width:500,   
+             height:400,
+			 fixed:true,
+			 left: '50%',
+   		     top:1,
+			 max:true,   
+             min:true, 
+             lock:true,
+			 close: function(){} 		 
+	  });
+	  
+	 $("input[id^='gid_']").click(function(){
+	 	var arr = new Array();
+		var i = 0;
+	 	$("[name='gid[]']").each(function(){ 
+			if($(this).prop("checked")){
+				arr[i] = $(this).val();
+				i++;
+			}
+		});
+		var str = JSON.stringify(arr);
+		
+		
+		//from序列化
+//		$s =$("[name='gid[]']").serialize()
+//	 	alert($s);
+	 });
+	 
+});
+</script>  
+</body>
+</html>

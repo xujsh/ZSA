@@ -1,0 +1,258 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta content="email=no" name="format-detection" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0">
+<title>专家</title>
+<link rel="stylesheet" href="/css/expert.style.css"/>
+<link href="/css/li.css" rel="stylesheet">
+<script type="text/javascript" src="/static/js/jquery-1.9.1.min.js"></script>
+<script src="/js/jquery-ui-1.9.2.custom.min.js" ></script>
+<link rel="stylesheet" href="/js/ui-lightness/jquery-ui-1.8.18.custom.css"/>  
+<style>
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<meta name="msapplication-tap-highlight" content="no"/>
+</head>
+<body id='bodyonline'>
+<div id="all" class="bodyall">
+	<div class="body_top">
+		<div class="centent" id='centent'>
+			<span class="centent-left">
+				<if condition="$info['picture']">
+					<img class='images' width='50' height='50' src="{$info['picture']}">
+				<else/>
+					<img class='images' width='50' height='50' src="/images/noheader.jpg">
+				</if>
+			</span>
+			<span class="centent-right">
+				<span style=" font-weight: bold;font-size:14px;">{$info['username']}</span>
+				<span style="float:right;padding-right:20px;"> 粉丝:{$num} &nbsp;&nbsp;&nbsp;
+				<a href="/Expert/sendLetter/?sid={$sid}&&uid={$uid}">发私信</a><span>
+			</span>
+		</div>
+		<div class="mfans">
+				<a href="#"><span>{$expert['unitname']}</span></a>
+		</div>
+	</div>
+	<!-----------滑动卡部分--------------------->
+	<div class="title_div" id='tabs'>
+			<ul id="title_ul">
+				<li id=0 class="clicked">专家动态</li>
+				<li id=1 class="">专家课程</li>
+				<li id=2 class="">专家书籍</li>
+			</ul>
+	</div>
+	<div id="mask" class="mask">
+		
+	</div>
+	<div id="tabs-body" class="tabs-body">
+		<!------简介----------->
+		<div class="intro"  style="display:block" id="intro">
+			<div class="totlenum">
+				<span class="span_left">
+					<img width="13" height="18" src="{$appbasepath}images/s_num.png">
+					&nbsp;{$trendnum}&nbsp;条动态
+				</span>
+				<span class="span_right">
+					<volist  name="icolevel" id="vo">
+						<img width="15" height="15" src="{$appbasepath}{$vo}"/>
+					</volist>
+				</span>
+			</div>
+			<div class="intro_con" id="intro_con">
+				<volist name="trends" id="vo">
+				<div class="tli">
+						<div class="tli_top" style="width:320px;height:60px;padding-left:10px;">
+							<span class="centent-left">
+								<if condition="$info['picture']">
+										<img class='images' width='40' height='40' src="{$vo['picture']}">
+									<else/>
+										<img class='images' width='40' height='40' src="/images/noheader.jpg">
+									</if>
+							</span>
+							<span class="centent-right">
+								<span style=" font-weight: bold;font-size:14px;">{$vo['username']}</span><br>
+								<span style="color:#a5a6a8">{$vo['createtime']}<span>
+							</span>
+						</div>
+						<div class="zjdt">
+							{$vo['content']}
+						</div>
+						<div class="dongtai">
+							<a href="/Expert/repl/?trid={$vo['trid']}&&sid={$sid}">评论
+							<if condition="$vo['renum']">&nbsp;{$vo['renum']}</if></a>
+							|
+							<a href="javascript:void(0)" onclick="prize({$vo['trid']})">赞<if condition="$vo['pnum']">{$vo['pnum']}</if></a>
+						</div>
+				</div>
+				</volist>
+			</div>
+
+		</div>
+	<!---课程信息------>
+		<div  style="display:none" class="con" id="course">
+			<div class="totlecos">
+				<span class="">共：{$trnum}&nbsp;门课程</span>
+			</div>
+			<div class="course_con" id="course_con">
+				<volist name="trinfo" id="vo">
+					<a href="/Private/index/?id=1">
+						<div class="tli">
+							<span class="centent-left">
+								<img class='images' width='40' height='40' src="{$vo['picture']}">
+							</span>
+							<span class="centent-right">
+								<span style=" font-weight:bold;font-size:14px;">{$vo['name']} </span>
+								<span style="float:right;color:blue">已购买</span>
+								<br>
+								<span style="color:#a5a6a8">{$vo['brief']}<span>
+							</span>
+						</div>
+					</a>
+				</volist>
+			</div> 
+		</div>
+		<!-----评论信息------------>
+		<div style="display:none" class="meg" id="message">
+			<div class="totlenum">
+				<span class="comment_left">
+					<volist  name="icolevel" id="vo">
+						<img  width="15" height="15" src="{$appbasepath}{$vo}">
+					</volist>
+				</span>
+				<span class="comment_right">共2:&nbsp;本书籍</span>
+			</div>
+			<div class="comment" id="comment">
+				<volist name="bookinfo" id="vo">
+				<a href="/Bookdetail/?bid={$vo['bid']}">
+					<div class="tli">
+						<span class="centent-left">
+							<if condition="$vo['picture']">
+								<img class='images' width='30' height='30' src="{$vo['picture']}">
+							<else/>
+								<img class='images' width='30' height='30' src="/images/noheader.jpg">
+							</if>
+						</span>
+						<span class="centent-right">
+							<span style=" font-weight:bold;font-size:14px;">{$vo['bookname']}</span>
+							<span style="float:right">{$vo['createtime']}</span>
+							<br>
+							<span style="color:#a5a6a8">{$vo['bookinro']}<span>
+						</span>
+					</div>
+				</a>
+				</volist>
+				
+			</div> 
+		</div>
+	</div>
+</div>
+<script src="/js/slowtouch.js"></script>
+<script src="/js/li.js"></script>
+
+<script src="/js/masktouch.js"></script>
+<script type="text/javascript">
+	 function returnTitle(){
+	
+		return "专家详情";
+	}
+	var nowSlowtouchObj;
+	var touchIDArray = ["intro_con","course_con","comment"];
+	
+	//赞
+	function prize(trid){
+		
+		var sid = "{$sid}";
+		$.post('/Expert/prize',{trid:trid,sid:sid},function(data){
+				location = "/StudyCricle/?sid={$sid}";
+		})
+	}
+	
+	function changeNowSlowtouchObjByID(id)
+	{
+		if(nowSlowtouchObj)
+		{
+			removeSlowTouchObj(nowSlowtouchObj);
+		}
+		var slowTouchID = touchIDArray[id];
+		nowSlowtouchObj = document.getElementById(slowTouchID);
+		addSlowTouchObj(nowSlowtouchObj);	
+	}
+	changeNowSlowtouchObjByID(0);
+	
+	var heightP		= window.screen.height;
+	var heightWeb	= heightP+28+'px';
+	var htmlBody = document.getElementById('bodyonline');
+	var divAll = document.getElementById('all');
+	htmlBody.style.height=heightWeb;
+	divAll.style.height=heightWeb;
+	var divMask = document.getElementById('mask');
+	//mask touch
+	addMaskTouchObj(htmlBody, divMask);
+
+	var heightP		= window.screen.height;
+	var heightWeb	= heightP-172+'px';
+	var intro = document.getElementById('intro');
+	var course_con = document.getElementById('course_con');
+	var comment = document.getElementById('comment');
+	intro.style.height=heightWeb;
+	course_con.style.height=heightWeb;
+	comment.style.height=heightWeb;
+	
+	//滑到底部自动加载
+	var htmlbodyscrollend = function()
+	{
+		
+		//取网页卷上去的高度
+		h1=document.body.scrollTop?document.body.scrollTop:document.documentElement.scrollTop;
+		//取网页中能看到高
+		h2=document.documentElement.clientHeight?document.documentElement.clientHeight:document.body.clientHeight
+		//取网页正文高，包含被卷上去的内容
+		h3=document.documentElement.scrollHeight?document.documentElement.scrollHeight:document.body.scrollHeight;
+		//alert(h3);
+		if((h1+h2)>=h3)
+		{
+			//alert('touch end 滚动条已经到最下面啦');
+			if("{$magecount}">10){
+			alert('cccc');
+				funMore();
+			}
+		}
+	}
+	window.onscroll = htmlbodyscrollend;
+	//加载更多
+	var nowpage = 1;
+	function funMore()
+	{
+		nowpage++;
+		$("#more").remove();
+		var courseid = "{$courseid}";
+		var pageNum    = 10;
+		$.post('/Cdetails/morecont',{nowpage:nowpage,pageNum:pageNum,courseid:courseid},function(data){
+			var comment  = $('#comment');
+			var arr = eval(data);
+			for(var i=0;i<arr.length;i++){	
+				var assesslevel = arr[i]['assesslevel'];
+				var img="";
+				for(var j=0;j<assesslevel.length;j++){
+					img+="<img src={$appbasepath}"+assesslevel[j]+" width=15 height=15 >";
+				}
+				var html = "<div class='com_img'><img src="+arr[i]['picture']+" width='30px' height='30px'></div><div class='com_con'><p>"+arr[i]['username']+" - "+arr[i]["createtime"]+"</p><p class='com_icolevel'>"+img+"</p><p class='com_content'>"+arr[i]['content']+"</p></div>";
+				comment.append(html);
+			}
+			var more ="<div id='more' style='clear:both;padding-left:100px;'><a href='javascript:;' onclick='funMore()' style='font-size:14px; color:blue;'>更多内容...</a></div>";
+			comment.append(more);
+		})
+	}
+
+	
+</script>
+</body>
+</html>

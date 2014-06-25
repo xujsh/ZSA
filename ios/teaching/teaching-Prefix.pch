@@ -1,0 +1,72 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+
+
+    #define IOS7_OR_LATER   ( [[[UIDevice currentDevice] systemVersion] compare:@"7.0"] != NSOrderedAscending )
+    #define IOS6_OR_LATER   ( [[[UIDevice currentDevice] systemVersion] compare:@"6.0"] != NSOrderedAscending )
+    #define IOS5_OR_LATER   ( [[[UIDevice currentDevice] systemVersion] compare:@"5.0"] != NSOrderedAscending )
+
+
+#if TARGET_VERSION_LITE==1
+#define  APP_TITLE @"鲁西化工培训平台"
+#define API_URL_PREFIX @"http://lxhg.test.icesmart.cn"
+#elif TARGET_VERSION_LITE==0
+#define  APP_TITLE @"从零学起"
+#define API_URL_PREFIX @"http://coursement.test.icesmart.cn"
+#elif TARGET_VERSION_LITE==2
+#define  APP_TITLE @"追剧学口语"
+#define API_URL_PREFIX @"http://learningoral.test.icesmart.cn"
+#elif TARGET_VERSION_LITE==3
+#define  APP_TITLE @"北京市民移动学习"
+#define API_URL_PREFIX @"http://coursement.test.icesmart.cn"
+#endif
+
+#define INDEX_FILTER @"Index";
+#define VERSION_STRING @"1.0"
+
+//
+#define URL_TYPE_COURSEPAY @"Coursepay"
+
+//路径
+#define URLMAKER(s, sid) ([NSString stringWithFormat:@"%@%@?ver=%@&sid=%@", API_URL_PREFIX, s, VERSION_STRING, sid])
+#define URLMAKERS(s, sid) ([NSString stringWithFormat:@"%@%@&ver=%@&sid=%@", API_URL_PREFIX, s, VERSION_STRING, sid])
+//#define URLMAKER(s) ([NSString stringWithFormat:@"%@%@&sid=%@", API_URL_PREFIX, s])
+#define URL_COURSELOGS @"/LessonsHistory/getdepartment/"
+#define URL_NOTICE @"/Notice/index"
+#define URL_PROFILE @"/UserCenter/index/"
+#define URL_LESSON_INFO @"/LessonsHistory/getCourseInfo?courseid="
+#define URL_VIDEO_INFO @"/VideoInfo/index?lessonsid="
+#define URL_SEARCH @"/Search/index?num=1"//&sid=5fa19d47b011b890784d6b02d1176aa0"
+#define URL_CIRCLE @"/StudyCricle"
+//首页
+#define URL_HOMEPAGE @"/index.php/Index/iosindex/rtid/new"
+#define URL_HOTURL @"/index.php/Index/iosindex/rtid/hot"
+#define URL_CLASSURL @"/index.php/Index/iosindex/rtid/type"
+//需要登录
+#define URL_NEEDLOGIN @"/Needlogin"
+#define URL_GOBACK @"/Goback"
+
+#define APIMAKER(s) ([NSString stringWithFormat:@"%@%@?ver=%@", API_URL_PREFIX, s,VERSION_STRING])
+
+
+
+#define API_URL_LOGIN @"/IosApi/Login/" //用户登录接口  //email='120@qq.com'&&password='123456'
+#define API_URL_LOGOUT @"/Login/logout/" //用户登出
+#define API_URL_REG @"/IosApi/Registration/"  //注册  //email='120@qq.com'&&password='123456'&&username='小席'
+#define API_URL_QQLOGIN @"/IosApi/checkThirdParty"  //使用QQ登录后的回调
+#define API_URL_DEPARTMENT @"/IosApi/getAllDepartment/" //获取所有部门列表：鲁西化工特有 http://lxhg.test.icesmart.cn/index.php/IosApi/getAllDepartment/
+
+#endif

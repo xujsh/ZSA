@@ -1,0 +1,109 @@
+@charset "utf-8";
+    
+body{ font-size:12px; font-family:"宋体", Arial; color:#666666; }
+body,div,ul,li,em,span,dl,dt,dd,p,a,h1,h2,h3,h4,h5,h6,fieldset,form,legend,hr{ margin:0; padding:0; border:none;}
+legend{ display:none;}
+ul,li{ list-style:none;}
+h1,h2,h3,h4,h5,h6{ font-size:12px;}
+em{ font-style:normal;}
+a{ color:#a7a7a7; text-decoration:none;}
+
+.fl_m{ float:left; display:inline;}
+.fr_m{ float:right; display:inline;}
+.clearfixed_m{}
+.clearfixed_m:after{ content:"."; display:block; visibility:hidden; clear:both; height:0; line-height:0; font-size:0px;}
+
+/*首页导航头部*/
+.wrapper_topbar_m{ width:100%; min-width:1000px; background:url(http://passport.guoshi.com/mp/loginframe/images/topbar.gif) repeat-x 0 0; height:34px;}
+.topbar_line_m{ height:5px; line-height:5px; font-size:0; text-indent:-9999px; width:100%;}
+.wrapper_topbar_m .c_0073d0{ background:#0073d0;}
+.wrapper_topbar_m .c_e36101{ background:#0071cd;}
+.wrapper_topbar_m .c_a72424{ background:#a72424;}
+.wrapper_topbar_m .c_0071cd{ background:#e36101;}
+.wrapper_topbar_m .c_5ca624{ background:#5ca624;}
+.wrapper_topbar2_m .c_0073d0{ background:#0073d0;}
+.wrapper_topbar2_m .c_e36101{ background:#0071cd;}
+.wrapper_topbar2_m .c_0071cd{ background:#e36101;}
+.wrapper_topbar2_m .c_5ca624{ background:#5ca624;}
+.c_1{ background:#0073d0!important;}
+.c_2{ background:#0071cd!important;}
+.c_3{ background:#e36101!important;}
+.c_4{ background:#5ca624!important;}
+
+.topbar_nav_m{ height:29px; line-height:29px; width:958px; margin:0 auto;}
+.nav_left_m{ width:260px; padding-left:47px;}
+.guoshiEmail_m{ margin:0 8px;}
+a.guoshiEmail_m { color:#a7a7a7; }
+a.guoshiEmail_m:hover { color:#fff; text-decoration: underline;}
+
+.guoshi_hot_m { position:relative; height:29px; width:76px; padding:0; margin-right:6px; line-height:29px; display:block; float:left;}
+.guoshi_hot_m li { float:left; position:relative; }
+.guoshi_hot_m a.guoshi_hot_a_m { color:#a7a7a7; width:71px; padding-left:5px; display:block; text-align:left; background:url(http://passport.guoshi.com/mp/loginframe/images/topbar.gif) no-repeat 0 -241px;}
+.guoshi_hot_m a.guoshi_hot_a_m:hover{ color:#fff;background:url(http://passport.guoshi.com/mp/loginframe/images/topbar.gif) no-repeat 0 -213px;}
+.guoshi_hot_m ul ul { visibility:hidden; position:absolute; left:-35px; top:29px; width:142px; padding:3px 2px 10px 2px; zoom:1; overflow:hidden; text-align:center;}
+.guoshi_hot_m table { position:absolute; top:0; left:0; }
+.guoshi_hot_m ul li:hover ul,
+.guoshi_hot_m ul a:hover ul { visibility:visible; background:url(http://passport.guoshi.com/mp/loginframe/images/list_bg.png) no-repeat left bottom; _background:url(http://passport.guoshi.com/mp/loginframe/images/list_bg.gif) no-repeat left bottom; }
+.guoshi_hot_m a { display:block; text-align:center; text-decoration:none; font-size:12px; }
+.guoshi_hot_m a:hover { border:0; text-decoration:none;}
+.guoshi_hot_m ul ul li { clear:both; width:142px;}
+.guoshi_hot_m ul ul li.t { background:url(http://passport.guoshi.com/mp/loginframe/images/list_line.gif) no-repeat 50% bottom;}
+.guoshi_hot_m ul ul li a { display:block; width:132px; height:25px; line-height:25px; padding:0px 5px; border:0;}
+.guoshi_hot_m ul ul li a:hover { background:url(http://passport.guoshi.com/mp/loginframe/images/topbar.gif) no-repeat 0 -339px; color:#fff; }
+
+.guoshi_tool_m { position:relative; height:29px; width:76px; padding:0; margin-right:6px; line-height:29px; display:block; float:left;}
+.guoshi_tool_m ul { list-style:none; padding:0; margin:0}
+.guoshi_tool_m li { float:left; position:relative; }
+.guoshi_tool_m a.guoshi_tool_a_m { color:#a7a7a7; width:71px; padding-left:5px; display:block; text-align:left; background:url(http://passport.guoshi.com/mp/loginframe/images/topbar.gif) no-repeat 0 -241px;}
+.guoshi_tool_m a.guoshi_tool_a_m:hover{ color:#fff; background:url(http://passport.guoshi.com/mp/loginframe/images/topbar.gif) no-repeat 0 -213px;}
+.guoshi_tool_m ul ul { visibility:hidden; position:absolute; left:-35px; top:29px; width:142px; padding:3px 2px 10px 2px; text-align:center; }
+.guoshi_tool_m table { position:absolute; top:0; left:0; }
+.guoshi_tool_m ul li:hover ul,
+.guoshi_tool_m ul a:hover ul { visibility:visible; background:url(http://passport.guoshi.com/mp/loginframe/images/list_bg.png) no-repeat left bottom; _background:url(http://passport.guoshi.com/mp/loginframe/images/list_bg.gif) no-repeat left bottom; padding-bottom:10px; }
+.guoshi_tool_m a { display:block; text-align:center; text-decoration:none; font-size:12px; }
+.guoshi_tool_m a:hover { border:0; text-decoration:none;}
+.guoshi_tool_m ul ul li { clear:both; width:142px; }
+.guoshi_tool_m ul ul li.t { background:url(http://passport.guoshi.com/mp/loginframe/images/list_line.gif) no-repeat 50% bottom;}
+.guoshi_tool_m ul ul li a { display:block; width:132px; height:25px; line-height:25px; padding:0px 5px; border:0; }
+.guoshi_tool_m ul ul li a:hover { background:url(http://passport.guoshi.com/mp/loginframe/images/topbar.gif) no-repeat 0 -339px; color:#fff; }
+
+.nav_right_m{ width:630px; text-align:right;}
+.shequ_m{ zoom:1; overflow:hidden; margin-left:20px;}
+.shequ_m li{ float:left;}
+.shequ_m li a{ display:inline-block; padding:0 8px; height:29px;}
+.shequ_m li a:hover{ text-decoration: none;}
+.shequ_m li a.news:hover,.shequ_m li a.on2{ background:url(http://passport.guoshi.com/mp/loginframe/images/topbar.gif) no-repeat 0 -114px; color:#fff;}
+.shequ_m li a.study:hover,.shequ_m li a.on1{ background:url(http://passport.guoshi.com/mp/loginframe/images/topbar.gif) no-repeat 0 -148px; color:#fff;}
+.shequ_m li a.idea:hover,.shequ_m li a.on3{ background:url(http://passport.guoshi.com/mp/loginframe/images/topbar.gif) no-repeat 0 -182px; color:#fff;}
+
+
+.topbar_logo_m{ height:75px; width:958px; margin:0 auto;}
+.logo_big_m{ margin-top:11px;}
+
+.logo_big_m a{ height:50px; display:block; text-indent:-9999px; cursor:pointer;}
+.topbar_logo_m .logo_big_m .logo_guoshi {width:143px; background:url(http://passport.guoshi.com/mp/loginframe/images/logo_big.png) no-repeat; _background-image:none; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="http://passport.guoshi.com/mp/loginframe/images/logo_big.png");}
+.topbar_logo_m .logo_big_study_m .logo_study {width:90px; background:url(http://passport.guoshi.com/mp/loginframe/images/logo_study.png) no-repeat; _background-image:none; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="http://passport.guoshi.com/mp/loginframe/images/logo_study.png");margin-top:29px;}
+.topbar_logo_m .logo_big_news_m .logo_news {width:90px; background:url(http://passport.guoshi.com/mp/loginframe/images/logo_news.png) no-repeat; _background-image:none; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="http://passport.guoshi.com/mp/loginframe/images/logo_news.png");margin-top:29px;}
+.topbar_logo_m .logo_big_idea_m .logo_ketan {width:90px; background:url(http://passport.guoshi.com/mp/loginframe/images/logo_ketan.png) no-repeat; _background-image:none; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="http://passport.guoshi.com/mp/loginframe/images/logo_ketan.png");margin-top:29px;}
+.search_m{ width:447px; height:35px; margin: 23px 0px 0 0; padding:2px 4px 0; background:url(http://passport.guoshi.com/mp/loginframe/images/topbar.gif) no-repeat 0 -272px;}
+.search_txt_m{ height:28px; line-height:28px; margin-left:0px; border:none; width:410px; background:#323232; color:#ddd; font-size:13px; font-family:"微软雅黑", Arial;padding-left:6px;}
+.search_btn_m{ width:31px; height:30px; text-indent:-9999px; background:url(http://passport.guoshi.com/mp/loginframe/images/topbar.gif) no-repeat -460px -274px; border:none; cursor:pointer;opacity:0.8; filter:alpha(opacity=80);}
+.search_btn_m:hover{ opacity:1.0; filter:alpha(opacity=100);}
+
+
+.wrapper_topbar2_m{ width:100%;min-width:1000px; height:34px; background:#262626;}
+.topbar_nav2_m{ height:29px; line-height:29px; width:958px; margin:0 auto;}
+.nav2_left_m{ width:470px;}
+.logo_small_m{ width:62px; height:23px; margin-top:3px; display:block; text-indent:-9999px; background:url(http://passport.guoshi.com/mp/loginframe/images/logo_small.png) no-repeat; _background:none; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="images/logo_small.png"); cursor:pointer;}
+.nav2_left_m .txt_news{ background:url(http://passport.guoshi.com/mp/loginframe/images/topbar.gif) no-repeat -172px -312px; width:128px; height:22px; line-height:22px; border:none; font-size:12px; font-family:"微软雅黑", Arial; margin-top:3px; margin-right:5px; padding:0 3px; color:#ccc; float:left;}
+.nav2_left_m .btn_news{ background:url(http://passport.guoshi.com/mp/loginframe/images/topbar.gif) no-repeat -310px -312px; width:27px; height:22px; margin-top:4px; border:none; text-indent:-9999px; cursor:pointer; float:left;opacity:0.8; filter:alpha(opacity=80);}
+.nav2_left_m .btn_news:hover { opacity:1.0; filter:alpha(opacity=100);}
+.nav2_left_m .txt{ background:url(http://passport.guoshi.com/mp/loginframe/images/topbar.gif) no-repeat -343px -312px; width:128px; height:22px; line-height:22px; border:none; font-size:12px; font-family:"微软雅黑", Arial; margin-top:3px; margin-right:5px; padding:0 3px; color:#ccc; float:left;}
+.nav2_left_m .btn{ background:url(http://passport.guoshi.com/mp/loginframe/images/topbar.gif) no-repeat -481px -312px; width:27px; height:22px; margin-top:4px; border:none; text-indent:-9999px; cursor:pointer; float:left;opacity:0.8; filter:alpha(opacity=80);}
+.nav2_left_m .btn:hover { opacity:1.0; filter:alpha(opacity=100);}
+.nav2_right_m{ width:488px;}
+
+a.c_news {color:#0071cd}
+a.c_study {color:#e36101}
+a.c_ketan {color:#5ca624}
+

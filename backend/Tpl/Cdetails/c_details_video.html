@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta content="email=no" name="format-detection" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0">
+<title>课程播放页</title>
+<link rel="stylesheet" href="/css/vedio.style.css">
+<style type='css/type'>
+</style>
+</head>
+<body id='body'><!--html5的video标签目前只支持播放.mp4、.ogg、.webm-->
+<div class='body_style' id='body_style'>
+	<section>
+		<div class='top_video'>
+			<div class='videos'>
+				<!--webkit-playsinline-->
+				<video id="myVideo" src="{$video}" controls  width='320px' height='180px' webkit-playsinline>
+				</video>
+			</div>
+			<!--<div class='btn'></div>-->
+		</div>
+	</section>
+	<div class='content_body' id='content_body'>
+		<div class='content_con' id='content_con'>
+			<section>
+				<div class='des_top'>
+					<div class='des_name'>{$seinfo['name']}</div>
+					<div style='padding-top:10px;padding-bottom:10px'>
+						<span style='padding-left:10px;'  id='span'>
+						<!--指数级别-->
+						</span>
+						<span style='font-size:15px;color:#808080;padding-left:10px'>
+							<img src='/images/public/s_num.png' width='13px' height='17px'>&nbsp;{$seinfo['visitnum']}
+						</span>
+						
+					</div>
+				</div>
+			</section>
+			<div class='und_line'></div>
+			<div class='des_body'>
+				<section class='fllowname'>
+					<div id='biao'>课程简介</div>
+					
+				
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+	<!--<div class='question' style='display:block;margin-left:8px;'>
+		<a href="/Ques/index/{$lessonsid}">
+			<img width=304 height=53 src='/images/goon.png'/>
+		</a>
+	</div>-->
+</div>
+<script src="/static/js/jquery-1.9.1.min.js"></script>
+<script src='/js/slowtouch.js' ></script>
+<script src='/js/video.js' ></script>
+<script type='text/javascript'>var www_host = "{:C('APP_SITE_URI')}";</script>
+<script>
+	var obj = document.getElementById("content_con");
+	addSlowTouchObj(obj);
+	var heightP		= window.screen.height;
+	var heightWeb	= heightP-266+'px';
+	var heightPs	=document.body.clientHeight;
+	document.getElementById('content_body').style.height=heightWeb;
+	//获取时间
+	var myVideo=document.getElementById("myVideo");
+	myVideo.addEventListener("timeupdate", function () {
+		//myVideo.currentTime = {$playtime};
+		var vLength	=Math.floor(myVideo.duration);
+		var vTime	= Math.floor(myVideo.currentTime);
+		isHaveTime(vTime);
+		if(vTime!=""&&vTime%60==0){
+			var url		= www_host+'/Video/edittime';
+			var uid		= '{$uid}';
+			var lessonid='{$lessonsid}';
+			$.post(url,{vTime:vTime,uid:uid,lessonsid:lessonid},function(data){
+			})
+		}
+		if(vLength==vTime){
+			var url = www_host+'/Video/editend';
+			var uid		= '{$uid}';
+			var lessonid='{$lessonsid}';
+			$.post(url,{end:'1',uid:uid,lessonsid:lessonid,vLength:0},function(data){
+
+			})
+		}
+	}, false);
+	window.onbeforeunload = function () {
+          
+                if (!confirm("真要关闭窗口吗?")) {
+					var url		= www_host+'/Video/edittime';
+					var uid		= '{$uid}';
+					var lessonid='{$lessonsid}';
+					var vTime = Math.floor(myVideo.currentTime);
+					$.post(url,{vTime:vTime,uid:uid,lessonsid:lessonid},function(data){
+					})
+                    return true;
+                }
+                else{
+                    return false;
+				}
+        }
+
+	
+	function focus(focustime){
+		myVideo.currentTime=focustime;
+		myVideo.autoplay=true;
+		myVideo.play();
+	}
+	var sum=5;//星的总数
+	var str="";
+	var star="{$starLevel}";
+	for(var i=1;i<=sum;i++){
+		if(i<=star){
+			str+="<img src='/images/public/star_on.png' width='17px' height='18px'>&nbsp;";
+		}else{
+			str+="<img src='/images/public/star_off.png' width='17px' height='18px'>&nbsp;";
+		}
+	}
+	$("#span").html(str);
+	var myVideo=document.getElementById("myVideo");
+    
+
+    myVideo.addEventListener("canplay", function()
+                             {
+                                //alert("canplay");
+                                //myVideo.currentTime=30.0;
+                                var playtime = '{$playtime}';
+                                var playtimes=parseInt(playtime);
+                                if(playtimes!=0)
+                                {
+                                    //alert(playtimes);
+                                    myVideo.currentTime=playtimes;
+                                    myVideo.autoplay=true;
+                                    myVideo.play();
+                                }
+                             })
+	
+   
+	var timeObj = new Object();
+	var arrTime = eval({$arrTime});
+	var num     = "{$num}";
+	for(var i = 0;i<num;i++)
+	{
+		timeObj["time_"+arrTime[i]] = "id_"+arrTime[i];
+		
+	}
+	
+	function isHaveTime(nowTime)
+	{
+		if(timeObj["time_" + nowTime] != null)
+		{			
+			showFocusByID(timeObj["time_" + nowTime]);
+		}
+	}
+	
+	function showFocusByID(idString)
+	{	
+		var focusTime=document.getElementById(idString);
+		focusTime.style.cssText ='color:red';
+		startmarquee();
+	}
+	
+	function startmarquee() {
+
+		var focusId		= document.getElementById('content_body');
+		//var heightTop	= 
+		function start(){
+			focusId.style.top=-206+"px";
+		}
+		setTimeout(start,'1');
+	}
+
+</script>
+</body>
+</html>

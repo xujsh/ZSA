@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>后台管理员群组管理 </title>
+<link rel="stylesheet" href="/static/css/bootstrap.min.css">
+<link rel="stylesheet" href="/static/css/bootstrap-responsive.min.css">
+<!--[if lt IE 7]><link rel="stylesheet" href="http://blueimp.github.com/cdn/css/bootstrap-ie6.min.css"><![endif]-->
+<!--[if lt IE 9]><script src="/static/js/html5.js"></script><![endif]-->
+<style type="text/css">
+</style>
+</head>
+<body>
+<include file="./Tpl/Common/admin_head.html" />
+<div class="container-fluid">
+	  <div class="row-fluid">
+		<include file="./Tpl/Common/admin_leftmenu.html" highlight="20" />
+		<div class="span10">
+		  <h3>群组列表</h3>
+		  <p style="font-size:18px;font-family:'微软雅黑'"><a href="{$appbasepath}Admingroup/add/">添加</a></p>
+		  <table class="table">
+			<thead>
+			<tr>
+				<th>ID</th>
+				<th>群组名称</th>
+				<th>是否是超级管理组</th>
+				<th>是否可编辑</th>
+				<!--<th>所具有的权限</th>-->
+				<th>操作</th>
+			</tr>
+			</thead>
+			<tbody>
+			<volist  name="list" id="vo">
+				<tr>
+					<td>{$vo.gid}</td>
+					<td>{$vo.gname}</td>
+					<td><if condition="$vo.flag eq 1">是<else />否</if></td>
+					<td>
+						 <if condition="$vo.type eq 1">只读
+						 <elseif condition="$vo.type eq 2"/>写入
+						 <elseif condition="$vo.type eq 3"/>审核课程
+						 <else />可编辑</if>
+					</td>
+					<!--<td width="500">{$vo.authority}</td>-->
+					<td>
+						<a href="{$appbasepath}Admingroup/edit/gid/{$vo.gid}" class="btn small-btn">编辑</a>
+						<if condition="$readonly eq 0">
+						<a href="{$appbasepath}Admingroup/del/gid/{$vo.gid}" class="btn small-btn" id="deletebutton">删除</a>
+						</if>
+					</td>
+				</tr>
+			</volist>
+			</tbody>
+		  </table>
+		   <div class="pagination pagination-centered">
+		   	<ul>
+		  	{$show}
+			</ul>
+		   </div>
+		</div>
+	  </div>
+	</div>
+<script src="/static/js/jquery-1.9.1.min.js"></script>
+<script>
+$(function(){
+		$("a[id^='deletebutton']").click(function(){
+			if (confirm('确认删除？'))
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		});
+		
+		$('#categoryid').change(function(){
+			$('#form').submit();
+		});
+		
+	});
+</script>
+</body>
+</html>

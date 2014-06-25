@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta content="email=no" name="format-detection" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0">
+<title>我的错题库</title>
+<link rel="stylesheet" href="/css/wrong.style.css">
+<style type='css/type'>
+</style>
+</head>
+<body id='body'><!--html5的video标签目前只支持播放.mp4、.ogg、.webm-->
+<form method='post' action='/Ques/saveParper' id='form1'>
+<div class='body_style' id='body_style'>
+	<if condition="$count neq 0">
+	<div class='content_body' id='content_body'>
+		<section class='fllowname'>
+		<div class="news_banner_about_cont" id='foucsInfo'>
+			
+			<volist name='listWrong' id='vo'>
+				<div id="{$vo['wid']}">
+					<p>{$vo['wid']}、{$vo['title']}</p>
+					<volist name="vo['quesChild']" id='check'>
+						<p><input type='radio' name="ch{$vo['qid']}[]" <if condition="$vo['eid'] eq $check['eid']"> checked </if> value="{$check['eid']}">{$check['title']}</p>
+					</volist>
+					<div class='answer' width='320px' height='20px' style=''>
+						<font color='red'>答错<a href='#'>{$vo['errornum']}</a>次</font>&nbsp;
+						<font color='blue'>正确答案:{$vo['correct']}</font> &nbsp;&nbsp;&nbsp;
+						<if condition="$vo['analysis']"><a color='' onclick="fun({$vo['qid']})" href='javascript:void(0)'>解析</a>&nbsp;&nbsp;&nbsp;</if>
+						<span style='float:right'><font color='red'><a href='javascript:void(0)' onclick="del({$vo['wid']})">移除</a></font></span> &nbsp;&nbsp;&nbsp;
+					</div>
+					<div class='analysis' id="analysis{$vo['qid']}" width='320px' height='' style='font-size:12px;display:none;color:green'>
+						{$vo['analysis']}
+					</div>
+					<input type='hidden' value='{$tid}' name='tid' id='tid'>
+					<div class='und_line'></div>
+				</div>
+			</volist>
+		</div>
+			<if condition="$count gt 10">
+				<div id='mores' style='height:50px;'>
+				  <a href="javascript:;" onclick='funMore()' style='font-size:14px; color:blue;test-align:center;margin-left:120px;'>更多内容...</a>
+				</div>
+			</if>
+		</section>
+		<else/>
+		<script>alert('您尚未有错题');history.go(-1);</script>
+		</if>
+	</div>
+	</form>
+<script src="/static/js/jquery-1.9.1.min.js"></script>
+<!--基础文件，分别是jQuery基库和拖拽UI插件-->
+<script src="/js/jquery_dialogs/jquery.js" type="text/javascript"></script>
+<script src="/js/jquery_dialogs/jquery.ui.draggable.js" type="text/javascript"></script>
+
+<!-- 对话框核心JS文件和对应的CSS文件-->
+<script src="/js/jquery_dialogs/jquery.alerts.js" type="text/javascript"></script>
+<link href="/js/jquery_dialogs/jquery.alerts.css" rel="stylesheet" type="text/css" media="screen" />
+<script type="text/javascript" src="/js/wrong.js"></script> 
+
+<script>
+	function returnTitle(){
+
+		return '我的错题库';
+	}
+</script>
+</body>
+</html>

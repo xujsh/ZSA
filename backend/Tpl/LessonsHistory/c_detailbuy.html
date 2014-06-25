@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta content="email=no" name="format-detection" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0"/>
+<title>我的课程详情</title>
+<style>
+* {
+margin:0px auto;padding:0px;border:none;word-wrap:break-word;word-break:break-all;list-style:none;font-family:"黑体","Arial",arial,sans-serif;}
+*html, *html body {background-image: url(about:blank);background-attachment:fixed; overflow:hidden; }
+body {width:320px;height:auto;background-color:#E7E7E7;margin:0px auto; overflow:hidden;}
+a{text-decoration:none;color:#333;}
+img {border:none;}
+h1, h2, h3, h4, h5, h6 {font-size:1em;}
+html {overflow:-moz-scrollbars-vertical; overflow:hidden;}
+dl, dt, dd, ul, li {list-style:none;margin:0px;padding:0px;border:0px;}
+.clear {clear:both;float:none;height:0px;font-size:0px;overflow:hidden;}
+#all {width:320px;background-color:#ffffff;border-width:1px 1px 0 1px;border-style:solid;border-color:#CBCBCB;left:8px;overflow:hidden;}
+
+
+.header_beijing{width:320px; height:117px; position:absolute;top:0px;left:0px; z-index:1;}
+.courseinfo{ width:320px; height:117px; vertical-align:117px; vertical-align:middle; background-color:#000000;font-size:14px; color:#fff;position: absolute;top:0px;left:0px; z-index:2; filter:alpha(opacity=80);  
+      -moz-opacity: 0.8;-khtml-opacity: 0.8;  opacity: 0.8; 
+}
+
+.title{width:288px; position:absolute; top:29px;left:14px; font-size:26px; font-weight:bold; color:#fff;  filter:alpha(opacity=100);-khtml-opacity: 1.0; -moz-opacity:1.0;  opacity:1.0; }
+.title_1{width:288px; position:absolute; top:89px;left:14px;font-size:14px;color:#EFEFEF; filter:alpha(opacity=100);-khtml-opacity: 1.0; -moz-opacity:1.0;  opacity:1.0;}
+
+.article {width:320px;  overflow:hidden;margin:0;}
+ol{list-style:none}
+
+#tab_zzjs_1 div.up { display:block;}
+#tab_zzjs_1 div dt{ font-size:12px; line-height:32px;width:220px;height:32px;margin-left:72px; cursor:pointer;color:#666666;}
+#tab_zzjs_1 div dd li{ font-size:14px; line-height:21px;width:250px; padding-left:72px; height:25px; cursor:pointer;color:#66666;padding-top:8px;}
+/*body上半部分*/
+.body_top{width:320px;height:117px;}
+.body_title{width:320px;height:37px; background-color:#EDEEF0;color:#4B4C4E; line-height:37px;vertical-align:middle;}
+.body_title span{ font-size:14px; margin-left:30px;}
+/* 课程 */
+.course-left{font-size:18px;color:#666666;line-height:41px;}
+.course-right{font-size:18px;color:#666666;line-height:41px;}
+
+.course{width:320px; height:273px; padding-bottom:10px;background-color:#FFf;overflow-x:hidden;}
+.course-border{border-bottom:0px solid #d8d8d8;}
+.course-border a p span{font-size:13px; color:#959595; line-height:21px;}
+#faq{position:relative;z-index:0;top:0px;left:3px;}
+.lvbg{position:absolute;z-index:-300;width:320px;height:32px;left:-3px; background-color:#E5E6E8;}
+.number{position:absolute;z-index:0;width:21px;height:21px;left:5px;top:8px;text-align:center;}
+.number span{color:#fff;}
+.baibg{position:absolute;z-index:-300;width:21px;height:21px;left:5px;margin-top:8px;}
+.span1{ float:left;}
+.span2{ float:right;}
+.con{width:320px;margin:0;}
+/* 继续学习 */
+.bottom {position:fixed;bottom:0px;z-index:1;left:0px;background-color:#767C90;width:320px;height:40px; text-align:left;}
+.bottomls {position:fixed;bottom:0px;z-index:1;left:0px;background:url('/images/buy.png') no-repeat;background-size:304px 40px; width:304px;height:40px;color:#FFFFFF;font-size:24px;text-align:center;}
+.mask-bottom{width:304px;height:0px;left:0px;position:fixed;bottom:0px; background-color:#e7e7e7;z-index:900;}
+/* 遮罩层 */
+#mask{width:304px;left:-1px;filter: alpha(opacity=50); opacity:0.5; z-index:500;position:absolute;top:9px;}
+#progress_txt{ font-size:14px;width:304px;z-index:3; padding:10px; color:#fff;}
+</style>
+<!--基础文件，分别是jQuery基库和拖拽UI插件-->
+<script type="text/javascript" src="/static/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="/js/jquery_dialogs/jquery.js"></script>
+<script type="text/javascript" src="/js/slowtouch.js" ></script>
+<!--
+<script type="text/javascript" src="/js/course_csjdetailbuy.js" ></script>
+-->
+<!--[if IE 6]>
+<script src="js/DD_belatedPNG.js"></script>
+<script>
+  DD_belatedPNG.fix('*');
+</script>
+<![endif]-->
+</head>
+<!-- <body id='bodyonline' onscroll="htmlbodyscroll()"> -->
+<body id='bodyonline'>
+<div id="all">
+	<div class='body_top' id='body_top'>
+		<div class="header_beijing" style="background-image:url('{$details['picture']}'); background-size:320px 187px;background-repeat:no-repeat;background-position:0px {$p}px;"></div>
+		<div class="courseinfo">
+				<div class="title">{$details['name']}</div>
+				<div class="title_1">{$details['username']}</div>
+		</div>
+	</div>
+
+<div class="body_title" id='body_title'> 
+ <span>课程详细</span>
+</div>
+
+	<div class="article" id='article'>
+		<div id="tab_zzjs_1" class='tab_zzjs_1'>
+			<!--课程-->
+			<div class="con" id="course" style="display:block;">
+				<div style="display:block;" class="course" id="showcon2">
+				<dl id="faq">
+				<volist name="lessonslist" id='vo'>
+				<div class='lvbg' style="display:block;">
+					<!--<img width=294 height=32 src="/images/2.png" />-->
+					<img width='320' height='32' src="/images/myCourseHistory/listHeader1.png"  style="position:absolute;left:0px;"/>
+					<div style="display:block;position:absolute;left:53px;top:10px;color:#fff; font-size:10px;">{$i}</div>
+				</div>
+				<dt>{$vo['sname']}&nbsp;&nbsp;</dt>
+				<assign name="lessoninfo" value="$vo['lessoninfo']" />
+				<volist name="lessoninfo" id="v">
+					<if condition="$v.tab eq 1">
+					<div class='baibg' style="display:block;">
+						<!--<img width=21 height=21 src="/images/3.png" />-->
+						<img width="320" height="60" src="/images/myCourseHistory/listline_ok.png" style=" position:absolute; top:-8px; left:-8px;" />
+					</div>
+					<dd class="course-border">
+						<if condition="$v['class'] eq 5">
+						<a href="/Ques/index/{$v.lessonsid}" style="color:#333333;">
+						<else/>
+						<a href='/Video/?lessonsid={$v.lessonsid}&class={$v.class}&courseid={$courseid}&sid={$sid}'>
+						</if>
+							<li>
+								<div style="width:18px;height:21px;position:absolute;left:16px; margin-top:12px;color:#B8B9B8;font-size:14px;text-align:center;">{$i}</div>
+								<span class="span1">{$v['name']}</span>
+							</li>
+							<p style="padding-left:68px;height:27px;">
+								<span>&nbsp;{$v['classname']}</span>
+								<if condition="$v['class'] eq 4">
+								<span style='padding-left:15px;'>时长:&nbsp;{$v['timelen']}</span>
+								</if>
+								<span style="padding-left:20px;">进度:&nbsp;{$v['timeleng']}%</span>
+							</p>
+						</a>
+					</dd>
+				<else />
+		  			<div class='baibg' style="display:block;">
+						<!--<img width=21 height=21 src="/images/1.png" />-->
+						<img width="320" height="60" src="/images/myCourseHistory/listline.png" style=" position:absolute; top:-8px; left:-8px;" />
+					</div>
+					<dd class="course-border">
+						<if condition="$v['class'] eq 5">
+						<a href="/Ques/index/{$v.lessonsid}" style="color:#333333;">
+						<else/>
+						<a href='/Video/?lessonsid={$v.lessonsid}&class={$v.class}&courseid={$courseid}&sid={$sid}'>
+						</if>
+							<li>
+								<div style="width:18px;height:21px;position:absolute;left:16px; margin-top:12px;color:#B8B9B8;font-size:14px;text-align:center;">{$i}</div>
+								<span class="span1">{$v['name']}</span>
+							</li>
+							<p style="padding-left:68px; height:27px;">
+								<span>&nbsp;{$v['classname']}</span>
+								<if condition="$v['class'] eq 4">
+								<span style='padding-left:15px;'>时长:&nbsp;{$v['timelen']}</span>
+								</if>
+								<span style="padding-left:20px;">进度:&nbsp;{$v['timeleng']}%</span>
+							</p>
+						</a>
+					</dd>
+				</if>
+				</volist>
+				</volist>
+			</dl>
+		</div>
+		<!--
+		<div class="mask-bottom" style="display:block;"></div>
+		-->
+				<if condition="$play.ret eq 1">
+					<a href="/Video/?lessonsid={$play['lessonsid']}&playtime={$play['playtime']}&courseid={$courseid}&sid={$sid}">
+					<div class='bottom' style='display:block'>
+							<!--<img width=304 height=53 src='/images/goon.png'/>-->
+							<div style="width:{$width}px;height:40px;background-color:#4CB649; margin:0;">
+								<div id="progress_txt">您上次学习到:{$play['lessonsName']}</div>
+							</div>
+					</div>
+					</a>
+				<else/>
+				    <a href="/Video/?lessonsid={$play['lessonsid']}&playtime={$play['playtime']}&courseid={$courseid}&sid={$sid}">
+					<div class='bottom' style='display:block'>
+						<div style="width:{$width}px;height:40px;background-color:#4CB649; margin:0;">
+								<div id="progress_txt">您上次学习到:{$play['lessonsName']}</div>
+							</div>
+					</div>
+					</a>
+					
+				</if>
+      </div>    	  
+    </div>
+</div>
+
+
+<script type="text/javascript">
+	$(document).ready(function()
+{		
+	var availHeight=window.screen.availHeight;
+	var headerHeader=document.getElementById("body_top").offsetHeight;
+	var tileHeader=document.getElementById("body_title").offsetHeight;
+	var conheight = availHeight - headerHeader - tileHeader - 40;
+	var div_showcon2 = document.getElementById("showcon2");
+	//alert(conheight);
+	$(".course").css("height",conheight - 47);
+
+	$(".con").css("height",conheight-20);
+	$(".article").css("height",conheight-20);
+    addSlowTouchObj(div_showcon2);
+})
+
+var courseid = {$details['courseid']};
+//购买后的页面
+	function isBuyed(){
+		return 1;
+	}
+	
+//返回课程ID
+    function getCourseid()
+	{
+		return courseid;
+	}
+	
+//返回Title
+	function returnTitle(){
+		return '我的课程详情';
+	}
+</script>
+
+</body>
+</html>

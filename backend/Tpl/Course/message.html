@@ -1,0 +1,60 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>消息页面</title> 
+<style>
+.head{height:100px; width:auto;background-color: #3B51B3;}
+.box_content{ text-align:center; margin:40px auto; width:100%; height:auto;}
+.msg{ font-size:18px; color:#023EBA;}
+
+</style>
+</head>
+<body>
+
+<!-- 导航 tab -->
+<div class="box">  
+    <ul class="box_title">  
+        <li id="j1">消息提示</li>  
+    </ul>  
+<!--内容页-->
+<div class="box_content"> 
+        <div class="rows">
+				<h3 class="errormsg">{$msg}</h3>
+		</div>
+		<div align="center" id="time"></div>
+		<br/>
+		<button name="butclose" id="butclose" class="btn btn-primary">关闭</button>
+</div>
+</div>
+</div>
+<script>
+	var timer;
+	var i = 3;
+	var api = frameElement.api;
+	var but = document.getElementById('butclose')
+	 but.addEventListener("click", close, false);
+	 
+	 var fn = function () {
+          // alert(i + '秒后关闭');
+			document.getElementById('time').innerHTML = i + '秒后关闭';
+            !i && close();
+             i --;
+        };
+        timer = setInterval(fn, 1000);
+        fn();
+    
+	
+	function close(){ 
+	    clearInterval(timer);
+		parent.location.reload()  
+	}
+	
+//    api.addBtn( 'ok', '关闭', ok );
+//	function ok()
+//	{
+//	    // 这里写你要操作的代码，最后写刷新代码
+//	    api.curWin.location.reload();
+//	}
+</script>
+</body>
+</html>

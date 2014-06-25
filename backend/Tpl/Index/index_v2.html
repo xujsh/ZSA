@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name=”format-detection” content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta content="email=no" name="format-detection" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<title>首页</title>
+<link rel="stylesheet" href="/css/index.style.css"> 
+<style>
+  a{ -webkit-tap-highlight-color:transparent;}
+ .j3{width:320x;height:373px; display:none;background:#f1f5f8; text-align:left; overflow-x:hidden;}
+ .rowsone{width:319px;height:80px;margin:0; margin-left:3px; display:-webkit-box;-webkit-box-orient:horizontal;display:-moz-box;-moz-box-orient: horizontal;}
+ .categoryICO{ display:inline-block; margin-left:-3px; margin-right:0px; width:79px;height:80px; border: 1px solid #e1e5e8; border-top-width:0px; border-left-width:0px; text-align:center; line-height:80px; vertical-align:middle; position:relative;}
+ .categoryICO div{font-size:14px;width:78px; height:20px; text-align:center; position:absolute;top:24px; left:2px;}
+ .categoryICO img{ margin-top:15px;}
+  
+.greyscale {
+    -webkit-filter: grayscale(1);
+    -moz-filter: grayscale(1);
+    -ms-filter: grayscale(1);
+    -o-filter: grayscale(1);
+    filter: grayscale(1);
+    filter: gray;
+    opacity:0.3;
+}
+
+/*专家列表*/
+.experts_row{border:1px solid #cccccc; background:#FFF; width:304px; height:105px; margin-left:7px; margin-bottom:8px;}
+.experts_content{ padding-left:8px;width:304px;height:85px;}
+
+/*专家头像*/
+.experts_content_picture{width:80px;float:left; height:80px;}
+
+/*专家头像*/
+.experts_content_picture img{width:80px;height:80px; border-radius:80px; margin-top:14px;}
+/*专家简介*/
+.experts_content_au{width:213px; height:90px;float:left; padding-left:8px; padding-top:0px; margin-top:15px; overflow:hidden; text-align:left;}
+.experts_content_title{font-size:12px; font-weight:bold; margin-top:0px;}
+.experts_content_au_title{margin:0px; padding:0px; font-size:12px; font-weight:bold;}
+.experts_content_au hr{margin-left:0px;};
+.experts_content_b{ font-size:12px; color:#666666; margin:0px; padding:0px;}
+
+</style>
+</head>
+<body id="body">
+<!-- 导航 tab -->
+<div class="box" id="box" align="center"> 
+<div id="rtid" style="display:none;">{$rtid}</div>
+<!--内容页-->
+    <!--最新--> 
+    <div class="j1" id="j1_rows">
+    	<volist  name="newlist" id="vo">
+         <div class="rows box-shadow-1">
+         	    <div class="top_pic">
+				<if condition=" $vo['price'] gt 0">
+                   <a href="{$appbasepath}Cdetails/index?courseid={$vo['courseid']}&sid={$sid}" id="j1_like1">
+                <else />
+				   <a href="{$appbasepath}LessonsHistory/getdetails/?courseid={$vo['courseid']}&sid={$sid}" id="j1_like1">
+				</if>
+                	<img src="/images/index/lazyLoad1.gif"  data-original="{$vo['picture']}" width="304" height="191" class="titleimg"></a>
+				</div>
+                <div class="title1">
+                       <span style="float:left">  
+							<div class="title_name"> {$vo['name']}</div>
+							<div class="wang"><span class="wangzi">网</span></div>
+						</span>
+						<span class="level">
+                         	<php> 
+							   $arr =  $vo['icolevel'];
+							   foreach ($arr as $v){
+							    echo "<img src='/$v' width='16' height='17'>";
+							   }
+							</php>
+                        </span> 
+                </div>
+                <div class="rating">
+                	     <span class="price"><font class="price_f2">
+                	     	<if condition=" $vo['price'] eq 0">
+                	     	             免费 
+							<elseif condition="$vo['price'] eq -1"/>
+							            已购买
+							<elseif condition="$vo['price'] eq $vo['cheapprice']"/>
+							    ¥{$vo['price']}
+							<else />
+								<if condition=" $vo['cheapprice'] neq 0">
+									 <s><font style="text-decoration :line-through;">¥{$vo['price']}</font></s>&nbsp;
+									  <font style="color:#5cc507">¥{$vo['cheapprice']}</font>
+								 <else />
+								       <s><font style="text-decoration :line-through;">¥{$vo['price']}</font></s>&nbsp;
+									   <font style="color:#5cc507">免费</font>
+								</if>
+							</if> 
+						 </font></span>
+                         
+                         <span class="liulannum">
+                           <img src="{$appbasepath}images/public/s_num.png" width="13" height="17" >&nbsp;<span class="liulannum_n" > {$vo['studennum']}</span>				
+                         </span>
+						 <span style=" clear:both"></span>
+                </div>
+                  <!--清除float-->
+                <div style=" clear:both"></div>
+                <hr />
+                <div class="content">
+                     <div class="content_upicture">
+                                <img src="{$vo['upicture']}" width="75" height="75">
+                     </div>
+					 <section>
+                     <div class="content_aut">
+                    	<span class="title2">{$vo['username']}</span>
+                        <p class="content_brief">
+                         &nbsp;&nbsp;&nbsp;&nbsp;{$vo['descp']}
+                        </p>
+                    </div>
+					</section>
+                     <div style=" clear:both"></div>
+           		</div>
+        </div>
+		<div class="bottom-mask"></div>
+        <div class="brdiv"></div>
+		</li>
+		</volist>
+    </div>
+    <!--最热门--> 
+        <div class="j2" id="j2_rows">
+	         <volist  name="hotlist" id="vo">
+	         <div class="rows box-shadow-1">
+	         	<if condition=" $vo['price'] gt 0">
+                   <a href="{$appbasepath}Cdetails/index?courseid={$vo['courseid']}&sid={$sid}" id="j1_like1">
+                <else />
+				   <a href="{$appbasepath}LessonsHistory/getdetails/?courseid={$vo['courseid']}&sid={$sid}" id="j1_like1">
+				</if>
+					<img src="/images/index/lazyLoad1.gif" data-original="{$vo['picture']}" width="304" height="191" class="titleimg"></a>
+	                <div class="title1">
+	                       {$vo['name']}
+	                </div>
+	                <div class="rating">
+	                	     <span class="price"><font class="price_f2">
+	                	        <if condition=" $vo['price'] eq 0">
+                	     	                      免费 
+								<elseif condition="$vo['price'] eq $vo['cheapprice']"/>
+									¥{$vo['price']}			  
+								<elseif condition="$vo['price'] eq -1"/>
+								            已购买
+								<else />
+									<if condition=" $vo['cheapprice'] neq 0">
+										  <s><font style="text-decoration :line-through;">¥{$vo['price']}</font></s>&nbsp;
+										  <font style="color:#2E8B14">¥{$vo['cheapprice']}</font>
+									<else />
+									      <s><font style="text-decoration :line-through;">¥{$vo['price']}</font></s>&nbsp;
+									   	  <font style="color:#2E8B14">免费</font>
+									</if>
+								</if> 
+							 </font></span>
+	                         <span class="level">
+	                         	<php> 
+								   $arr =  $vo['icolevel'];
+								   foreach ($arr as $v){
+								    echo "<img src='/$v' width='16' height='17'>";
+								   }
+								</php>
+	                        </span> 
+	                         <span class="liulannum">
+	                           <img src="{$appbasepath}images/public/s_num.png" width="13" height="17" >&nbsp;<span class="liulannum_n" > {$vo['studennum']}</span>				
+	                         </span>
+							 <span style=" clear:both"></span>
+	                </div>
+	                  <!--清除float-->
+	                <div style=" clear:both"></div>
+	                <hr />
+	                <div class="content">
+	                     <div class="content_upicture">
+	                                <img src="{$vo['upicture']}" width="50" height="50">
+	                     </div>
+						 <section>
+	                     <div class="content_aut">
+	                    	<span class="title2">{$vo['username']}</span>
+	                        <p class="content_brief">
+	                         &nbsp;&nbsp;&nbsp;&nbsp;{$vo['descp']}
+	                        </p>
+	                    </div>
+						</section>
+	                     <div style=" clear:both"></div>
+	           		</div>
+	        </div>
+			
+			<div class="bottom-mask"></div>
+	        <div class="brdiv"></div>
+			</volist>
+        </div> 
+		<!--分类-->
+        <div class="j3" align="center" id="j3_rows">
+           <volist  name="categorylist" id="vo" key="k" >
+        	<if condition=" $k eq 1 "> <div class="rowsone"></if>
+        	 <a class='action'  <if condition=" ($vo['book'] eq 0) ">href="{$appbasepath}Index/getCourseList?categoryid={$vo['categoryid']}&sid={$sid}"<elseif condition="$vo['book'] eq 1"/>href="{$appbasepath}Index/getBookList?sid={$sid}"</if>>
+			 <div class="categoryICO" style="<if condition=" $vo['releases'] eq 1 "> color:#6a7177;<else /> color:#c5d1db;</if>">
+			 	<img src='{$vo["iocurl"]}' width="40" height="40" <if condition=" $vo['releases'] neq 1 ">class="greyscale" </if> />
+				<div>{$vo['name']}</div>
+        	 	<!--<div <if condition=" $vo['releases'] neq 1 ">style="top:40px;"</if>">{$vo['name']}</div>-->
+			</div></a>
+			 <if condition=" $k neq 1 ">
+					<if condition="$k%4 eq 0">
+        	  			</div><div class="rowsone">
+        	  		</if>
+        		</if>
+				
+            <if condition=" $k eq $length "></div></if>
+          </volist>
+        </div>
+		<!--专家列表-->
+		<div class="j4" align="center" id="j4_rows">
+			<volist  name="expertslist" id="vo" >
+				 <div class="experts_row">
+				 	<div class="experts_content">
+	                     <div class="experts_content_picture">
+	                          <img src="{$vo['picture']}">
+	                     </div>
+						 
+						 <section>
+	                     <div class="experts_content_au">
+	                     	<a href="/Expert/index?uid={$vo['userid']}&sid={$sid}" style="color:#212121;">
+	                    	<span class="experts_content_title">{$vo['username']}</span>
+							<p class="experts_content_au_title">{$vo['title']}</p>
+							</a>
+							<hr/>
+	                        <p class="experts_content_b">
+	                        {$vo['desc']}
+	                        </p>
+	                    </div>
+						</section>
+	                     <div style=" clear:both"></div>
+						
+	           		</div>
+				 </div>
+			</volist>
+			
+		</div>
+</div>
+<script type="text/javascript" src="/static/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="/static/js/jquery.lazyload.min.js"></script> 
+<script type="text/javascript">  
+
+$(document).ready(function(){     
+//   var heightP		= window.screen.height;
+//   var heightWeb	= heightP-64+'px';
+//document.getElementById('box').style.height = heightWeb;
+
+	  
+	var rtid = $('#rtid').html();
+	$('#j1_rows').hide();
+	$('#j2_rows').hide();
+	$('#j3_rows').hide();
+	$('#j4_rows').hide();
+    if(rtid =='new'){
+		$('#j1_rows').show();
+	}else if(rtid =='hot'){
+		$('#j2_rows').show();
+	}else if(rtid =='type'){
+		$('#j3_rows').show();
+	}else if(rtid =='experts'){
+		$('#j4_rows').show();
+	}
+	
+	 $("img.titleimg").lazyload({ 
+	   threshold:100,  
+       effect : "fadeIn"   
+     });
+	 
+//	var ADSupportsTouches = ("createTouch" in document) || ('ontouchstart' in window) || 0;
+//	var ADEndEvent = ADSupportsTouches ? "touchend" : "click";
+//	 
+//	$(".j3").has("a").bind(ADEndEvent, function(event){
+//		//alert('ok');
+//	});
+	
+});  
+//console.log( $('*').length );    //加载DOM长度。越小越好
+</script>  
+
+</body>
+</html>

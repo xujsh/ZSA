@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta content="email=no" name="format-detection" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0">
+<title>私信</title>
+<link rel="stylesheet" href="/css/myfans.style.css"/>
+<link href="/css/li.css" rel="stylesheet">
+<script type="text/javascript" src="/static/js/jquery-1.9.1.min.js"></script>
+<script src="/js/jquery-ui-1.9.2.custom.min.js" ></script>
+<link rel="stylesheet" href="/js/ui-lightness/jquery-ui-1.8.18.custom.css"/>  
+<style>
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<meta name="msapplication-tap-highlight" content="no"/>
+</head>
+<body id='bodyonline'>
+<div id="all" class="bodyall">
+	<volist name="info" id="vo">
+		<div class="tli">
+			<span class="centent-left">
+				<if condition="$vo[picture]">
+					<img class='images' width='30' height='30' src="{$vo[picture]}">
+				<else/>
+					<img class='images' width='30' height='30' src="/images/noheader.jpg">
+				</if>
+			</span>
+			<span class="centent-right">
+				<span style=" font-weight: bold;font-size:14px;color:pink">{$vo['username']}</span>
+				<br>
+				<span style="color:#a5a6a8">{$vo['content']}<span>
+				<span style="color:#a5a6a8;float:right"><button name="关注" value="关注">+关注</button><span>
+			</span>
+		</div>
+	</volist>
+</div>
+</body>
+<script>
+	 function returnTitle(){
+	
+		return "我的粉丝";
+	}
+	var heightP		= window.screen.height;
+	var heightWeb	= heightP-64+'px';
+	var htmlBody = document.getElementById('bodyonline');
+	var divAll = document.getElementById('all');
+	htmlBody.style.height=heightWeb;
+	divAll.style.height=heightWeb;
+</script>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta content="email=no" name="format-detection" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0">
+<title>私信</title>
+<link rel="stylesheet" href="/css/private.style.css"/>
+<link href="/css/li.css" rel="stylesheet">
+<script type="text/javascript" src="/static/js/jquery-1.9.1.min.js"></script>
+<script src="/js/jquery-ui-1.9.2.custom.min.js" ></script>
+<link rel="stylesheet" href="/js/ui-lightness/jquery-ui-1.8.18.custom.css"/>  
+<style>
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<meta name="msapplication-tap-highlight" content="no"/>
+</head>
+<body id='bodyonline'>
+<div id="all" class="bodyall">
+	<div class="div_tli" id="div_tli">
+		<volist name="info" id="vo">
+			<if condition="$vo['type'] eq 1">
+				<div class="tli">
+					<div class="ltime" style="padding-left:50%">{$vo['createtime']}</div>
+					<span class="centent-left">
+						<if condition="$picture">
+						<img class='images' width='30' height='30' src="{$picture}">
+						<else/>
+						<img class='images' width='30' height='30' src="/images/noheader.jpg">
+						</if>
+					</span>
+					<span class="centent-right">
+						<span style=" font-weight:bold;font-size:14px;">{$username}</span>
+						<br>
+						<span style="color:#a5a6a8">{$vo['content']}<span>
+					</span>
+				</div>
+			<else/>
+				<div class="tli">
+					<div class="ltime" style="padding-left:50%">{$vo['createtime']}</div>
+					<span class="centent-left">
+						
+						<if condition="$mpicture">
+						<img class='images' width='30' height='30' src="{$mpicture}">
+						<else/>
+						<img class='images' width='30' height='30' src="/images/noheader.jpg">
+						</if>
+					</span>
+					<span class="con-right">
+						<span style=" font-weight:bold;font-size:14px;">我：</span>
+						<br>
+						<span style="color:#a5a6a8">{$vo['content']}<span>
+					</span>
+				</div>
+			</if>
+		</volist>
+	<div class="bottom"><a href="/Private/reply/?exid={$exid}&&sid={$sid}"><img src="/images/huifu.png" width="304px" height="53px"></a></div>
+</div>
+
+</body>
+<script>
+	 function returnTitle(){
+	
+		return "消息";
+	 }
+	var heightP		= window.screen.height;
+	//var heightWeb	= heightP-64+'px';
+	var heightWeb	= heightP-118+'px';
+	//var htmlBody = document.getElementById('bodyonline');
+	//var divAll = document.getElementById('all');
+	var divtli = document.getElementById('div_tli');
+	
+	//htmlBody.style.height=heightWeb;
+	//divAll.style.height=heightWeb;
+	divtli.style.height=heightWeb;
+	
+</script>
+</html>

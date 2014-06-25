@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta content="email=no" name="format-detection" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0"/>
+<title>课程详细</title>
+
+<style>
+
+* {
+margin:0px auto;
+padding:0px;
+font-family:"微软雅黑","Arial",arial,sans-serif;
+}
+
+body {
+width:320px;
+background-color:#e7e7e7;
+margin:0px auto;
+position:relative;
+}
+#all {
+	width:304px;
+	background-color:#ffffff;
+	border-width:1px 1px 0 1px;
+	border-style:solid;
+	border-color:#CBCBCB;
+	margin-top:9px;
+}
+a:link{
+text-decoration:none;
+}
+ a:visited{
+text-decoration:none;
+}
+ a:hover{
+text-decoration:none;
+}
+ a:active{
+text-decoration:none;
+}
+
+.article {
+	width:304px;
+	margin:10px auto;
+}
+.title2{ margin:5px 8px;}
+/*列表框样式*/
+.message{width:303px;height:auto; background-color:#FFf;}
+
+
+/*继续学习按钮样式*/
+.bottom {position:fixed;bottom:0px;left:8px;z-index:1000;}
+.brdiv{ width:305px;height:9px; margin:0px; background-color:#e7e7e7;}
+
+dl, dt, dd, ul, li {
+list-style:none;
+margin:0px;
+padding:0px;
+border:0px;
+}
+.message dt{ font-size:16px; line-height:40px; background:url(/images/public/2.png) no-repeat left;width:254px; padding-left:40px; height:42px; cursor:pointer; }
+.message dd li{ font-size:14px; line-height:40px; background:url(/images/public/1.png) no-repeat left;width:255px; padding-left:40px; height:40px; cursor:pointer; }
+
+/* 课程 */
+.course-title{min-height:30px;background-color:#f3f3f3; text-align:center; vertical-align: middle; line-height:30px;}
+.course-left{float:left;font-size:18px;padding-left:20px;color:#ccccc}
+.course-right{float:left;font-size:15px;padding-left:10px;color:#ccccc}
+
+.course-border{border-bottom:1px solid #CBCBCB;}
+.course-border a p span{font-size:14px; font-family:"微软雅黑";color:#ccc; line-height:30px;}
+.span1{ float:left;}
+.span2{ float:right;#7BF316}
+
+/*个人信息*/
+
+.userinfo{ width:303px; height:100px; background-color:#fff;position: relative; font-size:14px;}
+	.userinfo img{
+	display:block;
+	width:80px;
+	height:80px;
+	border-radius:50px;
+	position:absolute;
+	left:20px;
+	top:10px;
+}
+	.userinfo div{
+	width:180px;
+	text-align:left;
+	display:block;
+	position: absolute;
+	left:120px;
+	top:20px;
+	word-break:break-all;
+	word-wrap:break-word;
+	
+}
+.und_line{width:280px;height:2px;margin-left:12px;background-color:#d8d8d8;margin-bottom:20px; margin-top: 25px;}
+</style>
+</head>
+<body>
+<div id="all">
+<div class="userinfo">
+<img src="{$user['picture']}" >
+   <div>
+        名称：{$user['username']} <br/>
+        职务: {$user['title']} <br/>
+        所属部门：{$user['deparname']}<br/>
+        邮箱: {$user['email']}<br/>
+   </div>
+    <div style=" clear:both"></div>
+</div>
+<div class='und_line'></div> 
+<div class="article" id="article">
+     <h3 class="title2">课程列表</h3>  
+	  <div class="message"  style="display:block;" id="j1_rows">
+	    <!--课程标题-->
+		<!--
+	  	<div class="course-title">
+			<span class='course-left'>总时长:</span>
+			<span class='course-right'>{$sectionnum}章{$lessonnum}节</span>
+		</div>
+		-->
+		<!--课程列表-->
+		<dl id="faq">
+		<volist name="lessonslist" id='vo'>
+          <dt>{$vo['sname']}&nbsp;&nbsp;</dt>
+		  <assign name="lessoninfo" value="$vo['lessoninfo']" />
+		  <volist name="lessoninfo" id="v">
+		  <if condition="$v['tab'] eq 1">
+		      <dd class="course-border">
+			  	<a {$v['href']}>
+	            <li style="background:url(/images/public/3.jpg)no-repeat left;"><span class="span1">{$v['name']}</span>
+				</li>
+				<p style="padding-left:20px;height:20px;padding-bottom:5px;">
+				<span style="color:#6699CC">类型: {$v['class']}</span>
+				<span style='color:#6699CC;padding-left:10px;'></span>
+				<span style='color:#6699CC;padding-left:25px;'>完成度{$v['timeleng']}%</span>
+				</p>
+	            </a>
+			  </dd>
+		   <else />
+		      <dd class="course-border">
+			  	<a {$v['href']}>
+	            <li style="background:url(/images/public/1.png)no-repeat left;">
+				<span class="span1">{$v['name']}</span>
+				</li>
+				<p style="padding-left:20px;height:20px;padding-bottom:5px;">
+				<span style="color:#6699CC">类型: {$v['class']}</span>
+					<span style='color:#6699CC; padding-left:10px;'>时长&nbsp;{$v['timelen']}</span>
+					<span style="color:#6699CC; padding-left:25px;">完成度{$v['timeleng']}%</span>
+				</p>
+	            </a>
+			 </dd> 
+		  </if>
+		  <div style=" clear:both;"></div>
+		  </volist>
+        </volist>
+        </dl>
+		<!--按钮-->
+		<div class="bottom" style="display:none;">
+			<if condition="$play.ret eq 1">
+			<a href="/Video/?lessonsid={$play['lessonsid']}&playtime={$play['playtime']}&userid={$userid}">
+			<img width='304' height='50' src='/images/video/study.jpg'/>
+			</a>
+			</if>
+		</div>
+      </div>
+</div>
+</div>
+
+<script type="text/javascript" src="/static/js/jquery-1.9.1.min.js"></script>
+</body>
+</html>

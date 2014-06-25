@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>基本资料</title>
+
+	<link href="http://cdn.bootcss.com/twitter-bootstrap/2.3.1/css/bootstrap.min.css" rel="stylesheet">
+	<link href="http://cdn.bootcss.com/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet">
+	<link href="/js/front/flat-ui.css" rel="stylesheet">
+
+<!--[if lt IE 7]><link rel="stylesheet" href="http://blueimp.github.com/cdn/css/bootstrap-ie6.min.css"><![endif]-->
+<!--[if lt IE 9]><script src="/static/js/html5.js"></script><![endif]-->
+<style>
+
+
+</style>
+</head>
+<body>
+<div class="container-fluid">
+	<div class="row-fluid">
+
+
+	  	<include file="./Tpl/Common/supermarket_leftmenu.html" highlight="701" />
+
+		<div class="span10" id="main">
+			<h3>基本资料</h3>
+			<form action="{$appbasepath}Offunit/saveOffunit/" method="POST" enctype="multipart/form-data">
+				
+
+			<label>开发者类型：		
+个人&nbsp;&nbsp;
+
+						
+			</label>
+
+
+				
+				
+			<label>开发者姓名：	
+										</label>
+			<input class="input-xlarge" type="text" placeholder="请输入邮箱地址" id='name' name="address" <eq name="edittag" value="1">value="{$offunitone['address']}"</eq> <if condition="$nounitname eq 1">readonly="readonly"</if>><span id='em'></span>
+		
+			<label>所在地区：</label>
+			<select name="address">
+				<option value="0" <if condition="$offunitone['offtype'] eq 0"> selected="selected"</if>>北京</option>
+				<option value="1" <if condition="$offunitone['offtype'] eq 1"> selected="selected"</if>>天津</option>
+			</select>
+			<select name="address1">
+				<option value="0" <if condition="$offunitone['offtype'] eq 0"> selected="selected"</if>>海淀</option>
+				<option value="1" <if condition="$offunitone['offtype'] eq 1"> selected="selected"</if>>和平区</option>
+			</select>
+		<label>邮箱：</label>
+			<input class="input-xlarge" type="text" placeholder="请输入邮箱地址" id='email' name="email" <eq name="edittag" value="1">value="{$offunitone['email']}"</eq> <if condition="$nounitname eq 1">readonly="readonly"</if>><span id='email'></span>
+			
+			<label>电话: <span>必填项。</span></label>
+			<input class="input-xlarge" type="text" placeholder="请输入电话" id='phone' name="phone" <eq name="edittag" value="1">value="{$offunitone['phone']}"</eq> <if condition="$nounitname eq 1">readonly="readonly"</if>><span id='phone'></span>
+			
+	
+			<label>QQ：</label>
+			<input class="input-xlarge" type="text" placeholder="请输入电话" id='qq' name="qq" <eq name="edittag" value="1">value="{$offunitone['qq']}"</eq> <if condition="$nounitname eq 1">readonly="readonly"</if>><span id='qq'></span>
+		
+		
+
+			<div class="form-action">
+				<button type="submit" id='sub' class="btn btn-primary">保存</button>
+				<a href="{$appbasepath}Offunit/offunitlist/" class="btn">取消</a>
+			</div>
+
+			
+			</form>
+		</div>
+	</div>
+</div>
+<script src="/static/js/jquery-1.9.1.min.js"></script>
+<script type='text/javascript'>
+		$(function(){
+			
+		})
+</script>
+</body>
+</html>

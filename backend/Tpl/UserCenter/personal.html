@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta content="email=no" name="format-detection" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0">
+<title>用户中心</title>
+<link rel="stylesheet" href="/css/personal.style.css">
+</head>
+<body id='bodys'><!--html5的video标签目前只支持播放.mp4、.ogg、.webm-->
+<div class='person_style' id='person_style'>
+	<div class='body_top'>
+			<div class = 'header_pic'>
+				<if condition="$picture">
+				<img src ="{$picture}" width='100px' height='100px;'>
+				<else/>
+				<img src ="/images/noheader.jpg" width='100px' height='100px;'>
+				</if>
+			</div>
+			<div class	= 'class_name'>
+				{$username}
+			</div>
+		</div>
+	<div class='content_person' id='content_person'>
+		<div class='buy_conrse' name='buy_conrse'>
+			<section>
+				<a href="/Wrong/index/?userid={$userid}" style="color:#FFFFFF;text-decoration:none;margin-left:107px;margin-top:33px;font-family: 微软雅黑;" target="_blank"><div class='sub_div' style='display:block'>我的错题库</div></a>
+			</section>
+		</div>
+		<div class='buy_conrse' name='buy_conrse'>
+			<section>
+				<a href="/Login/logout/?key={$sid}" style="color:#FFFFFF;text-decoration:none;margin-left:107px;margin-top:33px;font-family: 微软雅黑;"><div class='logout' style='display:block'>退出登录</div></a>
+			</section>
+		</div>
+	</div>
+</div>
+<script src="/static/js/jquery-1.9.1.min.js"></script>
+<script>
+	
+	var heightP		= window.screen.height;
+	var heightWeb   = heightP-64;
+	var heightCon   = heightP-92;
+	document.getElementById('bodys').style.height=heightWeb+'px';
+	//document.getElementById('person_style').style.height=heightCon+'px';
+</script>
+</body>
+</html>

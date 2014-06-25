@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title><eq name="edittag" value="1">修改课程类别<else />添加课程类别</eq> 后台管理</title>
+<link rel="stylesheet" href="/static/css/bootstrap.min.css">
+<link rel="stylesheet" href="/static/css/bootstrap-responsive.min.css">
+<!--[if lt IE 7]><link rel="stylesheet" href="http://blueimp.github.com/cdn/css/bootstrap-ie6.min.css"><![endif]-->
+<!--[if lt IE 9]><script src="/static/js/html5.js"></script><![endif]-->
+<style>
+#titlepic {
+	margin-bottom: 10px;
+}
+
+.ui-front {
+	z-index:1500;
+}
+</style>
+</head>
+<body>
+<include file="./Tpl/Common/admin_head.html" />
+<include file="./Tpl/Public/editor.html" />
+<div class="container-fluid">
+	<div class="row-fluid">
+		<eq name="edittag" value="1">
+		<include file="./Tpl/Common/admin_leftmenu.html" highlight="1001" />
+		<else />
+	  	<include file="./Tpl/Common/admin_leftmenu.html" highlight="1001" />
+	  	</eq>
+		<div class="span10" id="main">
+			<h3><eq name="edittag" value="1">修改新闻<else />添加新闻</eq></h3>
+			<form action="{$appbasepath}NewsManage/savenews/" method="POST" enctype="multipart/form-data">
+			<eq name="edittag" value="1"><input type="hidden" name="nid" value="{$newsinfo['nid']}"></eq>
+			<label>标题</label>
+			<input class="input-xlarge" type="text" placeholder="请输入标题" name="title" <eq name="edittag" value="1">value="{$newsinfo['title']}"</eq>>
+			<label>类型</label>
+			<select name="type">
+				<option value="0">请选择</option>
+				<volist name="classinfo" id="vo">
+					<option <if condition="$newsinfo['type'] eq $vo['typeid']"> selected </if> value="{$vo['typeid']}">{$vo['typename']}</option>
+				</volist>
+			</select>
+			<label>时间</label>
+			<input class="input-xlarge" type="text" placeholder="请输入时间" name="createtime" <eq name="edittag" value="1">value="{$newsinfo['createtime']}"<else/>value="{$times}"</eq>>
+			<label>缩略图</label>
+			<input class="input-xlarge" type="file" name="files"><br>
+			<a href="{$newsinfo['smallpic']}">{$newsinfo['smallpic']}</a>
+			<input type="hidden" value="{$newsinfo['smallpic']}" name="picurl">
+			<label>简介</label>
+			<textarea cols="50" rows="5" style="width: 471px; height: 84px;" name="brief">{$newsinfo['brief']}</textarea>
+			<label>内容</label>
+			<textarea id="content" name="content" style="width:650px;height:400px;visibility:hidden;"><eq name="edittag" value="1">{$newsinfo['content']}</eq></textarea>
+			<span id="errorbrief"></span>
+
+
+			<if condition="($readonly eq 0)OR($readonly eq 2)">
+			<div class="form-action">
+				<button type="submit" class="btn btn-primary">保存</button>
+				<a href="{$appbasepath}NewsManage/newslist/" class="btn">取消</a>
+			</div>
+			</if>
+			<eq name="edittag" value="1"><input type="hidden" name="act" value="update"><else /><input type="hidden" name="act" value="add"></eq>
+			</form>
+		</div>
+	</div>
+</div>
+<script src="/static/js/jquery-1.9.1.min.js"></script>
+<script src="/static/js/jquery-ui.min.js"></script>
+</body>
+</html>

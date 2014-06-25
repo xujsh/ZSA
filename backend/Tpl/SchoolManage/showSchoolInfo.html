@@ -1,0 +1,186 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>学校信息列表</title>
+<link rel="stylesheet" href="/static/css/bootstrap.min.css">
+<link rel="stylesheet" href="/static/css/bootstrap-responsive.min.css">
+  <link href="video-js.css" rel="stylesheet" type="text/css">
+<!--[if lt IE 7]><link rel="stylesheet" href="http://blueimp.github.com/cdn/css/bootstrap-ie6.min.css"><![endif]-->
+<!--[if lt IE 9]><script src="/static/js/html5.js"></script><![endif]-->
+
+<style type="text/css">
+	a{text-decoration:none;}
+	.mynav{ font-size:16px; margin:10px 0px;}
+	.frontWorks{width:972px;min-height:150px;text-align: center;}
+.frontWorks tr {height:40px;}
+.frontWorks tr td{  border-top: 1px solid #cfd5ee;}
+.frontWorks a{color:#485db8;text-decoration:none;}
+.userinfo{ width:800px; margin-top:10px;}
+.userinfo div{border:1px solid #cfd5ee; width:400px; padding:10px;}
+.userinfo ul li{ height:30px; list-style:none;}
+.row-fluid .span10 { width:990px;}
+</style>
+</head>
+<body>
+<div class="container-fluid">
+	  <div class="row-fluid">
+		<include file="./Tpl/Common/admin_leftmenu.html" highlight="901" />
+		<div class="span10">
+        <div class="userinfo">
+        	<h3>用户信息</h3>
+        	<div>
+        	<ul>
+        		<li>用户ID：{$uid}</li>
+				<li>信息填写者名称：{$schooluser['loginname']}</li>
+				<li>Email：{$schooluser['email']}</li>
+			</ul>
+			</div>
+		</div>
+		<h3>学校详细列表</h3>
+		<table id='frontWorks' class='frontWorks' style="line-height: 50px;width:600px;text-align:left;" cellspacing='0' cellpadding='0'>
+				<tr>
+					<td width='80' align="right">学校名称：</td>
+					<td>{$schooluser['schoolname']}</td>
+				</tr>
+				<tr>
+					<td width='80' align="right">英文名称：</td>
+					<td><if condition=" $schoolInfo['building_type'] eq '' ">暂无<else />{$schoolInfo['building_type']}</if></td>
+				</tr>
+				<tr>
+					<td width='80' align="right">别　　名：</td>
+					<td><if condition=" $schoolInfo['alias'] eq '' ">暂无<else />{$schoolInfo['alias']}</if></td>
+				</tr>
+				<tr>
+					<td width='80' align="right">学校类型 ：</td>
+					<td>{$schoolInfo['categoryName']}</td>
+				</tr>
+				<tr>
+					<td width='80' align="right">学校logo：</td>
+					<td><img src="{$schoolInfo['logourl']}" width="50" height="50"/></td>
+				</tr>
+				<tr>
+					<td width='80' align="right">办学性质：</td>
+					<td><if condition=" $schoolInfo['master_details_url'] eq '' ">暂无<else />{$schoolInfo['master_details_url']}</if></td>
+				</tr>
+				<tr>
+					<td width='80' align="right">办学宗旨：</td>
+					<td><if condition=" $schoolInfo['master_details_intro'] eq '' ">暂无<else />{$schoolInfo['master_details_intro']}</if></td>
+				</tr>
+				<tr>
+					<td width='80' align="right">办学层次：</td>
+					<td><if condition=" $schoolInfo['master_details_picurl'] eq '' ">暂无<else />{$schoolInfo['master_details_picurl']}</if></td>
+				</tr>
+				<tr>
+					<td width='80' align="right">办学规模：</td>
+					<td><if condition=" $schoolInfo['master_details_catalog'] eq '' ">暂无<else />{$schoolInfo['master_details_catalog']}</if></td>
+				</tr>
+				<tr>
+					<td width='80' align="right">机构设置：</td>
+					<td><if condition=" $schoolInfo['master_details_name'] eq '' ">暂无<else />{$schoolInfo['master_details_name']}</if></td>
+				</tr>
+				<tr>
+					<td width='80' align="right">省　　份：</td>
+					<td>{$schoolInfo['provinceName']}</td>
+				</tr>
+				<tr>
+					<td width='80' align="right">所在城市：</td>
+					<td>{$schoolInfo['cityName']}</td>
+				</tr>
+				<tr>
+					<td width='80' align="right">所在区县：</td>
+					<td>{$schoolInfo['areaName']}</td>
+				</tr>
+				<tr>
+					<td width='80' align="right">通信地址：</td>
+					<td><if condition=" $schoolInfo['address'] eq '' ">暂无<else />{$schoolInfo['address']}</if></td>
+				</tr>
+				<tr>
+					<td width='80' align="right">地址备注：</td>
+					<td><if condition=" $schoolInfo['address_note'] eq '' ">暂无<else />{$schoolInfo['address_note']}</if></td>
+				</tr>
+				<tr>
+					<td width='80' align="right">学校邮箱：</td>
+					<td><if condition=" $schoolInfo['email'] eq '' ">暂无<else />{$schooluser['email']}</if></td>
+				</tr>
+				<tr>
+					<td width='80' align="right">商　　圈：</td>
+					<td><if condition=" $schoolInfo['bizarea'] eq '' ">暂无<else />{$schoolInfo['bizarea']}</if></td>
+				</tr>
+				<tr>
+					<td width='80' align="right">精品课程：</td>
+					<td><if condition=" $schoolInfo['recommend_dish_name'] eq '' ">暂无<else />{$schoolInfo['recommend_dish_name']}</if></td>
+				</tr>
+				<tr>
+					<td width='80' align="right">新浪账号：</td>
+					<td><if condition=" $schoolInfo['weiboaccounturl'] eq '' ">暂无<else />{$schoolInfo['weiboaccounturl']}</if></td>
+				</tr>
+				<tr>
+					<td width='80' align="right">微信账号：</td>
+					<td><if condition=" $schoolInfo['webchataccount'] eq '' ">暂无<else />{$schoolInfo['webchataccount']}</if></td>
+				</tr>
+				<tr>
+					<td width='80' align="right">经度坐标：</td>
+					<td><if condition=" $schoolInfo['longtitude'] eq '' ">暂无<else />{$schoolInfo['longtitude']}</if></td>
+				</tr>
+				<tr>
+					<td width='80' align="right">纬度坐标：</td>
+					<td><if condition=" $schoolInfo['latitude'] eq '' ">暂无<else />{$schoolInfo['latitude']}</if></td>
+				</tr>
+				<tr>
+					<td width='80' align="right">座机电话：</td>
+					<td><if condition=" $schoolInfo['telephone'] eq '' ">暂无<else />{$schoolInfo['telephone']}</if></td>
+				</tr>
+				<tr>
+					<td width='80' align="right">其他电话：</td>
+					<td><if condition=" $schoolInfo['telephone_others'] eq '' ">暂无<else />{$schoolInfo['telephone_others']}</if></td>
+				</tr>
+				<tr>
+					<td width='80' align="right">传真：</td>
+					<td><if condition=" $schoolInfo['facilities_parking'] eq '' ">暂无<else />{$schoolInfo['facilities_parking']}</if></td>
+				</tr>
+				<tr>
+					<td width='80' align="right">邮编：</td>
+					<td><if condition=" $schoolInfo['hotel_environment'] eq '' ">暂无<else />{$schoolInfo['hotel_environment']}</if></td>
+				</tr>
+				<tr>
+					<td width='80' align="right">主页：</td>
+					<td><if condition=" $schoolInfo['master_homepage'] eq '' ">暂无<else />{$schoolInfo['master_homepage']}</if></td>
+				</tr>
+				<!--
+				<tr>　
+					<td width='80' align="right">标　　签：</td>
+					<td>{$schoolInfo['tag']}</td>
+				</tr>
+				-->
+				<tr>
+					<td width='80' align="right">学校简介：</td>
+				    <td><if condition=" $schoolInfo['schooldetail'] eq '' ">暂无<else />{$schoolInfo['schooldetail']}</if></td>
+				</tr>
+				<tr>
+					<td width='80' align="right">审　　核：</td>
+					<td>
+					<if condition="$schoolInfo['isok'] eq 0">未完善信息 
+					<else />
+						<if condition="$schoolInfo['status'] eq 0">等待审核</if>
+						<if condition="$schoolInfo['status'] eq 1">审核通过</if>
+					</if>
+					<if condition="($readonly eq 3)OR($readonly eq 0)">
+						
+							   <if condition="($schoolInfo['status'] eq 0)AND($schoolInfo['isok'] eq 1)">
+									<a href="{$appbasepath}SchoolManage/setSchoolstate/uid/{$uid}/status/1" class="btn small-btn" id="button">审核通过</a>
+							   <elseif condition="($schoolInfo['status'] eq 1)AND($schoolInfo['isok'] eq 1)" />
+									<a href="{$appbasepath}SchoolManage/setSchoolstate/uid/{$uid}/status/0" class="btn small-btn" id="button">撤销审核</a>
+								</if>
+					</if>
+					</td>
+				</tr>
+			</table>
+			<p><a href="/SchoolManage/schoollist/">返回列表</a></p>
+		</div>
+		</div>
+	  </div>
+	</div>
+	
+</body>
+</html>

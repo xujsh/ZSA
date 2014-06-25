@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta content="email=no" name="format-detection" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0">
+<title>购买课程</title>
+<link rel="stylesheet" href="/css/buy.style.css">
+<style type='css/type'>
+</style>
+</head>
+<body id='body'><!--html5的video标签目前只支持播放.mp4、.ogg、.webm-->
+<div class='body_style' id='body_style'>
+	<div class='content_body' id='content_body'>
+			<div class='buy_conrse' name='buy_conrse'>
+				<section>
+					<a href="javascript:void(0)" onclick='buyfun({$courseid},{$userid})' style="color:#FFFFFF;text-decoration:none;"><div class='sub_div' style='display:block'><b>购买课程</b></div></a>
+				</section>
+			</div>
+	</div>
+</div>
+<script src="/static/js/jquery-1.9.1.min.js"></script>
+<script>
+	var heightP		= window.screen.height;
+	var heightWeb   = heightP-64;
+	var heightCon   = heightP-84;
+	document.getElementById('body').style.height=heightWeb+'px';
+	document.getElementById('content_body').style.height=heightCon+'px';
+	function buyfun(cid,userid){
+		
+		if(confirm('确定购买？')){
+			$.post('/Coursepay/saveBuy',{courseid:cid,userid:userid},function(data){
+				if(data){
+					alert('购买成功');
+					location = '/Index';
+				}
+			
+			})
+		}
+	}
+</script>
+</body>
+</html>

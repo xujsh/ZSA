@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>管理用户列表 后台管理</title>
+<link rel="stylesheet" href="/static/css/bootstrap.min.css">
+<link rel="stylesheet" href="/static/css/bootstrap-responsive.min.css">
+<!--[if lt IE 7]><link rel="stylesheet" href="http://blueimp.github.com/cdn/css/bootstrap-ie6.min.css"><![endif]-->
+<!--[if lt IE 9]><script src="/static/js/html5.js"></script><![endif]-->
+<style>
+ .pagination ul > li > a.cur{
+		    background-color:#428BCA;color:#fff;text-decoration:none;
+}
+.container-fluid{padding:0px;}
+</style>
+</head>
+<body>
+<include file="./Tpl/Common/admin_head.html" />
+<div class="container-fluid">
+	<div class="row-fluid">
+	  	<include file="./Tpl/Common/admin_leftmenu.html" highlight="18" />
+	  	<div class="span10">
+	  		<div>
+			<h3>管理员列表</h3>
+			<div>
+			<form action="{$appbasepath}Admin/adminuserlist/" method="POST" enctype="multipart/form-data">
+				<select name='checkField'>
+					<option value='id' <eq name="checkField" value="id"> selected = 'selected'</eq>>登录用户账号</option>
+					<option value='loginname' <eq name="checkField" value="loginname">selected = 'selected'</eq>>登录用户名</option>
+					<option value='gid' <eq name="checkField" value="gid">selected = 'selected'</eq>>用户组</option>
+				</select>
+				&nbsp;&nbsp;
+				<input class="input-xlarge" type="text" placeholder="请输入选择数据" id='seachValue' name="seachValue" value="{$seachValue}">
+				
+				<select class="select" name="gid" id="gid">
+			  	  <option value='0'>全部</option>
+			  	  <volist  name="glist" id="vo">
+					<option value="{$vo['gid']}"  <if condition= " $gid eq $vo['gid']"> selected="selected" </if>>{$vo['gname']}</option>
+				  </volist>
+				</select>
+				<button type="submit" id='sub' class="btn btn-primary">搜索</button>
+			</form>
+		   </div>
+			 <p style="font-size:18px;font-family:'微软雅黑'"><a href="{$appbasepath}Admin/newadminuser/">添加管理员</a></p>
+			<table class="table">
+			<thead>
+			<tr>
+				<th>编号</th>
+				<th>登录名</th>
+				<th>隶属用户组</th>
+				<!--<th>可见菜单权限</th>-->
+				<th>隶属机构</th>
+				<th>创建时间</th>
+				<th>操作</th>
+			</tr>
+			</thead>
+			<tbody>
+			<volist name="adminuserlist" id="adminuser">
+			<tr>
+				<td>{$adminuser['id']}</td>
+				<td>{$adminuser['loginname']}</td>
+				<td>{$adminuser['groupname']}</td>
+				<!--<td width="400">{$adminuser['authorityName']}</td>-->
+				<td>{$adminuser['unitname']}</td>
+				<td>{$adminuser['createtime']}</td>
+				<td>
+				<a href="{$appbasepath}Admin/editadminuser/{$adminuser['id']}" class="btn btn-small">编辑授权</a>
+				<if condition="$readonly eq 0">
+				<a href="{$appbasepath}Admin/deladminuser/{$adminuser['id']}" class="btn btn-small delbutton">删除</a>
+				</if>
+				</td>
+			</tr>
+			</volist>
+			</tbody>
+			</table>
+			</div>
+			<div class="pagination pagination-centered">
+			  <ul>
+					{$show}
+			  </ul>
+			</div>
+	  	</div>
+	</div>
+</div>
+<script src="/static/js/jquery-1.9.1.min.js"></script>
+<script>
+	$(function(){
+		$('.delbutton').click(function(){
+			return confirm('确认删除？');
+		});
+		
+		$(".disabled a").click(function(){
+			
+			return false;
+		})
+		
+	});
+</script>
+</body>
+</html>

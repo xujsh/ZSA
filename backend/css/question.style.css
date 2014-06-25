@@ -1,0 +1,13 @@
+html{font-family:'黑体';font: 12px/1.5 "Arial",arial,sans-serif;}
+body{margin:0 auto;width:320px;background: none repeat scroll 0 0 #E7E7E7;}
+.body_style{margin:0 auto;background:#e7e7e7;width:320px;height:0 auto;margin-bottom:60px;}
+.und_line{width:280px;height:2px;margin-left:5px;background-color:#EFEFEF;margin-bottom:0px;}
+.content_body{background-color: #FFFFFF;width: 303px;margin: 0 auto;margin-top:8px;margin-bottom:100px;min-height:568px;}
+.news_banner_about_cont{text-indent:2em;padding-bottom:53px;  line-height:2;font-size:14px;color:#808080;padding-top:10px;padding-right: 10px;padding-left: 10px; min-height:0px;}
+a:link{text-decoration:none;color:#000000;}
+a:visited{color:#FF0000;text-decoration:underline;}
+a:hover{color:#FF0000;text-decoration:underline;}
+.des_body{width:304px;}
+#biao{font-size:15px;padding-left:20px;color:#2e2e2e;height:26px;}
+.sub_div{left:8px; bottom: 10px; position: fixed;z-index: 1000; background:url("/images/question/fen.jpg")no-repeat;width:304px;height:53px;color:#ffffff;font-size:24px;text-align:center}
+.sub_div1{ position: fixed; left:8px; bottom:10px; z-index: 1000; width:304px; height:53px;color:#ffffff;font-size:24px;text-align:center;background:red}

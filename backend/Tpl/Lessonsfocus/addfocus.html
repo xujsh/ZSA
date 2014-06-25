@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title><eq name="edittag" value="1">修改课程重点<else />添加课程重点</eq></title>
+<link rel="stylesheet" href="/static/css/bootstrap.min.css">
+<link rel="stylesheet" href="/static/css/bootstrap-responsive.min.css">
+<!--[if lt IE 7]><link rel="stylesheet" href="http://blueimp.github.com/cdn/css/bootstrap-ie6.min.css"><![endif]-->
+<!--[if lt IE 9]><script src="/static/js/html5.js"></script><![endif]-->
+</head>
+<body>
+<include file="./Tpl/Common/admin_head.html" />
+<div class="container-fluid">
+	<div class="row-fluid">
+		<eq name="edittag" value="1">
+		<include file="./Tpl/Common/admin_leftmenu.html" highlight="302" />
+		<else />
+	  	<include file="./Tpl/Common/admin_leftmenu.html" highlight="302" />
+	  	</eq>
+		<div class="span10" id="main">
+			<h3><eq name="edittag" value="1">修改 {$lessonname} 重点<else />添加{$lessonname} 重点</eq></h3>
+			<form action="{$appbasepath}Lessonsfocus/save/" method="POST" enctype="multipart/form-data">
+			<input type="hidden" name="lessonsid" value="{$lessonsid}" />
+			<input type="hidden" name="courseid" value="{$courseid}" />
+			<input type="hidden" name="sectionsid" value="{$sectionsid}" />
+			<input type="hidden" name="categoryid" value="{$categoryid}" />
+			<eq name="edittag" value="1"><input type="hidden" name="focusid" value="{$focusvo['focusid']}"></eq>
+			<label>课程重点名称</label>
+			<input class="input-xlarge" type="text" placeholder="名称" name="focusname" <eq name="edittag" value="1">value="{$focusvo['focusname']}"</eq>>
+			<label>课程重点播放时间点</label>
+			<input  class="input-xlarge" type="text" placeholder="时间点" name="focustime" <eq name="edittag" value="1">value="{$focusvo['focustime']}"</eq>>
+			<span> 输入格式为 <font color="red">1:20</font> 时间点表示为 1分20秒</span>
+			<if condition="($readonly eq 0)OR($readonly eq 2)">
+			<div class="form-action">
+				<button type="submit" class="btn btn-primary">保存</button>
+			<eq name="edittag" value="1">
+				<a href="/Lessonsfocus/focuslist/lessonsid/{$lessonsid}/sectionsid/{$sectionsid}/courseid/{$courseid}/categoryid/{$categoryid}" class="btn">取消</a>
+				<input type="hidden" name="act" value="update">
+				<else />
+				<a onClick="javascript:history.back(-1)" class="btn">取消</a>
+				<input type="hidden" name="act" value="add"></eq>
+			</div>
+			</if>
+			</form>
+		</div>
+	</div>
+</div>
+<script src="/static/js/jquery-1.9.1.min.js"></script>
+<script src="/static/js/jquery-ui.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF8">
+<title></title>
+<link rel="stylesheet" type="text/css" href="http://s.8666.com/css/css201307.css">
+<link rel="stylesheet" type="text/css" href="{$appbasepath}css/pop.css">
+</head>
+<body style='background-color:#fff;'>
+
+
+<div >
+	<div class="pers_popupCont">
+		<div class="pers_popupContDiv1" >
+			
+			<div class="pers_popupContMain1">
+				<div class="liDiv1">
+					<div class="liDiv1L1">请选择投诉类别：</div>
+					<div class="liDiv1L2"><select name="" id='feedbacktype'>
+					 
+						<option value="0" selected="">请选择</option>
+						<option value="网络不流畅，影响上课">网络不流畅，影响上课</option>
+						<option value="外教迟到">外教迟到</option>
+						<option value="外教早退">外教早退</option>
+						<option value="外教缺席">外教缺席</option>
+						<option value="外教上课态度">外教上课态度</option>
+						<option value="课堂内容">课堂内容</option>
+						<option value="其他">其他</option>
+						
+					</select></div>
+					<div class="clear"></div>
+				</div>
+				<div class="liDiv1">
+					<div class="liDiv1L1">投诉内容：</div>
+					<div class="liDiv1L2"><textarea cols="" rows="" class="input1" id="feedbackcontent">您填写的投诉内容外教不会看到哦，请放心填写。</textarea></div>
+					<div class="clear"></div>
+				</div>
+				<div class="liDiv1">
+					<div class="liDiv1L1">&nbsp;</div>
+					<div class="liDiv1L2">
+						<a class="btnLink1 marginL0" href="#"><span class="btnLink1Main" id='submitfeedback'>提交</span></a>
+						
+					</div>
+					<div class='alert' id='errormsg' ></div>
+					<div class="clear"></div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+schedueid = '{$schedueid}';
+$(document).ready(function () {
+	
+	$("#feedbackcontent").focus(function(){
+		
+		if($(this).val() == "您填写的投诉内容外教不会看到哦，请放心填写。")
+		{
+			$(this).val("");
+		}
+		
+	})
+	
+	$("#feedbackcontent").blur(function(){
+		
+		if($(this).val() == "")
+		{
+			$(this).val("您填写的投诉内容外教不会看到哦，请放心填写。");
+		}
+		
+	})
+	
+	$("#submitfeedback").click(function(){
+		
+		$("#errormsg").hide();
+		
+		_type = parseInt($("#feedbacktype").val());
+		_content = $("#feedbackcontent").val();
+	
+		$.post("{$appbasepath}Feedback/addfeedback/", {schedueid:schedueid,type:_type,content:_content},function(json){
+			
+			if(json.status == 1)
+			{
+				$("#errormsg").html(json.info);
+				$("#errormsg").show();
+			}
+			else
+			{
+				$("#errormsg").html(json.info);
+				$("#errormsg").show();
+			}
+			
+	  },"json");
+		
+		return false;
+	})
+	
+	
+});
+</script>
+</body>
+</html>

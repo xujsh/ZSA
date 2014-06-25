@@ -1,0 +1,39 @@
+<div class="span2">
+	<div style="margin-top:10px;font-size:12px; font-weight:600;">当前用户  {$adminloginname}</div>
+  <ul class="nav nav-list">
+  	<if condition=" $menuarr['sys'] eq 1"><li class="nav-header">系统管理</li></if>
+	<li <if condition=" $menuarr[1] eq '管理员清单'">style=" display:block;" <else /> style="display:none;"</if> <if condition="[highlight] eq 18">class="active"</if>><a href="{$appbasepath}Admin/adminuserlist/">管理员清单</a></li>
+	<li <if condition=" $menuarr[2] eq '管理员用户组管理'">style=" display:block;" <else /> style="display:none;"</if> <if condition="[highlight] eq 20">class="active"</if>><a href="{$appbasepath}Admingroup/index/">管理员用户组管理</a></li>
+	<li <if condition=" $menuarr[3] eq '系统数据词典管理'">style=" display:block;" <else /> style="display:none;"</if> <if condition="[highlight] eq 21">class="active"</if>><a href="{$appbasepath}Dict/index/">系统数据词典管理</a></li>
+	
+	<if condition=" $menuarr['user'] eq 1"><li class="nav-header">学生管理</li></if>
+	<li <if condition=" $menuarr[4] eq '用户列表'">style=" display:block;" <else /> style="display:none;"</if><if condition="[highlight] eq 101">class="active"</if>><a href="{$appbasepath}User/userlist/">用户列表</a></li>
+	<li <if condition=" $menuarr[5] eq '用户通知'">style=" display:block;" <else /> style="display:none;"</if> <if condition="[highlight] eq 102">class="active"</if>><a href="{$appbasepath}News/newslist/">用户通知</a></li>
+	<li <if condition=" $menuarr[6] eq '用户购买记录'">style=" display:block;" <else /> style="display:none;"</if> <if condition="[highlight] eq 106">class="active"</if>><a href="{$appbasepath}BuyCourse/userBuyList/">用户购买记录</a></li>
+	<!--<li <if condition=" $menuarr[7] eq '用户收藏记录'">style=" display:block;" <else /> style="display:none;"</if> <if condition="[highlight] eq 107">class="active"</if>><a href="{$appbasepath}UserCollection/index/">用户收藏记录</a></li>-->
+	
+	<if condition=" $menuarr['courses'] eq 1"><li class="nav-header">课程管理</li></if>
+	
+	<li <if condition=" $menuarr[8] eq '课程列表'">style=" display:block;" <else /> style="display:none;"</if> <if condition="[highlight] eq 302">class="active"</if>><a href='{$appbasepath}Course/courselist/'>课程列表</a></li>
+	<li <if condition=" $menuarr[9] eq '课程分类管理'">style=" display:block;" <else /> style="display:none;"</if> <if condition="[highlight] eq 303">class="active"</if>><a href='{$appbasepath}Category/categorylist/'>课程分类管理</a></li>
+	<li <if condition=" $menuarr[16] eq '课程评论管理'">style=" display:block;" <else /> style="display:none;"</if> <if condition="[highlight] eq 304">class="active"</if>><a href="{$appbasepath}Comment/commentList/">课程评论管理</a></li>
+	<li <if condition=" $menuarr[10] eq '搜索关键词管理'">style=" display:block;" <else /> style="display:none;"</if> <if condition="[highlight] eq 310">class="active"</if>><a href='{$appbasepath}Keymanage/getKeywordList/'>搜索关键词管理</a></li>
+	<li <if condition=" $menuarr[11] eq '练习题库管理'">style=" display:block;" <else /> style="display:none;"</if><if condition="[highlight] eq 305">class="active"</if>><a href='{$appbasepath}QuesManage/getQuesList/'>练习题库管理</a></li>
+	
+	<if condition=" $menuarr['resource'] eq 1"><li class="nav-header">书籍管理</li></if>
+	<li <if condition=" $menuarr[12] eq '书籍管理'">style=" display:block;" <else /> style="display:none;"</if><if condition="[highlight] eq 501">class="active"</if>><a href="{$appbasepath}Books/booklist/">书籍管理</a></li>
+
+	<if condition=" $menuarr['resource'] eq 1"><li class="nav-header">企业管理</li></if>
+	<li <if condition=" $menuarr[12] eq '企业管理'">style=" display:block;" <else /> style="display:none;"</if><if condition="[highlight] eq 601">class="active"</if>><a href="{$appbasepath}Books/booklist/">企业管理</a></li>
+
+	<if condition=" $menuarr['resource'] eq 1"><li class="nav-header">资源管理</li></if>
+	<li <if condition=" $menuarr[12] eq '资源列表'">style=" display:block;" <else /> style="display:none;"</if><if condition="[highlight] eq 202">class="active"</if>><a href="{$appbasepath}Resource/reslist/">资源列表</a></li>
+	<li <if condition=" $menuarr[13] eq '资源类型列表'">style=" display:block;" <else /> style="display:none;"</if><if condition="[highlight] eq 204">class="active"</if>><a href="{$appbasepath}Restype/typelist/">资源类型列表</a></li>
+	
+	<if condition=" $menuarr['recommended'] eq 1"><li class="nav-header">推荐位管理</li></if>
+	<li <if condition=" $menuarr[14] eq '推荐管理'">style=" display:block;" <else /> style="display:none;"</if><if condition="[highlight] eq 402">class="active"</if>><a href="{$appbasepath}Recommends/reclist/">推荐管理</a></li>
+	<li <if condition=" $menuarr[15] eq '推荐位管理'">style=" display:block;" <else /> style="display:none;"</if><if condition="[highlight] eq 404">class="active"</if>><a href="{$appbasepath}Recommends/taglist/">推荐位管理</a></li>
+	<li class="nav-header">用户退出</li>
+	<li><a href="/Admin/adminlogout/">退出</a></li>
+  </ul>
+</div>

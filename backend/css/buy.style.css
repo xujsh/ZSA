@@ -1,0 +1,29 @@
+html{font:12px/1.5 'lantinghei sc demibold',"Arial",arial,sans-serif;}
+body{width:320px;margin:0;padding:0;}
+.body_style{margin:0 auto;width:318px;height:0 auto;}
+.content_body{background-color: #FFFFFF;width: 320px;}
+.class_name{width:180px;height:100px;float:right;text-align: center;line-height:7;}
+.buy_conrse{margin-bottom:10px;width:304px;/*height:100px;*/padding-top: 50px;}
+.course_pic{width:100px;height:100px;float:left;}
+.course_pic img{margin-left:10px;padding-top: 2px;}
+.buy_top{height:140px;padding-left:10px;}
+.buy_bottom{min-height:82px;font-size:16px;margin:0 auto;padding-left:10px;width:320px;}
+.buy_con{min-height:82px;margin:0 auto;padding-left:10px;width:280px;font-size:16px;}
+.scroCon{background:#ffffff;padding-left: 10px;}
+.centent-left{float:left;width:40px;padding-top: 10px;}
+.centent-left img{border-radius:50px;}
+.centent-right{float:left;width:200px;padding-top: 10px; margin-left: 15px;}
+.course_name{width:190px;height:100px;float:right;}
+.sub_div{bottom:0px;margin-left:11px;  line-height: 50px; z-index: 1000; background:url("/images/question/fen.jpg")no-repeat;width:280px;height:53px;color:#ffffff;background-size:10px 40px;font-size:24px;text-align:center}
+.bottom {position:fixed;bottom:0px;z-index:1000;background-size:auto 58px;background:url('/images/buy41.png');background-repeat:repeat-x;width:320px;height:53px;color:#FFFFFF;background-size:320px 53px;}
+.bottom1 {/*background:url('/images/buy41.png') no-repeat;*/ background-size:304px 46px;width:304px;height:46px;margin-top:6px;margin-left:8px;color:#FFFFFF;text-align:center;}
+hr{border-color: #EFEFEF;border-style:solid;border-width:1px;margin-left:7px;width: 95.5%;}
+.cname{font-size: 18px;height: 68px;line-height: 4;color: #2f5d70;}
+.title_tp{font-weight:bold;padding-bottom: 5px;padding-top:2px;font-size:14px;}
+ul{list-style-type:none;margin:0;padding:0;}
+.title_con{font-size:12px;}
+.underlines{width:305px;margin-left:5px;background:#bcdbe5;height:1px;*height:1px;display:block;}
+.dname{/*padding-top:10px;*/padding-left:10px; float: left;}
+.wang{  background:#00b6ea;border-radius: 2px;color: #FFFFFF;float: left;font-size: 12px;height: 18px;margin-left: 6px;margin-top:25px;width: 18px;}
+.wangzi{ color: #ffffff;font-size: 12px;padding-left: 3px; margin-top: -15px;display:block;}
+.zong{width:320px;}

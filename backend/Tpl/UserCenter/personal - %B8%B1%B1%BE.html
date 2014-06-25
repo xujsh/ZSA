@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta content="email=no" name="format-detection" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0">
+<title>用户中心</title>
+<link rel="stylesheet" href="/css/personal.style.css">
+<style type='css/type'>
+</style>
+</head>
+<body id='body'><!--html5的video标签目前只支持播放.mp4、.ogg、.webm-->
+<div class='body_style' id='body_style'>
+	<div class='content_body'>
+		<div class='body_top'>
+			<div class = 'header_pic'>
+					
+					<img src = "{$userInfo['picture']}" width='100px' height='100px;'>
+
+			</div>
+			<div class	= 'class_name'>
+				{$userInfo['username']}
+			</div>
+		</div>
+		<span style=" float:right;font-size:15px;underline:none">
+				<a href="/Wrong/index/" style="color:#2973EE;">我的错题库</a> 
+			</span> 
+		<div class='und_line'></div>
+			
+		<volist name='buyCourse' id='vo'>
+			
+			<div class='buy_conrse' name='buy_conrse'>
+				<a href='/Cdetails/index/courseid/{$vo["courseid"]}'>
+					<div class='course_pic'>
+						<img src = '{$vo["picture"]}' width='80px' height='80px;'>
+					</div>
+				</a>
+				<div class='course_name'>
+					<div style='height:30px;'>
+						<a href='/Cdetails/index/courseid/{$vo["courseid"]}'>
+							<span>{$vo['name']}</span>
+						</a>
+					</div>
+					<div style='height:30px;'><span class='price_1'>
+						<font color="#6B6B6B">售价</font>
+						<font color="#E74700">免费</font></span>
+						<span  id='span'>
+						<!--指数级别-->
+						<img src='/images/public/star_on.png' width='17px' height='18px'>
+						<img src='/images/public/star_on.png' width='17px' height='18px'>
+						<img src='/images/public/star_on.png' width='17px' height='18px'>
+						<img src='/images/public/star_on.png' width='17px' height='18px'>
+						<img src='/images/public/star_on.png' width='17px' height='18px'>
+						</span>
+					</div>
+					<div style='height:30px;'>..............................100%</div>
+				</div>
+			</div>
+		</volist>
+	</div>
+</div>
+<script src="/static/js/jquery-1.9.1.min.js"></script>
+<script>
+	
+	var heightP		= window.screen.height;
+	var heightWeb   = heightP-64;
+	document.getElementById('body').style.height=heightWeb+'px';
+	document.getElementById('content_body').style.height=heightWeb+'px';
+	var sum=5;//星的总数
+	var str="";
+	var star="{$starLevel}";
+	for(var i=1;i<=sum;i++){
+		if(i<=star){
+			str+="<img src='/images/public/star_on.png' width='17px' height='18px'>&nbsp;";
+		}else{
+			str+="<img src='/images/public/star_off.png' width='17px' height='18px'>&nbsp;";
+		}
+	}
+	$("#span").html(str);
+</script>
+</body>
+</html>

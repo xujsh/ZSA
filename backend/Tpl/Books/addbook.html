@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title><eq name="edittag" value="1">修改书籍类别<else />添加书籍信息</eq> 后台管理</title>
+<link rel="stylesheet" href="/static/css/bootstrap.min.css">
+<link rel="stylesheet" href="/static/css/bootstrap-responsive.min.css">
+<link rel = "stylesheet" type = "text/css" href = "/Common/uploadify/uploadify.css">
+<!--[if lt IE 7]><link rel="stylesheet" href="http://blueimp.github.com/cdn/css/bootstrap-ie6.min.css"><![endif]-->
+<!--[if lt IE 9]><script src="/static/js/html5.js"></script><![endif]-->
+
+<style>
+#titlepic {
+	margin-bottom: 10px;
+}
+
+.ui-front {
+	z-index:1500;
+}
+
+</style>
+</head>
+<body>
+<include file="./Tpl/Common/admin_head.html" />
+<div class="container-fluid">
+	<div class="row-fluid">
+		<eq name="edittag" value="1">
+		<include file="./Tpl/Common/admin_leftmenu.html" highlight="501" />
+		<else />
+	  	<include file="./Tpl/Common/admin_leftmenu.html" highlight="501" />
+	  	</eq>
+		<div class="span10" id="main">
+			<h3><eq name="edittag" value="1">修改书籍信息<else />添加书籍信息</eq></h3>
+			<eq name="edittag" value="1"><input type="hidden" name="bid" id="bid" value="{$typeinfo['bid']}"></eq>
+			<label>书籍名称</label>
+			<input class="input-xlarge" type="text" placeholder="请输入资源类型" id="bookname" name="bookname" <eq name="edittag" value="1">value="{$typeinfo['bookname']}"</eq>>
+			<label>作者名称</label>
+			<select name="authorname" id="authorname">
+				<volist name="author" id="vo">
+					<option value="{$vo['userid']}" <if condition="$vo['authorid'] eq $vo['userid']">selected</if>>{$vo['username']}</option>
+				</volist>
+			</select>
+			<label>简介</label>
+			<textarea rows="8" cols="100" name="bookintro" id="bookintro"><eq name="edittag" value="1">{$typeinfo['bookinro']}</eq></textarea>
+			<div class='upload_top'>
+				<div id = "content" style = "text-align:center">
+					<div class = "mb10"></div>
+						<input type="file" name="file_upload" id="file_upload" />
+					<div class = "mb10"></div>
+				</div>
+			</div>
+			<if condition="($readonly eq 0)OR($readonly eq 2)">
+				<div class="form-action">
+					<button type="buttom" class="btn btn-primary" onclick="doUpload()">完成</button>
+					<a href="{$appbasepath}Books/booklist/" class="btn">取消</a>
+				</div>
+			</if>
+			<eq name="edittag" value="1"><input type="hidden" name="act" id="act" value="update"><else /><input type="hidden" name="act"  id="act" value="add"></eq>
+		</div>
+	</div>
+</div>
+<script src="/Common/uploadify/jquery-1.9.1.min.js"></script>
+<script src = "/Common/uploadify/jquery.uploadify.min.js"></script>
+<script>
+	var i=0;
+	$(function(){
+
+		$('#file_upload').uploadify({
+            'auto'     : true,//关闭自动上传
+            'debug'       : false, //开启调试模式
+            'width'       : 150, //上传按钮的宽
+            'height'   : 20,//上传按钮的高 
+            'fileObjName':'file_upload', //上传的表单名称  <input type = "file" name = "file_upload" />
+            'removeTimeout' : 1,//文件队列上传完成1秒后删除
+            'swf'      : '/Common/uploadify/uploadify.swf', //   加载插件的flash文件 
+            'uploader' : '/Books/savebook', //上传的脚本
+            'method'   : 'post',//方法，服务端可以用$_POST数组获取数据
+            'buttonText' : '选择上传文件',//设置按钮文本
+            'multi'    : false,//允许同时上传多张图片
+            'uploadLimit' : 10,//一次最多只允许上传10张图片
+            'fileTypeDesc' : 'All Files',//只允许上传图像
+            'fileTypeExts' : '*.*',//允许上传的图片格式---注意前端判断过，后端必须要判断
+            'fileSizeLimit' : '300MB',//限制上传的图片不得超过200KB 
+			'cancelImg'		:'/Common/uploadify/uploadify-cancel.png',
+			'formData'      : {'someKey' : 'someValue','someOtherKey' : 1},
+			'onUploadStart':function(file){
+				
+				$('#file_upload').uploadify('settings',"formData",{'bid':$('#bid').val(),'bookintro':$('#bookintro').val(),'bookname':$('#bookname').val(),'authorname':$('#authorname').val()});
+			},
+            'onUploadSuccess' : function(file, data, response){
+					i++;
+				   if(data){
+						alert('添加成功');
+				   }
+            },
+        });
+		
+    });
+	
+	function doUpload(){
+
+		var act		   = $('#act').val();
+		if(act=="update" && i==0){
+			alert(i);
+			var authorname = $('#authorname').val();
+			var bookname   = $('#bookname').val();
+			var bookintro  = $('#bookintro').val();
+			var bid		   = $('#bid').val();
+			$.post('/Books/savebook',{act:act,bid:bid,bookintro:bookintro,bookname:bookname,authorname:authorname},function(data){
+				if(data)
+				{
+				alert('添加成功');
+				location = '/Books/booklist';
+				}
+			})
+			
+		}else{
+			alert('完成操作');
+			location = '/Books/booklist';
+		}
+
+	}
+</script>
+</body>
+</html>

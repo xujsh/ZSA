@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title><eq name="edittag" value="1">修改章节<else />添加课程章节</eq> 后台管理</title>
+<link rel="stylesheet" href="/static/css/bootstrap.min.css">
+<link rel="stylesheet" href="/static/css/bootstrap-responsive.min.css">
+<!--[if lt IE 7]><link rel="stylesheet" href="http://blueimp.github.com/cdn/css/bootstrap-ie6.min.css"><![endif]-->
+<!--[if lt IE 9]><script src="/static/js/html5.js"></script><![endif]-->
+
+<style>
+#titlepic {
+	margin-bottom: 10px;
+}
+
+.ui-front {
+	z-index:1500;
+}
+
+.mynav{ font-size:16px; margin:10px 0px;}
+</style>
+</head>
+<body>
+<include file="./Tpl/Common/admin_head.html" />
+<div class="container-fluid">
+	<div class="row-fluid">
+		<eq name="edittag" value="1">
+		<include file="./Tpl/Common/admin_leftmenu.html" highlight="302" />
+		<else />
+	  	<include file="./Tpl/Common/admin_leftmenu.html" highlight="302" />
+	  	</eq>
+		<div class="span10" id="main">
+			<br/>
+			<eq name="edittag" value="1">
+			<span class="mynav"> 当前位置：<a href="{$appbasepath}Course/courselist/categoryid/{$categoryid}" >{$categoryname} ></a> 
+						 <a href="{$appbasepath}Section/sectionslist/courseid/{$courseid}/categoryid/{$categoryid}" >{$coursename} ></a> {$sectionsname} >修改</span>
+				<h3>修改课程章节</h3>
+			<else />
+				<h3>添加课程章节</h3>
+			</eq>
+			<form action="{$appbasepath}Section/savesections/" method="POST" enctype="multipart/form-data">
+			<input type="hidden" name="courseid" value="{$courseid}" />
+			<input type="hidden" name="categoryid" value="{$categoryid}" />
+			<eq name="edittag" value="1"><input type="hidden" name="sectionsid" value="{$sectionvo['sectionsid']}"></eq>
+			<label>序号</label>
+			<input class="input-xlarge" type="text" placeholder="序号" id="order" name="displayorder" <eq name="edittag" value="1">value="{$sectionvo['displayorder']}"</eq>>&nbsp;&nbsp;<span id="errororder">序号必须填写</span>
+			<label>章节名称</label>
+			<input class="input-xlarge" type="text" placeholder="章节名称" id='name' name="name" <eq name="edittag" value="1">value="{$sectionvo['name']}"</eq>>&nbsp;&nbsp;<span id="errorname">章名称必须填写</span>
+			<if condition="($readonly eq 0)OR($readonly eq 2)">
+			<div class="form-action">
+				<button type="submit" class="btn btn-primary">保存</button>
+				
+			   <eq name="edittag" value="1">
+			      <input type="hidden" name="act" value="update">
+				   <a href="{$appbasepath}Section/sectionslist/courseid/{$courseid}/categoryid/{$categoryid}" class="btn">取消</a>
+				<else />
+				   <input type="hidden" name="act" value="add">
+				   <a onClick="javascript:history.back(-1)" class="btn">取消</a>
+			   </eq>
+			</div>
+			</if>
+			</form>
+		</div>
+	</div>
+</div>
+<script src="/static/js/jquery-1.9.1.min.js"></script>
+<script>
+	$(document).ready(function(){ 
+		$('form').submit(function(){
+		 var name = $('#name').val();
+		 var order = $('#order').val();
+		  	//alert(name);
+		 if (order.length == 0) {
+		 	alert("序号不能为空");
+		 	$('#errororder').html("课程简介不能为空");
+			$('#errororder').css( "color","red");
+			$('#order').focus();
+			return false;
+		 }else if(name.length == 0){
+		    alert("章节名称不能为空");
+			$('#name').html("章节名称不能为空");
+			$('#errorname').css( "color","red");
+			$('#name').focus();
+			return false;
+		 }
+		 return true;
+		})
+	})
+	 
+</script>
+</body>
+</html>

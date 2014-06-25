@@ -1,0 +1,18 @@
+
+从零学起后台管理本地登录地址
+http://coursement.test.icesmart.cn/index.php/AdminLogin 
+超级管理员用户 : admin 密码  abc 
+
+登录后点管理员用户组管理   分别为 超级管理员用户组  审核课程组 。操作组， 浏览组 。课程创建组  ，课程浏览组
+每个用户看属于哪个用户组的。
+审核用户     test  密码 123456
+浏览组用户  test2 密码 123456
+操作组         test1,密码 123456
+
+统一登录入口地址 
+http://unifiedauth.test.icesmart.cn/index.php/AdminLogin  
+只有统一登录平台已经认证用户并与从零学起平台绑定的用户就可以远程登录本平台。
+平台已经绑定的用户有 
+ adminAPP 密码 111111 隶属于超级管理员组
+chensj 密码 111111 隶属于操作组。
+如有新用户需要在统一管理平台哪里添加。并绑定应用

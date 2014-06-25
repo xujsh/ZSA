@@ -1,0 +1,25 @@
+[ 2014-06-01T00:28:39+08:00 ] 127.0.0.1 /backend/
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.046875s ]
+NOTIC: [2] The magic method __get() must have public visibility and cannot be static D:\My Documents\GitHub\zerostudyall\backend\Lib\LibHM\HashMap.class.php 第 214 行.
+NOTIC: [2] The magic method __set() must have public visibility and cannot be static D:\My Documents\GitHub\zerostudyall\backend\Lib\LibHM\HashMap.class.php 第 218 行.
+
+[ 2014-06-01T00:34:49+08:00 ] ERR: [1] Class 'Memcached' not found D:\My Documents\GitHub\zerostudyall\backend\Lib\LibHM\MemcachedService.class.php 第 27 行.
+[ 2014-06-01T00:44:18+08:00 ] ERR: [1] Class 'Memcached' not found D:\My Documents\GitHub\zerostudyall\backend\Lib\LibHM\MemcachedService.class.php 第 27 行.
+[ 2014-06-01T00:48:06+08:00 ] ERR: [1] Class 'Memcached' not found D:\My Documents\GitHub\zerostudyall\backend\Lib\LibHM\MemcachedService.class.php 第 27 行.
+[ 2014-06-01T00:48:10+08:00 ] ERR: [1] Class 'Memcached' not found D:\My Documents\GitHub\zerostudyall\backend\Lib\LibHM\MemcachedService.class.php 第 27 行.
+[ 2014-06-01T00:48:12+08:00 ] ERR: [1] Class 'Memcached' not found D:\My Documents\GitHub\zerostudyall\backend\Lib\LibHM\MemcachedService.class.php 第 27 行.
+[ 2014-06-01T00:48:14+08:00 ] ERR: [1] Class 'Memcached' not found D:\My Documents\GitHub\zerostudyall\backend\Lib\LibHM\MemcachedService.class.php 第 27 行.
+[ 2014-06-01T00:48:15+08:00 ] ERR: [1] Class 'Memcached' not found D:\My Documents\GitHub\zerostudyall\backend\Lib\LibHM\MemcachedService.class.php 第 27 行.
+[ 2014-06-01T00:48:16+08:00 ] ERR: [1] Class 'Memcached' not found D:\My Documents\GitHub\zerostudyall\backend\Lib\LibHM\MemcachedService.class.php 第 27 行.
+[ 2014-06-01T00:56:13+08:00 ] ERR: [1] Class 'Memcached' not found D:\My Documents\GitHub\zerostudyall\backend\Lib\LibHM\MemcachedService.class.php 第 27 行.
+[ 2014-06-01T10:44:26+08:00 ] ERR: [1] Class 'Memcached' not found D:\My Documents\GitHub\zerostudyall\backend\Lib\LibHM\MemcachedService.class.php 第 27 行.
+[ 2014-06-01T10:47:24+08:00 ] ERR: [1] Class 'Memcached' not found D:\My Documents\GitHub\zerostudyall\backend\Lib\LibHM\MemcachedService.class.php 第 27 行.
+[ 2014-06-01T10:47:29+08:00 ] ERR: [1] Class 'Memcached' not found D:\My Documents\GitHub\zerostudyall\backend\Lib\LibHM\MemcachedService.class.php 第 27 行.
+[ 2014-06-01T10:48:59+08:00 ] ERR: [1] Class 'Memcached' not found D:\My Documents\GitHub\zerostudyall\backend\Lib\LibHM\MemcachedService.class.php 第 27 行.
+[ 2014-06-01T10:49:03+08:00 ] ERR: [1] Class 'Memcached' not found D:\My Documents\GitHub\zerostudyall\backend\Lib\LibHM\MemcachedService.class.php 第 27 行.
+[ 2014-06-01T10:49:12+08:00 ] ERR: [1] Class 'Memcached' not found D:\My Documents\GitHub\zerostudyall\backend\Lib\LibHM\MemcachedService.class.php 第 27 行.
+[ 2014-06-01T10:52:17+08:00 ] ERR: [1] Class 'Memcached' not found D:\My Documents\GitHub\zerostudyall\backend\Lib\LibHM\MemcachedService.class.php 第 27 行.
+[ 2014-06-01T11:04:27+08:00 ] ERR: [1] Class 'Memcached' not found D:\My Documents\GitHub\zerostudyall\backend\Lib\LibHM\MemcachedService.class.php 第 27 行.
+[ 2014-06-01T15:18:10+08:00 ] ERR: [1] Class 'Memcached' not found D:\My Documents\GitHub\zerostudyall\backend\Lib\LibHM\MemcachedService.class.php 第 27 行.

@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title><eq name="edittag" value="1">修改资源管理<else />添加资源</eq> 后台管理</title>
+<link rel="stylesheet" href="/static/css/bootstrap.min.css">
+<link rel="stylesheet" href="/static/css/bootstrap-responsive.min.css">
+<link rel = "stylesheet" type = "text/css" href = "/js/uploadify/uploadify.css">
+<!--[if lt IE 7]><link rel="stylesheet" href="http://blueimp.github.com/cdn/css/bootstrap-ie6.min.css"><![endif]-->
+<!--[if lt IE 9]><script src="/static/js/html5.js"></script><![endif]-->
+
+<style>
+#titlepic {
+	margin-bottom: 10px;
+}
+
+.ui-front {
+	z-index:1500;
+}
+
+</style>
+</head>
+<body>
+<div class="container-fluid">
+
+	<div class="row-fluid">
+		<eq name="edittag" value="1">
+			<include file="./Tpl/Common/admin_leftmenu.html" highlight="202" />
+		<else />
+	  		<include file="./Tpl/Common/admin_leftmenu.html" highlight="201" />
+	  	</eq>
+		<div class="span10" id="main">
+			<h3><eq name="edittag" value="1">修改资源信心<else />添加资源</eq></h3>
+			<eq name="edittag" value="1"><input type="hidden" name="resid" value="{$resinfo['resid']}"></eq>
+			<label>上传文件名称描述</label>
+			<input class="input-xlarge" type="text"  name="updetail" id='updetail'><span style='color:red'>*</span>
+			<label>上传文件类型</label>
+			<select name='typeid' class='input-xlarge' id='typeid'>
+				<volist name='mediatypeslist' id='vo'>
+					<option value='{$vo["typeid"]}'>{$vo['typename']}</option>
+				</volist>
+			</select>
+			<label>上传资源</label>
+			<div class='upload_top'>
+				<div id = "content" style = "text-align:center">
+					<div class = "mb10"></div>
+						<input type="file" name="file_upload" id="file_upload" />
+					<div class = "mb10"></div>
+				</div>
+			</div><!--<input class="input-xlarge" type="file"  name="photo">-->
+			<div class="form-action">
+				<button type="button" class="btn btn-primary" onclick='doUpload()'>保存</button>
+				<a href="{$appbasepath}Resource/reslist/" class="btn">取消</a>
+			</div>
+			<eq name="edittag" value="1"><input type="hidden" name="act" value="update"><else /><input type="hidden" name="act" value="add"></eq>
+			</div>
+	</div>
+</div>
+<script src="/js/uploadify/jquery-1.9.1.min.js"></script>
+<script src = "/js/uploadify/jquery.uploadify.min.js"></script>
+<script>
+var www_host = "{:C('APP_SITE_URI')}";
+var i=0;//初始化数组下标
+var uploadInfo = []; //存储名称
+	$(function(){
+
+		$('#file_upload').uploadify({
+            'auto'     : false,//关闭自动上传
+            'debug'       : false, //开启调试模式
+            'width'       : 150, //上传按钮的宽
+            'height'   : 20,//上传按钮的高 
+            'fileObjName':'file_upload', //上传的表单名称  <input type = "file" name = "file_upload" />
+            'removeTimeout' : 1,//文件队列上传完成1秒后删除
+            'swf'      : '/js/uploadify/uploadify.swf', //   加载插件的flash文件 
+            'uploader' : www_host+'/Lessons/updataFile/', //上传的脚本
+            'method'   : 'post',//方法，服务端可以用$_POST数组获取数据
+            'buttonText' : '选择上传文件',//设置按钮文本
+            'multi'    : false,//允许同时上传多张图片
+            'uploadLimit' : 1,//一次最多只允许上传10张图片
+            'fileTypeDesc' : 'All Files',//只允许上传图像
+            'fileTypeExts' : '*.*',//允许上传的图片格式---注意前端判断过，后端必须要判断
+            'fileSizeLimit' : '255M',//限制上传的图片不得超过200KB 
+			'cancelImg'		:'/js/uploadify/uploadify-cancel.png',
+			'formData'      : {'someKey' : 'someValue','someOtherKey' : 1},
+			'onUploadStart':function(file){
+				
+				$('#file_upload').uploadify('settings',"formData",{'updetail':$('#updetail').val(),'typeid':$('#typeid').val(),'wid':$('#wid').val()});
+			},
+            'onUploadSuccess' : function(file, data, response){
+                   uploadInfo[i]=data;
+                   i++;
+				   if(data){
+				   	alert(data);
+						//alert('添加成功');
+						//location = www_host+'/Resource/reslist';
+				   }
+            },
+        });
+		
+    });
+		//上传
+	function doUpload(){
+			$('#file_upload').uploadify('upload','*');
+		
+	}
+</script>
+</body>
+</html>

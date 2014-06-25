@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>学校用户登录 </title>
+<!--
+<link rel="stylesheet" href="/static/css/bootstrap.min.css">
+<link rel="stylesheet" href="/static/css/bootstrap-responsive.min.css">
+-->
+<!--[if lt IE 7]><link rel="stylesheet" href="http://blueimp.github.com/cdn/css/bootstrap-ie6.min.css"><![endif]-->
+<!--[if lt IE 9]><script src="/static/js/html5.js"></script><![endif]-->
+<style>
+body{ background:#2598c7; margin:0 auto;padding:0;font-family:"微软雅黑","Arial" ,arial,sans-serif;}
+
+.body_style{width:435px;height:425px; position:absolute; left:50%;top:20%;margin-left:-200px;margin-top:-100px; text-align:center; }
+.title{ margin-top:40px;}
+.title_h1{ color:#e1e1e1; font-size:50px; margin:0 0;}
+.div_content{background-image:url('/images/login/login.png');  position:absolute; top:145px; left:45px; width:355px;height:260px;}
+.reg{ position:absolute; top:420px; left:100px; color:#fff;}
+.reg a{ color:#ffff0f;}
+
+.sub_all{position:absolute; top:190px; left:120px;}
+.sub{background:#32ccff;width:80px;height:30px;-webkit-border-radius:5px; border-radius:5px;color:#FFFFFF;font-size:12px;font-family: "微软雅黑","Arial" ,arial,sans-serif;}
+.subinputs{color:#258dc2;font-size:14px;margin-left:20px;float:right;margin-right:213px;}
+</style>
+</head>
+<body>
+<div class="body_style">
+	        <div class="title"><img src="/images/login/title.png" /></div>
+	        <div class="div_content">
+			<form action="{$appbasepath}Schoolusr/checkSchoolloginUser/" id='form1' method="POST" enctype="multipart/form-data">
+			<div class="title_h1">登录</div>
+				<div style=" position:absolute;top:94px;left:102px;"><input type="text" id='loginname' placeholder="用户名" name="loginname" style=" width:181px;height:25px;border-style:hidden; border-width:0px;"/></div>
+				<div style=" position:absolute;top:136px;left:102px;"><input type="password" placeholder="密码" id='password' name="password" style=" width:183px;height:26px;border-style:hidden;border-width:0px;"/></div>
+				<div class="sub_all">
+						<span class="subinputs"><input type="submit" value="登录" class="sub" id='sub' ></span>
+				</div>
+				
+			</form>
+		    </div>
+			<span class="reg">目前还不是一个有效用户，<a href="/Schoolusr/schoolReg">注册</a></span>
+</div>
+<script src="/static/js/jquery-1.9.1.min.js"></script>
+</body>
+</html>

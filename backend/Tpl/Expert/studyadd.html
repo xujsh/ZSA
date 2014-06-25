@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta content="email=no" name="format-detection" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0">
+<title>学习圈子</title>
+<link rel="stylesheet" href="/css/studyadd.style.css"/>
+<link href="/css/li.css" rel="stylesheet">
+<script type="text/javascript" src="/static/js/jquery-1.9.1.min.js"></script>
+<script src="/js/jquery-ui-1.9.2.custom.min.js" ></script>
+<link rel="stylesheet" href="/js/ui-lightness/jquery-ui-1.8.18.custom.css"/>  
+<style>
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<meta name="msapplication-tap-highlight" content="no"/>
+</head>
+<body>
+	<form action="{$appbasepath}StudyCricle/addpl/" method="POST" enctype="multipart/form-data">
+		<textarea cols="49" rows="15" onclick="this.innerHTML=''" id="content">写评论.....</textarea>
+		<div style="padding-left:8px">
+			<a href="javascript:void(0)" onclick="funti()">
+				<img src="/images/tijiao.png" width="304" height="46">
+			</a>
+		</div>
+	</form>
+</body>
+<script src="/static/js/jquery-1.9.1.min.js"></script>
+<script>
+	function funti(){
+	
+		var content = $('#content').val();
+		var trid	= "{$trid}";
+		var sid		= "{$sid}";
+		if(trid)
+		{
+			$.post('/Expert/saverepl',{content:content,trid:trid,sid:sid},function(data){
+			alert(data);
+				if(data){
+					
+					alert('评论成功');
+					location="/Expert/?sid="+sid;
+				}
+			})
+		}else{
+		
+			$.post('/Expert/addpl',{content:content},function(data){
+				if(data){
+					
+					alert('评论成功');
+					location="/Expert/?sid="+sid;
+				}
+			})
+		}
+	}
+</script>
+</html>

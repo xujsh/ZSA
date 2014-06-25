@@ -1,0 +1,88 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>推荐位后台管理</title>
+<link rel="stylesheet" href="/static/css/bootstrap.min.css">
+<link rel="stylesheet" href="/static/css/bootstrap-responsive.min.css">
+<link rel="stylesheet" href="{$appbasepath}css/scojs.css">
+<!--[if lt IE 7]><link rel="stylesheet" href="http://blueimp.github.com/cdn/css/bootstrap-ie6.min.css"><![endif]-->
+<!--[if lt IE 9]><script src="/static/js/html5.js"></script><![endif]-->
+<style type="text/css">
+	.pagination ul > li > a.cur{
+		 background-color:#428BCA;color:#fff;text-decoration:none;
+	}
+    .table th,.table td{ text-align:center;vertical-align:middle;}
+</style>
+</head>
+<body>
+<include file="./Tpl/Common/admin_head.html" />
+<div class="container-fluid">
+	  <div class="row-fluid">
+		<include file="./Tpl/Common/admin_leftmenu.html" highlight="402" />
+		<div class="span10">
+		  <h3>推荐信息列表 </h3>
+		  <p style="font-size:18px;font-family:'微软雅黑'"><a href="{$appbasepath}Recommends/index/">添加推荐</a></p>
+		  <table class="table">
+			<thead>
+			<tr>
+				<th>课程图片</th>
+				<th>课程名称</th>
+				<th>标题</th>
+				<th>描述</th>
+				<th>推荐位名称</th>
+				<th>推荐类型</th>
+				<th>操作</th>
+			</tr>
+			</thead>
+			<tbody>
+			<volist  name="reclist" id="vo">
+				<tr>
+					<td><img src='{$vo.picture}' width='50px' height='40px' ></td>
+					<td>{$vo.coursename}</td>
+					<td>{$vo.title}</td>
+					<td>{$vo.description}</td>
+					<td>{$vo.name}</td>
+					<td> 
+					 <if condition="$vo['type'] eq 0">课程推荐</if>
+					 <if condition="$vo['type'] eq 1">内容推荐</if>
+					 </td>
+					<td>
+						<a href="{$appbasepath}Recommends/editrec/recid/{$vo.recommendid}" class="btn small-btn">编辑</a>
+						<if condition="$readonly eq 0">
+						<a href="{$appbasepath}Recommends/delrec/recid/{$vo.recommendid}" class="btn small-btn" id="deletebutton">删除</a>
+						</if>
+						
+					</td>
+				</tr>
+			</volist>
+			</tbody>
+		  </table>
+		  
+		  <div class="pagination pagination-centered">
+			  <ul>
+			  {$show}
+			  </ul>
+			</div>
+		  
+		</div>
+	  </div>
+	</div>
+<script src="/static/js/jquery-1.9.1.min.js"></script>
+<script src="{$appbasepath}js/sco.modal.js"></script>
+<script>
+	$(function(){
+		$('#deletebutton').click(function(){
+			if (confirm('确认删除？'))
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		});
+	});
+</script>
+</body>
+</html>
